@@ -1,108 +1,182 @@
+"use client";
+
+import Link from "next/link";
+
 export default function Footer() {
+  const scrollToTop = () => {
+    if (typeof window !== "undefined") {
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    }
+  };
+
   return (
     <footer id="footer">
-      <div className="wrap">
-        {/* Logo + brand statement */}
-        <div className="footer-logos">
-          <div style={{ display: "flex", alignItems: "center", gap: 18 }}>
-            <img src="/assets/images/aipa-logo.png" alt="India Genius Olympiad Logo" />
-            <div>
-              <div style={{
-                fontFamily: "var(--display)", fontWeight: 700, fontSize: 17,
-                color: "var(--ink)", letterSpacing: "-0.01em", marginBottom: 4
-              }}>
-                India Genius Olympiad
+      <div className="wrap footer-inner">
+        {/* Top Section: Brand + Multi-column Nav */}
+        <div className="footer-top-grid">
+          {/* Brand & Mission Pane */}
+          <div className="footer-brand-pane">
+            <div className="footer-brand-header">
+              <div className="footer-brand-logo-wrap">
+                <img
+                  src="/assets/images/aipa-logo.png"
+                  alt="India Genius Olympiad & AIPA"
+                  width={46}
+                  height={46}
+                />
               </div>
-              <div style={{
-                fontFamily: "var(--mono)", fontSize: 11, letterSpacing: "0.14em",
-                textTransform: "uppercase", color: "var(--ink-faint)"
-              }}>
-                Discover · Think · Compete · Achieve
+              <div>
+                <h3 className="footer-brand-title">India Genius Olympiad</h3>
+                <p className="footer-brand-tagline">
+                  Discover · Think · Compete · Achieve
+                </p>
               </div>
+            </div>
+
+            <p className="footer-brand-desc">
+              India&apos;s premier national-level academic Olympiad empowering young minds
+              from Pre-Primary to Class XII across Space Science, Cyber Innovation, STEM,
+              and Critical Thinking.
+            </p>
+
+            <div className="footer-brand-badge">
+              <span className="footer-brand-badge-dot"></span>
+              <span>An Official Initiative of All India Principals Association (AIPA)</span>
             </div>
           </div>
 
-          {/* Register CTA */}
-          <a
-            href="/#register"
-            style={{
-              display: "inline-flex", alignItems: "center", gap: 8,
-              padding: "11px 24px",
-              background: "linear-gradient(135deg, var(--flame), var(--saffron))",
-              color: "#FFFFFF", borderRadius: "var(--r-btn)",
-              fontFamily: "var(--body)", fontWeight: 600, fontSize: 14,
-              textDecoration: "none", whiteSpace: "nowrap",
-              boxShadow: "0 4px 16px rgba(201,70,39,0.22)"
-            }}
-          >
-            Register Now ↗
-          </a>
+          {/* Navigation Links (3 Columns) */}
+          <div className="footer-nav-grid">
+            {/* Col 1: Olympiad & Academics */}
+            <div className="footer-col">
+              <div className="footer-col-title">Olympiad Info</div>
+              <Link href="/olympiad-info/" className="footer-link-item">
+                Olympiad Overview
+              </Link>
+              <Link href="/syllabus/" className="footer-link-item">
+                Curriculum &amp; Syllabus
+              </Link>
+              <Link href="/sample-papers/" className="footer-link-item">
+                Sample Question Papers
+              </Link>
+              <Link href="/how-to-prepare/" className="footer-link-item">
+                Preparation Guidelines
+              </Link>
+              <Link href="/study-material/" className="footer-link-item">
+                Recommended Study Books
+              </Link>
+              <Link href="/#program" className="footer-link-item">
+                Age Groups &amp; Levels
+              </Link>
+            </div>
+
+            {/* Col 2: Portals & Initiatives */}
+            <div className="footer-col">
+              <div className="footer-col-title">Portals &amp; Hub</div>
+              <a
+                href="https://forms.gle/ZLuKVuR8XXWMrToW8"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="footer-link-item"
+              >
+                School Portal <span className="ext-arrow">↗</span>
+              </a>
+              <a
+                href="https://forms.gle/KvAiXYv1CRr5E1Y17"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="footer-link-item"
+              >
+                Student Portal <span className="ext-arrow">↗</span>
+              </a>
+              <Link href="/initiatives/" className="footer-link-item">
+                Annual Initiatives
+              </Link>
+              <Link href="/blog/" className="footer-link-item">
+                Insights &amp; Articles
+              </Link>
+              <Link href="/#about" className="footer-link-item">
+                About AIPA Leadership
+              </Link>
+              <Link href="/contact-us/" className="footer-link-item">
+                Contact &amp; Helpdesk
+              </Link>
+            </div>
+
+            {/* Col 3: Legal & Governance */}
+            <div className="footer-col">
+              <div className="footer-col-title">Governance &amp; Trust</div>
+              <Link href="/privacy-policy/" className="footer-link-item">
+                Privacy Policy
+              </Link>
+              <Link href="/terms/" className="footer-link-item">
+                Terms &amp; Conditions
+              </Link>
+              <Link href="/shipping-delivery/" className="footer-link-item">
+                Dispatch &amp; Delivery
+              </Link>
+              <Link href="/refund-cancellation/" className="footer-link-item">
+                Refund &amp; Cancellation
+              </Link>
+              <Link href="/sponsor/" className="footer-link-item">
+                Become a Sponsor
+              </Link>
+              <Link href="/partner/" className="footer-link-item">
+                Partner With Us
+              </Link>
+            </div>
+          </div>
         </div>
 
-        {/* Links grid */}
-        <div className="footer-links-grid footer-links-grid-3">
-          <div className="footer-link-col">
-            <b>Olympiad Info</b>
-            <a href="/olympiad-info/">Olympiad Info</a>
-            <a href="/syllabus/">Olympiad Syllabus</a>
-            <a href="/sample-papers/">Sample Papers</a>
-            <a href="/how-to-prepare/">How to Prepare</a>
-            <a href="/study-material/">Study Material</a>
-            <a href="/#program">Olympiad Levels</a>
+        {/* Highlights Strip */}
+        <div className="footer-highlights">
+          <div className="footer-hl-card">
+            <span className="footer-hl-label">Organized By</span>
+            <span className="footer-hl-val">All India Principals Association (AIPA)</span>
           </div>
-
-          <div className="footer-link-col">
-            <b>Other Links</b>
-            <a href="https://forms.gle/ZLuKVuR8XXWMrToW8" target="_blank" rel="noopener noreferrer">School Registration ↗</a>
-            <a href="https://forms.gle/KvAiXYv1CRr5E1Y17" target="_blank" rel="noopener noreferrer">Student Registration ↗</a>
-            <a href="/blog/">Blog</a>
-            <a href="/#about">About Us</a>
-            <a href="/initiatives/">Annual Initiatives</a>
-            <a href="/contact-us/">Contact Us</a>
+          <div className="footer-hl-card">
+            <span className="footer-hl-label">Eligibility Scope</span>
+            <span className="footer-hl-val">PG – Class XII · Nationwide</span>
           </div>
-
-          <div className="footer-link-col">
-            <b>Legal &amp; Partnerships</b>
-            <a href="/privacy-policy/">Privacy Policy</a>
-            <a href="/terms/">Terms &amp; Conditions</a>
-            <a href="/shipping-delivery/">Shipping &amp; Delivery</a>
-            <a href="/refund-cancellation/">Refund &amp; Cancellation</a>
-            <a href="/sponsor/">Become a Sponsor</a>
-            <a href="/partner/">Become a Partner</a>
+          <div className="footer-hl-card">
+            <span className="footer-hl-label">Registration Fee</span>
+            <span className="footer-hl-val">₹100 per Subject, per Student</span>
+          </div>
+          <div className="footer-hl-card">
+            <span className="footer-hl-label">Active Cycle</span>
+            <span className="footer-hl-val">India Genius Olympiad 2026–27</span>
           </div>
         </div>
 
-        {/* Metadata row */}
-        <div className="footer-grid">
-          <div className="fcol"><b>Organized By</b>All India Principals Association (AIPA)<br />Under the India Genius Olympiad Initiative</div>
-          <div className="fcol"><b>Eligibility</b>PG &ndash; Class XII, Nationwide</div>
-          <div className="fcol"><b>Fee</b>&#8377;100 per subject, per student</div>
-          <div className="fcol"><b>Edition</b>India Genius Olympiad 2026–27</div>
-        </div>
+        {/* Bottom Bar: Copyright, Trust badge & Back to Top */}
+        <div className="footer-bottom-bar">
+          <div>
+            &copy; {new Date().getFullYear()} India Genius Olympiad. All rights reserved.
+          </div>
 
-        {/* Copyright */}
-        <div style={{
-          marginTop: 28,
-          paddingTop: 20,
-          borderTop: "1px solid var(--line)",
-          display: "flex",
-          alignItems: "center",
-          justifyContent: "space-between",
-          flexWrap: "wrap",
-          gap: 12,
-          fontSize: 12,
-          color: "var(--ink-faint)",
-          fontFamily: "var(--mono)",
-          letterSpacing: "0.04em"
-        }}>
-          <span>&copy; {new Date().getFullYear()} India Genius Olympiad. All rights reserved.</span>
-          <span style={{ display: "flex", alignItems: "center", gap: 8 }}>
-            <span style={{
-              display: "inline-block", width: 6, height: 6,
-              borderRadius: "50%", background: "var(--saffron)"
-            }}></span>
-            Powered by AIPA
-          </span>
+          <div style={{ display: "flex", alignItems: "center", gap: 16 }}>
+            <span style={{ display: "inline-flex", alignItems: "center", gap: 6 }}>
+              <span
+                style={{
+                  display: "inline-block",
+                  width: 6,
+                  height: 6,
+                  borderRadius: "50%",
+                  backgroundColor: "var(--saffron)"
+                }}
+              />
+              National Educational Initiative
+            </span>
+
+            <button
+              onClick={scrollToTop}
+              className="footer-back-top-btn"
+              type="button"
+              aria-label="Back to top"
+            >
+              Back to Top ↑
+            </button>
+          </div>
         </div>
       </div>
     </footer>
