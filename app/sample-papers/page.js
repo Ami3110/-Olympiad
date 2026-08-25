@@ -88,7 +88,7 @@ export default function SamplePapersPage() {
       </section>
 
       {/* Accordion section */}
-      <section style={{ paddingTop: 64, paddingBottom: 96 }}>
+      <section style={{ paddingTop: 36, paddingBottom: 64 }}>
         <div className="wrap">
           <div className="accordion" id="sp-accordion">
             {groupItems}

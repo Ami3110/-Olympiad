@@ -41,7 +41,7 @@ export default function Footer() {
 
             <div className="footer-brand-badge">
               <span className="footer-brand-badge-dot"></span>
-              <span>An Official Initiative of All India Principals Association (AIPA)</span>
+              <span>Official Initiative of India Genius Foundation</span>
             </div>
           </div>
 
@@ -132,7 +132,7 @@ export default function Footer() {
         <div className="footer-highlights">
           <div className="footer-hl-card">
             <span className="footer-hl-label">Organized By</span>
-            <span className="footer-hl-val">All India Principals Association (AIPA)</span>
+            <span className="footer-hl-val">India Genius Foundation</span>
           </div>
           <div className="footer-hl-card">
             <span className="footer-hl-label">Eligibility Scope</span>
@@ -140,7 +140,7 @@ export default function Footer() {
           </div>
           <div className="footer-hl-card">
             <span className="footer-hl-label">Registration Fee</span>
-            <span className="footer-hl-val">₹100 per Subject, per Student</span>
+            <span className="footer-hl-val">₹80 per Subject, per Student</span>
           </div>
           <div className="footer-hl-card">
             <span className="footer-hl-label">Active Cycle</span>

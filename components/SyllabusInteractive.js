@@ -228,6 +228,11 @@ const divisionDetails = [
 export default function SyllabusInteractive() {
   const [selectedSubjectModal, setSelectedSubjectModal] = useState(null);
   const [activeFaq, setActiveFaq] = useState(null);
+  const [expandedDivisions, setExpandedDivisions] = useState({});
+
+  const toggleDivisionExpand = (slug) => {
+    setExpandedDivisions((prev) => ({ ...prev, [slug]: !prev[slug] }));
+  };
 
   return (
     <>
@@ -236,65 +241,81 @@ export default function SyllabusInteractive() {
         <div className="wrap">
           <div className="syl-cards-grid">
             {divisionDetails.map((div) => {
-                return (
-                  <div key={div.slug} className="syl-card">
-                    {/* Visual Media Header */}
-                    <div className="syl-card-media">
-                      <img
-                        src={div.image}
-                        alt={`${div.name} Division students`}
-                        loading="lazy"
-                        className="syl-card-img"
-                      />
-                      <div className="syl-card-overlay" />
-                      <div className="syl-card-badge-top" style={{ color: div.color }}>
-                        {div.classes}
-                      </div>
-                      <div className="syl-card-status-pill">
-                        {div.status === "Active" ? (
-                          <>
-                            <span className="syl-live-dot" />
-                            {div.subjects.length} Subjects
-                          </>
-                        ) : (
-                          "Coming Soon"
+              const isExpanded = !!expandedDivisions[div.slug];
+              const visibleSubjects = isExpanded ? div.subjects : div.subjects.slice(0, 2);
+
+              return (
+                <div key={div.slug} className="syl-card">
+                  {/* Visual Media Header */}
+                  <div className="syl-card-media">
+                    <img
+                      src={div.image}
+                      alt={`${div.name} Division students`}
+                      loading="lazy"
+                      className="syl-card-img"
+                    />
+                    <div className="syl-card-overlay" />
+                    <div className="syl-card-badge-top" style={{ color: div.color }}>
+                      {div.classes}
+                    </div>
+                    <div className="syl-card-status-pill">
+                      {div.status === "Active" ? (
+                        <>
+                          <span className="syl-live-dot" />
+                          {div.subjects.length} Subjects
+                        </>
+                      ) : (
+                        "Coming Soon"
+                      )}
+                    </div>
+                  </div>
+
+                  {/* Card Content Body */}
+                  <div className="syl-card-body">
+                    <div className="syl-card-div-tag" style={{ color: div.color }}>
+                      {div.name} Division
+                    </div>
+                    <h3 className="syl-card-title">{div.tagline}</h3>
+                    <p className="syl-card-desc">{div.desc}</p>
+
+                    {/* Subject Chips / Interactive Topics Preview */}
+                    <div className="syl-subjects-preview">
+                      <div className="syl-preview-label-row">
+                        <div className="syl-preview-label">Included Subjects:</div>
+                        {div.subjects.length > 2 && (
+                          <button
+                            type="button"
+                            onClick={() => toggleDivisionExpand(div.slug)}
+                            className={`syl-subject-expand-btn ${isExpanded ? "is-expanded" : ""}`}
+                            title={isExpanded ? "Show fewer subjects" : `Show ${div.subjects.length - 2} more subjects`}
+                          >
+                            <span>{isExpanded ? "Show Less" : `+${div.subjects.length - 2} More`}</span>
+                            <span className="syl-expand-chevron">{isExpanded ? "▴" : "▾"}</span>
+                          </button>
                         )}
                       </div>
+                      <div className="syl-chips-wrapper">
+                        {visibleSubjects.map((sub, i) => (
+                          <button
+                            key={i}
+                            type="button"
+                            onClick={() =>
+                              setSelectedSubjectModal({
+                                division: div.name,
+                                classes: div.classes,
+                                color: div.color,
+                                subject: sub,
+                              })
+                            }
+                            className="syl-subject-chip"
+                            title="Click to preview key syllabus topics"
+                          >
+                            <span className="syl-chip-dot" style={{ background: div.color }} />
+                            {sub.name}
+                          </button>
+                        ))}
+                      </div>
                     </div>
-
-                    {/* Card Content Body */}
-                    <div className="syl-card-body">
-                      <div className="syl-card-div-tag" style={{ color: div.color }}>
-                        {div.name} Division
-                      </div>
-                      <h3 className="syl-card-title">{div.tagline}</h3>
-                      <p className="syl-card-desc">{div.desc}</p>
-
-                      {/* Subject Chips / Interactive Topics Preview */}
-                      <div className="syl-subjects-preview">
-                        <div className="syl-preview-label">Included Subjects:</div>
-                        <div className="syl-chips-wrapper">
-                          {div.subjects.map((sub, i) => (
-                            <button
-                              key={i}
-                              type="button"
-                              onClick={() =>
-                                setSelectedSubjectModal({
-                                  division: div.name,
-                                  classes: div.classes,
-                                  color: div.color,
-                                  subject: sub
-                                })
-                              }
-                              className="syl-subject-chip"
-                              title="Click to preview key syllabus topics"
-                            >
-                              <span className="syl-chip-dot" style={{ background: div.color }} />
-                              {sub.name}
-                            </button>
-                          ))}
-                        </div>
-                      </div>
 
                       {/* Card Action Footer */}
                       <div className="syl-card-footer">
@@ -319,44 +340,6 @@ export default function SyllabusInteractive() {
                 );
               })}
             </div>
-        </div>
-      </section>
-
-      {/* Curriculum Architecture & Pedagogy Pillars */}
-      <section className="syl-pedagogy-section">
-        <div className="wrap">
-          <div className="section-head" style={{ textAlign: "center", maxWidth: 680, margin: "0 auto 48px" }}>
-            <div className="section-eyebrow" style={{ justifyContent: "center" }}>
-              Pedagogical Framework
-            </div>
-            <h2 className="section-title">Designed for Real Understanding.</h2>
-            <p className="section-sub">
-              Our multidisciplinary syllabus goes beyond textbook rote memory, instilling conceptual depth, problem solving, and analytical clarity.
-            </p>
-          </div>
-
-          <div className="syl-pillars-grid">
-            <div className="syl-pillar-card">
-              <div className="syl-pillar-icon">🧠</div>
-              <h4>Conceptual Mastery</h4>
-              <p>Questions test practical reasoning, real-world case studies, and application instead of textbook regurgitation.</p>
-            </div>
-            <div className="syl-pillar-card">
-              <div className="syl-pillar-icon">🚀</div>
-              <h4>Emerging Tech &amp; AI</h4>
-              <p>Cutting-edge domains like Space Science, Cybersecurity, Robotics, and Financial Literacy prepare students for tomorrow.</p>
-            </div>
-            <div className="syl-pillar-card">
-              <div className="syl-pillar-icon">📜</div>
-              <h4>NEP 2020 Aligned</h4>
-              <p>Built completely in sync with the National Education Policy 2020 frameworks for experiential &amp; competency-based learning.</p>
-            </div>
-            <div className="syl-pillar-card">
-              <div className="syl-pillar-icon">🎯</div>
-              <h4>Tiered Rigor</h4>
-              <p>Progresses smoothly from foundational sensory curiosity in primary classes to pre-college research rigor in senior secondary.</p>
-            </div>
-          </div>
         </div>
       </section>
 

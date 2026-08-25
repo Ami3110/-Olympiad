@@ -672,77 +672,41 @@ export default function HomePage() {
             desc="Organized under the apex patronship of the All India Principals Association (AIPA) and supported by distinguished academic councils, premier school networks, and teacher development bodies across India."
           />
 
-          <div className="inst-grid">
-            {/* Institute 1 */}
-            <div className="inst-card">
-              <div className="inst-icon-bubble">🏛️</div>
-              <div className="inst-tag">Apex Organizing Body</div>
-              <h4 className="inst-title">All India Principals Association (AIPA)</h4>
-              <p className="inst-desc">
-                The premier national forum of school principals and educational administrators steering institutional excellence, curriculum innovation, and Olympiad standards across India.
-              </p>
-              <div className="inst-footer-pill">
-                <span>✦ Official Patron Body</span>
-              </div>
-            </div>
-
-            {/* Institute 2 */}
-            <div className="inst-card">
-              <div className="inst-icon-bubble">🏫</div>
-              <div className="inst-tag">Institutional Network</div>
-              <h4 className="inst-title">500+ Affiliated School Councils</h4>
-              <p className="inst-desc">
-                A nationwide network of premier CBSE, ICSE, Cambridge, IB, and State Board schools actively hosting local and state-level Olympiad rounds.
-              </p>
-              <div className="inst-footer-pill">
-                <span>✦ Pan-India Reach</span>
-              </div>
-            </div>
-
-            {/* Institute 3 */}
-            <div className="inst-card">
-              <div className="inst-icon-bubble">🔬</div>
-              <div className="inst-tag">Scientific Outreach</div>
-              <h4 className="inst-title">Space Science &amp; STEM Research Hubs</h4>
-              <p className="inst-desc">
-                Educational alliances promoting astronomy, aerospace thinking, and space science heritage inspired by ISRO, DRDO, and IN-SPACe achievements.
-              </p>
-              <div className="inst-footer-pill">
-                <span>✦ STEM Innovation</span>
-              </div>
-            </div>
-
-            {/* Institute 4 */}
-            <div className="inst-card">
-              <div className="inst-icon-bubble">🎓</div>
-              <div className="inst-tag">Academic Advisory</div>
-              <h4 className="inst-title">National Assessment &amp; Pedagogy Board</h4>
-              <p className="inst-desc">
-                Veteran educators, Olympiad question authors, and cognitive development researchers ensuring rigorous, NEP 2020-aligned experiential assessment frameworks.
-              </p>
-              <div className="inst-footer-pill">
-                <span>✦ Quality Benchmarks</span>
-              </div>
-            </div>
-          </div>
-
-          {/* Institutional Metrics Ribbon */}
-          <div className="inst-stat-ribbon">
-            <div className="inst-stat-item">
-              <div className="inst-stat-num">28+</div>
-              <div className="inst-stat-label">States &amp; Union Territories Covered</div>
-            </div>
-            <div className="inst-stat-item">
-              <div className="inst-stat-num">500+</div>
-              <div className="inst-stat-label">Partner Schools &amp; Institutions</div>
-            </div>
-            <div className="inst-stat-item">
-              <div className="inst-stat-num">100,000+</div>
-              <div className="inst-stat-label">Students Academic Reach Target</div>
-            </div>
-            <div className="inst-stat-item">
-              <div className="inst-stat-num">100%</div>
-              <div className="inst-stat-label">Aligned with NEP 2020 Competencies</div>
+          {/* Continuous Floating Rounded Images Marquee */}
+          <div className="inst-marquee-wrap">
+            <div className="inst-marquee-track">
+              {[
+                { img: "/assets/images/aipa-logo.png", title: "AIPA Apex Forum", sub: "National Patron" },
+                { img: "/assets/images/indian-students-classroom.jpg", title: "School Exam Centers", sub: "500+ Affiliated Schools" },
+                { img: "/assets/images/robotics-stem-kids.jpg", title: "Space & STEM Hubs", sub: "ISRO / STEM Alliances" },
+                { img: "/assets/images/student-champions.jpg", title: "National Rankers", sub: "Grand Finale Qualifiers" },
+                { img: "/assets/images/kids-coding-stem.jpg", title: "AI & Coding Labs", sub: "Emerging Tech Arena" },
+                { img: "/assets/images/school-assembly-awards.jpg", title: "District Merit Awards", sub: "Inter-School Rounds" },
+                { img: "/assets/images/young-genius.jpg", title: "Diagnostic Evaluations", sub: "Young Genius Network" },
+                { img: "/assets/images/kids-science-collab.jpg", title: "Pedagogy Board", sub: "NEP 2020 Frameworks" },
+                { img: "/assets/images/student-achievement.jpg", title: "National Felicitations", sub: "State & National Merit" },
+                { img: "/assets/images/girl-studying-laptop.jpg", title: "Digital Test Portal", sub: "Pan-India Access" },
+                { img: "/assets/images/aipa-logo.png", title: "AIPA Apex Forum", sub: "National Patron" },
+                { img: "/assets/images/indian-students-classroom.jpg", title: "School Exam Centers", sub: "500+ Affiliated Schools" },
+                { img: "/assets/images/robotics-stem-kids.jpg", title: "Space & STEM Hubs", sub: "ISRO / STEM Alliances" },
+                { img: "/assets/images/student-champions.jpg", title: "National Rankers", sub: "Grand Finale Qualifiers" },
+                { img: "/assets/images/kids-coding-stem.jpg", title: "AI & Coding Labs", sub: "Emerging Tech Arena" },
+                { img: "/assets/images/school-assembly-awards.jpg", title: "District Merit Awards", sub: "Inter-School Rounds" },
+                { img: "/assets/images/young-genius.jpg", title: "Diagnostic Evaluations", sub: "Young Genius Network" },
+                { img: "/assets/images/kids-science-collab.jpg", title: "Pedagogy Board", sub: "NEP 2020 Frameworks" },
+                { img: "/assets/images/student-achievement.jpg", title: "National Felicitations", sub: "State & National Merit" },
+                { img: "/assets/images/girl-studying-laptop.jpg", title: "Digital Test Portal", sub: "Pan-India Access" },
+              ].map((item, idx) => (
+                <div key={idx} className="inst-float-item">
+                  <div className="inst-float-avatar">
+                    <img src={item.img} alt={item.title} loading="lazy" />
+                  </div>
+                  <div className="inst-float-info">
+                    <span className="inst-float-title">{item.title}</span>
+                    <span className="inst-float-sub">{item.sub}</span>
+                  </div>
+                </div>
+              ))}
             </div>
           </div>
         </div>
