@@ -109,7 +109,7 @@ export function JourneyIllustration({ level }) {
         loading="lazy"
       />
       <div style={{ position: "absolute", inset: 0, background: "linear-gradient(to top, rgba(20,23,42,0.75) 0%, transparent 60%)" }} />
-      <div style={{ position: "absolute", bottom: "12px", right: "16px", background: "rgba(20,23,42,0.8)", border: "1px solid rgba(255,255,255,0.15)", borderRadius: "6px", padding: "3px 8px", fontFamily: "var(--mono)", fontSize: "9.5px", color: "#FFD54F" }}>
+      <div style={{ position: "absolute", bottom: "12px", right: "14px", background: "rgba(20,23,42,0.88)", border: "1.5px solid rgba(255,255,255,0.22)", borderRadius: "8px", padding: "6px 14px", fontFamily: "var(--mono)", fontSize: "12.5px", fontWeight: "700", color: "#FFD54F", letterSpacing: "0.04em", backdropFilter: "blur(6px)" }}>
         {current.tag}
       </div>
     </div>

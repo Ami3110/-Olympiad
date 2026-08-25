@@ -16,7 +16,7 @@ export const metadata = {
     "India Genius Olympiad is a premier national-level multi-subject competition designed to discover, encourage, and recognize the academic talent of students from Pre-Primary (PG) to Class XII.",
 };
 
-function SHead({ eyebrow, title, desc, center = false, maxWidth = 660, light = false }) {
+function SHead({ eyebrow, title, desc, center = false, maxWidth = 880, light = false }) {
   return (
     <div
       className="section-head"
@@ -38,9 +38,9 @@ function SHead({ eyebrow, title, desc, center = false, maxWidth = 660, light = f
         {title}
       </h2>
       {desc && (
-        <p className="section-desc" style={light ? { color: "rgba(255,255,255,0.78)" } : {}}>
+        <div className="section-desc" style={light ? { color: "rgba(255,255,255,0.78)" } : {}}>
           {desc}
-        </p>
+        </div>
       )}
     </div>
   );
@@ -57,18 +57,6 @@ export default function HomePage() {
         <HeroWaves />
 
         <div className="wrap">
-          {/* Top Row: Eyebrow Left + Session Badge Right */}
-          <div className="hero-top-bar-row">
-            <div className="hero-eyebrow-tag">
-              <span className="eyebrow-trophy">🏆</span>
-              <span>NATIONAL MULTI-SUBJECT OLYMPIAD &middot; SESSION 2026–27</span>
-            </div>
-            <div className="hero-session-pill">
-              <span>📅</span>
-              <span>SESSION 2026–27</span>
-            </div>
-          </div>
-
           {/* 2-Column Hero Grid */}
           <div className="hero-main-grid">
             {/* Left Content Column */}
@@ -317,51 +305,6 @@ export default function HomePage() {
       </section>
 
       {/* ====================================================
-          MULTI-SUBJECT OLYMPIAD MATRIX
-          ==================================================== */}
-      <section className="discovery-section" style={{ background: "linear-gradient(135deg, #14172A 0%, #1A2238 60%, #10342E 100%)" }}>
-        <div className="discovery-content">
-          <div className="wrap">
-            <SHead
-              eyebrow="Competitive Disciplines"
-              title="Explore the Olympiad Subjects."
-              desc="India Genius Olympiad offers specialized assessments across emerging technology, applied finance, sciences, logic, and humanities. Every student finds their arena of excellence."
-              maxWidth={720}
-              light
-            />
-
-            <div className="subject-universe">
-              {[
-                { icon: "🤖", name: "AI & Emerging Technology" },
-                { icon: "🔐", name: "Cyber Security & Digital Safety" },
-                { icon: "💰", name: "Financial Literacy & Economics" },
-                { icon: "➗", name: "Mathematics & Logical Reasoning" },
-                { icon: "🔬", name: "General Science & Research" },
-                { icon: "🌱", name: "Climate & Environmental Science" },
-                { icon: "💡", name: "Innovation & Entrepreneurship" },
-                { icon: "🧠", name: "Behavioural Science & Critical Thinking" },
-                { icon: "💻", name: "Digital Technology & Coding" },
-                { icon: "🏛️", name: "Civics, Governance & Awareness" },
-                { icon: "📖", name: "Language & Communication" },
-                { icon: "📈", name: "Applied Problem Solving" },
-              ].map(({ icon, name }) => (
-                <div key={name} className="subject-chip">
-                  <span className="subject-chip-icon">{icon}</span>
-                  <span className="subject-chip-name">{name}</span>
-                </div>
-              ))}
-            </div>
-
-            <div style={{ marginTop: 44 }}>
-              <a className="btn btn-white" href="/syllabus/">
-                Explore Full Subject Syllabus ↗
-              </a>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* ====================================================
           AGE GROUPS — 6 DIVISIONS (CLASSES PG TO XII)
           ==================================================== */}
       <section id="olympiad">
@@ -505,11 +448,10 @@ export default function HomePage() {
                 desc: "The nation's highest-scoring students gather for the decisive national championship.",
                 awards: ["Gold, Silver & Bronze Trophies", "India Genius of the Year Title", "National Felicitation"],
               },
-            ].map(({ level, levelNum, levelTag, title, desc, awards }) => (
+            ].map(({ level, levelTag, title, desc, awards }) => (
               <div key={title} className="journey-card">
                 <div className="journey-card-image">
                   <JourneyIllustration level={level} />
-                  <div className="journey-level-num">{levelNum}</div>
                 </div>
                 <div className="journey-card-body">
                   <div className="journey-level-tag">{levelTag}</div>
@@ -605,7 +547,14 @@ export default function HomePage() {
           <SHead
             eyebrow="About the Initiative"
             title="India Genius Olympiad."
-            desc="An educational movement dedicated to discovering, nurturing, and recognizing young academic talent across Indian schools. Organized by the All India Principals Association (AIPA)."
+            desc={
+              <>
+                An educational movement dedicated to discovering, nurturing, and recognizing young academic talent across Indian schools.
+                <br />
+                Organized by the All India Principals Association (AIPA).
+              </>
+            }
+            maxWidth={1160}
           />
 
           <div className="chip-grid" style={{ marginBottom: 32 }}>

@@ -149,54 +149,78 @@ a {
   align-items: center;
   justify-content: space-between;
   gap: 24px;
-  padding: 12px 32px;
-  max-width: 1200px;
+  padding: 10px 32px;
+  max-width: 1240px;
   margin: 0 auto;
 }
 
 .brand-link {
   display: flex;
   align-items: center;
-  gap: 14px;
+  gap: 16px;
   text-decoration: none;
 }
 
 .topbar-logo {
-  height: 46px;
+  height: 78px;
   width: auto;
+  max-height: 84px;
+  object-fit: contain;
   display: block;
   flex-shrink: 0;
-  transition: transform 0.2s ease;
+  transition: transform 0.22s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+@media (max-width: 768px) {
+  .topbar-logo {
+    height: 58px;
+  }
 }
 
 .brand-link:hover .topbar-logo {
-  transform: scale(1.04);
+  transform: scale(1.05);
 }
 
 .brand-title-wrap {
   display: flex;
   align-items: center;
-  gap: 10px;
+  gap: 12px;
 }
 
 .brand-text {
   font-family: var(--display);
   font-weight: 800;
-  font-size: 18px;
-  letter-spacing: -0.02em;
+  font-size: 27px;
+  letter-spacing: -0.025em;
   color: var(--ink);
+  line-height: 1.1;
+  white-space: nowrap;
+}
+
+@media (max-width: 768px) {
+  .brand-text {
+    font-size: 19px;
+  }
 }
 
 .brand-sub {
   font-family: var(--mono);
-  font-size: 11px;
+  font-size: 13.5px;
   color: #C1650C;
-  letter-spacing: 0.08em;
+  letter-spacing: 0.1em;
   background: #EFE9D9;
-  border: 1px solid rgba(193, 101, 12, 0.24);
-  border-radius: 6px;
-  padding: 3px 8px;
-  font-weight: 700;
+  border: 1.5px solid rgba(193, 101, 12, 0.28);
+  border-radius: 8px;
+  padding: 5px 12px;
+  font-weight: 800;
+  white-space: nowrap;
+}
+
+@media (max-width: 768px) {
+  .brand-sub {
+    font-size: 11px;
+    padding: 3px 8px;
+  }
 }
 
 /* ============================================================
@@ -673,11 +697,11 @@ nav.main-nav {
 
 .hero-heading-exact {
   font-family: var(--display);
-  font-size: clamp(38px, 4.6vw, 62px);
+  font-size: clamp(44px, 5.5vw, 70px);
   font-weight: 800;
-  line-height: 1.06;
+  line-height: 1.05;
   letter-spacing: -0.035em;
-  margin-bottom: 18px;
+  margin-bottom: 20px;
 }
 
 .heading-line-1 {
@@ -701,11 +725,12 @@ nav.main-nav {
 }
 
 .hero-lead-text {
-  color: #454A66;
-  font-size: 15.5px;
-  line-height: 1.7;
-  margin-bottom: 16px;
-  max-width: 520px;
+  color: #1E293B;
+  font-size: 16.5px;
+  font-weight: 550;
+  line-height: 1.75;
+  margin-bottom: 18px;
+  max-width: 540px;
 }
 
 .hero-tagline-bar {
@@ -1428,22 +1453,30 @@ h2.section-title {
 }
 
 .objective-title-tag {
-  color: var(--flame);
+  color: var(--saffron);
+  font-weight: 800;
 }
 
 .objective-desc {
-  font-size: 13.5px;
-  line-height: 1.6;
-  color: var(--ink-dim);
+  font-size: 14px;
+  font-weight: 550;
+  line-height: 1.65;
+  color: #1E293B;
 }
 
 .principle-num {
   font-family: var(--display);
-  font-size: 32px;
-  font-weight: 800;
-  color: rgba(20, 23, 42, 0.10);
+  font-size: 36px;
+  font-weight: 900;
+  color: rgba(20, 23, 42, 0.38);
   line-height: 1;
   letter-spacing: -0.03em;
+  transition: color 0.2s ease, transform 0.2s ease;
+}
+
+.principle-item:hover .principle-num {
+  color: var(--saffron);
+  transform: scale(1.05);
 }
 
 .principle-title {
@@ -1621,12 +1654,12 @@ h2.section-title {
 }
 .journey-card { background: var(--bg-card); border: 1px solid var(--line); border-radius: var(--r-xl); overflow: hidden; box-shadow: var(--shadow-xs); }
 .journey-card-image { position: relative; }
-.journey-level-num { position: absolute; bottom: 12px; left: 16px; font-family: var(--display); font-size: 44px; font-weight: 800; color: rgba(255,255,255,0.20); line-height: 1; }
-.journey-card-body { padding: 22px; }
-.journey-level-tag { font-family: var(--mono); font-size: 10.5px; color: var(--gold); letter-spacing: 0.14em; text-transform: uppercase; margin-bottom: 8px; }
-.journey-card h4 { font-family: var(--display); font-size: 18px; font-weight: 700; margin-bottom: 8px; }
+.journey-level-num { display: none; }
+.journey-card-body { padding: 24px; }
+.journey-level-tag { font-family: var(--mono); font-size: 13px; font-weight: 700; color: var(--flame); letter-spacing: 0.12em; text-transform: uppercase; margin-bottom: 8px; }
+.journey-card h4 { font-family: var(--display); font-size: 19px; font-weight: 800; margin-bottom: 8px; color: var(--ink); }
 .journey-card p { font-size: 14px; color: var(--ink-dim); line-height: 1.6; }
-.journey-card ul { margin-top: 12px; padding-left: 18px; display: flex; flex-direction: column; gap: 4px; font-size: 13.5px; color: var(--ink-dim); }
+.journey-card ul { margin-top: 12px; padding-left: 18px; display: flex; flex-direction: column; gap: 5px; font-size: 13.5px; color: var(--ink-dim); }
 
 /* ============================================================
    CONTACT US PAGE & LEADERSHIP STYLES
@@ -1858,7 +1891,7 @@ h2.section-title {
 .awards-clean-grid {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  gap: 20px;
+  gap: 24px;
   position: relative;
   z-index: 1;
 }
@@ -1880,11 +1913,11 @@ h2.section-title {
 
 .award-clean-card {
   background: var(--bg-card);
-  border: 1px solid var(--line);
+  border: 1.5px solid var(--line);
   border-radius: var(--r-xl);
-  padding: 24px 22px 26px;
-  box-shadow: var(--shadow-card);
-  min-height: 210px;
+  padding: 28px 26px 32px;
+  box-shadow: 0 10px 30px rgba(20, 23, 42, 0.07);
+  min-height: 240px;
   display: flex;
   flex-direction: column;
   position: relative;
@@ -1895,60 +1928,60 @@ h2.section-title {
 
 .award-clean-card:hover,
 .award-clean-card.card-hovered {
-  transform: translateY(-6px);
+  transform: translateY(-8px);
   border-color: var(--tier-border);
-  box-shadow: 0 16px 36px var(--tier-glow), var(--shadow-xs);
+  box-shadow: 0 20px 42px var(--tier-glow), 0 4px 14px rgba(20, 23, 42, 0.08);
 }
 
 .award-card-header {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  margin-bottom: 16px;
+  margin-bottom: 18px;
 }
 
 .award-step-badge {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  width: 28px;
-  height: 28px;
+  width: 36px;
+  height: 36px;
   border-radius: 50%;
   background: var(--tier-bg-accent);
-  border: 1px solid var(--tier-border);
+  border: 1.5px solid var(--tier-border);
   font-family: var(--mono);
-  font-size: 11px;
-  font-weight: 700;
+  font-size: 13px;
+  font-weight: 800;
   color: var(--tier-color);
   transition: transform 0.2s ease;
 }
 
 .award-clean-card:hover .award-step-badge {
-  transform: scale(1.08);
+  transform: scale(1.12);
 }
 
 .award-icon-bubble {
-  font-size: 20px;
-  filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.08));
+  font-size: 26px;
+  filter: drop-shadow(0 2px 6px rgba(0, 0, 0, 0.12));
   transition: transform 0.25s cubic-bezier(0.2, 0.8, 0.2, 1);
 }
 
 .award-clean-card:hover .award-icon-bubble {
-  transform: scale(1.18) rotate(5deg);
+  transform: scale(1.2) rotate(6deg);
 }
 
 .award-tier-tag {
   font-family: var(--mono);
-  font-size: 11px;
-  font-weight: 700;
-  letter-spacing: 0.14em;
+  font-size: 13.5px;
+  font-weight: 800;
+  letter-spacing: 0.12em;
   text-transform: uppercase;
-  margin-bottom: 16px;
+  margin-bottom: 18px;
   transition: transform 0.2s ease;
 }
 
 .award-clean-card:hover .award-tier-tag {
-  transform: translateX(2px);
+  transform: translateX(3px);
 }
 
 .award-clean-list {
@@ -1957,17 +1990,18 @@ h2.section-title {
   margin: 0;
   display: flex;
   flex-direction: column;
-  gap: 12px;
+  gap: 14px;
   flex: 1;
 }
 
 .award-item-row {
-  font-size: 13.5px;
-  color: var(--ink-dim);
-  line-height: 1.5;
+  font-size: 15px;
+  font-weight: 600;
+  color: #1E293B;
+  line-height: 1.55;
   display: flex;
   align-items: flex-start;
-  gap: 8px;
+  gap: 10px;
   transition: color 0.15s ease;
 }
 
@@ -1976,13 +2010,14 @@ h2.section-title {
 }
 
 .award-bullet-dash {
-  font-weight: 700;
+  font-weight: 800;
+  font-size: 16px;
   flex-shrink: 0;
   transition: transform 0.2s ease;
 }
 
 .award-clean-card:hover .award-bullet-dash {
-  transform: translateX(2px);
+  transform: translateX(3px);
 }
 
 .award-item-label {
@@ -2947,7 +2982,7 @@ footer::before {
   position: relative;
   background: linear-gradient(135deg, #14172A 0%, #1A2238 60%, #0D342E 100%);
   overflow: hidden;
-  padding: 48px 0 56px;
+  padding: 24px 0 48px;
   border-bottom: 1px solid rgba(255, 255, 255, 0.08);
 }
 
@@ -3009,13 +3044,13 @@ footer::before {
 
 .syl-hero-title {
   font-family: var(--display);
-  font-size: clamp(32px, 4.4vw, 56px);
+  font-size: clamp(38px, 5vw, 64px);
   font-weight: 800;
-  line-height: 1.1;
+  line-height: 1.08;
   letter-spacing: -0.03em;
   color: #FFFFFF;
   margin-bottom: 16px;
-  max-width: 800px;
+  max-width: 840px;
 }
 
 .syl-hero-desc {
