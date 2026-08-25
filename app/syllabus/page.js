@@ -51,7 +51,7 @@ export default function SyllabusIndexPage() {
               </div>
               <div className="syl-hero-pill">
                 <span className="syl-hero-pill-icon">🏆</span>
-                <span><strong>₹100</strong> Nominal Entry Fee</span>
+                <span><strong>₹80</strong> Nominal Entry Fee</span>
               </div>
             </div>
           </div>

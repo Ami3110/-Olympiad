@@ -31,22 +31,28 @@ export default async function SyllabusGroupPage({ params }) {
       <section style={{ paddingBottom: 96 }}>
         <div className="wrap">
           {/* Breadcrumb */}
-          <a className="page-back-link" href="/syllabus/">&#8592; Back to all age groups</a>
+          <a className="page-back-link light-variant" href="/syllabus/">
+            &#8592; Back to all age groups
+          </a>
 
           {/* Group hero */}
           <div style={{
-            background: "linear-gradient(135deg, rgba(13,122,103,0.06), rgba(193,101,12,0.03))",
-            border: "1px solid var(--line)",
+            background: "#FFFFFF",
+            border: "1.5px solid var(--line)",
+            borderTop: "4px solid var(--teal)",
             borderRadius: "var(--r-xl)",
-            padding: "40px 36px",
-            marginBottom: 48,
+            padding: "32px 36px",
+            marginBottom: 40,
+            boxShadow: "0 6px 24px rgba(20, 23, 42, 0.05)",
           }}>
-            <div style={{ fontFamily: "var(--mono)", fontSize: 11, letterSpacing: "0.18em", textTransform: "uppercase", color: "var(--teal)", marginBottom: 10, display: "flex", alignItems: "center", gap: 10 }}>
-              <span style={{ display: "inline-block", width: 16, height: 1.5, background: "var(--teal)", borderRadius: 2 }}></span>
-              {group.classes}
+            <div style={{ fontFamily: "var(--mono)", fontSize: 11, letterSpacing: "0.18em", textTransform: "uppercase", color: "var(--teal)", marginBottom: 8, display: "flex", alignItems: "center", gap: 10, fontWeight: 700 }}>
+              <span style={{ display: "inline-block", width: 16, height: 2, background: "var(--teal)", borderRadius: 2 }}></span>
+              CLASSES {group.classes.replace("Classes ", "").replace("Class ", "")}
             </div>
-            <h1 className="page-title">{group.name} Syllabus</h1>
-            <p style={{ color: "var(--ink-dim)", fontSize: 16.5, lineHeight: 1.7, marginTop: 10 }}>
+            <h1 className="page-title" style={{ fontSize: "clamp(26px, 3.5vw, 36px)", fontWeight: 800, color: "var(--ink)", letterSpacing: "-0.02em" }}>
+              {group.name} Syllabus
+            </h1>
+            <p style={{ color: "var(--ink-dim)", fontSize: 15.5, lineHeight: 1.65, marginTop: 8 }}>
               {subjectCount > 0
                 ? `Explore ${subjectCount} subject${subjectCount === 1 ? "" : "s"} available for the ${group.name} division. Click any subject to view the full syllabus.`
                 : `The subject list for the ${group.name} division hasn't been finalized yet. Check back soon.`
@@ -57,11 +63,8 @@ export default async function SyllabusGroupPage({ params }) {
           {/* Subject matrix */}
           {blocks}
 
-          {/* Back link */}
-          <div style={{ marginTop: 40, paddingTop: 28, borderTop: "1px solid var(--line)", display: "flex", alignItems: "center", justifyContent: "space-between", flexWrap: "wrap", gap: 16 }}>
-            <a className="page-back-link" href="/syllabus/" style={{ marginBottom: 0 }}>
-              &#8592; Back to all age groups
-            </a>
+          {/* Bottom Action */}
+          <div style={{ marginTop: 40, paddingTop: 28, borderTop: "1px solid var(--line)", display: "flex", alignItems: "center", justifyContent: "flex-end" }}>
             <a className="btn btn-ghost" href="/sample-papers/">
               View Sample Papers ↗
             </a>

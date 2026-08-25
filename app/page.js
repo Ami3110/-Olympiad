@@ -713,165 +713,6 @@ export default function HomePage() {
       </section>
 
       {/* ====================================================
-          STRATEGIC & KNOWLEDGE PARTNERS
-          ==================================================== */}
-      <section id="partners">
-        <div className="wrap">
-          <SHead
-            eyebrow="Strategic Alliances"
-            title="Knowledge &amp; Technology Partners."
-            desc="Collaborating with visionary organizations across deep technology, digital safety, applied finance, and experiential education to empower school students."
-          />
-
-          {/* Continuous Right-Moving Partner Cards Marquee */}
-          <div className="partner-marquee-wrap">
-            <div className="partner-marquee-track">
-              {[
-                {
-                  img: "/assets/images/rishi-kant-upadhyaya.jpg",
-                  name: "Deep Connection Innovation",
-                  designation: "Co-Founding Technology Partner",
-                  role: "Digital Olympiad architecture, AI learning tools, and modern problem-solving platforms.",
-                  tag: "Technology Lead",
-                },
-                {
-                  img: "/assets/images/robotics-stem-kids.jpg",
-                  name: "AI & Robotics Learning Ecosystem",
-                  designation: "Emerging Technologies Partner",
-                  role: "Foundational artificial intelligence, algorithmic logic, computer vision, and robotics.",
-                  tag: "AI Curriculum Lead",
-                },
-                {
-                  img: "/assets/images/girl-studying-laptop.jpg",
-                  name: "Digital Safety & Ethics Alliance",
-                  designation: "Cyber Safety & Wellbeing Partner",
-                  role: "Responsible cyber hygiene, digital privacy awareness, and ethical computing standards.",
-                  tag: "Cyber Security Lead",
-                },
-                {
-                  img: "/assets/images/young-genius.jpg",
-                  name: "Youth Financial Education Network",
-                  designation: "Financial Literacy & Economics Partner",
-                  role: "Applied money management, budgeting fundamentals, and economic concepts for students.",
-                  tag: "Financial Literacy Lead",
-                },
-                {
-                  img: "/assets/images/kids-coding-stem.jpg",
-                  name: "Space Science & STEM Council",
-                  designation: "Scientific Outreach Partner",
-                  role: "Aerospace thinking, astronomy concepts, and space science heritage inspired by ISRO.",
-                  tag: "STEM Innovation",
-                },
-                {
-                  img: "/assets/images/kids-science-collab.jpg",
-                  name: "Cognitive Pedagogy Board",
-                  designation: "Academic Advisory Partner",
-                  role: "NEP 2020-aligned experiential assessment frameworks and diagnostic evaluation models.",
-                  tag: "Quality Benchmarks",
-                },
-                {
-                  img: "/assets/images/rishi-kant-upadhyaya.jpg",
-                  name: "Deep Connection Innovation",
-                  designation: "Co-Founding Technology Partner",
-                  role: "Digital Olympiad architecture, AI learning tools, and modern problem-solving platforms.",
-                  tag: "Technology Lead",
-                },
-                {
-                  img: "/assets/images/robotics-stem-kids.jpg",
-                  name: "AI & Robotics Learning Ecosystem",
-                  designation: "Emerging Technologies Partner",
-                  role: "Foundational artificial intelligence, algorithmic logic, computer vision, and robotics.",
-                  tag: "AI Curriculum Lead",
-                },
-                {
-                  img: "/assets/images/girl-studying-laptop.jpg",
-                  name: "Digital Safety & Ethics Alliance",
-                  designation: "Cyber Safety & Wellbeing Partner",
-                  role: "Responsible cyber hygiene, digital privacy awareness, and ethical computing standards.",
-                  tag: "Cyber Security Lead",
-                },
-                {
-                  img: "/assets/images/young-genius.jpg",
-                  name: "Youth Financial Education Network",
-                  designation: "Financial Literacy & Economics Partner",
-                  role: "Applied money management, budgeting fundamentals, and economic concepts for students.",
-                  tag: "Financial Literacy Lead",
-                },
-                {
-                  img: "/assets/images/kids-coding-stem.jpg",
-                  name: "Space Science & STEM Council",
-                  designation: "Scientific Outreach Partner",
-                  role: "Aerospace thinking, astronomy concepts, and space science heritage inspired by ISRO.",
-                  tag: "STEM Innovation",
-                },
-                {
-                  img: "/assets/images/kids-science-collab.jpg",
-                  name: "Cognitive Pedagogy Board",
-                  designation: "Academic Advisory Partner",
-                  role: "NEP 2020-aligned experiential assessment frameworks and diagnostic evaluation models.",
-                  tag: "Quality Benchmarks",
-                },
-              ].map(({ img, name, designation, role, tag }, idx) => (
-                <div key={idx} className="partner-eco-card">
-                  <div className="partner-eco-img-wrap">
-                    <img src={img} alt={name} loading="lazy" />
-                    <div className="partner-eco-img-overlay" />
-                    <div className="partner-eco-badge">{tag}</div>
-                  </div>
-                  <div className="partner-eco-body">
-                    <h4 className="partner-eco-name">{name}</h4>
-                    <div className="partner-eco-designation">{designation}</div>
-                    <p className="partner-eco-role">{role}</p>
-                  </div>
-                </div>
-              ))}
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* ====================================================
-          ANNUAL INITIATIVES
-          ==================================================== */}
-      <section id="initiatives">
-        <div className="wrap">
-          <div
-            style={{
-              display: "flex",
-              alignItems: "flex-end",
-              justifyContent: "space-between",
-              flexWrap: "wrap",
-              gap: 20,
-              marginBottom: 40,
-            }}
-          >
-            <SHead
-              eyebrow="India Genius Foundation"
-              title="Annual Educational Initiatives."
-              desc="Beyond examinations — career guidance conclaves, university admissions fairs, national quizzes, and educator award ceremonies."
-            />
-            <a className="btn btn-ghost" href="/initiatives/" style={{ flexShrink: 0 }}>
-              View All Initiatives ↗
-            </a>
-          </div>
-          <div className="chip-grid">
-            {[
-              "India Genius Olympiad Examination",
-              "Annual Career Guidance Programme",
-              "Annual Admission & University Fair",
-              "National Quiz for Class XII",
-              "Educational Leadership Conclave",
-              "Teachers' Education Conclave & Awards",
-            ].map((item) => (
-              <div key={item} className="chip">
-                {item}
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* ====================================================
           REGISTRATION — HIGH CONVERSION CTA
           ==================================================== */}
       <section className="register-hero" id="register" style={{ background: "linear-gradient(135deg, #14172A 0%, #202945 50%, #173830 100%)" }}>
@@ -879,16 +720,16 @@ export default function HomePage() {
           <div className="wrap">
             <div
               className="section-eyebrow"
-              style={{ color: "var(--saffron)", justifyContent: "center", marginBottom: 16 }}
+              style={{ color: "var(--saffron)", justifyContent: "center", marginBottom: 10 }}
             >
               <span
                 style={{
                   display: "inline-block",
-                  width: 20,
+                  width: 16,
                   height: 1.5,
                   background: "var(--saffron)",
                   borderRadius: 2,
-                  marginRight: 10,
+                  marginRight: 8,
                 }}
               ></span>
               Registration Open &middot; Session 2026&ndash;27
@@ -898,10 +739,11 @@ export default function HomePage() {
               className="section-title"
               style={{
                 color: "#FFFFFF",
-                fontSize: "clamp(32px, 4vw, 52px)",
-                maxWidth: 760,
-                margin: "0 auto 16px",
+                fontSize: "clamp(20px, 2.8vw, 34px)",
+                maxWidth: 960,
+                margin: "0 auto 10px",
                 textAlign: "center",
+                letterSpacing: "-0.015em",
               }}
             >
               Ready to Compete on the National Stage?
@@ -910,14 +752,14 @@ export default function HomePage() {
             <p
               style={{
                 color: "rgba(255,255,255,0.78)",
-                fontSize: 17,
-                maxWidth: 560,
-                margin: "0 auto 48px",
+                fontSize: 14.5,
+                maxWidth: 520,
+                margin: "0 auto 28px",
                 textAlign: "center",
-                lineHeight: 1.75,
+                lineHeight: 1.6,
               }}
             >
-              Join thousands of students and schools across India. Register now for the 2026–27 Academic Session at just ₹100 per subject.
+              Join thousands of students and schools across India. Register now for the 2026–27 Academic Session at just ₹80 per subject.
             </p>
 
             <div className="register-cards">
@@ -1002,7 +844,7 @@ export default function HomePage() {
               </AccordionItem>
               <AccordionItem id="faq-5" title="What is the fee per student?">
                 <p>
-                  The registration fee is ₹100 per subject, per student. Students are encouraged to participate in multiple Olympiad subjects within their class group.
+                  The registration fee is ₹80 per subject, per student. Students are encouraged to participate in multiple Olympiad subjects within their class group.
                 </p>
               </AccordionItem>
               <AccordionItem id="faq-6" title="How can our school register?">

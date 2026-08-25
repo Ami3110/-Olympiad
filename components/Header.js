@@ -237,6 +237,14 @@ export default function Header() {
                 </div>
                 <span className="dropdown-hover-arrow">➔</span>
               </a>
+              <a href="/partner/" className="dropdown-link" onClick={closeMenus}>
+                <div className="dropdown-icon-box">🤝</div>
+                <div className="dropdown-text-wrap">
+                  <div className="dropdown-title">Institutional Partners</div>
+                  <div className="dropdown-desc">Collaborating bodies &amp; knowledge ecosystem</div>
+                </div>
+                <span className="dropdown-hover-arrow">➔</span>
+              </a>
               <a href="/blog/" className="dropdown-link" onClick={closeMenus}>
                 <div className="dropdown-icon-box">📝</div>
                 <div className="dropdown-text-wrap">
@@ -287,7 +295,7 @@ export default function Header() {
                   <div className="dropdown-title">
                     Student Registration <span className="tag-external">↗</span>
                   </div>
-                  <div className="dropdown-desc">Individual entry at ₹100 per subject</div>
+                  <div className="dropdown-desc">Individual entry at ₹80 per subject</div>
                 </div>
                 <span className="dropdown-hover-arrow">➔</span>
               </a>
