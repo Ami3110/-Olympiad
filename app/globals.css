@@ -65,6 +65,9 @@ html {
   scroll-behavior: smooth;
   font-size: 16px;
   -webkit-text-size-adjust: 100%;
+  overflow-x: hidden;
+  touch-action: manipulation;
+  -webkit-tap-highlight-color: transparent;
 }
 
 img,
@@ -125,7 +128,7 @@ a {
 
 @media (max-width: 600px) {
   .wrap {
-    padding: 0 20px;
+    padding: 0 16px;
   }
 }
 
@@ -196,18 +199,6 @@ a {
   font-weight: 700;
 }
 
-@media (max-width: 720px) {
-  .topbar-inner {
-    gap: 10px;
-    padding: 10px 18px;
-    flex-wrap: wrap;
-  }
-
-  .brand-text {
-    font-size: 16px;
-  }
-}
-
 /* ============================================================
    NAV TOGGLE (hamburger)
    ============================================================ */
@@ -215,30 +206,39 @@ a {
   display: none;
   flex-direction: column;
   justify-content: center;
+  align-items: center;
   gap: 5px;
-  width: 40px;
-  height: 40px;
-  border: 1px solid var(--line-hi);
+  width: 42px;
+  height: 42px;
+  border: 1.5px solid var(--line-hi);
   border-radius: var(--r-sm);
   background: var(--bg-card);
   cursor: pointer;
   flex-shrink: 0;
   padding: 0;
+  transition: all 0.2s ease;
 }
 
 .nav-toggle span {
-  width: 18px;
+  width: 20px;
   height: 2px;
-  background: var(--ink-dim);
+  background: var(--ink);
   margin: 0 auto;
   border-radius: 2px;
   display: block;
+  transition: transform 0.25s ease, opacity 0.2s ease;
 }
 
-@media (max-width: 720px) {
-  .nav-toggle {
-    display: flex;
-  }
+.nav-toggle.toggle-active span:nth-child(1) {
+  transform: translateY(7px) rotate(45deg);
+}
+
+.nav-toggle.toggle-active span:nth-child(2) {
+  opacity: 0;
+}
+
+.nav-toggle.toggle-active span:nth-child(3) {
+  transform: translateY(-7px) rotate(-45deg);
 }
 
 /* ============================================================
@@ -250,19 +250,55 @@ nav.main-nav {
   gap: 8px;
 }
 
-@media (max-width: 720px) {
+@media (max-width: 768px) {
+  .topbar-inner {
+    gap: 12px;
+    padding: 10px 16px;
+    flex-wrap: wrap;
+  }
+
+  .brand-text {
+    font-size: 16px;
+  }
+
+  .brand-sub {
+    font-size: 10px;
+    padding: 2px 6px;
+  }
+
+  .nav-toggle {
+    display: flex;
+  }
+
   nav.main-nav {
     display: none;
     order: 3;
     width: 100%;
-    margin-top: 8px;
+    margin-top: 10px;
     flex-direction: column;
     align-items: stretch;
-    gap: 4px;
+    gap: 6px;
+    background: #FFFFFF;
+    border: 1px solid var(--line);
+    border-radius: 16px;
+    padding: 16px 14px;
+    box-shadow: 0 16px 40px rgba(20, 23, 42, 0.12);
   }
 
   nav.main-nav.nav-open {
     display: flex;
+    animation: mobileMenuSlide 0.25s cubic-bezier(0.2, 0.8, 0.2, 1);
+  }
+}
+
+@keyframes mobileMenuSlide {
+  from {
+    opacity: 0;
+    transform: translateY(-8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
   }
 }
 
@@ -494,16 +530,76 @@ nav.main-nav {
   transform: translateX(0);
 }
 
-@media (max-width: 720px) {
-  .nav-dropdown {
-    position: static;
-    box-shadow: none;
-    border: none;
-    background: var(--bg-elev);
+@media (max-width: 768px) {
+  .nav-summary-btn {
+    width: 100%;
+    justify-content: space-between;
+    padding: 12px 14px;
     border-radius: 10px;
-    padding: 4px 0 6px 14px;
-    margin-top: 4px;
-    min-width: 0;
+    font-size: 15px;
+  }
+
+  .nav-summary-register-btn {
+    width: 100%;
+    justify-content: center;
+    padding: 13px 18px !important;
+    margin-top: 6px;
+    font-size: 15px;
+  }
+
+  .nav-dropdown {
+    position: static !important;
+    box-shadow: none !important;
+    border: 1px solid var(--line) !important;
+    background: var(--bg-elev) !important;
+    border-radius: 12px !important;
+    padding: 8px !important;
+    margin-top: 4px !important;
+    min-width: 0 !important;
+    width: 100% !important;
+    display: none;
+    animation: none !important;
+  }
+
+  .nav-dropdown.dropdown-visible {
+    display: flex !important;
+    flex-direction: column;
+    gap: 4px;
+  }
+
+  .nav-dropdown-right {
+    min-width: 0 !important;
+  }
+
+  .dropdown-link {
+    padding: 10px 12px;
+  }
+}
+
+@media (max-width: 520px) {
+  .hero-mockup-exact {
+    padding: 20px 0 36px;
+  }
+
+  .hero-top-bar-row {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+    margin-bottom: 18px;
+  }
+
+  .hero-actions-exact {
+    flex-direction: column;
+    width: 100%;
+    gap: 12px;
+  }
+
+  .btn-exact-student,
+  .btn-exact-school {
+    width: 100%;
+    justify-content: center;
+    text-align: center;
+    padding: 14px 20px;
   }
 }
 
