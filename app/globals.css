@@ -1248,6 +1248,195 @@ h2.section-title {
   border-bottom: none;
 }
 
+/* ============================================================
+   VISION & STRATEGIC OBJECTIVES SECTION
+   ============================================================ */
+.vision-obj-grid {
+  display: grid;
+  grid-template-columns: 1fr 1.25fr;
+  gap: 48px;
+  align-items: start;
+}
+
+@media (max-width: 960px) {
+  .vision-obj-grid {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+}
+
+.vision-col-header {
+  margin-bottom: 24px;
+}
+
+.vision-col-title {
+  font-family: var(--display);
+  font-size: clamp(26px, 2.8vw, 36px);
+  font-weight: 800;
+  color: var(--ink);
+  letter-spacing: -0.02em;
+  line-height: 1.15;
+}
+
+/* Vision Card */
+.vision-card {
+  background: var(--bg-card);
+  border: 1.5px solid var(--line);
+  border-radius: var(--r-xl);
+  padding: 36px 32px;
+  box-shadow: var(--shadow-card);
+  position: relative;
+  overflow: hidden;
+  transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+}
+
+.vision-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: linear-gradient(90deg, var(--flame), var(--saffron), var(--gold));
+}
+
+.vision-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-card-hi);
+  border-color: var(--line-hi);
+}
+
+.vision-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-family: var(--mono);
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.16em;
+  color: var(--flame);
+  background: rgba(201, 70, 39, 0.08);
+  border: 1px solid rgba(201, 70, 39, 0.20);
+  border-radius: 100px;
+  padding: 5px 14px;
+  margin-bottom: 20px;
+}
+
+.vision-badge-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--flame);
+  box-shadow: 0 0 8px var(--flame);
+}
+
+.vision-statement {
+  font-size: 16.5px;
+  line-height: 1.8;
+  color: var(--ink);
+  font-weight: 500;
+  margin-bottom: 28px;
+}
+
+.vision-pillar-tags {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  border-top: 1px solid var(--line);
+  padding-top: 24px;
+  margin-bottom: 28px;
+}
+
+.vision-tag-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 13.5px;
+  color: var(--ink-dim);
+  font-weight: 500;
+}
+
+.vision-tag-icon {
+  font-size: 16px;
+  flex-shrink: 0;
+}
+
+/* Objectives Column & Cards */
+.objectives-list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.objective-card {
+  background: var(--bg-card);
+  border: 1px solid var(--line);
+  border-radius: var(--r-card);
+  padding: 18px 22px;
+  display: flex;
+  align-items: flex-start;
+  gap: 18px;
+  transition: all 0.22s cubic-bezier(0.2, 0.8, 0.2, 1);
+  box-shadow: var(--shadow-xs);
+  cursor: default;
+}
+
+.objective-card:hover {
+  transform: translateX(4px);
+  border-color: var(--saffron);
+  box-shadow: 0 6px 20px rgba(193, 101, 12, 0.08);
+}
+
+.objective-step-badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: rgba(193, 101, 12, 0.08);
+  border: 1px solid rgba(193, 101, 12, 0.25);
+  font-family: var(--mono);
+  font-size: 11px;
+  font-weight: 700;
+  color: var(--saffron);
+  flex-shrink: 0;
+  margin-top: 2px;
+  transition: transform 0.2s ease;
+}
+
+.objective-card:hover .objective-step-badge {
+  transform: scale(1.08);
+  background: var(--saffron);
+  color: #FFFFFF;
+}
+
+.objective-body {
+  flex: 1;
+}
+
+.objective-title {
+  font-family: var(--display);
+  font-size: 15.5px;
+  font-weight: 700;
+  color: var(--ink);
+  margin-bottom: 3px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.objective-title-tag {
+  color: var(--flame);
+}
+
+.objective-desc {
+  font-size: 13.5px;
+  line-height: 1.6;
+  color: var(--ink-dim);
+}
+
 .principle-num {
   font-family: var(--display);
   font-size: 32px;

@@ -148,9 +148,104 @@ export default function HomePage() {
       </section>
 
       {/* ====================================================
-          WHY THIS OLYMPIAD — ACADEMIC EXCELLENCE
+          SECTION 1: VISION & STRATEGIC OBJECTIVES
           ==================================================== */}
-      <section id="vision">
+      <section id="vision" style={{ background: "var(--bg-elev)", borderBottom: "1px solid var(--line)" }}>
+        <div className="wrap">
+          <div className="vision-obj-grid">
+            {/* Left Column: Vision & Guiding Purpose */}
+            <div>
+              <div className="vision-col-header">
+                <div className="section-eyebrow">Why This Olympiad</div>
+                <h2 className="vision-col-title">Vision.</h2>
+              </div>
+
+              <div className="vision-card">
+                <div className="vision-badge">
+                  <span className="vision-badge-dot" />
+                  Guiding Purpose
+                </div>
+
+                <p className="vision-statement">
+                  To ignite curiosity, scientific thinking, and innovation among students while nurturing the next generation of Indian space scientists, engineers, astronauts, AI researchers, and multidisciplinary innovators.
+                </p>
+
+                <div className="vision-pillar-tags">
+                  <div className="vision-tag-item">
+                    <span className="vision-tag-icon">🏛️</span>
+                    <span>Organized under the Aegis of All India Principals Association (AIPA)</span>
+                  </div>
+                  <div className="vision-tag-item">
+                    <span className="vision-tag-icon">🇮🇳</span>
+                    <span>Nationwide Reach spanning Pre-Primary (PG) to Class XII</span>
+                  </div>
+                  <div className="vision-tag-item">
+                    <span className="vision-tag-icon">🚀</span>
+                    <span>Aligned with NEP 2020 Experiential Learning Frameworks</span>
+                  </div>
+                </div>
+
+                <a className="btn btn-ghost" href="/syllabus/" style={{ width: "100%", justifyContent: "center" }}>
+                  Explore Learning Roadmap →
+                </a>
+              </div>
+            </div>
+
+            {/* Right Column: Strategic Objectives */}
+            <div>
+              <div className="vision-col-header">
+                <div className="section-eyebrow">What We&apos;re Building Toward</div>
+                <h2 className="vision-col-title">Strategic Objectives.</h2>
+              </div>
+
+              <div className="objectives-list">
+                {[
+                  {
+                    num: "01",
+                    tag: "Awareness",
+                    desc: "Promote national awareness about India's monumental achievements in space science, astronomy, AI, and futuristic technologies.",
+                  },
+                  {
+                    num: "02",
+                    tag: "Curiosity",
+                    desc: "Encourage active interest and inquiry in Astronomy, Astrophysics, Robotics, Space Technology, and Satellite Applications.",
+                  },
+                  {
+                    num: "03",
+                    tag: "Skill-Building",
+                    desc: "Develop scientific temperament, algorithmic thinking, logical reasoning, and practical problem-solving skills from school years.",
+                  },
+                  {
+                    num: "04",
+                    tag: "Career Pathways",
+                    desc: "Inspire and mentor students towards pioneering careers in ISRO, DRDO, IN-SPACe, deep-tech research, and global innovation industries.",
+                  },
+                  {
+                    num: "05",
+                    tag: "Celebration",
+                    desc: "Celebrate National Space Day and student academic brilliance through a prestigious nationwide competition and merit recognition.",
+                  },
+                ].map(({ num, tag, desc }) => (
+                  <div key={num} className="objective-card">
+                    <div className="objective-step-badge">{num}</div>
+                    <div className="objective-body">
+                      <div className="objective-title">
+                        <span className="objective-title-tag">{tag}:</span>
+                      </div>
+                      <div className="objective-desc">{desc}</div>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* ====================================================
+          SECTION 2: ACADEMIC PHILOSOPHY — MORE THAN AN OLYMPIAD
+          ==================================================== */}
+      <section id="philosophy">
         <div className="wrap">
           <div className="feature-split">
             {/* Visual column */}
