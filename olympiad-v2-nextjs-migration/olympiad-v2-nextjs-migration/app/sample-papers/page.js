@@ -57,12 +57,12 @@ export default function SamplePapersPage() {
           }}
         >
           <div className="wrap" style={{ position: "relative", zIndex: 2, padding: "72px 32px" }}>
-            <a
-              className="page-back-link"
-              href="/"
-              style={{ color: "rgba(255,255,255,0.50)", marginBottom: 20 }}
-            >
-              ← Back to Home
+            <a className="page-back-btn" href="/" aria-label="Back to Home">
+              <svg className="back-arrow-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+                <line x1="19" y1="12" x2="5" y2="12"></line>
+                <polyline points="12 19 5 12 12 5"></polyline>
+              </svg>
+              <span>Back to Home</span>
             </a>
 
             <div style={{ fontFamily: "var(--mono)", fontSize: 11, letterSpacing: "0.18em", textTransform: "uppercase", color: "var(--saffron)", marginBottom: 14, display: "flex", alignItems: "center", gap: 10 }}>
