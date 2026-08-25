@@ -16,7 +16,7 @@ export const metadata = {
     "India Genius Olympiad is a premier national-level multi-subject competition designed to discover, encourage, and recognize the academic talent of students from Pre-Primary (PG) to Class XII.",
 };
 
-function SHead({ eyebrow, title, desc, center = false, maxWidth = 880, light = false }) {
+function SHead({ eyebrow, title, desc, center = false, maxWidth = 1120, light = false }) {
   return (
     <div
       className="section-head"
@@ -547,14 +547,8 @@ export default function HomePage() {
           <SHead
             eyebrow="About the Initiative"
             title="India Genius Olympiad."
-            desc={
-              <>
-                An educational movement dedicated to discovering, nurturing, and recognizing young academic talent across Indian schools.
-                <br />
-                Organized by the All India Principals Association (AIPA).
-              </>
-            }
-            maxWidth={1160}
+            desc="An educational movement dedicated to discovering, nurturing, and recognizing young academic talent across Indian schools. Organized by the All India Principals Association (AIPA)."
+            maxWidth="100%"
           />
 
           <div className="chip-grid" style={{ marginBottom: 32 }}>
