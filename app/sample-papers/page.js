@@ -98,50 +98,8 @@ export default function SamplePapersPage() {
         </div>
       </section>
 
-      {/* Group cards row */}
-      <section style={{ padding: "48px 0 0" }}>
-        <div className="wrap">
-          <div style={{ fontFamily: "var(--mono)", fontSize: 11, letterSpacing: "0.16em", textTransform: "uppercase", color: "var(--ink-faint)", marginBottom: 20 }}>
-            Jump to an age group:
-          </div>
-          <div
-            style={{
-              display: "grid",
-              gridTemplateColumns: "repeat(auto-fill, minmax(160px, 1fr))",
-              gap: 14,
-              marginBottom: 4,
-            }}
-          >
-            {ageGroups.map((group) => (
-              <a
-                key={group.slug}
-                href={`#acc-${group.slug}`}
-                style={{
-                  display: "block",
-                  borderRadius: "var(--r-card)",
-                  overflow: "hidden",
-                  border: "1px solid var(--line)",
-                  textDecoration: "none",
-                  transition: "transform 0.18s, box-shadow 0.18s",
-                  background: "var(--bg-card)",
-                }}
-                className="age-card"
-              >
-                <div style={{ height: "90px", display: "flex", alignItems: "center", justifyContent: "center", background: "linear-gradient(135deg, rgba(20,23,42,0.06), rgba(193,101,12,0.06))" }}>
-                  <DivisionIllustration type={divisionTypes[group.slug] || "primary"} />
-                </div>
-                <div style={{ padding: "14px 16px" }}>
-                  <div style={{ fontFamily: "var(--mono)", fontSize: 10, textTransform: "uppercase", letterSpacing: "0.12em", color: "var(--flame)", marginBottom: 4 }}>{group.classes}</div>
-                  <div style={{ fontFamily: "var(--display)", fontSize: 14, fontWeight: 700, color: "var(--ink)", letterSpacing: "-0.01em" }}>{group.name}</div>
-                </div>
-              </a>
-            ))}
-          </div>
-        </div>
-      </section>
-
       {/* Accordion section */}
-      <section style={{ paddingTop: 40 }}>
+      <section style={{ paddingTop: 64, paddingBottom: 96 }}>
         <div className="wrap">
           <div className="accordion" id="sp-accordion">
             {groupItems}
