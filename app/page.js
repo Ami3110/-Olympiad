@@ -723,80 +723,108 @@ export default function HomePage() {
             desc="Collaborating with visionary organizations across deep technology, digital safety, applied finance, and experiential education to empower school students."
           />
 
-          <div className="partner-ecosystem-grid">
-            {/* Partner 1 */}
-            <div className="partner-eco-card">
-              <div className="partner-eco-icon">💡</div>
-              <div className="partner-eco-tag">Co-Founding Technology Partner</div>
-              <h4 className="partner-eco-title">Deep Connection Innovation</h4>
-              <p className="partner-eco-desc">
-                Leading the digital Olympiad architecture, experiential learning tools, and modern problem-solving methodologies for schools nationwide.
-              </p>
-              <div className="partner-eco-pill">
-                <span>✦ EdTech &amp; Innovation Lead</span>
-              </div>
-            </div>
-
-            {/* Partner 2 */}
-            <div className="partner-eco-card">
-              <div className="partner-eco-icon">🤖</div>
-              <div className="partner-eco-tag">Emerging Tech Partner</div>
-              <h4 className="partner-eco-title">AI &amp; Robotics Learning Ecosystem</h4>
-              <p className="partner-eco-desc">
-                Bridging foundational artificial intelligence, algorithmic logic, computer vision, and robotics concepts tailored for young minds from Class III upwards.
-              </p>
-              <div className="partner-eco-pill">
-                <span>✦ AI Curriculum Design</span>
-              </div>
-            </div>
-
-            {/* Partner 3 */}
-            <div className="partner-eco-card">
-              <div className="partner-eco-icon">🔐</div>
-              <div className="partner-eco-tag">Cyber Safety Forum</div>
-              <h4 className="partner-eco-title">Digital Safety &amp; Ethics Alliance</h4>
-              <p className="partner-eco-desc">
-                Empowering children and educators with responsible cyber hygiene, digital privacy awareness, ethical computing, and online safety standards.
-              </p>
-              <div className="partner-eco-pill">
-                <span>✦ Cyber Awareness</span>
-              </div>
-            </div>
-
-            {/* Partner 4 */}
-            <div className="partner-eco-card">
-              <div className="partner-eco-icon">📈</div>
-              <div className="partner-eco-tag">Financial Literacy Initiative</div>
-              <h4 className="partner-eco-title">Youth Financial Education Network</h4>
-              <p className="partner-eco-desc">
-                Promoting smart money habits, budgeting fundamentals, economic concepts, and financial intelligence from middle school to senior secondary years.
-              </p>
-              <div className="partner-eco-pill">
-                <span>✦ Life Skills &amp; Economics</span>
-              </div>
-            </div>
-          </div>
-
-          {/* Partner Call to Action Banner */}
-          <div className="partner-cta-card">
-            <div className="partner-cta-content">
-              <h3>Partner with India Genius Olympiad</h3>
-              <p>
-                Are you an educational institution, technology organization, or foundation looking to foster young genius across India? Join our growing national ecosystem.
-              </p>
-            </div>
-            <div className="partner-cta-actions">
-              <a
-                className="btn btn-primary"
-                href="https://forms.gle/tt83cHHLN2n4B7YR6"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                Connect Your Institution ↗
-              </a>
-              <a className="btn btn-ghost" href="/contact-us/" style={{ color: "#FFFFFF", borderColor: "rgba(255,255,255,0.3)" }}>
-                Contact Leadership →
-              </a>
+          {/* Continuous Right-Moving Partner Cards Marquee */}
+          <div className="partner-marquee-wrap">
+            <div className="partner-marquee-track">
+              {[
+                {
+                  img: "/assets/images/rishi-kant-upadhyaya.jpg",
+                  name: "Deep Connection Innovation",
+                  designation: "Co-Founding Technology Partner",
+                  role: "Digital Olympiad architecture, AI learning tools, and modern problem-solving platforms.",
+                  tag: "Technology Lead",
+                },
+                {
+                  img: "/assets/images/robotics-stem-kids.jpg",
+                  name: "AI & Robotics Learning Ecosystem",
+                  designation: "Emerging Technologies Partner",
+                  role: "Foundational artificial intelligence, algorithmic logic, computer vision, and robotics.",
+                  tag: "AI Curriculum Lead",
+                },
+                {
+                  img: "/assets/images/girl-studying-laptop.jpg",
+                  name: "Digital Safety & Ethics Alliance",
+                  designation: "Cyber Safety & Wellbeing Partner",
+                  role: "Responsible cyber hygiene, digital privacy awareness, and ethical computing standards.",
+                  tag: "Cyber Security Lead",
+                },
+                {
+                  img: "/assets/images/young-genius.jpg",
+                  name: "Youth Financial Education Network",
+                  designation: "Financial Literacy & Economics Partner",
+                  role: "Applied money management, budgeting fundamentals, and economic concepts for students.",
+                  tag: "Financial Literacy Lead",
+                },
+                {
+                  img: "/assets/images/kids-coding-stem.jpg",
+                  name: "Space Science & STEM Council",
+                  designation: "Scientific Outreach Partner",
+                  role: "Aerospace thinking, astronomy concepts, and space science heritage inspired by ISRO.",
+                  tag: "STEM Innovation",
+                },
+                {
+                  img: "/assets/images/kids-science-collab.jpg",
+                  name: "Cognitive Pedagogy Board",
+                  designation: "Academic Advisory Partner",
+                  role: "NEP 2020-aligned experiential assessment frameworks and diagnostic evaluation models.",
+                  tag: "Quality Benchmarks",
+                },
+                {
+                  img: "/assets/images/rishi-kant-upadhyaya.jpg",
+                  name: "Deep Connection Innovation",
+                  designation: "Co-Founding Technology Partner",
+                  role: "Digital Olympiad architecture, AI learning tools, and modern problem-solving platforms.",
+                  tag: "Technology Lead",
+                },
+                {
+                  img: "/assets/images/robotics-stem-kids.jpg",
+                  name: "AI & Robotics Learning Ecosystem",
+                  designation: "Emerging Technologies Partner",
+                  role: "Foundational artificial intelligence, algorithmic logic, computer vision, and robotics.",
+                  tag: "AI Curriculum Lead",
+                },
+                {
+                  img: "/assets/images/girl-studying-laptop.jpg",
+                  name: "Digital Safety & Ethics Alliance",
+                  designation: "Cyber Safety & Wellbeing Partner",
+                  role: "Responsible cyber hygiene, digital privacy awareness, and ethical computing standards.",
+                  tag: "Cyber Security Lead",
+                },
+                {
+                  img: "/assets/images/young-genius.jpg",
+                  name: "Youth Financial Education Network",
+                  designation: "Financial Literacy & Economics Partner",
+                  role: "Applied money management, budgeting fundamentals, and economic concepts for students.",
+                  tag: "Financial Literacy Lead",
+                },
+                {
+                  img: "/assets/images/kids-coding-stem.jpg",
+                  name: "Space Science & STEM Council",
+                  designation: "Scientific Outreach Partner",
+                  role: "Aerospace thinking, astronomy concepts, and space science heritage inspired by ISRO.",
+                  tag: "STEM Innovation",
+                },
+                {
+                  img: "/assets/images/kids-science-collab.jpg",
+                  name: "Cognitive Pedagogy Board",
+                  designation: "Academic Advisory Partner",
+                  role: "NEP 2020-aligned experiential assessment frameworks and diagnostic evaluation models.",
+                  tag: "Quality Benchmarks",
+                },
+              ].map(({ img, name, designation, role, tag }, idx) => (
+                <div key={idx} className="partner-eco-card">
+                  <div className="partner-eco-img-wrap">
+                    <img src={img} alt={name} loading="lazy" />
+                    <div className="partner-eco-img-overlay" />
+                    <div className="partner-eco-badge">{tag}</div>
+                  </div>
+                  <div className="partner-eco-body">
+                    <h4 className="partner-eco-name">{name}</h4>
+                    <div className="partner-eco-designation">{designation}</div>
+                    <p className="partner-eco-role">{role}</p>
+                  </div>
+                </div>
+              ))}
             </div>
           </div>
         </div>

@@ -245,15 +245,14 @@ export default function Header() {
                 </div>
                 <span className="dropdown-hover-arrow">➔</span>
               </a>
-              <a href="/contact-us/" className="dropdown-link" onClick={closeMenus}>
-                <div className="dropdown-icon-box">📞</div>
-                <div className="dropdown-text-wrap">
-                  <div className="dropdown-title">Contact Us</div>
-                  <div className="dropdown-desc">School coordinators &amp; helpline</div>
-                </div>
-                <span className="dropdown-hover-arrow">➔</span>
-              </a>
             </div>
+          </div>
+
+          {/* Direct Contact Navigation Link */}
+          <div className="nav-item">
+            <a href="/contact-us/" className="nav-direct-link" onClick={closeMenus}>
+              Contact
+            </a>
           </div>
 
           {/* Register Dropdown Button (Professional Saffron/Flame CTA) */}
