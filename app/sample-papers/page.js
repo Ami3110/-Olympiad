@@ -46,17 +46,8 @@ export default function SamplePapersPage() {
     <ModalController>
       {/* Page hero */}
       <section style={{ padding: 0, borderTop: "none" }}>
-        <div
-          style={{
-            position: "relative",
-            minHeight: 340,
-            background: "linear-gradient(135deg, #14172A 0%, #1E284A 60%, #153E37 100%)",
-            display: "flex",
-            alignItems: "center",
-            overflow: "hidden",
-          }}
-        >
-          <div className="wrap" style={{ position: "relative", zIndex: 2, padding: "72px 32px" }}>
+        <div className="syl-hero-wrap">
+          <div className="wrap syl-hero-content">
             <a className="page-back-btn" href="/" aria-label="Back to Home">
               <svg className="back-arrow-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
                 <line x1="19" y1="12" x2="5" y2="12"></line>
@@ -65,33 +56,31 @@ export default function SamplePapersPage() {
               <span>Back to Home</span>
             </a>
 
-            <div style={{ fontFamily: "var(--mono)", fontSize: 11, letterSpacing: "0.18em", textTransform: "uppercase", color: "var(--saffron)", marginBottom: 14, display: "flex", alignItems: "center", gap: 10 }}>
-              <span style={{ display: "inline-block", width: 20, height: 1.5, background: "var(--saffron)", borderRadius: 2 }}></span>
-              Academic Resource Library
+            <div className="syl-hero-eyebrow">
+              <span className="syl-hero-eyebrow-line" />
+              Academic Resource Library · Session 2026–27
             </div>
 
-            <h1
-              className="page-title"
-              style={{ color: "#FFFFFF", marginBottom: 16, maxWidth: 640 }}
-            >
-              Sample Papers
+            <h1 className="syl-hero-title">
+              Sample Question Papers
             </h1>
 
-            <p style={{ color: "rgba(255,255,255,0.72)", fontSize: 16.5, lineHeight: 1.75, maxWidth: 560, marginBottom: 32 }}>
-              Explore sample papers for every Olympiad subject, organized by age group. Select a group below, then pick a subject to preview the paper.
+            <p className="syl-hero-desc">
+              Explore official sample papers and examination blueprints for every Olympiad subject across all 6 age divisions. 
+              Designed to help students familiarize themselves with question patterns, analytical depth, and scoring rubrics.
             </p>
 
-            <div style={{ display: "flex", gap: 12, flexWrap: "wrap" }}>
+            <div style={{ display: "flex", gap: 14, flexWrap: "wrap" }}>
               <a
                 className="btn btn-primary"
                 href="https://forms.gle/KvAiXYv1CRr5E1Y17"
                 target="_blank"
                 rel="noopener noreferrer"
               >
-                Register Now ↗
+                Register as Student ↗
               </a>
-              <a className="btn btn-white" href="/syllabus/">
-                View Syllabus
+              <a className="btn btn-ghost" href="/syllabus/">
+                View Full Syllabus →
               </a>
             </div>
           </div>

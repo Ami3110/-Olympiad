@@ -719,6 +719,183 @@ export default function HomePage() {
       </section>
 
       {/* ====================================================
+          ASSOCIATED INSTITUTES & ACADEMIC ALLIANCES
+          ==================================================== */}
+      <section id="institutes" style={{ background: "var(--bg-elev)", borderTop: "1px solid var(--line)", borderBottom: "1px solid var(--line)" }}>
+        <div className="wrap">
+          <SHead
+            eyebrow="Academic Backbone &amp; Alliances"
+            title="Associated Institutes &amp; Institutional Network."
+            desc="Organized under the apex patronship of the All India Principals Association (AIPA) and supported by distinguished academic councils, premier school networks, and teacher development bodies across India."
+          />
+
+          <div className="inst-grid">
+            {/* Institute 1 */}
+            <div className="inst-card">
+              <div className="inst-icon-bubble">🏛️</div>
+              <div className="inst-tag">Apex Organizing Body</div>
+              <h4 className="inst-title">All India Principals Association (AIPA)</h4>
+              <p className="inst-desc">
+                The premier national forum of school principals and educational administrators steering institutional excellence, curriculum innovation, and Olympiad standards across India.
+              </p>
+              <div className="inst-footer-pill">
+                <span>✦ Official Patron Body</span>
+              </div>
+            </div>
+
+            {/* Institute 2 */}
+            <div className="inst-card">
+              <div className="inst-icon-bubble">🏫</div>
+              <div className="inst-tag">Institutional Network</div>
+              <h4 className="inst-title">500+ Affiliated School Councils</h4>
+              <p className="inst-desc">
+                A nationwide network of premier CBSE, ICSE, Cambridge, IB, and State Board schools actively hosting local and state-level Olympiad rounds.
+              </p>
+              <div className="inst-footer-pill">
+                <span>✦ Pan-India Reach</span>
+              </div>
+            </div>
+
+            {/* Institute 3 */}
+            <div className="inst-card">
+              <div className="inst-icon-bubble">🔬</div>
+              <div className="inst-tag">Scientific Outreach</div>
+              <h4 className="inst-title">Space Science &amp; STEM Research Hubs</h4>
+              <p className="inst-desc">
+                Educational alliances promoting astronomy, aerospace thinking, and space science heritage inspired by ISRO, DRDO, and IN-SPACe achievements.
+              </p>
+              <div className="inst-footer-pill">
+                <span>✦ STEM Innovation</span>
+              </div>
+            </div>
+
+            {/* Institute 4 */}
+            <div className="inst-card">
+              <div className="inst-icon-bubble">🎓</div>
+              <div className="inst-tag">Academic Advisory</div>
+              <h4 className="inst-title">National Assessment &amp; Pedagogy Board</h4>
+              <p className="inst-desc">
+                Veteran educators, Olympiad question authors, and cognitive development researchers ensuring rigorous, NEP 2020-aligned experiential assessment frameworks.
+              </p>
+              <div className="inst-footer-pill">
+                <span>✦ Quality Benchmarks</span>
+              </div>
+            </div>
+          </div>
+
+          {/* Institutional Metrics Ribbon */}
+          <div className="inst-stat-ribbon">
+            <div className="inst-stat-item">
+              <div className="inst-stat-num">28+</div>
+              <div className="inst-stat-label">States &amp; Union Territories Covered</div>
+            </div>
+            <div className="inst-stat-item">
+              <div className="inst-stat-num">500+</div>
+              <div className="inst-stat-label">Partner Schools &amp; Institutions</div>
+            </div>
+            <div className="inst-stat-item">
+              <div className="inst-stat-num">100,000+</div>
+              <div className="inst-stat-label">Students Academic Reach Target</div>
+            </div>
+            <div className="inst-stat-item">
+              <div className="inst-stat-num">100%</div>
+              <div className="inst-stat-label">Aligned with NEP 2020 Competencies</div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* ====================================================
+          STRATEGIC & KNOWLEDGE PARTNERS
+          ==================================================== */}
+      <section id="partners">
+        <div className="wrap">
+          <SHead
+            eyebrow="Strategic Alliances"
+            title="Knowledge &amp; Technology Partners."
+            desc="Collaborating with visionary organizations across deep technology, digital safety, applied finance, and experiential education to empower school students."
+          />
+
+          <div className="partner-ecosystem-grid">
+            {/* Partner 1 */}
+            <div className="partner-eco-card">
+              <div className="partner-eco-icon">💡</div>
+              <div className="partner-eco-tag">Co-Founding Technology Partner</div>
+              <h4 className="partner-eco-title">Deep Connection Innovation</h4>
+              <p className="partner-eco-desc">
+                Leading the digital Olympiad architecture, experiential learning tools, and modern problem-solving methodologies for schools nationwide.
+              </p>
+              <div className="partner-eco-pill">
+                <span>✦ EdTech &amp; Innovation Lead</span>
+              </div>
+            </div>
+
+            {/* Partner 2 */}
+            <div className="partner-eco-card">
+              <div className="partner-eco-icon">🤖</div>
+              <div className="partner-eco-tag">Emerging Tech Partner</div>
+              <h4 className="partner-eco-title">AI &amp; Robotics Learning Ecosystem</h4>
+              <p className="partner-eco-desc">
+                Bridging foundational artificial intelligence, algorithmic logic, computer vision, and robotics concepts tailored for young minds from Class III upwards.
+              </p>
+              <div className="partner-eco-pill">
+                <span>✦ AI Curriculum Design</span>
+              </div>
+            </div>
+
+            {/* Partner 3 */}
+            <div className="partner-eco-card">
+              <div className="partner-eco-icon">🔐</div>
+              <div className="partner-eco-tag">Cyber Safety Forum</div>
+              <h4 className="partner-eco-title">Digital Safety &amp; Ethics Alliance</h4>
+              <p className="partner-eco-desc">
+                Empowering children and educators with responsible cyber hygiene, digital privacy awareness, ethical computing, and online safety standards.
+              </p>
+              <div className="partner-eco-pill">
+                <span>✦ Cyber Awareness</span>
+              </div>
+            </div>
+
+            {/* Partner 4 */}
+            <div className="partner-eco-card">
+              <div className="partner-eco-icon">📈</div>
+              <div className="partner-eco-tag">Financial Literacy Initiative</div>
+              <h4 className="partner-eco-title">Youth Financial Education Network</h4>
+              <p className="partner-eco-desc">
+                Promoting smart money habits, budgeting fundamentals, economic concepts, and financial intelligence from middle school to senior secondary years.
+              </p>
+              <div className="partner-eco-pill">
+                <span>✦ Life Skills &amp; Economics</span>
+              </div>
+            </div>
+          </div>
+
+          {/* Partner Call to Action Banner */}
+          <div className="partner-cta-card">
+            <div className="partner-cta-content">
+              <h3>Partner with India Genius Olympiad</h3>
+              <p>
+                Are you an educational institution, technology organization, or foundation looking to foster young genius across India? Join our growing national ecosystem.
+              </p>
+            </div>
+            <div className="partner-cta-actions">
+              <a
+                className="btn btn-primary"
+                href="https://forms.gle/tt83cHHLN2n4B7YR6"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Connect Your Institution ↗
+              </a>
+              <a className="btn btn-ghost" href="/contact-us/" style={{ color: "#FFFFFF", borderColor: "rgba(255,255,255,0.3)" }}>
+                Contact Leadership →
+              </a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* ====================================================
           ANNUAL INITIATIVES
           ==================================================== */}
       <section id="initiatives">

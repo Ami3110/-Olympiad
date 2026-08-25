@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useMemo } from "react";
+import { useState } from "react";
 import Link from "next/link";
 
 const divisionDetails = [
@@ -226,123 +226,16 @@ const divisionDetails = [
 ];
 
 export default function SyllabusInteractive() {
-  const [activeDivision, setActiveDivision] = useState("all");
-  const [searchQuery, setSearchQuery] = useState("");
   const [selectedSubjectModal, setSelectedSubjectModal] = useState(null);
   const [activeFaq, setActiveFaq] = useState(null);
 
-  // Filtered Divisions & Subjects
-  const filteredDivisions = useMemo(() => {
-    return divisionDetails
-      .filter((div) => {
-        if (activeDivision === "all") return true;
-        return div.slug === activeDivision;
-      })
-      .filter((div) => {
-        if (!searchQuery.trim()) return true;
-        const q = searchQuery.toLowerCase();
-        const matchesDivName = div.name.toLowerCase().includes(q) || div.classes.toLowerCase().includes(q);
-        const matchesSubject = div.subjects.some(
-          (s) =>
-            s.name.toLowerCase().includes(q) ||
-            (s.topics && s.topics.some((t) => t.toLowerCase().includes(q)))
-        );
-        return matchesDivName || matchesSubject;
-      });
-  }, [activeDivision, searchQuery]);
-
-  const totalSubjectsCount = divisionDetails.reduce(
-    (acc, div) => acc + (div.status === "Active" ? div.subjects.length : 0),
-    0
-  );
-
   return (
     <>
-      {/* Search & Filter Toolbar */}
-      <section className="syl-toolbar-section">
-        <div className="wrap">
-          <div className="syl-toolbar-card">
-            {/* Top Row: Search Input + Live Match Count */}
-            <div className="syl-search-row">
-              <div className="syl-search-wrap">
-                <span className="syl-search-icon">🔍</span>
-                <input
-                  type="text"
-                  placeholder="Search by subject or topic (e.g. AI, Space Science, Cyber, Financial Literacy...)"
-                  value={searchQuery}
-                  onChange={(e) => setSearchQuery(e.target.value)}
-                  className="syl-search-input"
-                  aria-label="Search syllabus subjects"
-                />
-                {searchQuery && (
-                  <button
-                    type="button"
-                    onClick={() => setSearchQuery("")}
-                    className="syl-search-clear"
-                    aria-label="Clear search"
-                  >
-                    ✕
-                  </button>
-                )}
-              </div>
-
-              <div className="syl-stat-badge">
-                <span className="syl-stat-dot" />
-                <span>
-                  <strong>{totalSubjectsCount} Active Olympiads</strong> across 6 Divisions
-                </span>
-              </div>
-            </div>
-
-            {/* Division Filter Pills */}
-            <div className="syl-filter-row">
-              <span className="syl-filter-label">Filter Division:</span>
-              <div className="syl-pills-list">
-                <button
-                  type="button"
-                  onClick={() => setActiveDivision("all")}
-                  className={`syl-pill-btn ${activeDivision === "all" ? "active" : ""}`}
-                >
-                  All Divisions
-                </button>
-                {divisionDetails.map((div) => (
-                  <button
-                    key={div.slug}
-                    type="button"
-                    onClick={() => setActiveDivision(div.slug)}
-                    className={`syl-pill-btn ${activeDivision === div.slug ? "active" : ""}`}
-                  >
-                    {div.name} <span className="syl-pill-sub">({div.classes})</span>
-                  </button>
-                ))}
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
       {/* Main Grid Section */}
-      <section className="syl-grid-section">
+      <section className="syl-grid-section" style={{ paddingTop: 48 }}>
         <div className="wrap">
-          {filteredDivisions.length === 0 ? (
-            <div className="syl-no-results">
-              <div className="syl-no-results-icon">🔭</div>
-              <h3>No subjects match &ldquo;{searchQuery}&rdquo;</h3>
-              <p>Try searching for broader keywords like <em>AI</em>, <em>Space</em>, <em>Cyber</em>, or clear the filter.</p>
-              <button
-                type="button"
-                onClick={() => {
-                  setSearchQuery("");
-                  setActiveDivision("all");
-                }}
-                className="syl-btn-reset"
-              >
-                Reset Search Filters
-              </button>
-            </div>
-          ) : (
-            <div className="syl-cards-grid">
-              {filteredDivisions.map((div) => {
+          <div className="syl-cards-grid">
+            {divisionDetails.map((div) => {
                 return (
                   <div key={div.slug} className="syl-card">
                     {/* Visual Media Header */}
@@ -426,7 +319,6 @@ export default function SyllabusInteractive() {
                 );
               })}
             </div>
-          )}
         </div>
       </section>
 
