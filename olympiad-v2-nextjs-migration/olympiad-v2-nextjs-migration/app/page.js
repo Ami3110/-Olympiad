@@ -433,10 +433,15 @@ export default function HomePage() {
       </section>
 
       {/* ====================================================
-          AWARDS & RECOGNITION — EXACT 4 TIER FRAMEWORK
+          AWARDS & RECOGNITION — 4 TIER FRAMEWORK
           ==================================================== */}
-      <section id="awards" className="awards-section-clean">
+      <section id="awards">
         <div className="wrap">
+          <SHead
+            eyebrow="Recognition &amp; Honours"
+            title="Olympiad Awards Framework."
+            desc="Comprehensive recognition and merit honors across all four tiers of the national competition."
+          />
           <AwardsInteractive />
         </div>
       </section>
