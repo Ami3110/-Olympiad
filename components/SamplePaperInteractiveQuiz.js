@@ -2,86 +2,95 @@
 
 import { useState, useMemo } from "react";
 
-// Robust regex parser to extract structured questions, options, and answer keys from raw HTML
+// Robust parser to extract structured questions, MCQ options (a,b,c,d), and answer keys from raw HTML
 function parseSamplePaperHtml(html) {
   if (!html) return [];
 
   const paperBlocks = [];
-  const blockRegex = /<div class="paper-block"[^>]*id="([^"]*)"[^>]*>([\s\S]*?)<\/div>\s*(?=(?:<!--|<div class="paper-block"|$))/gi;
-  let blockMatch;
+  const rawBlocks = html.split(/<div\s+class="paper-block"/i).slice(1);
 
-  while ((blockMatch = blockRegex.exec(html)) !== null) {
-    const id = blockMatch[1];
-    const blockContent = blockMatch[2];
+  for (const rawBlock of rawBlocks) {
+    const blockContent = '<div class="paper-block"' + rawBlock;
 
-    // Eyebrow
-    const eyebrowMatch = /<div class="p-eyebrow">([\s\S]*?)<\/div>/i.exec(blockContent);
+    // Extract ID
+    const idMatch = /id="([^"]*)"/i.exec(blockContent);
+    const id = idMatch ? idMatch[1] : "";
+
+    // Extract Eyebrow
+    const eyebrowMatch = /<div\s+class="p-eyebrow">([\s\S]*?)<\/div>/i.exec(blockContent);
     const eyebrow = eyebrowMatch ? eyebrowMatch[1].replace(/<[^>]+>/g, "").trim() : "";
 
-    // Title
+    // Extract Title
     const titleMatch = /<h3>([\s\S]*?)<\/h3>/i.exec(blockContent);
     const title = titleMatch ? titleMatch[1].replace(/<[^>]+>/g, "").trim() : "Sample Paper";
 
-    // Answer Key (e.g. "1-b, 2-c, 3-b, 4-b, 5-b...")
-    const answerKeyMatch = /<div class="answer-key">[\s\S]*?<b>Answer Key:<\/b>([\s\S]*?)<\/div>/i.exec(blockContent);
+    // Extract Answer Key (e.g. "1-b, 2-c, 3-b, 4-b, 5-b...")
+    const answerKeyMatch = /<b>Answer Key:<\/b>([\s\S]*?)<\/div>/i.exec(blockContent);
     const answerKeyMap = {};
     if (answerKeyMatch) {
       const keyStr = answerKeyMatch[1].trim();
-      const pairs = keyStr.split(",");
+      const pairs = keyStr.split(/[,;\s]+/);
       pairs.forEach((pair) => {
         const parts = pair.trim().split("-");
         if (parts.length === 2) {
           const qNum = parseInt(parts[0].trim(), 10);
-          const ansKey = parts[1].trim().toLowerCase();
-          if (!isNaN(qNum)) {
+          const ansKey = parts[1].trim().toLowerCase().replace(/[^a-d]/g, "");
+          if (!isNaN(qNum) && ansKey) {
             answerKeyMap[qNum] = ansKey;
           }
         }
       });
     }
 
-    // Questions
+    // Split questions by <li class="q-item">
+    const rawQuestions = blockContent.split(/<li\s+class="q-item">/i).slice(1);
     const questions = [];
-    const qItemRegex = /<li class="q-item">([\s\S]*?)<\/li>/gi;
-    let qMatch;
     let qIndex = 1;
 
-    while ((qMatch = qItemRegex.exec(blockContent)) !== null) {
-      const qContent = qMatch[1];
+    for (const rawQ of rawQuestions) {
+      // Split question text vs options
+      const ulSplit = rawQ.split(/<ul\s+class="q-options">/i);
+      const textPart = ulSplit[0] || "";
+      const optionsPart = ulSplit[1] || "";
 
-      // Question Text
-      const qTextMatch = /<div class="q-text">[\s\S]*?<span class="q-num">(\d+)\.?<\/span>([\s\S]*?)<\/div>/i.exec(qContent);
+      // Extract question number and text
       let qNum = qIndex;
-      let qText = "";
-
-      if (qTextMatch) {
-        qNum = parseInt(qTextMatch[1], 10);
-        qText = qTextMatch[2].replace(/<[^>]+>/g, "").trim();
-      } else {
-        const cleanText = qContent.split("<ul")[0].replace(/<[^>]+>/g, "").trim();
-        qText = cleanText.replace(/^\d+[\.\)]\s*/, "");
+      const numMatch = /<span\s+class="q-num">(\d+)[\.\)]?<\/span>/i.exec(textPart);
+      if (numMatch) {
+        qNum = parseInt(numMatch[1], 10);
       }
+      const qText = textPart.replace(/<[^>]+>/g, "").replace(/^\d+[\.\)]\s*/, "").trim();
 
-      // Options (li with a) b) c) d))
+      // Extract each option <li>...</li>
       const options = [];
-      const optRegex = /<li>\s*([a-d])\)\s*([\s\S]*?)<\/li>/gi;
-      let optMatch;
-
-      while ((optMatch = optRegex.exec(qContent)) !== null) {
-        options.push({
-          key: optMatch[1].toLowerCase(),
-          text: optMatch[2].replace(/<[^>]+>/g, "").trim(),
-        });
+      const optItemMatches = optionsPart.matchAll(/<li[^>]*>([\s\S]*?)<\/li>/gi);
+      for (const m of optItemMatches) {
+        const rawOptText = m[1].replace(/<[^>]+>/g, "").trim();
+        const optKeyMatch = /^([a-d])[\)\.]\s*(.*)$/i.exec(rawOptText);
+        if (optKeyMatch) {
+          options.push({
+            key: optKeyMatch[1].toLowerCase(),
+            text: optKeyMatch[2].trim(),
+          });
+        } else if (rawOptText) {
+          const letterKey = ["a", "b", "c", "d"][options.length] || "a";
+          options.push({
+            key: letterKey,
+            text: rawOptText,
+          });
+        }
       }
 
       const correctKey = answerKeyMap[qNum] || "";
 
-      questions.push({
-        num: qNum,
-        text: qText,
-        options,
-        correctKey,
-      });
+      if (qText && options.length > 0) {
+        questions.push({
+          num: qNum,
+          text: qText,
+          options,
+          correctKey,
+        });
+      }
 
       qIndex++;
     }
