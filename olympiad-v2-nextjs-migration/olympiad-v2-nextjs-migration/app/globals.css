@@ -2428,7 +2428,7 @@ footer::before {
   transform: translateX(-3px);
 }
 
-/* Light background variant for pages with light backgrounds */
+ 
 .page-back-btn.light-variant,
 .page-back-link.light-variant {
   background: var(--bg-card);
