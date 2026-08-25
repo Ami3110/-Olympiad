@@ -1,0 +1,67 @@
+[
+  {
+    "slug": "foundation",
+    "name": "Foundation",
+    "classes": "PG – UKG",
+    "subjects": []
+  },
+  {
+    "slug": "junior",
+    "name": "Junior",
+    "classes": "Classes I – II",
+    "subjects": []
+  },
+  {
+    "slug": "primary",
+    "name": "Primary",
+    "classes": "Classes III – V",
+    "subjects": [
+      { "slug": "computer-ai-awareness", "name": "Computer & AI Awareness" },
+      { "slug": "financial-literacy", "name": "Financial Literacy" },
+      { "slug": "environmental-climate-studies", "name": "Environmental & Climate Studies" },
+      { "slug": "space-science-astronomy", "name": "Space Science & Astronomy" }
+    ]
+  },
+  {
+    "slug": "middle",
+    "name": "Middle",
+    "classes": "Classes VI – VIII",
+    "subjects": [
+      { "slug": "ai-emerging-technology", "name": "Artificial Intelligence & Emerging Technology" },
+      { "slug": "cybersecurity-digital-safety", "name": "Cybersecurity & Digital Safety" },
+      { "slug": "financial-literacy", "name": "Financial Literacy" },
+      { "slug": "space-science-astronomy", "name": "Space Science & Astronomy" },
+      { "slug": "climate-sustainability", "name": "Climate & Sustainability" }
+    ]
+  },
+  {
+    "slug": "secondary",
+    "name": "Secondary",
+    "classes": "Classes IX – X",
+    "subjects": [
+      { "slug": "ai-machine-learning", "name": "Artificial Intelligence & Machine Learning" },
+      { "slug": "cybersecurity-ethical-hacking", "name": "Cybersecurity & Ethical Hacking" },
+      { "slug": "financial-literacy", "name": "Financial Literacy" },
+      { "slug": "space-science-astronomy", "name": "Space Science & Astronomy" },
+      { "slug": "behavioural-science-psychology", "name": "Behavioural Science & Psychology" },
+      { "slug": "climate-sustainability", "name": "Climate & Sustainability" },
+      { "slug": "entrepreneurship-innovation", "name": "Entrepreneurship & Innovation" }
+    ]
+  },
+  {
+    "slug": "senior-secondary",
+    "name": "Senior Secondary",
+    "classes": "Classes XI – XII",
+    "subjects": [
+      { "slug": "ai-emerging-technology-olympiad", "name": "Artificial Intelligence & Emerging Technology Olympiad" },
+      { "slug": "cybersecurity-digital-safety-olympiad", "name": "Cybersecurity & Digital Safety Olympiad" },
+      { "slug": "financial-literacy-olympiad", "name": "Financial Literacy Olympiad" },
+      { "slug": "entrepreneurship-innovation-olympiad", "name": "Entrepreneurship & Innovation Olympiad" },
+      { "slug": "climate-sustainability-olympiad", "name": "Climate & Sustainability Olympiad" },
+      { "slug": "leadership-life-skills-olympiad", "name": "Leadership & Life Skills Olympiad" },
+      { "slug": "critical-thinking-problem-solving-olympiad", "name": "Critical Thinking & Problem-Solving Olympiad" },
+      { "slug": "communication-public-speaking-olympiad", "name": "Communication & Public Speaking Olympiad" },
+      { "slug": "career-future-skills-olympiad", "name": "Career & Future Skills Olympiad" }
+    ]
+  }
+]
