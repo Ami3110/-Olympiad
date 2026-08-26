@@ -13,13 +13,15 @@ export default function SyllabusIndexPage() {
       <section style={{ padding: 0, borderTop: "none" }}>
         <div className="syl-hero-wrap">
           <div className="wrap syl-hero-content">
-            <a className="page-back-btn" href="/" aria-label="Back to Home">
-              <svg className="back-arrow-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
-                <line x1="19" y1="12" x2="5" y2="12"></line>
-                <polyline points="12 19 5 12 12 5"></polyline>
-              </svg>
-              <span>Back to Home</span>
-            </a>
+            <div className="syl-hero-top" style={{ marginBottom: "28px" }}>
+              <a className="page-back-btn" href="/" aria-label="Back to Home" style={{ margin: 0 }}>
+                <svg className="back-arrow-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+                  <line x1="19" y1="12" x2="5" y2="12"></line>
+                  <polyline points="12 19 5 12 12 5"></polyline>
+                </svg>
+                <span>Back to Home</span>
+              </a>
+            </div>
 
             <div className="syl-hero-eyebrow">
               <span className="syl-hero-eyebrow-line" />

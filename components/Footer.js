@@ -95,8 +95,8 @@ export default function Footer() {
               <Link href="/blog/" className="footer-link-item">
                 Insights &amp; Articles
               </Link>
-              <Link href="/#about" className="footer-link-item">
-                About AIPA Leadership
+              <Link href="/about/" className="footer-link-item">
+                About Us &amp; Leadership
               </Link>
               <Link href="/contact-us/" className="footer-link-item">
                 Contact &amp; Helpdesk

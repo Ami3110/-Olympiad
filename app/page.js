@@ -540,121 +540,52 @@ export default function HomePage() {
       </section>
 
       {/* ====================================================
-          ABOUT US & ORGANIZERS — SQUARE GLASS WITH 50% HOVER DETAILS
+          ABOUT US BANNER — WARM THEMED & HIGH IMPACT (LINKS TO /about)
           ==================================================== */}
-      <section id="about">
+      <section id="about" className="about-home-section">
         <div className="wrap">
-          <SHead
-            eyebrow="About the Initiative"
-            title="India Genius Olympiad."
-            desc="An educational movement dedicated to discovering, nurturing, and recognizing young academic talent across Indian schools. Organized by the All India Principals Association (AIPA)."
-            maxWidth="100%"
-          />
+          <div className="about-home-card">
+            {/* Subtle Honeycomb Pattern Overlay */}
+            <div className="about-home-pattern" />
 
-          <div className="chip-grid" style={{ marginBottom: 32 }}>
-            {[
-              "Academic Rigour",
-              "Logical Reasoning",
-              "Artificial Intelligence",
-              "Financial Literacy",
-              "Cyber Security",
-              "Environmental Awareness",
-              "Mathematics & Logic",
-              "Leadership Skills",
-              "National Certification",
-            ].map((chip) => (
-              <div key={chip} className="chip">
-                {chip}
+            {/* Left Content Area */}
+            <div className="about-home-content">
+              <div className="about-home-eyebrow">
+                <span>🏛️</span>
+                <span>All India Principals Association (AIPA) Movement</span>
               </div>
-            ))}
-          </div>
 
-          <h3
-            style={{
-              fontFamily: "var(--display)",
-              fontSize: 22,
-              fontWeight: 700,
-              marginTop: 52,
-              marginBottom: 24,
-              letterSpacing: "-0.01em",
-            }}
-          >
-            Leadership &amp; Organization
-          </h3>
+              <h2 className="about-home-title">
+                About Us
+              </h2>
 
-          {/* Organizers Square Glass Cards with 50% Hover Details */}
-          <div className="organizers-glass-grid">
-            {/* Organizer 1: Dr. Amit Sehgal */}
-            <div className="organizer-glass-card">
-              <div className="organizer-square-wrap">
-                <img
-                  src="/assets/images/amit-sehgal.jpg"
-                  alt="Dr. Amit Sehgal — Founder, India Genius Olympiad"
-                  className="organizer-img"
-                />
-                
-                {/* Glass reflection highlight */}
-                <div className="organizer-glass-glare" />
+              <p className="about-home-desc">
+                The <strong>India Genius Olympiad (IGO)</strong>, organized by the <strong>All India Principals Association (AIPA)</strong>, is a premier academic assessment organization committed to advancing Olympiad exams for school students through modern, AI-powered, and curriculum-aligned assessments. Our Olympiads are designed to focus on learning, understanding, and academic growth beyond just ranks and medals.
+              </p>
 
-                {/* Permanent subtle tag top-left */}
-                <div className="organizer-badge">Founder</div>
+              <p className="about-home-desc-secondary">
+                Our assessments are meticulously aligned with the principles of NEP 2020, emphasising competency-based education, conceptual clarity, and holistic student development across 6 age divisions (PG–XII).
+              </p>
 
-                {/* Default Initial Bottom Scrim */}
-                <div className="organizer-initial-scrim">
-                  <h4 className="organizer-initial-name">Dr. Amit Sehgal</h4>
-                  <div className="organizer-initial-tag">Uttarakhand State President, AIPA</div>
-                </div>
-
-                {/* Half-Cover Glass Details Overlay (Slides up 50% on hover) */}
-                <div className="organizer-glass-drawer">
-                  <div className="organizer-drawer-inner">
-                    <div className="drawer-role-tag">Founder &middot; Educationist</div>
-                    <h4 className="drawer-organizer-name">Dr. Amit Sehgal</h4>
-                    <p className="drawer-organizer-desc">
-                      Uttarakhand State President, All India Principals Association (AIPA). Leading pioneer in school academic assessments and student empowerment.
-                    </p>
-                    <a href="tel:+918077074761" className="drawer-contact-btn">
-                      <span>📞</span> 8077074761
-                    </a>
-                  </div>
-                </div>
-              </div>
+              <a href="/about/" className="about-view-more-btn" aria-label="View more about India Genius Olympiad and Leadership">
+                <span>View More</span>
+                <span className="about-btn-arrow-circle">➔</span>
+              </a>
             </div>
 
-            {/* Organizer 2: Mr. Rishi Kant Upadhyaya */}
-            <div className="organizer-glass-card">
-              <div className="organizer-square-wrap">
+            {/* Right Visual Area with Curious Student & Floating Elements */}
+            <div className="about-home-visual">
+              {/* Floating Curious Question Marks */}
+              <span className="about-qmark about-qmark-1">?</span>
+              <span className="about-qmark about-qmark-2">?</span>
+              <span className="about-qmark about-qmark-3">?</span>
+
+              <div className="about-home-img-wrap">
                 <img
-                  src="/assets/images/rishi-kant-upadhyaya.jpg"
-                  alt="Mr. Rishi Kant Upadhyaya — Co-Founder, India Genius Olympiad"
-                  className="organizer-img"
+                  src="/assets/images/about-student-portrait.jpg"
+                  alt="Curious student contemplating future learning with India Genius Olympiad"
+                  className="about-home-img"
                 />
-
-                {/* Glass reflection highlight */}
-                <div className="organizer-glass-glare" />
-
-                {/* Permanent subtle tag top-left */}
-                <div className="organizer-badge">Co-Founder</div>
-
-                {/* Default Initial Bottom Scrim */}
-                <div className="organizer-initial-scrim">
-                  <h4 className="organizer-initial-name">Mr. Rishi Kant Upadhyaya</h4>
-                  <div className="organizer-initial-tag">Founder, Deep Connection Innovation</div>
-                </div>
-
-                {/* Half-Cover Glass Details Overlay (Slides up 50% on hover) */}
-                <div className="organizer-glass-drawer">
-                  <div className="organizer-drawer-inner">
-                    <div className="drawer-role-tag">Co-Founder &middot; Innovator</div>
-                    <h4 className="drawer-organizer-name">Mr. Rishi Kant Upadhyaya</h4>
-                    <p className="drawer-organizer-desc">
-                      Founder, Deep Connection Innovation Pvt Ltd. Innovator driving technological and experiential education across India.
-                    </p>
-                    <a href="tel:+919540944490" className="drawer-contact-btn">
-                      <span>📞</span> 9540944490
-                    </a>
-                  </div>
-                </div>
               </div>
             </div>
           </div>

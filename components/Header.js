@@ -10,14 +10,14 @@ export default function Header() {
 
   // Hover handlers with debounced exit buffer (prevents dropdown closing when moving mouse)
   const handleMouseEnter = (menuKey) => {
-    if (window.innerWidth > 768) {
+    if (window.innerWidth > 992) {
       if (timeoutRef.current) clearTimeout(timeoutRef.current);
       setActiveDropdown(menuKey);
     }
   };
 
   const handleMouseLeave = () => {
-    if (window.innerWidth > 768) {
+    if (window.innerWidth > 992) {
       if (timeoutRef.current) clearTimeout(timeoutRef.current);
       timeoutRef.current = setTimeout(() => {
         setActiveDropdown(null);
@@ -73,7 +73,6 @@ export default function Header() {
           />
           <div className="brand-title-wrap">
             <span className="brand-text">India Genius Olympiad</span>
-            <span className="brand-sub">2026–27</span>
           </div>
         </a>
 
@@ -99,6 +98,61 @@ export default function Header() {
           role="navigation"
           aria-label="Main navigation"
         >
+          {/* About Dropdown */}
+          <div
+            className={`nav-item ${activeDropdown === "about" ? "nav-item-active" : ""}`}
+            onMouseEnter={() => handleMouseEnter("about")}
+            onMouseLeave={handleMouseLeave}
+          >
+            <button
+              className="nav-summary-btn"
+              type="button"
+              aria-expanded={activeDropdown === "about" ? "true" : "false"}
+              onClick={(e) => handleTriggerClick("about", e)}
+            >
+              <span>About</span>
+              <svg className="nav-arrow-icon" viewBox="0 0 10 6" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M1 1L5 5L9 1" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+              </svg>
+            </button>
+
+            <div className={`nav-dropdown ${activeDropdown === "about" ? "dropdown-visible" : ""}`}>
+              <div className="dropdown-section-label">Organization &amp; Outreach</div>
+              <a href="/about/" className="dropdown-link" onClick={closeMenus}>
+                <div className="dropdown-icon-box">ℹ️</div>
+                <div className="dropdown-text-wrap">
+                  <div className="dropdown-title">About Us &amp; Leadership</div>
+                  <div className="dropdown-desc">AIPA national educational movement</div>
+                </div>
+                <span className="dropdown-hover-arrow">➔</span>
+              </a>
+              <a href="/initiatives/" className="dropdown-link" onClick={closeMenus}>
+                <div className="dropdown-icon-box">🌟</div>
+                <div className="dropdown-text-wrap">
+                  <div className="dropdown-title">Annual Initiatives</div>
+                  <div className="dropdown-desc">Conclaves, career guidance &amp; fairs</div>
+                </div>
+                <span className="dropdown-hover-arrow">➔</span>
+              </a>
+              <a href="/partner/" className="dropdown-link" onClick={closeMenus}>
+                <div className="dropdown-icon-box">🤝</div>
+                <div className="dropdown-text-wrap">
+                  <div className="dropdown-title">Institutional Partners</div>
+                  <div className="dropdown-desc">Collaborating bodies &amp; knowledge ecosystem</div>
+                </div>
+                <span className="dropdown-hover-arrow">➔</span>
+              </a>
+              <a href="/blog/" className="dropdown-link" onClick={closeMenus}>
+                <div className="dropdown-icon-box">📝</div>
+                <div className="dropdown-text-wrap">
+                  <div className="dropdown-title">Blog &amp; Updates</div>
+                  <div className="dropdown-desc">Official news and announcements</div>
+                </div>
+                <span className="dropdown-hover-arrow">➔</span>
+              </a>
+            </div>
+          </div>
+
           {/* Olympiad Dropdown */}
           <div
             className={`nav-item ${activeDropdown === "olympiad" ? "nav-item-active" : ""}`}
@@ -195,61 +249,6 @@ export default function Header() {
                 <div className="dropdown-text-wrap">
                   <div className="dropdown-title">Study Material</div>
                   <div className="dropdown-desc">Recommended preparation modules</div>
-                </div>
-                <span className="dropdown-hover-arrow">➔</span>
-              </a>
-            </div>
-          </div>
-
-          {/* About Dropdown */}
-          <div
-            className={`nav-item ${activeDropdown === "about" ? "nav-item-active" : ""}`}
-            onMouseEnter={() => handleMouseEnter("about")}
-            onMouseLeave={handleMouseLeave}
-          >
-            <button
-              className="nav-summary-btn"
-              type="button"
-              aria-expanded={activeDropdown === "about" ? "true" : "false"}
-              onClick={(e) => handleTriggerClick("about", e)}
-            >
-              <span>About</span>
-              <svg className="nav-arrow-icon" viewBox="0 0 10 6" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path d="M1 1L5 5L9 1" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
-              </svg>
-            </button>
-
-            <div className={`nav-dropdown ${activeDropdown === "about" ? "dropdown-visible" : ""}`}>
-              <div className="dropdown-section-label">Organization &amp; Outreach</div>
-              <a href="/#about" className="dropdown-link" onClick={closeMenus}>
-                <div className="dropdown-icon-box">ℹ️</div>
-                <div className="dropdown-text-wrap">
-                  <div className="dropdown-title">About Us &amp; Leadership</div>
-                  <div className="dropdown-desc">AIPA national educational movement</div>
-                </div>
-                <span className="dropdown-hover-arrow">➔</span>
-              </a>
-              <a href="/initiatives/" className="dropdown-link" onClick={closeMenus}>
-                <div className="dropdown-icon-box">🌟</div>
-                <div className="dropdown-text-wrap">
-                  <div className="dropdown-title">Annual Initiatives</div>
-                  <div className="dropdown-desc">Conclaves, career guidance &amp; fairs</div>
-                </div>
-                <span className="dropdown-hover-arrow">➔</span>
-              </a>
-              <a href="/partner/" className="dropdown-link" onClick={closeMenus}>
-                <div className="dropdown-icon-box">🤝</div>
-                <div className="dropdown-text-wrap">
-                  <div className="dropdown-title">Institutional Partners</div>
-                  <div className="dropdown-desc">Collaborating bodies &amp; knowledge ecosystem</div>
-                </div>
-                <span className="dropdown-hover-arrow">➔</span>
-              </a>
-              <a href="/blog/" className="dropdown-link" onClick={closeMenus}>
-                <div className="dropdown-icon-box">📝</div>
-                <div className="dropdown-text-wrap">
-                  <div className="dropdown-title">Blog &amp; Updates</div>
-                  <div className="dropdown-desc">Official news and announcements</div>
                 </div>
                 <span className="dropdown-hover-arrow">➔</span>
               </a>
