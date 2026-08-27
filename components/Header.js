@@ -144,8 +144,9 @@ export default function Header() {
               <a href="/about/#mission" className="dropdown-link-simple" onClick={closeMenus}>Mission</a>
               <a href="/about/#belief" className="dropdown-link-simple" onClick={closeMenus}>Our Belief</a>
               <a href="/about/#leadership" className="dropdown-link-simple" onClick={closeMenus}>Leadership</a>
+              <a href="/associated-institutes/" className="dropdown-link-simple" onClick={closeMenus}>Associated Institutes</a>
+              <a href="/partner/" className="dropdown-link-simple" onClick={closeMenus}>Associated Partners</a>
               <a href="/initiatives/" className="dropdown-link-simple" onClick={closeMenus}>Annual Initiatives</a>
-              <a href="/partner/" className="dropdown-link-simple" onClick={closeMenus}>Institutional Partners</a>
               <a href="/blog/" className="dropdown-link-simple" onClick={closeMenus}>Blog &amp; Updates</a>
             </div>
           </div>
@@ -181,7 +182,7 @@ export default function Header() {
 
           {/* Award Structure Link */}
           <div className="nav-item">
-            <a href="/olympiad-info/#awards" className="nav-direct-link" onClick={closeMenus}>
+            <a href="/#awards-preview" className="nav-direct-link" onClick={closeMenus}>
               Award Structure
             </a>
           </div>

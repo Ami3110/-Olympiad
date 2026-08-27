@@ -7,16 +7,21 @@ export const metadata = {
     "The complete India Genius Olympiad subject list for every age division — Foundation, Junior, Primary, Middle, Secondary, and Senior Secondary.",
 };
 
-// Reuses the color-coded subject-card pattern from the Olympiad Info page
-// (oi-subject-card / oi-subject-header / oi-subject-list) — no new CSS.
-const divisionMeta = {
-  foundation: { color: "#8B1A1A", icon: "🌱" },
-  junior: { color: "#93650A", icon: "🧩" },
-  primary: { color: "#E65A00", icon: "🎨" },
-  middle: { color: "#0A6EBD", icon: "🤖" },
-  secondary: { color: "#22863A", icon: "💡" },
-  "senior-secondary": { color: "#8B1A1A", icon: "🎯" },
+// Reuses the subject-card pattern from the Olympiad Info page (oi-subject-card
+// / oi-subject-header / oi-subject-list) — no new CSS. One accent color across
+// every card (kept minimal, per redesign feedback — no per-division rainbow).
+const CARD_ACCENT = "var(--saffron)";
+
+const divisionIcons = {
+  foundation: "🌱",
+  junior: "🧩",
+  primary: "🎨",
+  middle: "🤖",
+  secondary: "💡",
+  "senior-secondary": "🎯",
 };
+
+const totalSubjects = ageGroups.reduce((sum, g) => sum + g.subjects.length, 0);
 
 export default function SubjectsPage() {
   return (
@@ -55,7 +60,7 @@ export default function SubjectsPage() {
               </div>
               <div className="syl-hero-pill">
                 <span className="syl-hero-pill-icon">🗂️</span>
-                <span><strong>38</strong> Subject Entries</span>
+                <span><strong>{totalSubjects}</strong> Subject Entries</span>
               </div>
             </div>
           </div>
@@ -68,14 +73,16 @@ export default function SubjectsPage() {
         <div className="wrap">
           <div className="oi-subjects-grid">
             {ageGroups.map((group) => {
-              const meta = divisionMeta[group.slug] || { color: "#0A6EBD", icon: "📘" };
+              const icon = divisionIcons[group.slug] || "📘";
               return (
                 <div key={group.slug} id={group.slug} className="oi-subject-card">
-                  <div className="oi-subject-header" style={{ background: meta.color }}>
-                    <span className="oi-subject-icon">{meta.icon}</span>
+                  <div className="oi-subject-header" style={{ background: CARD_ACCENT }}>
+                    <span className="oi-subject-icon">{icon}</span>
                     <div>
                       <div className="oi-subject-classes">{group.classes}</div>
-                      <div className="oi-subject-label">{group.name}</div>
+                      <div className="oi-subject-label">
+                        {group.name}{group.level ? ` · ${group.level}` : ""}
+                      </div>
                     </div>
                   </div>
 

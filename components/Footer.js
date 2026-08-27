@@ -98,6 +98,12 @@ export default function Footer() {
               <Link href="/about/" className="footer-link-item">
                 About Us &amp; Leadership
               </Link>
+              <Link href="/associated-institutes/" className="footer-link-item">
+                Associated Institutes
+              </Link>
+              <Link href="/partner/" className="footer-link-item">
+                Associated Partners
+              </Link>
               <Link href="/contact-us/" className="footer-link-item">
                 Contact &amp; Helpdesk
               </Link>

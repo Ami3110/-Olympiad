@@ -3,13 +3,30 @@
     "slug": "foundation",
     "name": "Foundation",
     "classes": "PG – UKG",
-    "subjects": []
+    "level": "Foundation Level",
+    "subjects": [
+      { "slug": "little-genius-mental-ability", "name": "Little Genius Mental Ability Olympiad" },
+      { "slug": "language-communication", "name": "Language & Communication Olympiad" },
+      { "slug": "number-logical-thinking", "name": "Number & Logical Thinking Olympiad" },
+      { "slug": "my-world-general-awareness", "name": "My World & General Awareness Olympiad" },
+      { "slug": "creativity-imagination", "name": "Creativity & Imagination Olympiad" },
+      { "slug": "nature-environment-awareness", "name": "Nature & Environment Awareness Olympiad" },
+      { "slug": "good-habits-life-skills", "name": "Good Habits & Life Skills Olympiad" }
+    ]
   },
   {
     "slug": "junior",
     "name": "Junior",
     "classes": "Classes I – II",
-    "subjects": []
+    "level": "Junior Level",
+    "subjects": [
+      { "slug": "junior-mental-ability-reasoning", "name": "Junior Mental Ability & Reasoning Olympiad" },
+      { "slug": "mathematics-logical-thinking", "name": "Mathematics & Logical Thinking Olympiad" },
+      { "slug": "english-language-communication", "name": "English Language & Communication Olympiad" },
+      { "slug": "general-knowledge-my-india", "name": "General Knowledge & My India Olympiad" },
+      { "slug": "young-science-explorer", "name": "Young Science Explorer Olympiad" },
+      { "slug": "digital-computer-awareness", "name": "Digital & Computer Awareness Olympiad" }
+    ]
   },
   {
     "slug": "primary",

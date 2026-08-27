@@ -1,5 +1,6 @@
 import Link from "next/link";
 import AccordionItem from "../../components/AccordionItem";
+import ageGroupsData from "../../data/ageGroups.json";
 
 export const metadata = {
   title: "Olympiad Info | India Genius Olympiad — Structure, Subjects & Awards",
@@ -7,27 +8,55 @@ export const metadata = {
     "Complete guide to India Genius Olympiad: About the olympiad, subject categories by class, age groups, competition structure (4 rounds), and award framework. Registration at ₹80 per subject.",
 };
 
+// One accent color across every subject/age-group card — kept minimal,
+// per redesign feedback (no per-division rainbow of border colors).
+const CARD_ACCENT = "var(--saffron)";
+
+const totalSubjectEntries = ageGroupsData.reduce((sum, g) => sum + g.subjects.length, 0);
+
 const subjectCategories = [
+  {
+    classes: "PG – UKG",
+    label: "Foundation",
+    icon: "🌱",
+    subjects: [
+      "Little Genius Mental Ability Olympiad",
+      "Language & Communication Olympiad",
+      "Number & Logical Thinking Olympiad",
+      "My World & General Awareness Olympiad",
+      "Creativity & Imagination Olympiad",
+      "Nature & Environment Awareness Olympiad",
+      "Good Habits & Life Skills Olympiad",
+    ],
+  },
+  {
+    classes: "Classes I – II",
+    label: "Junior",
+    icon: "🧩",
+    subjects: [
+      "Junior Mental Ability & Reasoning Olympiad",
+      "Mathematics & Logical Thinking Olympiad",
+      "English Language & Communication Olympiad",
+      "General Knowledge & My India Olympiad",
+      "Young Science Explorer Olympiad",
+      "Digital & Computer Awareness Olympiad",
+    ],
+  },
   {
     classes: "Classes III – V",
     label: "Primary",
-    color: "#E65A00",
     icon: "🎨",
     subjects: [
-      "Computer & AI Awareness Olympiad",
-      "Financial Literacy Olympiad",
-      "Environmental & Climate Studies Olympiad",
-      "Art & Craft Olympiad",
-      "Creative Writing Olympiad",
-      "Basic Life Skills Olympiad",
-      "Handicraft & DIY Olympiad",
-      "Basic First Aid Olympiad",
+      "Mental Ability & Reasoning Olympiad",
+      "Computer & Coding Genius Olympiad",
+      "Space Science & Astronomy Olympiad",
+      "Innovation & Young Entrepreneur Olympiad",
+      "India Genius GK & Heritage Olympiad",
     ],
   },
   {
     classes: "Classes VI – VIII",
     label: "Middle",
-    color: "#0A6EBD",
     icon: "🤖",
     subjects: [
       "Artificial Intelligence & Emerging Technology Olympiad",
@@ -35,38 +64,29 @@ const subjectCategories = [
       "Financial Literacy Olympiad",
       "Space Science & Astronomy Olympiad",
       "Climate & Sustainability Olympiad",
+      "Kaushal Bodh Olympiad",
+      "Digital Citizenship Olympiad",
       "Indian Heritage Olympiad",
-      "Robotics & Automation Skills Olympiad",
-      "Design Thinking Olympiad",
-      "Basic Life Skills Olympiad",
-      "Public Speaking & Presentation Skills Olympiad",
     ],
   },
   {
     classes: "Classes IX – X",
     label: "Secondary",
-    color: "#22863A",
     icon: "💡",
     subjects: [
       "Artificial Intelligence & Machine Learning Olympiad",
       "Cybersecurity & Ethical Hacking Olympiad",
-      "Financial Literacy Olympiad",
-      "Space Science & Astronomy Olympiad",
+      "Financial Markets Olympiad",
       "Behavioural Science & Psychology Olympiad",
       "Climate & Sustainability Olympiad",
       "Entrepreneurship & Innovation Olympiad",
-      "Indian Heritage Olympiad",
-      "Data Analytics Olympiad",
-      "Communication Skills Olympiad",
     ],
   },
   {
     classes: "Classes XI – XII",
     label: "Senior Secondary",
-    color: "#8B1A1A",
     icon: "🎯",
     subjects: [
-      "Artificial Intelligence & Emerging Technology Olympiad",
       "Cybersecurity & Digital Safety Olympiad",
       "Financial Literacy Olympiad",
       "Entrepreneurship & Innovation Olympiad",
@@ -75,7 +95,6 @@ const subjectCategories = [
       "Critical Thinking & Problem-Solving Olympiad",
       "Communication & Public Speaking Olympiad",
       "Career & Future Skills Olympiad",
-      "Indian Heritage Olympiad",
     ],
   },
 ];
@@ -94,15 +113,15 @@ const ageGroupNarratives = [
     icon: "🌱",
     classes: "PG – UKG",
     name: "Foundation",
-    level: null,
-    desc: "Designed for young learners in Playgroup, Nursery, LKG and UKG. Activities focus on curiosity, observation, early learning skills, creativity, basic reasoning, communication and age-appropriate knowledge through engaging and enjoyable formats.",
+    level: "Foundation Level",
+    desc: "Specially designed for young learners from Playgroup to UKG. At this early stage, children learn best through curiosity, observation, exploration and enjoyable activities.",
   },
   {
     icon: "⭐",
     classes: "Classes I – II",
     name: "Junior",
-    level: null,
-    desc: "Introduces students to structured learning challenges that encourage curiosity, basic knowledge, logical thinking, observation, creativity and problem-solving. The focus is on building confidence and a positive attitude towards learning.",
+    level: "Junior Level",
+    desc: "Designed for students of Classes I and II, when children begin developing stronger academic foundations and greater curiosity about the world.",
   },
   {
     icon: "📘",
@@ -270,7 +289,7 @@ export default function OlympiadInfoPage() {
                   <div className="oi-stat-label">Age Categories</div>
                 </div>
                 <div className="oi-stat-card">
-                  <div className="oi-stat-num">28+</div>
+                  <div className="oi-stat-num">{totalSubjectEntries}+</div>
                   <div className="oi-stat-label">Olympiad Subjects</div>
                 </div>
                 <div className="oi-stat-card">
@@ -326,7 +345,7 @@ export default function OlympiadInfoPage() {
           <div className="oi-subjects-grid">
             {subjectCategories.map((cat) => (
               <div key={cat.label} className="oi-subject-card">
-                <div className="oi-subject-header" style={{ background: cat.color }}>
+                <div className="oi-subject-header" style={{ background: CARD_ACCENT }}>
                   <span className="oi-subject-icon">{cat.icon}</span>
                   <div>
                     <div className="oi-subject-classes">{cat.classes}</div>
@@ -500,7 +519,7 @@ export default function OlympiadInfoPage() {
             </AccordionItem>
             <AccordionItem id="oi-faq-2" title="Which subjects are available for my child's class?">
               <p>
-                Subjects are tailored by age division: 8 subjects for Classes III–V, up to 10 specialized Olympiads for Classes VI–XII. Visit the{" "}
+                Subjects are tailored by age division, from 5–8 Olympiads at the earliest levels up to 8 specialized subjects for senior classes. Visit the{" "}
                 <Link href="/subjects/" style={{ color: "var(--saffron)", fontWeight: 600 }}>
                   Subjects
                 </Link>{" "}

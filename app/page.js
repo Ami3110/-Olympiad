@@ -108,44 +108,46 @@ export default function HomePage() {
       </section>
 
       {/* ====================================================
-          SECTION 1: SHORT INTRODUCTION
-          Compact — heading, 2-3 line description, 4 quick stats,
-          single CTA. Full "About the Olympiad" story lives on
-          /olympiad-info/.
+          SECTION 1: VISION & MISSION — short preview of both.
+          Full detail (Strategic pillars, Mission's 9 commitments,
+          Our Belief) lives on /about/#vision and /about/#mission.
           ==================================================== */}
-      <section id="intro" style={{ background: "var(--bg-elev)", borderBottom: "1px solid var(--line)" }}>
+      <section id="vision-mission" style={{ background: "var(--bg-elev)", borderBottom: "1px solid var(--line)" }}>
         <div className="wrap">
           <SHead
-            eyebrow="India Genius Olympiad"
-            title="A National Platform for Every Curious Mind."
-            desc="A multi-subject academic competition for students from Pre-Primary to Class XII — assessing conceptual understanding across future-ready disciplines, not rote memorisation."
+            eyebrow="India Genius Foundation"
+            title="Our Vision & Mission."
+            desc="What we're building, and why."
             center
             maxWidth={720}
           />
 
-          <div className="oi-stat-row" style={{ maxWidth: 760, margin: "0 auto 36px" }}>
-            <div className="oi-stat-card">
-              <div className="oi-stat-num">6</div>
-              <div className="oi-stat-label">Age Divisions</div>
+          <div className="vision-obj-grid">
+            <div className="vision-card">
+              <div className="vision-badge">
+                <span className="vision-badge-dot" />
+                Vision
+              </div>
+              <p className="vision-statement">
+                To become a leading national platform for discovering, nurturing and empowering the intellectual, academic, creative and professional potential of learners across India.
+              </p>
+              <a className="btn btn-ghost" href="/about/#vision" style={{ width: "100%", justifyContent: "center" }}>
+                Read Our Vision →
+              </a>
             </div>
-            <div className="oi-stat-card">
-              <div className="oi-stat-num">4</div>
-              <div className="oi-stat-label">Competition Levels</div>
-            </div>
-            <div className="oi-stat-card">
-              <div className="oi-stat-num">₹80</div>
-              <div className="oi-stat-label">Per Subject</div>
-            </div>
-            <div className="oi-stat-card">
-              <div className="oi-stat-num">2026–27</div>
-              <div className="oi-stat-label">Active Session</div>
-            </div>
-          </div>
 
-          <div style={{ textAlign: "center" }}>
-            <a className="btn btn-ghost" href="/olympiad-info/">
-              Explore the Olympiad →
-            </a>
+            <div className="vision-card">
+              <div className="vision-badge">
+                <span className="vision-badge-dot" />
+                Mission
+              </div>
+              <p className="vision-statement">
+                To create meaningful and accessible educational opportunities that inspire learners to learn, think, explore, discover and excel — through Olympiads, assessments, career guidance and national-level recognition.
+              </p>
+              <a className="btn btn-ghost" href="/about/#mission" style={{ width: "100%", justifyContent: "center" }}>
+                Read Our Mission →
+              </a>
+            </div>
           </div>
         </div>
       </section>

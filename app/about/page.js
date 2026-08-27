@@ -433,58 +433,6 @@ export default function AboutPage() {
           </div>
         </div>
       </section>
-
-      {/* Associated Institutes & Academic Alliances — relocated from the Home
-          page as part of the content-architecture pass. Markup/classes
-          reused verbatim. */}
-      <section id="network" style={{ background: "var(--bg-elev)", borderTop: "1px solid var(--line)", borderBottom: "1px solid var(--line)" }}>
-        <div className="wrap">
-          <div className="section-head">
-            <div className="section-eyebrow">Academic Backbone &amp; Alliances</div>
-            <h2 className="section-title">Associated Institutes &amp; Institutional Network.</h2>
-            <div className="section-desc">
-              Organized under the apex patronship of the India Genius Foundation and supported by distinguished academic councils, premier school networks, and teacher development bodies across India.
-            </div>
-          </div>
-
-          <div className="inst-marquee-wrap">
-            <div className="inst-marquee-track">
-              {[
-                { img: "/assets/images/aipa-logo.png", title: "India Genius Foundation", sub: "National Patron" },
-                { img: "/assets/images/indian-students-classroom.jpg", title: "School Exam Centers", sub: "500+ Affiliated Schools" },
-                { img: "/assets/images/robotics-stem-kids.jpg", title: "Space & STEM Hubs", sub: "ISRO / STEM Alliances" },
-                { img: "/assets/images/student-champions.jpg", title: "National Rankers", sub: "Grand Finale Qualifiers" },
-                { img: "/assets/images/kids-coding-stem.jpg", title: "AI & Coding Labs", sub: "Emerging Tech Arena" },
-                { img: "/assets/images/school-assembly-awards.jpg", title: "District Merit Awards", sub: "Inter-School Rounds" },
-                { img: "/assets/images/young-genius.jpg", title: "Diagnostic Evaluations", sub: "Young Genius Network" },
-                { img: "/assets/images/kids-science-collab.jpg", title: "Pedagogy Board", sub: "NEP 2020 Frameworks" },
-                { img: "/assets/images/student-achievement.jpg", title: "National Felicitations", sub: "State & National Merit" },
-                { img: "/assets/images/girl-studying-laptop.jpg", title: "Digital Test Portal", sub: "Pan-India Access" },
-                { img: "/assets/images/aipa-logo.png", title: "India Genius Foundation", sub: "National Patron" },
-                { img: "/assets/images/indian-students-classroom.jpg", title: "School Exam Centers", sub: "500+ Affiliated Schools" },
-                { img: "/assets/images/robotics-stem-kids.jpg", title: "Space & STEM Hubs", sub: "ISRO / STEM Alliances" },
-                { img: "/assets/images/student-champions.jpg", title: "National Rankers", sub: "Grand Finale Qualifiers" },
-                { img: "/assets/images/kids-coding-stem.jpg", title: "AI & Coding Labs", sub: "Emerging Tech Arena" },
-                { img: "/assets/images/school-assembly-awards.jpg", title: "District Merit Awards", sub: "Inter-School Rounds" },
-                { img: "/assets/images/young-genius.jpg", title: "Diagnostic Evaluations", sub: "Young Genius Network" },
-                { img: "/assets/images/kids-science-collab.jpg", title: "Pedagogy Board", sub: "NEP 2020 Frameworks" },
-                { img: "/assets/images/student-achievement.jpg", title: "National Felicitations", sub: "State & National Merit" },
-                { img: "/assets/images/girl-studying-laptop.jpg", title: "Digital Test Portal", sub: "Pan-India Access" },
-              ].map((item, idx) => (
-                <div key={idx} className="inst-float-item">
-                  <div className="inst-float-avatar">
-                    <img src={item.img} alt={item.title} loading="lazy" />
-                  </div>
-                  <div className="inst-float-info">
-                    <span className="inst-float-title">{item.title}</span>
-                    <span className="inst-float-sub">{item.sub}</span>
-                  </div>
-                </div>
-              ))}
-            </div>
-          </div>
-        </div>
-      </section>
     </>
   );
 }
