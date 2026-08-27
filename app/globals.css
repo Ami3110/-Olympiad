@@ -444,7 +444,12 @@ a {
   }
 
   .hero-panoramic-visual-wrap {
+    /* Desktop keeps this a row so the absolutely-positioned button pills
+       can overlay the image. On mobile the buttons drop into normal flow
+       (position:relative below) — row direction was leaving them fighting
+       the image for horizontal space instead of stacking underneath it. */
     flex: none;
+    flex-direction: column;
     align-items: center;
     margin-top: 12px;
   }
@@ -463,10 +468,14 @@ a {
     bottom: auto;
     left: auto;
     transform: none;
+    /* Base rule is row + width:max-content — with two 100%-width buttons
+       that overflowed the viewport (second button clipped invisible off
+       the right edge). Stack them instead. */
+    flex-direction: column;
     margin-top: 10px;
     gap: 10px;
     width: 100%;
-    max-width: 100%;
+    max-width: 320px;
   }
 
   .hero-pill-btn {
@@ -1640,6 +1649,18 @@ h2.section-title {
   text-transform: uppercase;
   color: var(--ink-faint);
   margin-top: 4px;
+}
+
+@media (max-width: 900px) {
+  .feature-float-card {
+    /* -20px right offset is fine on desktop where .wrap has generous
+       side gutters; on narrow screens it pushes the card past the
+       viewport edge. Placed after the base rule so it actually wins
+       the cascade (equal specificity, source order decides). */
+    right: 4px;
+    bottom: -14px;
+    padding: 12px 16px;
+  }
 }
 
 .principles-list {
