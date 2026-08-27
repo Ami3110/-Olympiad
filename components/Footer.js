@@ -20,7 +20,7 @@ export default function Footer() {
               <div className="footer-brand-logo-wrap">
                 <img
                   src="/assets/images/aipa-logo.png"
-                  alt="India Genius Olympiad & AIPA"
+                  alt="India Genius Olympiad & India Genius Foundation"
                   width={46}
                   height={46}
                 />

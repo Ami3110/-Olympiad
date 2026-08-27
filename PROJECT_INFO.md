@@ -7,7 +7,7 @@ first; deeper history lives in `README.md` and `CONTINUATION_PROMPT.md`.
 
 A multi-page marketing site for the India Genius Olympiad — a multi-subject
 school competition (AI, Cybersecurity, Financial Literacy, Space Science,
-etc.) across age groups from PG to Class XII, run by AIPA. No user accounts,
+etc.) across age groups from PG to Class XII, run by India Genius Foundation. No user accounts,
 no database. Registration happens entirely on **external Google Forms** —
 this site just links out to them.
 

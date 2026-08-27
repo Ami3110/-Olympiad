@@ -161,7 +161,7 @@ export default function HomePage() {
                 <div className="vision-pillar-tags">
                   <div className="vision-tag-item">
                     <span className="vision-tag-icon">🏛️</span>
-                    <span>Organized under the Aegis of All India Principals Association (AIPA)</span>
+                    <span>Organized under the Aegis of India Genius Foundation</span>
                   </div>
                   <div className="vision-tag-item">
                     <span className="vision-tag-icon">🇮🇳</span>
@@ -552,7 +552,7 @@ export default function HomePage() {
             <div className="about-home-content">
               <div className="about-home-eyebrow">
                 <span>🏛️</span>
-                <span>All India Principals Association (AIPA) Movement</span>
+                <span>India Genius Foundation Movement</span>
               </div>
 
               <h2 className="about-home-title">
@@ -560,7 +560,7 @@ export default function HomePage() {
               </h2>
 
               <p className="about-home-desc">
-                The <strong>India Genius Olympiad (IGO)</strong>, organized by the <strong>All India Principals Association (AIPA)</strong>, is a premier academic assessment organization committed to advancing Olympiad exams for school students through modern, AI-powered, and curriculum-aligned assessments. Our Olympiads are designed to focus on learning, understanding, and academic growth beyond just ranks and medals.
+                The <strong>India Genius Olympiad (IGO)</strong>, organized by the <strong>India Genius Foundation</strong>, is a premier academic assessment organization committed to advancing Olympiad exams for school students through modern, AI-powered, and curriculum-aligned assessments. Our Olympiads are designed to focus on learning, understanding, and academic growth beyond just ranks and medals.
               </p>
 
               <p className="about-home-desc-secondary">
@@ -600,14 +600,14 @@ export default function HomePage() {
           <SHead
             eyebrow="Academic Backbone &amp; Alliances"
             title="Associated Institutes &amp; Institutional Network."
-            desc="Organized under the apex patronship of the All India Principals Association (AIPA) and supported by distinguished academic councils, premier school networks, and teacher development bodies across India."
+            desc="Organized under the apex patronship of the India Genius Foundation and supported by distinguished academic councils, premier school networks, and teacher development bodies across India."
           />
 
           {/* Continuous Floating Rounded Images Marquee */}
           <div className="inst-marquee-wrap">
             <div className="inst-marquee-track">
               {[
-                { img: "/assets/images/aipa-logo.png", title: "AIPA Apex Forum", sub: "National Patron" },
+                { img: "/assets/images/aipa-logo.png", title: "India Genius Foundation", sub: "National Patron" },
                 { img: "/assets/images/indian-students-classroom.jpg", title: "School Exam Centers", sub: "500+ Affiliated Schools" },
                 { img: "/assets/images/robotics-stem-kids.jpg", title: "Space & STEM Hubs", sub: "ISRO / STEM Alliances" },
                 { img: "/assets/images/student-champions.jpg", title: "National Rankers", sub: "Grand Finale Qualifiers" },
@@ -617,7 +617,7 @@ export default function HomePage() {
                 { img: "/assets/images/kids-science-collab.jpg", title: "Pedagogy Board", sub: "NEP 2020 Frameworks" },
                 { img: "/assets/images/student-achievement.jpg", title: "National Felicitations", sub: "State & National Merit" },
                 { img: "/assets/images/girl-studying-laptop.jpg", title: "Digital Test Portal", sub: "Pan-India Access" },
-                { img: "/assets/images/aipa-logo.png", title: "AIPA Apex Forum", sub: "National Patron" },
+                { img: "/assets/images/aipa-logo.png", title: "India Genius Foundation", sub: "National Patron" },
                 { img: "/assets/images/indian-students-classroom.jpg", title: "School Exam Centers", sub: "500+ Affiliated Schools" },
                 { img: "/assets/images/robotics-stem-kids.jpg", title: "Space & STEM Hubs", sub: "ISRO / STEM Alliances" },
                 { img: "/assets/images/student-champions.jpg", title: "National Rankers", sub: "Grand Finale Qualifiers" },

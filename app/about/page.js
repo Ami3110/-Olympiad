@@ -1,7 +1,7 @@
 export const metadata = {
-  title: "About Us & Leadership — India Genius Olympiad | AIPA",
+  title: "About Us & Leadership — India Genius Olympiad | India Genius Foundation",
   description:
-    "Discover the mission, philosophy, academic pillars, and leadership behind India Genius Olympiad — an educational movement by the All India Principals Association (AIPA) empowering school students across India.",
+    "Discover the mission, philosophy, academic pillars, and leadership behind India Genius Olympiad — an educational movement by the India Genius Foundation empowering school students across India.",
 };
 
 export default function AboutPage() {
@@ -81,14 +81,14 @@ export default function AboutPage() {
 
             <p className="syl-hero-desc">
               An educational movement dedicated to discovering, nurturing, and recognizing young academic talent across Indian schools. 
-              Organized by the All India Principals Association (AIPA) to champion competency-based learning and conceptual excellence.
+              Organized by the India Genius Foundation to champion competency-based learning and conceptual excellence.
             </p>
 
             {/* Quick Hero Highlights Pills */}
             <div className="syl-hero-pills">
               <div className="syl-hero-pill">
                 <span className="syl-hero-pill-icon">🏛️</span>
-                <span><strong>AIPA</strong> Backed</span>
+                <span><strong>India Genius Foundation</strong> Backed</span>
               </div>
               <div className="syl-hero-pill">
                 <span className="syl-hero-pill-icon">🎓</span>
@@ -217,7 +217,7 @@ export default function AboutPage() {
                 {/* Default Initial Bottom Scrim */}
                 <div className="organizer-initial-scrim">
                   <h3 className="organizer-initial-name">Dr. Amit Sehgal</h3>
-                  <div className="organizer-initial-tag">Uttarakhand State President, AIPA</div>
+                  <div className="organizer-initial-tag">Uttarakhand State President, India Genius Foundation</div>
                 </div>
 
                 {/* Half-Cover Glass Details Overlay */}
@@ -226,7 +226,7 @@ export default function AboutPage() {
                     <div className="drawer-role-tag">Founder &middot; Educationist</div>
                     <h3 className="drawer-organizer-name">Dr. Amit Sehgal</h3>
                     <p className="drawer-organizer-desc">
-                      Uttarakhand State President, All India Principals Association (AIPA). Leading pioneer in school academic assessments and student empowerment.
+                      Uttarakhand State President, India Genius Foundation. Leading pioneer in school academic assessments and student empowerment.
                     </p>
                     <a href="tel:+918077074761" className="drawer-contact-btn">
                       <span>📞</span> 8077074761
@@ -281,10 +281,10 @@ export default function AboutPage() {
                 Institutional Backbone
               </div>
               <h3 style={{ fontFamily: "var(--display)", fontSize: 24, fontWeight: 800, color: "#FFFFFF", marginBottom: 8 }}>
-                All India Principals Association (AIPA)
+                India Genius Foundation
               </h3>
               <p style={{ fontSize: 14.5, color: "rgba(255, 255, 255, 0.8)", lineHeight: 1.65 }}>
-                AIPA brings together school principals, academic coordinators, and visionary educators across India to maintain uncompromised examination integrity and benchmark educational quality.
+                India Genius Foundation brings together school principals, academic coordinators, and visionary educators across India to maintain uncompromised examination integrity and benchmark educational quality.
               </p>
             </div>
             <div style={{ display: "flex", gap: 14, flexWrap: "wrap" }}>

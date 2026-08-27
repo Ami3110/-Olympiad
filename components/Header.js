@@ -122,7 +122,7 @@ export default function Header() {
                 <div className="dropdown-icon-box">ℹ️</div>
                 <div className="dropdown-text-wrap">
                   <div className="dropdown-title">About Us &amp; Leadership</div>
-                  <div className="dropdown-desc">AIPA national educational movement</div>
+                  <div className="dropdown-desc">India Genius Foundation national movement</div>
                 </div>
                 <span className="dropdown-hover-arrow">➔</span>
               </a>

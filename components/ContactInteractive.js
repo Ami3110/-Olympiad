@@ -66,7 +66,7 @@ export default function ContactInteractive() {
                   <h3 className="founder-name">Dr. Amit Sehgal</h3>
                   <div className="founder-tag">Founder &amp; Convener</div>
                   <p className="founder-role-text">Founder &ndash; India Genius Olympiad</p>
-                  <p className="founder-role-text">Uttarakhand State President &ndash; All India Principals Association (AIPA)</p>
+                  <p className="founder-role-text">Uttarakhand State President &ndash; India Genius Foundation</p>
                 </div>
               </div>
               <a className="founder-phone-btn" href="tel:+918077074761">

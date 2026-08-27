@@ -69,7 +69,7 @@ const COLLAB_PILLARS = [
   {
     icon: "🏫",
     title: "Pan-India School Outreach",
-    desc: "All India Principals Association (AIPA) connects school principals, academic leaders, and educators for national-scale impact.",
+    desc: "India Genius Foundation connects school principals, academic leaders, and educators for national-scale impact.",
   },
 ];
 

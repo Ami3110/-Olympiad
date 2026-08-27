@@ -7,7 +7,7 @@ export const metadata = {
     template: "%s | India Genius Olympiad",
     default: "India Genius Olympiad | Multi-Subject National Olympiad for Classes PG–XII",
   },
-  description: "The India Genius Olympiad is a national multi-subject Olympiad for classes PG through XII, organized by AIPA.",
+  description: "The India Genius Olympiad is a national multi-subject Olympiad for classes PG through XII, organized by India Genius Foundation.",
 };
 
 export const viewport = {
