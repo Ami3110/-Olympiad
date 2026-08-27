@@ -433,6 +433,29 @@ a {
 @media (max-width: 768px) {
   .hero-panoramic-section {
     padding: 16px 0 16px;
+    /* Desktop forces min-height: calc(100vh - 105px) so the visual sits
+       pinned to the bottom of a full-viewport-tall section. On mobile
+       that stretches the section far taller than its actual content
+       (heading + image + buttons), and since .hero-panoramic-visual-wrap
+       is flex:1 + align-items:flex-end, the image gets shoved to the
+       bottom of that empty space — a large blank gap under the heading.
+       Let mobile size to content instead. */
+    min-height: auto;
+  }
+
+  .hero-panoramic-visual-wrap {
+    flex: none;
+    align-items: center;
+    margin-top: 12px;
+  }
+
+  .hero-panoramic-img {
+    /* The -13% pull-up is tuned for the desktop overlay composition;
+       on mobile (no more flex:1 stretch to counteract) it would just
+       crop the image into the heading. */
+    margin-top: 0;
+    min-height: 0;
+    max-height: 55vh;
   }
 
   .hero-panoramic-actions.hero-actions-on-bg {
@@ -937,6 +960,8 @@ nav.main-nav {
     margin-top: 4px !important;
     min-width: 0 !important;
     width: 100% !important;
+    max-height: none !important;
+    overflow-y: visible !important;
     display: none;
     animation: none !important;
   }
