@@ -16,8 +16,8 @@ export default function AwardsInteractive() {
       borderColor: "rgba(13, 122, 103, 0.25)",
       glowColor: "rgba(13, 122, 103, 0.18)",
       items: [
-        "Participation Certificate",
-        "School Qualifier Certificate",
+        "Participation Certificate for all participants",
+        "School Qualifier Certificate & e-Certificate",
       ],
     },
     {
@@ -30,8 +30,8 @@ export default function AwardsInteractive() {
       borderColor: "rgba(193, 101, 12, 0.25)",
       glowColor: "rgba(193, 101, 12, 0.18)",
       items: [
-        "District Winner / Runner-up",
-        "Merit Certificate + Medal",
+        "District Winners, Runner-ups & Merit Certificate",
+        "Gold, Silver & Bronze Medals, as applicable",
       ],
     },
     {
@@ -44,8 +44,8 @@ export default function AwardsInteractive() {
       borderColor: "rgba(30, 95, 138, 0.25)",
       glowColor: "rgba(30, 95, 138, 0.18)",
       items: [
-        "State Winner / Runner-up",
-        "Merit Certificate + Medal/Trophy",
+        "State Winners, Runner-ups & Merit Certificate",
+        "Gold, Silver & Bronze Medals and/or Trophies",
       ],
     },
     {
@@ -59,8 +59,8 @@ export default function AwardsInteractive() {
       glowColor: "rgba(230, 81, 0, 0.22)",
       highlight: true,
       items: [
-        "National Champion / Runner-up",
-        "Merit + Trophy/Medal/Certificate",
+        "National Champion, Runner-ups & Merit Recognition",
+        "Trophy and/or Medal + Official National Certificate",
       ],
     },
   ];

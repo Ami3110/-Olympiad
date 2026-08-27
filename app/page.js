@@ -1,13 +1,9 @@
 import AccordionItem from "../components/AccordionItem";
-import HeroCollage from "../components/HeroCollage";
-import HeroWaves from "../components/HeroWaves";
 import AwardsInteractive from "../components/AwardsInteractive";
 import {
   WhyCollabScene,
-  TrophyScene,
   DivisionIllustration,
   JourneyIllustration,
-  FAQIllustration,
 } from "../components/Visuals";
 
 export const metadata = {
@@ -50,262 +46,114 @@ export default function HomePage() {
   return (
     <>
       {/* ====================================================
-          HERO — FULL-WIDTH FLOWING WAVES & INTERACTIVE COLLAGE
+          HERO — FULL-WIDTH PANORAMIC STUDENTS HERO
+          LOCKED: do not change layout, height, typography, colors,
+          imagery, CTAs, or spacing. See redesign brief — Hero is
+          the site's visual identity and stays exactly as-is.
           ==================================================== */}
-      <section className="hero-mockup-exact">
-        {/* Full-Width Flowing Minimal Waves Animation */}
-        <HeroWaves />
+      <section className="hero-panoramic-section">
+        <div className="hero-panoramic-container">
+          {/* Centered Main Headline */}
+          <div className="hero-panoramic-header">
+            <h1 className="hero-panoramic-heading">
+              <span className="hero-head-navy">Where Curiosity</span>
+              <span className="hero-head-orange">Becomes Genius.</span>
+            </h1>
+          </div>
 
-        <div className="wrap">
-          {/* 2-Column Hero Grid */}
-          <div className="hero-main-grid">
-            {/* Left Content Column */}
-            <div className="hero-content-col">
-              <h1 className="hero-heading-exact">
-                <span className="heading-line-1">Where Curiosity</span>
-                <span className="heading-line-2">
-                  Becomes Genius.
-                  <svg className="brush-underline" viewBox="0 0 320 20" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M4 14 C60 5, 180 3, 316 12 C240 7, 120 7, 10 16" stroke="#F5A623" strokeWidth="4.5" strokeLinecap="round" />
+          {/* Central Visual: Prominent Students Group with Embedded Action Buttons */}
+          <div className="hero-panoramic-visual-wrap">
+            <img
+              src="/assets/images/hero-students-clean-nobuttons.png"
+              alt="Where Curiosity Becomes Genius — Indian school students excelling in science, mathematics, AI robotics, and olympiads"
+              className="hero-panoramic-img"
+            />
+
+            {/* Standalone Action Buttons positioned directly on the same background canvas */}
+            <div className="hero-panoramic-actions hero-actions-on-bg">
+              <a
+                className="hero-pill-btn hero-pill-btn-student"
+                href="https://forms.gle/KvAiXYv1CRr5E1Y17"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Student Registration Form"
+              >
+                <span className="hero-pill-icon-wrap">
+                  <svg className="hero-btn-svg-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round">
+                    <path d="M22 10v6M2 10l10-5 10 5-10 5z" />
+                    <path d="M6 12v5c3 3 9 3 12 0v-5" />
                   </svg>
                 </span>
-              </h1>
-
-              <p className="hero-lead-text">
-                India Genius Olympiad is a premier national-level multi-subject competition designed to discover, encourage, and recognize the academic talent of students from Pre-Primary (PG) to Class XII.
-              </p>
-
-              <div className="hero-tagline-bar">
-                <span className="orange-pipe">|</span> Think. Learn. Compete. Grow.
-              </div>
-
-              {/* CTAs */}
-              <div className="hero-action-buttons">
-                <a
-                  className="btn-exact-student"
-                  href="https://forms.gle/KvAiXYv1CRr5E1Y17"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  Register as Student ➔
-                </a>
-                <a
-                  className="btn-exact-school"
-                  href="https://forms.gle/ZLuKVuR8XXWMrToW8"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  Register School ↗
-                </a>
-              </div>
-
-              {/* 3 Bottom Feature Cards */}
-              <div className="hero-feature-pills">
-                <div className="feature-pill-item">
-                  <span className="pill-icon">💡</span>
-                  <div className="pill-text-wrap">
-                    <div className="pill-title">Build</div>
-                    <div className="pill-sub">Future Skills</div>
-                  </div>
-                </div>
-
-                <div className="feature-pill-item">
-                  <span className="pill-icon">🏆</span>
-                  <div className="pill-text-wrap">
-                    <div className="pill-title">National</div>
-                    <div className="pill-sub">Recognition</div>
-                  </div>
-                </div>
-
-                <div className="feature-pill-item">
-                  <span className="pill-icon">🎓</span>
-                  <div className="pill-text-wrap">
-                    <div className="pill-title">Pathway to</div>
-                    <div className="pill-sub">Greater Opportunities</div>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            {/* Right Visual Column: Interactive 3D Multi-Card Collage */}
-            <div className="hero-collage-col">
-              <HeroCollage />
+                <span className="hero-pill-text">Student Register</span>
+                <span className="hero-pill-arrow">➔</span>
+              </a>
+              <a
+                className="hero-pill-btn hero-pill-btn-school"
+                href="https://forms.gle/ZLuKVuR8XXWMrToW8"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="School Registration Form"
+              >
+                <span className="hero-pill-icon-wrap">
+                  <svg className="hero-btn-svg-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round">
+                    <path d="M3 21h18M3 10h18M5 6l7-3 7 3M4 10v11M20 10v11M8 14v3M12 14v3M16 14v3" />
+                  </svg>
+                </span>
+                <span className="hero-pill-text">School Register</span>
+                <span className="hero-pill-arrow">➔</span>
+              </a>
             </div>
           </div>
         </div>
       </section>
 
       {/* ====================================================
-          SECTION 1: VISION & STRATEGIC OBJECTIVES
+          SECTION 1: SHORT INTRODUCTION
+          Compact — heading, 2-3 line description, 4 quick stats,
+          single CTA. Full "About the Olympiad" story lives on
+          /olympiad-info/.
           ==================================================== */}
-      <section id="vision" style={{ background: "var(--bg-elev)", borderBottom: "1px solid var(--line)" }}>
+      <section id="intro" style={{ background: "var(--bg-elev)", borderBottom: "1px solid var(--line)" }}>
         <div className="wrap">
-          <div className="vision-obj-grid">
-            {/* Left Column: Vision & Guiding Purpose */}
-            <div>
-              <div className="vision-col-header">
-                <div className="section-eyebrow">Why This Olympiad</div>
-                <h2 className="vision-col-title">Vision.</h2>
-              </div>
+          <SHead
+            eyebrow="India Genius Olympiad"
+            title="A National Platform for Every Curious Mind."
+            desc="A multi-subject academic competition for students from Pre-Primary to Class XII — assessing conceptual understanding across future-ready disciplines, not rote memorisation."
+            center
+            maxWidth={720}
+          />
 
-              <div className="vision-card">
-                <div className="vision-badge">
-                  <span className="vision-badge-dot" />
-                  Guiding Purpose
-                </div>
-
-                <p className="vision-statement">
-                  To ignite curiosity, scientific thinking, and innovation among students while nurturing the next generation of Indian space scientists, engineers, astronauts, AI researchers, and multidisciplinary innovators.
-                </p>
-
-                <div className="vision-pillar-tags">
-                  <div className="vision-tag-item">
-                    <span className="vision-tag-icon">🏛️</span>
-                    <span>Organized under the Aegis of India Genius Foundation</span>
-                  </div>
-                  <div className="vision-tag-item">
-                    <span className="vision-tag-icon">🇮🇳</span>
-                    <span>Nationwide Reach spanning Pre-Primary (PG) to Class XII</span>
-                  </div>
-                  <div className="vision-tag-item">
-                    <span className="vision-tag-icon">🚀</span>
-                    <span>Aligned with NEP 2020 Experiential Learning Frameworks</span>
-                  </div>
-                </div>
-
-                <a className="btn btn-ghost" href="/syllabus/" style={{ width: "100%", justifyContent: "center" }}>
-                  Explore Learning Roadmap →
-                </a>
-              </div>
+          <div className="oi-stat-row" style={{ maxWidth: 760, margin: "0 auto 36px" }}>
+            <div className="oi-stat-card">
+              <div className="oi-stat-num">6</div>
+              <div className="oi-stat-label">Age Divisions</div>
             </div>
-
-            {/* Right Column: Strategic Objectives */}
-            <div>
-              <div className="vision-col-header">
-                <div className="section-eyebrow">What We&apos;re Building Toward</div>
-                <h2 className="vision-col-title">Strategic Objectives.</h2>
-              </div>
-
-              <div className="objectives-list">
-                {[
-                  {
-                    num: "01",
-                    tag: "Awareness",
-                    desc: "Promote national awareness about India's monumental achievements in space science, astronomy, AI, and futuristic technologies.",
-                  },
-                  {
-                    num: "02",
-                    tag: "Curiosity",
-                    desc: "Encourage active interest and inquiry in Astronomy, Astrophysics, Robotics, Space Technology, and Satellite Applications.",
-                  },
-                  {
-                    num: "03",
-                    tag: "Skill-Building",
-                    desc: "Develop scientific temperament, algorithmic thinking, logical reasoning, and practical problem-solving skills from school years.",
-                  },
-                  {
-                    num: "04",
-                    tag: "Career Pathways",
-                    desc: "Inspire and mentor students towards pioneering careers in ISRO, DRDO, IN-SPACe, deep-tech research, and global innovation industries.",
-                  },
-                  {
-                    num: "05",
-                    tag: "Celebration",
-                    desc: "Celebrate National Space Day and student academic brilliance through a prestigious nationwide competition and merit recognition.",
-                  },
-                ].map(({ num, tag, desc }) => (
-                  <div key={num} className="objective-card">
-                    <div className="objective-step-badge">{num}</div>
-                    <div className="objective-body">
-                      <div className="objective-title">
-                        <span className="objective-title-tag">{tag}:</span>
-                      </div>
-                      <div className="objective-desc">{desc}</div>
-                    </div>
-                  </div>
-                ))}
-              </div>
+            <div className="oi-stat-card">
+              <div className="oi-stat-num">4</div>
+              <div className="oi-stat-label">Competition Levels</div>
             </div>
+            <div className="oi-stat-card">
+              <div className="oi-stat-num">₹80</div>
+              <div className="oi-stat-label">Per Subject</div>
+            </div>
+            <div className="oi-stat-card">
+              <div className="oi-stat-num">2026–27</div>
+              <div className="oi-stat-label">Active Session</div>
+            </div>
+          </div>
+
+          <div style={{ textAlign: "center" }}>
+            <a className="btn btn-ghost" href="/olympiad-info/">
+              Explore the Olympiad →
+            </a>
           </div>
         </div>
       </section>
 
       {/* ====================================================
-          SECTION 2: ACADEMIC PHILOSOPHY — MORE THAN AN OLYMPIAD
-          ==================================================== */}
-      <section id="philosophy">
-        <div className="wrap">
-          <div className="feature-split">
-            {/* Visual column */}
-            <div className="feature-image-wrap">
-              <WhyCollabScene />
-              <div className="feature-float-card">
-                <div className="ffc-num">15+</div>
-                <div className="ffc-label">Olympiad Subjects</div>
-              </div>
-            </div>
-
-            {/* Content column */}
-            <div>
-              <SHead
-                eyebrow="Academic Philosophy"
-                title="More Than an Olympiad."
-                desc="A competition structured to evaluate how students think, analyze, deduce, and innovate — benchmarking real understanding beyond textbook memorisation."
-              />
-
-              <div className="principles-list">
-                {[
-                  {
-                    num: "01",
-                    title: "Conceptual Rigour",
-                    desc: "Move beyond rote learning. Strengthen fundamental reasoning, logic, and analytical problem-solving skills.",
-                  },
-                  {
-                    num: "02",
-                    title: "Future-Ready Disciplines",
-                    desc: "Assessments in Artificial Intelligence, Cyber Security, Financial Literacy, Environmental Sciences, and Modern Mathematics.",
-                  },
-                  {
-                    num: "03",
-                    title: "Applied Problem Solving",
-                    desc: "Real-world scenarios designed by leading educators and academicians to test practical problem-solving.",
-                  },
-                  {
-                    num: "04",
-                    title: "National Benchmarking",
-                    desc: "Students receive detailed diagnostic reports, state and national rankings, and recognized merit credentials.",
-                  },
-                ].map(({ num, title, desc }) => (
-                  <div key={num} className="principle-item">
-                    <div className="principle-num">{num}</div>
-                    <div>
-                      <div className="principle-title">{title}</div>
-                      <div className="principle-desc">{desc}</div>
-                    </div>
-                  </div>
-                ))}
-              </div>
-
-              <div style={{ marginTop: 36, display: "flex", gap: 12, flexWrap: "wrap" }}>
-                <a
-                  className="btn btn-primary"
-                  href="https://forms.gle/KvAiXYv1CRr5E1Y17"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  Register as Student ↗
-                </a>
-                <a className="btn btn-ghost" href="#olympiad">
-                  View Age Groups
-                </a>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* ====================================================
-          AGE GROUPS — 6 DIVISIONS (CLASSES PG TO XII)
+          SECTION 2: FIND YOUR DIVISION — the primary discovery
+          section. 6 divisions, no subject lists here — those live
+          on /subjects/ and the per-division syllabus pages.
           ==================================================== */}
       <section id="olympiad">
         <div className="wrap">
@@ -321,15 +169,15 @@ export default function HomePage() {
           >
             <SHead
               eyebrow="Divisions"
-              title="Find Your Division."
+              title="Find Your Olympiad."
               desc="Six structured age-appropriate divisions, from Pre-Primary all the way to Class XII. Every grade level has a tailored academic challenge."
             />
             <a
               className="btn btn-ghost"
-              href="/syllabus/"
+              href="/subjects/"
               style={{ flexShrink: 0, marginBottom: 4 }}
             >
-              View Syllabus ↗
+              View All Subjects ↗
             </a>
           </div>
 
@@ -404,51 +252,24 @@ export default function HomePage() {
       </section>
 
       {/* ====================================================
-          COMPETITION JOURNEY — 4 LEVELS
+          SECTION 3: COMPETITION JOURNEY — 4 stages, one line each.
+          Full round-by-round detail lives on /olympiad-info/#structure.
           ==================================================== */}
       <section id="stages">
         <div className="wrap">
           <SHead
             eyebrow="Examination Structure"
             title="Four-Level National Progression."
-            desc="A structured competitive journey designed to challenge students at their school, district, regional, and national levels."
+            desc="A structured competitive journey from the school level all the way to the national stage."
           />
 
           <div className="journey-grid journey-grid-four">
             {[
-              {
-                level: 1,
-                levelNum: "01",
-                levelTag: "Stage 1",
-                title: "School Selection Round",
-                desc: "Offline, within school. Students compete in their respective class/category with an objective/MCQ-based exam. Each school selects its top performers to advance.",
-                awards: ["School Participation Certificate", "School Level Merit Rank", "Qualification for District Round"],
-              },
-              {
-                level: 2,
-                levelNum: "02",
-                levelTag: "Stage 2",
-                title: "District Round",
-                desc: "Conducted through registered school test centers and authenticated online portals across India.",
-                awards: ["District Merit Certificate", "Diagnostic Performance Scorecard", "Qualification for State Round"],
-              },
-              {
-                level: 3,
-                levelNum: "03",
-                levelTag: "Stage 3",
-                title: "Regional / State Round",
-                desc: "Top percentile achievers from the district round compete against regional merit rankers.",
-                awards: ["State Merit Certificate", "Medals for Top Rankers", "Grand Finale Qualification"],
-              },
-              {
-                level: 4,
-                levelNum: "04",
-                levelTag: "Stage 4",
-                title: "National Grand Finale",
-                desc: "The nation's highest-scoring students gather for the decisive national championship.",
-                awards: ["Gold, Silver & Bronze Trophies", "India Genius of the Year Title", "National Felicitation"],
-              },
-            ].map(({ level, levelTag, title, desc, awards }) => (
+              { level: 1, levelTag: "Stage 1", title: "School Selection", desc: "Offline, within school — top performers advance." },
+              { level: 2, levelTag: "Stage 2", title: "District Round", desc: "Inter-school competition across registered centers." },
+              { level: 3, levelTag: "Stage 3", title: "Regional / State", desc: "Top district achievers compete regionally." },
+              { level: 4, levelTag: "Stage 4", title: "National Grand Finale", desc: "The nation's top scorers compete for the title." },
+            ].map(({ level, levelTag, title, desc }) => (
               <div key={title} className="journey-card">
                 <div className="journey-card-image">
                   <JourneyIllustration level={level} />
@@ -457,194 +278,109 @@ export default function HomePage() {
                   <div className="journey-level-tag">{levelTag}</div>
                   <h4>{title}</h4>
                   <p>{desc}</p>
-                  <ul>
-                    {awards.map((a) => (
-                      <li key={a}>{a}</li>
-                    ))}
-                  </ul>
                 </div>
               </div>
             ))}
+          </div>
+
+          <div style={{ textAlign: "center", marginTop: 36 }}>
+            <a className="btn btn-ghost" href="/olympiad-info/#structure">
+              View Competition Structure →
+            </a>
           </div>
         </div>
       </section>
 
       {/* ====================================================
-          AWARDS & RECOGNITION — 4 TIER FRAMEWORK
+          SECTION 4: WHY INDIA GENIUS OLYMPIAD? — compact preview
+          of the 4 core principles. Full Vision & Strategic
+          Objectives now live on /about/#vision.
           ==================================================== */}
-      <section id="awards">
+      <section id="philosophy">
+        <div className="wrap">
+          <div className="feature-split">
+            {/* Visual column */}
+            <div className="feature-image-wrap">
+              <WhyCollabScene />
+              <div className="feature-float-card">
+                <div className="ffc-num">6</div>
+                <div className="ffc-label">Age Divisions</div>
+              </div>
+            </div>
+
+            {/* Content column */}
+            <div>
+              <SHead
+                eyebrow="Why India Genius Olympiad?"
+                title="More Than an Olympiad."
+                desc="A competition structured to evaluate how students think, analyze, deduce, and innovate — benchmarking real understanding beyond textbook memorisation."
+              />
+
+              <div className="principles-list">
+                {[
+                  {
+                    num: "01",
+                    title: "Conceptual Rigour",
+                    desc: "Move beyond rote learning. Strengthen fundamental reasoning, logic, and analytical problem-solving skills.",
+                  },
+                  {
+                    num: "02",
+                    title: "Future-Ready Disciplines",
+                    desc: "Assessments in Artificial Intelligence, Cyber Security, Financial Literacy, Environmental Sciences, and Modern Mathematics.",
+                  },
+                  {
+                    num: "03",
+                    title: "Applied Problem Solving",
+                    desc: "Real-world scenarios designed by leading educators and academicians to test practical problem-solving.",
+                  },
+                  {
+                    num: "04",
+                    title: "National Benchmarking",
+                    desc: "Students receive detailed diagnostic reports, state and national rankings, and recognized merit credentials.",
+                  },
+                ].map(({ num, title, desc }) => (
+                  <div key={num} className="principle-item">
+                    <div className="principle-num">{num}</div>
+                    <div>
+                      <div className="principle-title">{title}</div>
+                      <div className="principle-desc">{desc}</div>
+                    </div>
+                  </div>
+                ))}
+              </div>
+
+              <div style={{ marginTop: 36 }}>
+                <a className="btn btn-ghost" href="/about/#vision">
+                  Explore Our Philosophy →
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* ====================================================
+          SECTION 5: AWARDS PREVIEW — 4 tiers, short form. Full
+          award framework lives on /olympiad-info/#awards.
+          ==================================================== */}
+      <section id="awards-preview">
         <div className="wrap">
           <SHead
             eyebrow="Recognition &amp; Honours"
             title="Olympiad Awards Framework."
-            desc="Comprehensive recognition and merit honors across all four tiers of the national competition."
+            desc="Merit recognition at every stage of the national competition."
           />
           <AwardsInteractive />
-        </div>
-      </section>
-
-      {/* ====================================================
-          SLOGAN BANNER
-          ==================================================== */}
-      <div className="slogan-banner">
-        <div className="tag">Empowering India&apos;s Academic Potential</div>
-        <h3>
-          Think Critically. Compete Fairly.<br />
-          Achieve Nationally.
-        </h3>
-      </div>
-
-      {/* ====================================================
-          INSPIRING VOICES
-          ==================================================== */}
-      <section id="voices">
-        <div className="wrap">
-          <SHead
-            eyebrow="Inspiration"
-            title="Voices of Indian Excellence."
-            desc="Drawing inspiration from great thinkers and educators whose dedication to learning transformed our nation."
-          />
-          <div className="quote-grid">
-            {[
-              {
-                text: "&ldquo;Learning gives creativity, creativity leads to thinking, thinking provides knowledge, and knowledge makes you great.&rdquo;",
-                name: "Dr. A.P.J. Abdul Kalam",
-                role: "Scientist & Former President of India",
-              },
-              {
-                text: "&ldquo;An equation for me has no meaning unless it expresses a thought of God.&rdquo;",
-                name: "Srinivasa Ramanujan",
-                role: "Legendary Indian Mathematician",
-              },
-              {
-                text: "&ldquo;Arise, awake, and stop not until the goal is reached.&rdquo;",
-                name: "Swami Vivekananda",
-                role: "Philosopher & Educationist",
-              },
-              {
-                text: "&ldquo;We must be second to none in the application of advanced knowledge to the real problems of society.&rdquo;",
-                name: "Dr. Vikram Sarabhai",
-                role: "Visionary Scientist & Institution Builder",
-              },
-            ].map(({ text, name, role }) => (
-              <div key={name} className="quote-card">
-                <span className="mark">&quot;</span>
-                <p className="qtext" dangerouslySetInnerHTML={{ __html: text }} />
-                <div className="qwho">
-                  <b>{name}</b>, {role}
-                </div>
-              </div>
-            ))}
+          <div style={{ textAlign: "center", marginTop: 36 }}>
+            <a className="btn btn-ghost" href="/olympiad-info/#awards">
+              View Award Structure →
+            </a>
           </div>
         </div>
       </section>
 
       {/* ====================================================
-          ABOUT US BANNER — WARM THEMED & HIGH IMPACT (LINKS TO /about)
-          ==================================================== */}
-      <section id="about" className="about-home-section">
-        <div className="wrap">
-          <div className="about-home-card">
-            {/* Subtle Honeycomb Pattern Overlay */}
-            <div className="about-home-pattern" />
-
-            {/* Left Content Area */}
-            <div className="about-home-content">
-              <div className="about-home-eyebrow">
-                <span>🏛️</span>
-                <span>India Genius Foundation Movement</span>
-              </div>
-
-              <h2 className="about-home-title">
-                About Us
-              </h2>
-
-              <p className="about-home-desc">
-                The <strong>India Genius Olympiad (IGO)</strong>, organized by the <strong>India Genius Foundation</strong>, is a premier academic assessment organization committed to advancing Olympiad exams for school students through modern, AI-powered, and curriculum-aligned assessments. Our Olympiads are designed to focus on learning, understanding, and academic growth beyond just ranks and medals.
-              </p>
-
-              <p className="about-home-desc-secondary">
-                Our assessments are meticulously aligned with the principles of NEP 2020, emphasising competency-based education, conceptual clarity, and holistic student development across 6 age divisions (PG–XII).
-              </p>
-
-              <a href="/about/" className="about-view-more-btn" aria-label="View more about India Genius Olympiad and Leadership">
-                <span>View More</span>
-                <span className="about-btn-arrow-circle">➔</span>
-              </a>
-            </div>
-
-            {/* Right Visual Area with Curious Student & Floating Elements */}
-            <div className="about-home-visual">
-              {/* Floating Curious Question Marks */}
-              <span className="about-qmark about-qmark-1">?</span>
-              <span className="about-qmark about-qmark-2">?</span>
-              <span className="about-qmark about-qmark-3">?</span>
-
-              <div className="about-home-img-wrap">
-                <img
-                  src="/assets/images/about-student-portrait.jpg"
-                  alt="Curious student contemplating future learning with India Genius Olympiad"
-                  className="about-home-img"
-                />
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* ====================================================
-          ASSOCIATED INSTITUTES & ACADEMIC ALLIANCES
-          ==================================================== */}
-      <section id="institutes" style={{ background: "var(--bg-elev)", borderTop: "1px solid var(--line)", borderBottom: "1px solid var(--line)" }}>
-        <div className="wrap">
-          <SHead
-            eyebrow="Academic Backbone &amp; Alliances"
-            title="Associated Institutes &amp; Institutional Network."
-            desc="Organized under the apex patronship of the India Genius Foundation and supported by distinguished academic councils, premier school networks, and teacher development bodies across India."
-          />
-
-          {/* Continuous Floating Rounded Images Marquee */}
-          <div className="inst-marquee-wrap">
-            <div className="inst-marquee-track">
-              {[
-                { img: "/assets/images/aipa-logo.png", title: "India Genius Foundation", sub: "National Patron" },
-                { img: "/assets/images/indian-students-classroom.jpg", title: "School Exam Centers", sub: "500+ Affiliated Schools" },
-                { img: "/assets/images/robotics-stem-kids.jpg", title: "Space & STEM Hubs", sub: "ISRO / STEM Alliances" },
-                { img: "/assets/images/student-champions.jpg", title: "National Rankers", sub: "Grand Finale Qualifiers" },
-                { img: "/assets/images/kids-coding-stem.jpg", title: "AI & Coding Labs", sub: "Emerging Tech Arena" },
-                { img: "/assets/images/school-assembly-awards.jpg", title: "District Merit Awards", sub: "Inter-School Rounds" },
-                { img: "/assets/images/young-genius.jpg", title: "Diagnostic Evaluations", sub: "Young Genius Network" },
-                { img: "/assets/images/kids-science-collab.jpg", title: "Pedagogy Board", sub: "NEP 2020 Frameworks" },
-                { img: "/assets/images/student-achievement.jpg", title: "National Felicitations", sub: "State & National Merit" },
-                { img: "/assets/images/girl-studying-laptop.jpg", title: "Digital Test Portal", sub: "Pan-India Access" },
-                { img: "/assets/images/aipa-logo.png", title: "India Genius Foundation", sub: "National Patron" },
-                { img: "/assets/images/indian-students-classroom.jpg", title: "School Exam Centers", sub: "500+ Affiliated Schools" },
-                { img: "/assets/images/robotics-stem-kids.jpg", title: "Space & STEM Hubs", sub: "ISRO / STEM Alliances" },
-                { img: "/assets/images/student-champions.jpg", title: "National Rankers", sub: "Grand Finale Qualifiers" },
-                { img: "/assets/images/kids-coding-stem.jpg", title: "AI & Coding Labs", sub: "Emerging Tech Arena" },
-                { img: "/assets/images/school-assembly-awards.jpg", title: "District Merit Awards", sub: "Inter-School Rounds" },
-                { img: "/assets/images/young-genius.jpg", title: "Diagnostic Evaluations", sub: "Young Genius Network" },
-                { img: "/assets/images/kids-science-collab.jpg", title: "Pedagogy Board", sub: "NEP 2020 Frameworks" },
-                { img: "/assets/images/student-achievement.jpg", title: "National Felicitations", sub: "State & National Merit" },
-                { img: "/assets/images/girl-studying-laptop.jpg", title: "Digital Test Portal", sub: "Pan-India Access" },
-              ].map((item, idx) => (
-                <div key={idx} className="inst-float-item">
-                  <div className="inst-float-avatar">
-                    <img src={item.img} alt={item.title} loading="lazy" />
-                  </div>
-                  <div className="inst-float-info">
-                    <span className="inst-float-title">{item.title}</span>
-                    <span className="inst-float-sub">{item.sub}</span>
-                  </div>
-                </div>
-              ))}
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* ====================================================
-          REGISTRATION — HIGH CONVERSION CTA
+          SECTION 6: REGISTRATION CTA
           ==================================================== */}
       <section className="register-hero" id="register" style={{ background: "linear-gradient(135deg, #14172A 0%, #202945 50%, #173830 100%)" }}>
         <div className="register-hero-content">
@@ -677,7 +413,7 @@ export default function HomePage() {
                 letterSpacing: "-0.015em",
               }}
             >
-              Ready to Compete on the National Stage?
+              Ready to Begin Your Genius Journey?
             </h2>
 
             <p
@@ -731,78 +467,54 @@ export default function HomePage() {
       </section>
 
       {/* ====================================================
-          FAQ — TWO COLUMN
+          SECTION 7: FAQ — Clean, simple centered layout
           ==================================================== */}
-      <section id="faq">
-        <div className="wrap">
-          <div className="faq-grid">
-            {/* Left: visual */}
-            <div className="faq-left-image">
-              <FAQIllustration />
-            </div>
-
-            {/* Right: accordion */}
-            <div>
-              <SHead
-                eyebrow="Frequently Asked Questions"
-                title="Everything You Need to Know."
-                desc="Clear details regarding eligibility, subjects, examination format, and registration."
-              />
-
-              <AccordionItem id="faq-1" title="What is the India Genius Olympiad?">
-                <p>
-                  India Genius Olympiad is a national-level multi-subject competitive examination for school students from Pre-Primary (PG) to Class XII, assessing emerging competencies such as AI, Cyber Security, Financial Literacy, Mathematics, Sciences, and Critical Thinking.
-                </p>
-              </AccordionItem>
-              <AccordionItem id="faq-2" title="Which subjects are available for my child's class?">
-                <p>
-                  Subjects are tailored by age division: 3 foundation subjects for Classes III–V, up to 9 specialized Olympiads for Classes XI–XII. Visit the{" "}
-                  <a href="/syllabus/" style={{ color: "var(--saffron)", fontWeight: 600 }}>
-                    Syllabus by Age Group
-                  </a>{" "}
-                  page for complete division curriculum.
-                </p>
-              </AccordionItem>
-              <AccordionItem id="faq-3" title="What is the examination format?">
-                <p>
-                  The assessment features objective multiple-choice questions (MCQs) designed to test conceptual understanding, practical application, and logical analysis rather than simple recall.
-                </p>
-              </AccordionItem>
-              <AccordionItem id="faq-4" title="Can the exam be taken online or offline?">
-                <p>
-                  District Round examinations can be conducted through school exam halls or secure online assessment portals as designated by the participating institution.
-                </p>
-              </AccordionItem>
-              <AccordionItem id="faq-5" title="What is the fee per student?">
-                <p>
-                  The registration fee is ₹80 per subject, per student. Students are encouraged to participate in multiple Olympiad subjects within their class group.
-                </p>
-              </AccordionItem>
-              <AccordionItem id="faq-6" title="How can our school register?">
-                <p>
-                  Schools can register directly using the School Registration Google Form linked in the header or contact the coordinator team directly.
-                </p>
-              </AccordionItem>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* ====================================================
-          TESTIMONIALS PLACEHOLDER
-          ==================================================== */}
-      <section id="testimonials">
+      <section id="faq" style={{ padding: "80px 0" }}>
         <div className="wrap">
           <SHead
-            eyebrow="Testimonials"
-            title="Voices from Schools &amp; Parents."
+            eyebrow="Frequently Asked Questions"
+            title="Everything You Need to Know."
+            desc="Clear answers to the questions we hear most."
+            center
+            maxWidth={760}
           />
-          <div className="testimonial-grid">
-            {[1, 2, 3].map((i) => (
-              <div key={i} className="testimonial-card">
-                <p className="placeholder-note">School &amp; parent testimonials coming soon for Session 2026&ndash;27.</p>
-              </div>
-            ))}
+
+          <div style={{ maxWidth: 840, margin: "0 auto" }}>
+            <AccordionItem id="faq-1" title="What is the India Genius Olympiad?">
+              <p>
+                India Genius Olympiad is a national-level multi-subject competitive examination for school students from Pre-Primary (PG) to Class XII, assessing emerging competencies such as AI, Cyber Security, Financial Literacy, Mathematics, Sciences, and Critical Thinking.
+              </p>
+            </AccordionItem>
+            <AccordionItem id="faq-2" title="Who can participate?">
+              <p>
+                Any student from Pre-Primary (PG) through Class XII, at any CBSE, ICSE, or State Board school across India, can participate — either through their school or by registering individually.
+              </p>
+            </AccordionItem>
+            <AccordionItem id="faq-3" title="Which subjects are available for my child's class?">
+              <p>
+                Subjects are tailored by age division. Visit the{" "}
+                <a href="/subjects/" style={{ color: "var(--saffron)", fontWeight: 600 }}>
+                  Subjects
+                </a>{" "}
+                page for the complete division-wise list.
+              </p>
+            </AccordionItem>
+            <AccordionItem id="faq-4" title="What is the fee per student?">
+              <p>
+                The registration fee is ₹80 per subject, per student. Students are encouraged to participate in multiple Olympiad subjects within their class group.
+              </p>
+            </AccordionItem>
+            <AccordionItem id="faq-5" title="How can our school register?">
+              <p>
+                Schools can register directly using the School Registration Google Form linked in the header or contact the coordinator team directly.
+              </p>
+            </AccordionItem>
+
+            <div style={{ marginTop: 32, textAlign: "center" }}>
+              <a className="btn btn-ghost" href="/olympiad-info/#faq">
+                Explore More FAQs →
+              </a>
+            </div>
           </div>
         </div>
       </section>

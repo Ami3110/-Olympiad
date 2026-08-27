@@ -111,47 +111,171 @@ export default function AboutPage() {
         </div>
       </section>
 
-      {/* Mission, Vision & Core Philosophy */}
-      <section style={{ paddingTop: 64, paddingBottom: 64 }}>
+      {/* About Us — India Genius Foundation, org-level framing (new content
+          pass, Aug 2026). Reuses the Mission section's centered-prose
+          pattern for a multi-paragraph body. */}
+      <section id="about" style={{ paddingTop: 64, paddingBottom: 56 }}>
         <div className="wrap">
-          <div style={{ maxWidth: 820, margin: "0 auto", textAlign: "center" }}>
+          <div style={{ maxWidth: 820, margin: "0 auto" }}>
+            <div className="section-eyebrow" style={{ justifyContent: "center" }}>Who We Are</div>
+            <h2 style={{ fontFamily: "var(--display)", fontSize: "clamp(28px, 3.5vw, 42px)", fontWeight: 800, color: "var(--ink)", letterSpacing: "-0.02em", marginBottom: 20, textAlign: "center" }}>
+              About India Genius Foundation
+            </h2>
+            <div style={{ fontSize: 15.5, color: "var(--ink-dim)", lineHeight: 1.75, display: "flex", flexDirection: "column", gap: 16 }}>
+              <p>
+                India Genius Foundation is an education-focused organisation committed to discovering, nurturing and celebrating the unique talents, abilities and potential of learners across India. Through meaningful academic, intellectual and career-oriented initiatives, the Foundation provides platforms that encourage students to learn beyond textbooks, explore new areas of knowledge and develop the skills needed for the future.
+              </p>
+              <p>
+                The Foundation conducts a wide range of programmes and activities, including Olympiads, Live Quizzes, Psychometric Tests for different age groups and levels, Education Fairs, Career Guidance and Counselling Seminars, Talent Assessments, Academic Competitions, Workshops and other initiatives related to education and matters of national importance.
+              </p>
+              <p>
+                Through its flagship India Genius Olympiad and other educational programmes, the Foundation aims to make learning more engaging, challenging, inclusive and relevant. Our initiatives encourage students to strengthen their knowledge, analytical thinking, creativity, problem-solving ability, communication skills, decision-making and real-world understanding.
+              </p>
+              <p>
+                Our programmes cover diverse academic and future-focused areas, including Science, Mathematics, Artificial Intelligence, Technology, Financial Literacy, Space Science, Environmental Studies, Cybersecurity, Entrepreneurship, Psychology, Reasoning, General Knowledge, Indian Knowledge Systems, Leadership, Life Skills and other emerging fields.
+              </p>
+              <p>
+                India Genius Foundation also recognises the importance of helping students understand themselves and make informed choices about their future. Through psychometric assessments, career guidance programmes, counselling sessions and education fairs, we seek to help learners identify their interests, strengths, abilities and potential career pathways.
+              </p>
+              <p>
+                Through age-appropriate competitions, assessments, learning resources, interactive events, expert sessions and recognition programmes, India Genius Foundation strives to identify the potential of every learner and inspire them to pursue excellence with confidence.
+              </p>
+            </div>
+            <p style={{ textAlign: "center", color: "var(--ink-dim)", fontSize: 15, marginTop: 20, fontStyle: "italic" }}>
+              Our vision is to contribute towards the development of knowledgeable, skilled, creative, responsible and future-ready citizens who can positively contribute to society and the progress of the nation.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      {/* Vision — new Foundation-level statement (replaces the earlier
+          space-science-specific framing). Reuses the vision-card pattern. */}
+      <section id="vision" style={{ background: "var(--bg-elev)", borderTop: "1px solid var(--line)", borderBottom: "1px solid var(--line)", paddingTop: 64, paddingBottom: 64 }}>
+        <div className="wrap">
+          <div style={{ maxWidth: 720, margin: "0 auto" }}>
+            <div className="vision-col-header" style={{ textAlign: "center" }}>
+              <div className="section-eyebrow" style={{ justifyContent: "center" }}>Why India Genius Foundation</div>
+              <h2 className="vision-col-title">Vision.</h2>
+            </div>
+
+            <div className="vision-card">
+              <div className="vision-badge">
+                <span className="vision-badge-dot" />
+                Guiding Purpose
+              </div>
+
+              <p className="vision-statement">
+                To become a leading national platform for discovering, nurturing and empowering the intellectual, academic, creative and professional potential of learners across India. We envision an education ecosystem where every learner is provided meaningful opportunities to discover their strengths, explore their interests, develop future-ready skills and pursue excellence with confidence.
+              </p>
+
+              <div className="vision-pillar-tags">
+                <div className="vision-tag-item">
+                  <span className="vision-tag-icon">🏛️</span>
+                  <span>A Leading National Learner-Discovery Platform</span>
+                </div>
+                <div className="vision-tag-item">
+                  <span className="vision-tag-icon">🇮🇳</span>
+                  <span>Nationwide Reach spanning Pre-Primary (PG) to Class XII</span>
+                </div>
+                <div className="vision-tag-item">
+                  <span className="vision-tag-icon">🚀</span>
+                  <span>Innovative Assessments, Guidance &amp; Events of National Importance</span>
+                </div>
+              </div>
+
+              <a className="btn btn-ghost" href="/syllabus/" style={{ width: "100%", justifyContent: "center" }}>
+                Explore Learning Roadmap →
+              </a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Mission — 9 commitments, reusing the numbered objectives-list
+          pattern (previously "Strategic Objectives"). */}
+      <section id="mission" style={{ paddingTop: 64, paddingBottom: 64 }}>
+        <div className="wrap">
+          <div style={{ maxWidth: 820, margin: "0 auto", textAlign: "center", marginBottom: 40 }}>
             <div className="section-eyebrow" style={{ justifyContent: "center" }}>
               Our Foundation &amp; Ethos
             </div>
             <h2 style={{ fontFamily: "var(--display)", fontSize: "clamp(28px, 3.5vw, 42px)", fontWeight: 800, color: "var(--ink)", letterSpacing: "-0.02em", marginBottom: 16 }}>
-              Advancing School Education Through Meaningful Assessment
+              Mission.
             </h2>
             <p style={{ fontSize: 16.5, color: "var(--ink-dim)", lineHeight: 1.7 }}>
-              The National Olympiad Foundation and India Genius Olympiad exist to redefine competitive examinations in India. 
-              We replace rote memorization and high-stress competition with an enriching educational journey designed for conceptual understanding, critical thinking, and holistic development.
+              Our mission is to create meaningful and accessible educational opportunities that inspire learners to learn, think, explore, discover and excel. We are committed to:
             </p>
           </div>
 
-          <div className="about-mission-grid">
-            <div className="about-mission-card">
-              <div className="about-mission-icon">🎯</div>
-              <h3 className="about-mission-title">Beyond Ranks &amp; Medals</h3>
-              <p className="about-mission-desc">
-                We believe true excellence comes from self-discovery and diagnostic feedback. Every student receives detailed analytical reports highlighting cognitive strengths and learning opportunities.
-              </p>
-            </div>
-
-            <div className="about-mission-card">
-              <div className="about-mission-icon">📜</div>
-              <h3 className="about-mission-title">100% NEP 2020 Aligned</h3>
-              <p className="about-mission-desc">
-                Our curriculum and examination frameworks are built strictly around the National Education Policy 2020 guidelines, emphasizing multidisciplinary curiosity and foundational literacy.
-              </p>
-            </div>
-
-            <div className="about-mission-card">
-              <div className="about-mission-icon">🌏</div>
-              <h3 className="about-mission-title">Universal Accessibility</h3>
-              <p className="about-mission-desc">
-                With an affordable ₹80 nominal entry fee, we ensure that every curious child across metro cities, tier-2 towns, and rural schools has an equal stage to shine and be celebrated.
-              </p>
-            </div>
+          <div className="objectives-list" style={{ maxWidth: 820, margin: "0 auto" }}>
+            {[
+              { num: "01", tag: "Competitions", desc: "Conducting Olympiads, Live Quizzes, Academic Competitions and Talent Assessments across diverse subjects and emerging fields." },
+              { num: "02", tag: "Assessments", desc: "Organising Psychometric Tests and Assessments to help learners understand their interests, strengths, abilities and potential." },
+              { num: "03", tag: "Guidance", desc: "Providing Career Guidance, Counselling and Career Awareness Seminars to support informed educational and career choices." },
+              { num: "04", tag: "Events", desc: "Organising Education Fairs, Workshops, Seminars, Conferences and Interactive Learning Programmes for students, educators, parents and institutions." },
+              { num: "05", tag: "Critical Thinking", desc: "Encouraging curiosity, creativity, critical thinking, analytical ability, problem-solving and innovation among learners." },
+              { num: "06", tag: "National Awareness", desc: "Promoting awareness and learning in areas of national importance, contemporary developments and future-ready skills." },
+              { num: "07", tag: "Recognition", desc: "Recognising and celebrating academic excellence, talent, innovation, leadership and outstanding achievement." },
+              { num: "08", tag: "Collaboration", desc: "Creating opportunities for schools, educators, experts, institutions and learners to collaborate for the advancement of education." },
+              { num: "09", tag: "Character", desc: "Supporting the development of confident, ethical, responsible and future-ready citizens who can contribute positively to society and the nation." },
+            ].map(({ num, tag, desc }) => (
+              <div key={num} className="objective-card">
+                <div className="objective-step-badge">{num}</div>
+                <div className="objective-body">
+                  <div className="objective-title">
+                    <span className="objective-title-tag">{tag}:</span>
+                  </div>
+                  <div className="objective-desc">{desc}</div>
+                </div>
+              </div>
+            ))}
           </div>
+        </div>
+      </section>
+
+      {/* Our Belief — new section, same numbered-list pattern as Mission. */}
+      <section id="belief" style={{ background: "var(--bg-elev)", borderTop: "1px solid var(--line)", borderBottom: "1px solid var(--line)", paddingTop: 64, paddingBottom: 64 }}>
+        <div className="wrap">
+          <div style={{ maxWidth: 820, margin: "0 auto", textAlign: "center", marginBottom: 40 }}>
+            <div className="section-eyebrow" style={{ justifyContent: "center" }}>
+              What Drives Us
+            </div>
+            <h2 style={{ fontFamily: "var(--display)", fontSize: "clamp(28px, 3.5vw, 42px)", fontWeight: 800, color: "var(--ink)", letterSpacing: "-0.02em", marginBottom: 16 }}>
+              Our Belief.
+            </h2>
+            <p style={{ fontSize: 16.5, color: "var(--ink-dim)", lineHeight: 1.7 }}>
+              At India Genius Foundation, we believe that every learner has the potential to excel when given the right opportunity, encouragement and guidance. True learning should develop knowledge, curiosity, creativity, confidence, character, critical thinking and the ability to apply learning in real-life situations. We believe that:
+            </p>
+          </div>
+
+          <div className="objectives-list" style={{ maxWidth: 820, margin: "0 auto" }}>
+            {[
+              { num: "01", tag: "Uniqueness", desc: "Every child is unique and possesses special strengths and abilities." },
+              { num: "02", tag: "Nurture", desc: "Talent can be discovered, nurtured and developed through the right opportunities." },
+              { num: "03", tag: "Real-World Learning", desc: "Learning should be engaging, meaningful, challenging and connected to the real world." },
+              { num: "04", tag: "Beyond Marks", desc: "Assessment should help identify potential, not merely measure marks." },
+              { num: "05", tag: "Healthy Competition", desc: "Competition, when healthy and purposeful, inspires students to challenge themselves and strive for excellence." },
+              { num: "06", tag: "Self-Awareness", desc: "Career guidance and self-awareness are essential for helping young people make informed choices about their future." },
+              { num: "07", tag: "Responsible Tech", desc: "Technology and Artificial Intelligence should be used responsibly to strengthen learning and prepare students for the future." },
+              { num: "08", tag: "Values & Excellence", desc: "Education must promote both excellence and values, creating responsible citizens along with successful individuals." },
+              { num: "09", tag: "Opportunity", desc: "Every learner deserves the opportunity to dream big, discover their potential and achieve their best." },
+              { num: "10", tag: "Nation's Future", desc: "The progress of a nation depends on the quality, knowledge, skills, character and vision of its young generation." },
+            ].map(({ num, tag, desc }) => (
+              <div key={num} className="objective-card">
+                <div className="objective-step-badge">{num}</div>
+                <div className="objective-body">
+                  <div className="objective-title">
+                    <span className="objective-title-tag">{tag}:</span>
+                  </div>
+                  <div className="objective-desc">{desc}</div>
+                </div>
+              </div>
+            ))}
+          </div>
+
+          <p style={{ textAlign: "center", color: "var(--ink-dim)", fontSize: 15, marginTop: 32, fontStyle: "italic" }}>
+            We believe in discovering potential, inspiring excellence and empowering the future.
+          </p>
         </div>
       </section>
 
@@ -183,7 +307,7 @@ export default function AboutPage() {
       </section>
 
       {/* Leadership & Organization Section */}
-      <section style={{ paddingTop: 64, paddingBottom: 72 }}>
+      <section id="leadership" style={{ paddingTop: 64, paddingBottom: 72 }}>
         <div className="wrap">
           <div style={{ textAlign: "center", maxWidth: 780, margin: "0 auto 40px" }}>
             <div className="section-eyebrow" style={{ justifyContent: "center" }}>
@@ -275,7 +399,7 @@ export default function AboutPage() {
           </div>
 
           {/* Institutional Backing Box */}
-          <div className="about-impact-banner">
+          <div id="foundation" className="about-impact-banner">
             <div style={{ maxWidth: 640 }}>
               <div style={{ fontFamily: "var(--mono)", fontSize: 11, fontWeight: 700, textTransform: "uppercase", letterSpacing: "0.12em", color: "var(--saffron)", marginBottom: 8 }}>
                 Institutional Backbone
@@ -305,6 +429,58 @@ export default function AboutPage() {
               >
                 Register Student ↗
               </a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Associated Institutes & Academic Alliances — relocated from the Home
+          page as part of the content-architecture pass. Markup/classes
+          reused verbatim. */}
+      <section id="network" style={{ background: "var(--bg-elev)", borderTop: "1px solid var(--line)", borderBottom: "1px solid var(--line)" }}>
+        <div className="wrap">
+          <div className="section-head">
+            <div className="section-eyebrow">Academic Backbone &amp; Alliances</div>
+            <h2 className="section-title">Associated Institutes &amp; Institutional Network.</h2>
+            <div className="section-desc">
+              Organized under the apex patronship of the India Genius Foundation and supported by distinguished academic councils, premier school networks, and teacher development bodies across India.
+            </div>
+          </div>
+
+          <div className="inst-marquee-wrap">
+            <div className="inst-marquee-track">
+              {[
+                { img: "/assets/images/aipa-logo.png", title: "India Genius Foundation", sub: "National Patron" },
+                { img: "/assets/images/indian-students-classroom.jpg", title: "School Exam Centers", sub: "500+ Affiliated Schools" },
+                { img: "/assets/images/robotics-stem-kids.jpg", title: "Space & STEM Hubs", sub: "ISRO / STEM Alliances" },
+                { img: "/assets/images/student-champions.jpg", title: "National Rankers", sub: "Grand Finale Qualifiers" },
+                { img: "/assets/images/kids-coding-stem.jpg", title: "AI & Coding Labs", sub: "Emerging Tech Arena" },
+                { img: "/assets/images/school-assembly-awards.jpg", title: "District Merit Awards", sub: "Inter-School Rounds" },
+                { img: "/assets/images/young-genius.jpg", title: "Diagnostic Evaluations", sub: "Young Genius Network" },
+                { img: "/assets/images/kids-science-collab.jpg", title: "Pedagogy Board", sub: "NEP 2020 Frameworks" },
+                { img: "/assets/images/student-achievement.jpg", title: "National Felicitations", sub: "State & National Merit" },
+                { img: "/assets/images/girl-studying-laptop.jpg", title: "Digital Test Portal", sub: "Pan-India Access" },
+                { img: "/assets/images/aipa-logo.png", title: "India Genius Foundation", sub: "National Patron" },
+                { img: "/assets/images/indian-students-classroom.jpg", title: "School Exam Centers", sub: "500+ Affiliated Schools" },
+                { img: "/assets/images/robotics-stem-kids.jpg", title: "Space & STEM Hubs", sub: "ISRO / STEM Alliances" },
+                { img: "/assets/images/student-champions.jpg", title: "National Rankers", sub: "Grand Finale Qualifiers" },
+                { img: "/assets/images/kids-coding-stem.jpg", title: "AI & Coding Labs", sub: "Emerging Tech Arena" },
+                { img: "/assets/images/school-assembly-awards.jpg", title: "District Merit Awards", sub: "Inter-School Rounds" },
+                { img: "/assets/images/young-genius.jpg", title: "Diagnostic Evaluations", sub: "Young Genius Network" },
+                { img: "/assets/images/kids-science-collab.jpg", title: "Pedagogy Board", sub: "NEP 2020 Frameworks" },
+                { img: "/assets/images/student-achievement.jpg", title: "National Felicitations", sub: "State & National Merit" },
+                { img: "/assets/images/girl-studying-laptop.jpg", title: "Digital Test Portal", sub: "Pan-India Access" },
+              ].map((item, idx) => (
+                <div key={idx} className="inst-float-item">
+                  <div className="inst-float-avatar">
+                    <img src={item.img} alt={item.title} loading="lazy" />
+                  </div>
+                  <div className="inst-float-info">
+                    <span className="inst-float-title">{item.title}</span>
+                    <span className="inst-float-sub">{item.sub}</span>
+                  </div>
+                </div>
+              ))}
             </div>
           </div>
         </div>

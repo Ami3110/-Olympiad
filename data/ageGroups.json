@@ -15,45 +15,51 @@
     "slug": "primary",
     "name": "Primary",
     "classes": "Classes III – V",
+    "level": "Explore Level",
     "subjects": [
-      { "slug": "computer-ai-awareness", "name": "Computer & AI Awareness" },
-      { "slug": "financial-literacy", "name": "Financial Literacy" },
-      { "slug": "environmental-climate-studies", "name": "Environmental & Climate Studies" },
-      { "slug": "space-science-astronomy", "name": "Space Science & Astronomy" }
+      { "slug": "mental-ability-reasoning", "name": "Mental Ability & Reasoning Olympiad" },
+      { "slug": "computer-coding-genius", "name": "Computer & Coding Genius Olympiad" },
+      { "slug": "space-science-astronomy", "name": "Space Science & Astronomy Olympiad" },
+      { "slug": "innovation-young-entrepreneur", "name": "Innovation & Young Entrepreneur Olympiad" },
+      { "slug": "india-genius-gk-heritage", "name": "India Genius GK & Heritage Olympiad" }
     ]
   },
   {
     "slug": "middle",
     "name": "Middle",
     "classes": "Classes VI – VIII",
+    "level": "Develop Level",
     "subjects": [
-      { "slug": "ai-emerging-technology", "name": "Artificial Intelligence & Emerging Technology" },
-      { "slug": "cybersecurity-digital-safety", "name": "Cybersecurity & Digital Safety" },
-      { "slug": "financial-literacy", "name": "Financial Literacy" },
-      { "slug": "space-science-astronomy", "name": "Space Science & Astronomy" },
-      { "slug": "climate-sustainability", "name": "Climate & Sustainability" }
+      { "slug": "ai-emerging-technology", "name": "Artificial Intelligence & Emerging Technology Olympiad" },
+      { "slug": "cybersecurity-digital-safety", "name": "Cybersecurity & Digital Safety Olympiad" },
+      { "slug": "financial-literacy", "name": "Financial Literacy Olympiad" },
+      { "slug": "space-science-astronomy", "name": "Space Science & Astronomy Olympiad" },
+      { "slug": "climate-sustainability", "name": "Climate & Sustainability Olympiad" },
+      { "slug": "kaushal-bodh", "name": "Kaushal Bodh Olympiad" },
+      { "slug": "digital-citizenship", "name": "Digital Citizenship Olympiad" },
+      { "slug": "indian-heritage", "name": "Indian Heritage Olympiad" }
     ]
   },
   {
     "slug": "secondary",
     "name": "Secondary",
     "classes": "Classes IX – X",
+    "level": "Master Level",
     "subjects": [
-      { "slug": "ai-machine-learning", "name": "Artificial Intelligence & Machine Learning" },
-      { "slug": "cybersecurity-ethical-hacking", "name": "Cybersecurity & Ethical Hacking" },
-      { "slug": "financial-literacy", "name": "Financial Literacy" },
-      { "slug": "space-science-astronomy", "name": "Space Science & Astronomy" },
-      { "slug": "behavioural-science-psychology", "name": "Behavioural Science & Psychology" },
-      { "slug": "climate-sustainability", "name": "Climate & Sustainability" },
-      { "slug": "entrepreneurship-innovation", "name": "Entrepreneurship & Innovation" }
+      { "slug": "ai-machine-learning", "name": "Artificial Intelligence & Machine Learning Olympiad" },
+      { "slug": "cybersecurity-ethical-hacking", "name": "Cybersecurity & Ethical Hacking Olympiad" },
+      { "slug": "financial-literacy", "name": "Financial Markets Olympiad" },
+      { "slug": "behavioural-science-psychology", "name": "Behavioural Science & Psychology Olympiad" },
+      { "slug": "climate-sustainability", "name": "Climate & Sustainability Olympiad" },
+      { "slug": "entrepreneurship-innovation", "name": "Entrepreneurship & Innovation Olympiad" }
     ]
   },
   {
     "slug": "senior-secondary",
     "name": "Senior Secondary",
     "classes": "Classes XI – XII",
+    "level": "Lead Level",
     "subjects": [
-      { "slug": "ai-emerging-technology-olympiad", "name": "Artificial Intelligence & Emerging Technology Olympiad" },
       { "slug": "cybersecurity-digital-safety-olympiad", "name": "Cybersecurity & Digital Safety Olympiad" },
       { "slug": "financial-literacy-olympiad", "name": "Financial Literacy Olympiad" },
       { "slug": "entrepreneurship-innovation-olympiad", "name": "Entrepreneurship & Innovation Olympiad" },
