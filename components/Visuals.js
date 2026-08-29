@@ -55,12 +55,12 @@ export function TrophyScene() {
 
 export function DivisionIllustration({ type }) {
   const images = {
-    foundation: "/assets/images/young-genius.jpg",
-    junior: "/assets/images/kids-coding-stem.jpg",
-    primary: "/assets/images/indian-students-classroom.jpg",
-    middle: "/assets/images/kids-science-collab.jpg",
-    secondary: "/assets/images/girl-studying-laptop.jpg",
-    senior: "/assets/images/student-champions.jpg",
+    foundation: "/assets/images/age-group-foundation.jpg",
+    junior: "/assets/images/age-group-junior.jpg",
+    primary: "/assets/images/age-group-primary.jpg",
+    middle: "/assets/images/age-group-middle.jpg",
+    secondary: "/assets/images/age-group-secondary.jpg",
+    senior: "/assets/images/age-group-senior.jpg",
   };
 
   const src = images[type] || images.primary;
@@ -70,10 +70,10 @@ export function DivisionIllustration({ type }) {
       <img
         src={src}
         alt={`${type} division students`}
-        style={{ width: "100%", height: "100%", objectFit: "cover" }}
+        style={{ width: "100%", height: "100%", objectFit: "cover", objectPosition: "center 20%" }}
         loading="lazy"
       />
-      <div style={{ position: "absolute", inset: 0, background: "linear-gradient(to top, rgba(20,23,42,0.5) 0%, transparent 60%)" }} />
+      <div style={{ position: "absolute", inset: 0, background: "linear-gradient(to top, rgba(20,23,42,0.4) 0%, transparent 60%)" }} />
     </div>
   );
 }
