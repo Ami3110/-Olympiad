@@ -57,7 +57,7 @@ export default function HomePage() {
           <div className="hero-panoramic-header">
             <h1 className="hero-panoramic-heading">
               <span className="hero-head-navy">Where Curiosity</span>
-              <span className="hero-head-orange">Becomes Genius.</span>
+              <span className="hero-head-orange">Becomes Genius</span>
             </h1>
             {/* Decorative swoosh — a plain sibling of the heading (not
                 absolutely positioned over the image), so it always stays

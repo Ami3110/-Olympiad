@@ -81,19 +81,19 @@ export function DivisionIllustration({ type }) {
 export function JourneyIllustration({ level }) {
   const levelImages = {
     1: {
-      img: "/assets/images/indian-students-classroom.jpg",
+      img: "/assets/images/student-exam-hall.jpg",
       tag: "Intra-School Round",
     },
     2: {
-      img: "/assets/images/young-genius.jpg",
+      img: "/assets/images/age-group-secondary.jpg",
       tag: "District Test Center",
     },
     3: {
-      img: "/assets/images/kids-coding-stem.jpg",
+      img: "/assets/images/school-campus-building.jpg",
       tag: "State Regional Championship",
     },
     4: {
-      img: "/assets/images/student-champions.jpg",
+      img: "/assets/images/national-olympiad-champions.jpg",
       tag: "National Grand Finale",
     },
   };
@@ -105,7 +105,7 @@ export function JourneyIllustration({ level }) {
       <img
         src={current.img}
         alt={current.tag}
-        style={{ width: "100%", height: "100%", objectFit: "cover" }}
+        style={{ width: "100%", height: "100%", objectFit: "cover", objectPosition: "center 25%" }}
         loading="lazy"
       />
       <div style={{ position: "absolute", inset: 0, background: "linear-gradient(to top, rgba(20,23,42,0.75) 0%, transparent 60%)" }} />

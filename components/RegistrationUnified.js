@@ -24,7 +24,7 @@ const STUDENT_SUBJECTS = [
 
 const STUDENT_VISUAL = {
   src: "/assets/images/student-exam-hall.jpg",
-  heading: "Where Curiosity Becomes Genius.",
+  heading: "Where Curiosity Becomes Genius",
   desc: "Empowering individual students from PG to Class XII across 25+ modern & foundational subjects.",
   badge: "Student Registration",
   badgeColor: "#E65A00",
