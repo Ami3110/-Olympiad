@@ -58,7 +58,7 @@ export default function ContactInteractive() {
             <div className="founder-card">
               <div className="founder-profile-row">
                 <img
-                  className="founder-photo"
+                  className="founder-photo founder-photo-amit"
                   src="/assets/images/amit-sehgal.jpg"
                   alt="Dr. Amit Sehgal"
                 />
@@ -79,7 +79,7 @@ export default function ContactInteractive() {
             <div className="founder-card">
               <div className="founder-profile-row">
                 <img
-                  className="founder-photo"
+                  className="founder-photo founder-photo-rishi"
                   src="/assets/images/rishi-kant-upadhyaya.jpg"
                   alt="Mr. Rishi Kant Upadhyaya"
                 />

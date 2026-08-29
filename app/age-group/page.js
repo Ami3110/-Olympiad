@@ -95,14 +95,14 @@ export default function AgeGroupPage() {
             </a>
           </div>
 
-          <div style={{ textAlign: "center", maxWidth: 820, margin: "0 auto" }}>
-            <div className="section-eyebrow" style={{ justifyContent: "center", marginBottom: 10 }}>
+          <div style={{ textAlign: "left", maxWidth: 1300, margin: 0 }}>
+            <div className="section-eyebrow" style={{ justifyContent: "flex-start", marginBottom: 12 }}>
               Eligibility &middot; Developmental Framework &middot; Session 2026–27
             </div>
-            <h1 style={{ fontFamily: "var(--display)", fontSize: "clamp(28px, 4vw, 42px)", fontWeight: 800, color: "var(--ink)", letterSpacing: "-0.02em", marginBottom: 12 }}>
+            <h1 style={{ fontFamily: "var(--display)", fontSize: "clamp(30px, 4.2vw, 46px)", fontWeight: 850, color: "var(--ink)", letterSpacing: "-0.025em", marginBottom: 16 }}>
               Age Groups &amp; Divisions
             </h1>
-            <p style={{ fontSize: 16, color: "var(--ink-dim)", lineHeight: 1.65, maxWidth: 720, margin: "0 auto" }}>
+            <p style={{ fontSize: 16, color: "var(--ink-dim)", lineHeight: 1.7, maxWidth: "100%", margin: 0 }}>
               India Genius Olympiad programmes are structured according to the cognitive developmental stage 
               of learners from Playgroup through Class XII, ensuring age-appropriate challenges and joyful discovery.
             </p>

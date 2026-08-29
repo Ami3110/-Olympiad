@@ -1,10 +1,34 @@
 import Link from "next/link";
+import { WhyCollabScene } from "../../components/Visuals";
 
 export const metadata = {
   title: "What is India Genius Olympiad (IGO)? — India Genius Foundation",
   description:
     "Learn all about India Genius Olympiad: India's premier multi-subject national competition for school students from Pre-Primary (PG) to Class XII organized by India Genius Foundation.",
 };
+
+const principles = [
+  {
+    num: "01",
+    title: "Conceptual Rigour",
+    desc: "Move beyond rote learning. Strengthen fundamental reasoning, logic, and analytical problem-solving skills.",
+  },
+  {
+    num: "02",
+    title: "Future-Ready Disciplines",
+    desc: "Assessments in Artificial Intelligence, Cyber Security, Financial Literacy, Environmental Sciences, and Modern Mathematics.",
+  },
+  {
+    num: "03",
+    title: "Applied Problem Solving",
+    desc: "Real-world scenarios designed by leading educators and academicians to test practical problem-solving.",
+  },
+  {
+    num: "04",
+    title: "National Benchmarking",
+    desc: "Students receive detailed diagnostic reports, state and national rankings, and recognized merit credentials.",
+  },
+];
 
 const pillars = [
   {
@@ -39,18 +63,11 @@ const pillars = [
   },
 ];
 
-const highlights = [
-  { label: "Divisions", value: "6", sub: "PG to Class XII" },
-  { label: "Disciplines", value: "25+", sub: "Modern & Core Subjects" },
-  { label: "Stages", value: "4", sub: "School to National" },
-  { label: "Entry Fee", value: "₹80", sub: "Per Subject / Student" },
-];
-
 export default function WhatIsIGOPage() {
   return (
     <>
-      {/* Minimal Header */}
-      <section style={{ paddingTop: 36, paddingBottom: 24 }}>
+      {/* Header & Main Narrative */}
+      <section style={{ paddingTop: 36, paddingBottom: 48 }}>
         <div className="wrap">
           <div style={{ marginBottom: 20 }}>
             <a className="page-back-btn light-variant" href="/" aria-label="Back to Home" style={{ margin: 0 }}>
@@ -62,88 +79,93 @@ export default function WhatIsIGOPage() {
             </a>
           </div>
 
-          <div style={{ textAlign: "center", maxWidth: 820, margin: "0 auto" }}>
-            <div className="section-eyebrow" style={{ justifyContent: "center", marginBottom: 10 }}>
+          <div style={{ maxWidth: 1300, margin: 0, textAlign: "left" }}>
+            <div className="section-eyebrow" style={{ justifyContent: "flex-start", marginBottom: 12 }}>
               National Academic Initiative &middot; Session 2026–27
             </div>
-            <h1 style={{ fontFamily: "var(--display)", fontSize: "clamp(28px, 4vw, 42px)", fontWeight: 800, color: "var(--ink)", letterSpacing: "-0.02em", marginBottom: 12 }}>
+            <h1 style={{ fontFamily: "var(--display)", fontSize: "clamp(30px, 4.2vw, 46px)", fontWeight: 850, color: "var(--ink)", letterSpacing: "-0.025em", marginBottom: 16 }}>
               What is India Genius Olympiad?
             </h1>
-            <p style={{ fontSize: 16, color: "var(--ink-dim)", lineHeight: 1.65, maxWidth: 720, margin: "0 auto" }}>
-              India Genius Olympiad (IGO) is a premier national-level assessment and talent-recognition programme 
-              designed to discover, nurture, and reward academic brilliance and 21st-century competencies in learners across India.
-            </p>
-          </div>
-        </div>
-      </section>
-
-      {/* Main Narrative & Key Stats */}
-      <section style={{ paddingTop: 64, paddingBottom: 64 }}>
-        <div className="wrap">
-          <div style={{ maxWidth: 840, margin: "0 auto", textAlign: "center", marginBottom: 44 }}>
-            <div className="section-eyebrow" style={{ justifyContent: "center" }}>Empowering Future Minds</div>
-            <h2 style={{ fontFamily: "var(--display)", fontSize: "clamp(28px, 3.5vw, 40px)", fontWeight: 800, color: "var(--ink)", letterSpacing: "-0.02em", marginBottom: 18 }}>
-              Transforming How Indian Students Learn &amp; Compete
-            </h2>
-            <p style={{ fontSize: 16.5, color: "var(--ink-dim)", lineHeight: 1.75 }}>
+            <p style={{ fontSize: 16, color: "var(--ink-dim)", lineHeight: 1.7, maxWidth: "100%", margin: 0 }}>
               The India Genius Olympiad is organised by the <strong>India Genius Foundation</strong> to provide a transparent, 
               benchmarked, and enriching platform for students from Playgroup to Class XII. Spanning six distinct age categories, 
               the Olympiad bridges traditional academic excellence with future-oriented domains like Artificial Intelligence, 
               Cybersecurity, Financial Literacy, Space Science, Entrepreneurship, and Critical Problem-Solving.
             </p>
           </div>
+        </div>
+      </section>
 
-          {/* Highlights Row */}
-          <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(200px, 1fr))", gap: 20, maxWidth: 960, margin: "0 auto 56px" }}>
-            {highlights.map((h, i) => (
-              <div
-                key={i}
-                style={{
-                  background: "#FFFFFF",
-                  border: "1px solid var(--line)",
-                  borderRadius: 18,
-                  padding: "24px 20px",
-                  textAlign: "center",
-                  boxShadow: "0 2px 12px rgba(0,0,0,0.04)",
-                }}
-              >
-                <div style={{ fontFamily: "var(--display)", fontSize: 36, fontWeight: 800, color: "var(--saffron)", marginBottom: 4 }}>
-                  {h.value}
+      {/* More Than an Olympiad — Philosophy & Principles */}
+      <section id="philosophy" style={{ background: "#FFFFFF", padding: "64px 0 72px", borderTop: "1px solid var(--line)" }}>
+        <div className="wrap">
+          <div className="feature-split">
+            {/* Visual column */}
+            <div className="feature-image-wrap">
+              <WhyCollabScene />
+              <div className="feature-float-card">
+                <div className="ffc-num">6</div>
+                <div className="ffc-label">Age Divisions</div>
+              </div>
+            </div>
+
+            {/* Content column */}
+            <div>
+              <div className="section-head" style={{ marginBottom: 28 }}>
+                <div className="section-eyebrow" style={{ justifyContent: "flex-start" }}>
+                  Why India Genius Olympiad?
                 </div>
-                <div style={{ fontSize: 15, fontWeight: 700, color: "var(--ink)", marginBottom: 4 }}>
-                  {h.label}
-                </div>
-                <div style={{ fontSize: 13, color: "var(--muted)" }}>
-                  {h.sub}
+                <h2 className="section-title" style={{ fontSize: "clamp(26px, 3.2vw, 38px)" }}>
+                  More Than an Olympiad.
+                </h2>
+                <div className="section-desc" style={{ maxWidth: 640 }}>
+                  A competition structured to evaluate how students think, analyze, deduce, and innovate — benchmarking real understanding beyond textbook memorisation.
                 </div>
               </div>
-            ))}
-          </div>
 
-          {/* Pillars Grid */}
-          <div style={{ textAlign: "center", maxWidth: 780, margin: "0 auto 36px" }}>
+              <div className="principles-list">
+                {principles.map(({ num, title, desc }) => (
+                  <div key={num} className="principle-item">
+                    <div className="principle-num">{num}</div>
+                    <div>
+                      <div className="principle-title">{title}</div>
+                      <div className="principle-desc">{desc}</div>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Pillars Grid — Core Features */}
+      <section style={{ paddingTop: 64, paddingBottom: 72, background: "var(--bg-elev)", borderTop: "1px solid var(--line)" }}>
+        <div className="wrap">
+          <div style={{ textAlign: "center", maxWidth: 780, margin: "0 auto 40px" }}>
             <div className="section-eyebrow" style={{ justifyContent: "center" }}>Core Features</div>
-            <h3 style={{ fontFamily: "var(--display)", fontSize: 28, fontWeight: 800, color: "var(--ink)" }}>
+            <h3 style={{ fontFamily: "var(--display)", fontSize: "clamp(24px, 3vw, 32px)", fontWeight: 850, color: "var(--ink)" }}>
               Why Participate in India Genius Olympiad?
             </h3>
           </div>
 
-          <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(300px, 1fr))", gap: 24, maxWidth: 1040, margin: "0 auto" }}>
+          <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(300px, 1fr))", gap: 24, maxWidth: 1140, margin: "0 auto" }}>
             {pillars.map((p, idx) => (
               <div
                 key={idx}
                 style={{
-                  background: "var(--bg-elev)",
+                  background: "#FFFFFF",
                   border: "1px solid var(--line)",
                   borderRadius: 18,
-                  padding: "26px 24px",
+                  padding: "28px 24px",
+                  boxShadow: "0 2px 10px rgba(0,0,0,0.03)",
                 }}
               >
                 <div style={{ fontSize: 32, marginBottom: 12 }}>{p.icon}</div>
                 <h4 style={{ fontFamily: "var(--display)", fontSize: 18, fontWeight: 800, color: "var(--ink)", marginBottom: 8 }}>
                   {p.title}
                 </h4>
-                <p style={{ fontSize: 14, color: "var(--ink-dim)", lineHeight: 1.6, margin: 0 }}>
+                <p style={{ fontSize: 14.5, color: "var(--ink-dim)", lineHeight: 1.65, margin: 0 }}>
                   {p.desc}
                 </p>
               </div>
@@ -162,7 +184,7 @@ export default function WhatIsIGOPage() {
             </h2>
           </div>
 
-          <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(260px, 1fr))", gap: 20, maxWidth: 960, margin: "0 auto" }}>
+          <div className="explore-four-grid">
             <Link
               href="/age-group/"
               style={{

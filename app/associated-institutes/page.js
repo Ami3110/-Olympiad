@@ -6,64 +6,6 @@ export const metadata = {
     "Explore the nationwide network of affiliated schools, academic councils, ISRO/STEM hubs, and institutional examination centers associated with India Genius Olympiad.",
 };
 
-const INSTITUTES_CATEGORIES = [
-  {
-    icon: "🏫",
-    title: "School Exam Centers & Affiliated Institutions",
-    badge: "500+ Institutions",
-    desc: "Premier CBSE, ICSE, and State Board schools across India serving as designated Round-1 School Selection and Round-2 District assessment centers.",
-    features: [
-      "Dedicated school coordinator portals",
-      "Offline / Paper-based MCQ test kits delivered directly",
-      "Institutional diagnostic scorecards for comparative school benchmarking",
-      "Annual School Academic Excellence trophies & coordinator recognitions",
-    ],
-  },
-  {
-    icon: "🚀",
-    title: "ISRO & Space Science STEM Alliances",
-    badge: "Space & Tech Hubs",
-    desc: "Collaborative research and outreach centers fostering space science curiosity, astronomy fundamentals, and rocketry basics aligned with national achievements.",
-    features: [
-      "Specialized Space Science & Astronomy curriculum modules",
-      "Guidance on national space science career pathways (ISRO / IN-SPACe)",
-      "Astronomy club support & hands-on observation worksheets",
-      "Interactive questions inspired by Chandrayaan & Aditya-L1 missions",
-    ],
-  },
-  {
-    icon: "🤖",
-    title: "AI, Coding & Robotics Laboratories",
-    badge: "Emerging Tech Hubs",
-    desc: "Deep-tech academic laboratories curating futuristic skill rubrics in Artificial Intelligence, Machine Learning, Cyber Security, and Automation.",
-    features: [
-      "Algorithmic thinking and ethical hacking case studies",
-      "Modern programming logic assessments for middle & senior students",
-      "Practical problem-solving scenarios for real-world tech challenges",
-      "Future Skills certifications endorsed by leading technology partners",
-    ],
-  },
-  {
-    icon: "🏛️",
-    title: "National Pedagogy & Academic Councils",
-    badge: "NEP 2020 Frameworks",
-    desc: "Eminent educator committees and curriculum bodies ensuring every Olympiad assessment adheres to NEP 2020 experiential learning benchmarks.",
-    features: [
-      "Bloom's Revised Taxonomy alignment across all 6 age divisions",
-      "Competency-based evaluation rather than rote memorization",
-      "Continuous teacher development webinars & evaluation masterclasses",
-      "Holistic report cards highlighting cognitive growth areas",
-    ],
-  },
-];
-
-const NETWORK_STATS = [
-  { num: "500+", label: "Affiliated Schools" },
-  { num: "28+", label: "States & UTs Covered" },
-  { num: "100,000+", label: "Students Assessed" },
-  { num: "6", label: "Age Divisions (PG–XII)" },
-];
-
 const MARQUEE_ITEMS = [
   { img: "/assets/images/aipa-logo.png", title: "India Genius Foundation", sub: "National Patron" },
   { img: "/assets/images/indian-students-classroom.jpg", title: "School Exam Centers", sub: "500+ Affiliated Schools" },
@@ -103,30 +45,16 @@ export default function AssociatedInstitutesPage() {
             </Link>
           </div>
 
-          <div style={{ textAlign: "center", maxWidth: 840, margin: "0 auto" }}>
-            <div className="section-eyebrow" style={{ justifyContent: "center", marginBottom: 10 }}>
+          <div style={{ textAlign: "left", maxWidth: 1300, margin: 0 }}>
+            <div className="section-eyebrow" style={{ justifyContent: "flex-start", marginBottom: 12 }}>
               Academic Backbone &middot; Pan-India Network
             </div>
-            <h1 style={{ fontFamily: "var(--display)", fontSize: "clamp(28px, 4vw, 42px)", fontWeight: 800, color: "var(--ink)", letterSpacing: "-0.02em", marginBottom: 12 }}>
+            <h1 style={{ fontFamily: "var(--display)", fontSize: "clamp(30px, 4.2vw, 46px)", fontWeight: 850, color: "var(--ink)", letterSpacing: "-0.025em", marginBottom: 16 }}>
               Associated Institutes &amp; Institutional Network
             </h1>
-            <p style={{ fontSize: 16, color: "var(--ink-dim)", lineHeight: 1.65, maxWidth: 740, margin: "0 auto" }}>
+            <p style={{ fontSize: 16, color: "var(--ink-dim)", lineHeight: 1.7, maxWidth: "100%", margin: 0 }}>
               Organized under the apex patronship of the <strong>India Genius Foundation</strong> and supported by distinguished academic councils, premier school networks, and teacher development bodies across India.
             </p>
-          </div>
-        </div>
-      </section>
-
-      {/* ── STATS ROW ─────────────────────────────────────── */}
-      <section style={{ background: "#FFFFFF", padding: "36px 0", borderBottom: "1px solid var(--line)" }}>
-        <div className="wrap">
-          <div className="inst-stats-grid">
-            {NETWORK_STATS.map(({ num, label }) => (
-              <div key={label} className="inst-stat-item">
-                <div className="inst-stat-number">{num}</div>
-                <div className="inst-stat-label">{label}</div>
-              </div>
-            ))}
           </div>
         </div>
       </section>
@@ -154,41 +82,6 @@ export default function AssociatedInstitutesPage() {
                   <span className="inst-float-title">{item.title}</span>
                   <span className="inst-float-sub">{item.sub}</span>
                 </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* ── INSTITUTES CATEGORIES GRID ────────────────────── */}
-      <section style={{ padding: "72px 0", background: "#FFFFFF" }}>
-        <div className="wrap">
-          <div className="section-head" style={{ textAlign: "center", margin: "0 auto 52px", maxWidth: 760 }}>
-            <div className="section-eyebrow" style={{ justifyContent: "center" }}>Network Architecture</div>
-            <h2 className="section-title">The Four Pillars of Our Institutional Network</h2>
-            <p className="section-desc">
-              How our associated institutes, schools, and academic bodies collaborate to deliver world-class Olympiad assessments.
-            </p>
-          </div>
-
-          <div className="inst-cards-grid">
-            {INSTITUTES_CATEGORIES.map(({ icon, title, badge, desc, features }) => (
-              <div key={title} className="inst-network-card">
-                <div className="inst-card-top">
-                  <div className="inst-card-icon">{icon}</div>
-                  <span className="inst-card-badge">{badge}</span>
-                </div>
-                <h3 className="inst-card-title">{title}</h3>
-                <p className="inst-card-desc">{desc}</p>
-                <div className="inst-card-divider" />
-                <ul className="inst-card-features">
-                  {features.map((f, i) => (
-                    <li key={i}>
-                      <span className="inst-check-icon">✓</span>
-                      <span>{f}</span>
-                    </li>
-                  ))}
-                </ul>
               </div>
             ))}
           </div>

@@ -75,7 +75,7 @@ export default function AboutPage() {
                 <img
                   src="/assets/images/amit-sehgal.jpg"
                   alt="Dr. Amit Sehgal — Founder, India Genius Olympiad"
-                  className="organizer-img"
+                  className="organizer-img organizer-img-amit"
                 />
                 
                 {/* Glass reflection highlight */}
@@ -112,7 +112,7 @@ export default function AboutPage() {
                 <img
                   src="/assets/images/rishi-kant-upadhyaya.jpg"
                   alt="Mr. Rishi Kant Upadhyaya — Co-Founder, India Genius Olympiad"
-                  className="organizer-img"
+                  className="organizer-img organizer-img-rishi"
                 />
 
                 {/* Glass reflection highlight */}

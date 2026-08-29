@@ -22,14 +22,14 @@ export default function SyllabusIndexPage() {
             </a>
           </div>
 
-          <div style={{ textAlign: "center", maxWidth: 820, margin: "0 auto" }}>
-            <div className="section-eyebrow" style={{ justifyContent: "center", marginBottom: 10 }}>
+          <div style={{ textAlign: "left", maxWidth: 1300, margin: 0 }}>
+            <div className="section-eyebrow" style={{ justifyContent: "flex-start", marginBottom: 12 }}>
               National Academic Blueprint &middot; Session 2026–27
             </div>
-            <h1 style={{ fontFamily: "var(--display)", fontSize: "clamp(28px, 4vw, 42px)", fontWeight: 800, color: "var(--ink)", letterSpacing: "-0.02em", marginBottom: 12 }}>
+            <h1 style={{ fontFamily: "var(--display)", fontSize: "clamp(30px, 4.2vw, 46px)", fontWeight: 850, color: "var(--ink)", letterSpacing: "-0.025em", marginBottom: 16 }}>
               Syllabus by Age Group
             </h1>
-            <p style={{ fontSize: 16, color: "var(--ink-dim)", lineHeight: 1.65, maxWidth: 720, margin: "0 auto" }}>
+            <p style={{ fontSize: 16, color: "var(--ink-dim)", lineHeight: 1.7, maxWidth: "100%", margin: 0 }}>
               Discover our structured, future-ready curriculum spanning 6 age divisions and 25+ specialized Olympiads. 
               Designed in alignment with NEP 2020 to build conceptual mastery, computational thinking, and scientific inquiry.
             </p>

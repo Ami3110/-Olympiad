@@ -1,7 +1,7 @@
 import AccordionItem from "../components/AccordionItem";
-import AwardsInteractive from "../components/AwardsInteractive";
+import TestimonialsSection from "../components/TestimonialsSection";
+import HomeStatsSection from "../components/HomeStatsSection";
 import {
-  WhyCollabScene,
   DivisionIllustration,
   JourneyIllustration,
 } from "../components/Visuals";
@@ -122,7 +122,13 @@ export default function HomePage() {
       </section>
 
       {/* ====================================================
-          SECTION 1: VISION & MISSION — short preview of both.
+          SECTION 1: NATIONAL SCALE & STATS IMPACT (MARKETING)
+          Placed just after Hero section
+          ==================================================== */}
+      <HomeStatsSection />
+
+      {/* ====================================================
+          SECTION 2: VISION & MISSION — short preview of both.
           Full detail (Strategic pillars, Mission's 9 commitments,
           Our Belief) lives on /about/#vision and /about/#mission.
           ==================================================== */}
@@ -167,7 +173,7 @@ export default function HomePage() {
       </section>
 
       {/* ====================================================
-          SECTION 2: FIND YOUR DIVISION — the primary discovery
+          SECTION 3: FIND YOUR DIVISION — the primary discovery
           section. 6 divisions, no subject lists here — those live
           on /subjects/ and the per-division syllabus pages.
           ==================================================== */}
@@ -308,95 +314,12 @@ export default function HomePage() {
       </section>
 
       {/* ====================================================
-          SECTION 4: WHY INDIA GENIUS OLYMPIAD? — compact preview
-          of the 4 core principles. Full Vision & Strategic
-          Objectives now live on /about/#vision.
+          SECTION 4: TESTIMONIALS (MOVING CARDS)
           ==================================================== */}
-      <section id="philosophy">
-        <div className="wrap">
-          <div className="feature-split">
-            {/* Visual column */}
-            <div className="feature-image-wrap">
-              <WhyCollabScene />
-              <div className="feature-float-card">
-                <div className="ffc-num">6</div>
-                <div className="ffc-label">Age Divisions</div>
-              </div>
-            </div>
-
-            {/* Content column */}
-            <div>
-              <SHead
-                eyebrow="Why India Genius Olympiad?"
-                title="More Than an Olympiad."
-                desc="A competition structured to evaluate how students think, analyze, deduce, and innovate — benchmarking real understanding beyond textbook memorisation."
-              />
-
-              <div className="principles-list">
-                {[
-                  {
-                    num: "01",
-                    title: "Conceptual Rigour",
-                    desc: "Move beyond rote learning. Strengthen fundamental reasoning, logic, and analytical problem-solving skills.",
-                  },
-                  {
-                    num: "02",
-                    title: "Future-Ready Disciplines",
-                    desc: "Assessments in Artificial Intelligence, Cyber Security, Financial Literacy, Environmental Sciences, and Modern Mathematics.",
-                  },
-                  {
-                    num: "03",
-                    title: "Applied Problem Solving",
-                    desc: "Real-world scenarios designed by leading educators and academicians to test practical problem-solving.",
-                  },
-                  {
-                    num: "04",
-                    title: "National Benchmarking",
-                    desc: "Students receive detailed diagnostic reports, state and national rankings, and recognized merit credentials.",
-                  },
-                ].map(({ num, title, desc }) => (
-                  <div key={num} className="principle-item">
-                    <div className="principle-num">{num}</div>
-                    <div>
-                      <div className="principle-title">{title}</div>
-                      <div className="principle-desc">{desc}</div>
-                    </div>
-                  </div>
-                ))}
-              </div>
-
-              <div style={{ marginTop: 36 }}>
-                <a className="btn btn-ghost" href="/about/#vision">
-                  Explore Our Philosophy →
-                </a>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
+      <TestimonialsSection />
 
       {/* ====================================================
-          SECTION 5: AWARDS PREVIEW — 4 tiers, short form. Full
-          award framework lives on /olympiad-info/#awards.
-          ==================================================== */}
-      <section id="awards-preview">
-        <div className="wrap">
-          <SHead
-            eyebrow="Recognition &amp; Honours"
-            title="Olympiad Awards Framework."
-            desc="Merit recognition at every stage of the national competition."
-          />
-          <AwardsInteractive />
-          <div style={{ textAlign: "center", marginTop: 36 }}>
-            <a className="btn btn-ghost" href="/award-structure/">
-              View Full Award Structure →
-            </a>
-          </div>
-        </div>
-      </section>
-
-      {/* ====================================================
-          SECTION 6: REGISTRATION CTA
+          SECTION 7: REGISTRATION CTA
           ==================================================== */}
       <section className="register-hero" id="register" style={{ background: "linear-gradient(135deg, #14172A 0%, #202945 50%, #173830 100%)" }}>
         <div className="register-hero-content">
@@ -483,9 +406,9 @@ export default function HomePage() {
       </section>
 
       {/* ====================================================
-          SECTION 7: FAQ — Clean, simple centered layout
+          SECTION 6: FAQ — 2-Column Responsive Layout
           ==================================================== */}
-      <section id="faq" style={{ padding: "80px 0" }}>
+      <section id="faq" style={{ padding: "80px 0", background: "var(--bg-elev)", borderTop: "1px solid var(--line)" }}>
         <div className="wrap">
           <SHead
             eyebrow="Frequently Asked Questions"
@@ -495,41 +418,76 @@ export default function HomePage() {
             maxWidth={760}
           />
 
-          <div style={{ maxWidth: 840, margin: "0 auto" }}>
-            <AccordionItem id="faq-1" title="What is the India Genius Olympiad?">
-              <p>
-                India Genius Olympiad is a national-level multi-subject competitive examination for school students from Pre-Primary (PG) to Class XII, assessing emerging competencies such as AI, Cyber Security, Financial Literacy, Mathematics, Sciences, and Critical Thinking.
-              </p>
-            </AccordionItem>
-            <AccordionItem id="faq-2" title="Who can participate?">
-              <p>
-                Any student from Pre-Primary (PG) through Class XII, at any CBSE, ICSE, or State Board school across India, can participate — either through their school or by registering individually.
-              </p>
-            </AccordionItem>
-            <AccordionItem id="faq-3" title="Which subjects are available for my child's class?">
-              <p>
-                Subjects are tailored by age division. Visit the{" "}
-                <a href="/subjects/" style={{ color: "var(--saffron)", fontWeight: 600 }}>
-                  Subjects
-                </a>{" "}
-                page for the complete division-wise list.
-              </p>
-            </AccordionItem>
-            <AccordionItem id="faq-4" title="What is the fee per student?">
-              <p>
-                The registration fee is ₹80 per subject, per student. Students are encouraged to participate in multiple Olympiad subjects within their class group.
-              </p>
-            </AccordionItem>
-            <AccordionItem id="faq-5" title="How can our school register?">
-              <p>
-                Schools can register directly using the School Registration Google Form linked in the header or contact the coordinator team directly.
-              </p>
-            </AccordionItem>
+          <div
+            style={{
+              display: "grid",
+              gridTemplateColumns: "repeat(auto-fit, minmax(340px, 1fr))",
+              gap: 20,
+              maxWidth: 1200,
+              margin: "0 auto",
+              alignItems: "start",
+            }}
+          >
+            {/* Column 1 */}
+            <div style={{ display: "flex", flexDirection: "column", gap: 16 }}>
+              <AccordionItem id="faq-1" title="What is the India Genius Olympiad?">
+                <p>
+                  India Genius Olympiad is a national-level multi-subject competitive examination for school students from Pre-Primary (PG) to Class XII, assessing core concepts alongside emerging competencies such as AI, Cyber Security, Financial Literacy, Space Science, and Critical Thinking.
+                </p>
+              </AccordionItem>
 
-            <div style={{ marginTop: 32, textAlign: "center" }}>
-              <a className="btn btn-ghost" href="/olympiad-info/#faq">
-                Explore More FAQs →
-              </a>
+              <AccordionItem id="faq-2" title="Who is eligible to participate?">
+                <p>
+                  Any school student from Pre-Primary (PG) through Class XII studying in CBSE, ICSE, Cambridge, or State Board affiliated institutions across India is eligible to participate — either directly through their school or via individual registration.
+                </p>
+              </AccordionItem>
+
+              <AccordionItem id="faq-3" title="Which subjects are available for my child's class?">
+                <p>
+                  Subjects are tailored by age division, ranging from 5–8 Olympiads for young learners up to 8 specialized streams for senior classes. Visit the{" "}
+                  <a href="/subjects/" style={{ color: "var(--saffron)", fontWeight: 600 }}>
+                    Subjects
+                  </a>{" "}
+                  page for the complete division-wise list.
+                </p>
+              </AccordionItem>
+
+              <AccordionItem id="faq-4" title="What is the examination format and question pattern?">
+                <p>
+                  The assessment features objective Multiple Choice Questions (MCQs) designed to test conceptual understanding, practical application, and logical analysis rather than simple recall.
+                </p>
+              </AccordionItem>
+            </div>
+
+            {/* Column 2 */}
+            <div style={{ display: "flex", flexDirection: "column", gap: 16 }}>
+              <AccordionItem id="faq-5" title="What is the registration fee per student?">
+                <p>
+                  The registration fee is a nominal and standardized ₹80 per subject, per student. Students are welcome and encouraged to participate in multiple Olympiad subjects within their class group.
+                </p>
+              </AccordionItem>
+
+              <AccordionItem id="faq-6" title="Can the exam be taken online or offline?">
+                <p>
+                  Round 1 (School Selection) is conducted offline in participating schools. Subsequent rounds (District, State, National) are conducted at designated partner centers and authorized institutional examination hubs.
+                </p>
+              </AccordionItem>
+
+              <AccordionItem id="faq-7" title="How can our school register?">
+                <p>
+                  Schools can register directly using the official School Registration Google Form or contact the coordinator team directly via the{" "}
+                  <a href="/contact-us/" style={{ color: "var(--saffron)", fontWeight: 600 }}>
+                    Contact Us
+                  </a>{" "}
+                  page.
+                </p>
+              </AccordionItem>
+
+              <AccordionItem id="faq-8" title="What awards and recognitions do students receive?">
+                <p>
+                  Every participant receives a Certificate of Participation and Diagnostic Scorecard. Top performers earn School Qualifier Certificates, District Medals (Gold, Silver, Bronze), State Trophies, and National Merit Honours with scholarships.
+                </p>
+              </AccordionItem>
             </div>
           </div>
         </div>

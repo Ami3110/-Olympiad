@@ -32,14 +32,14 @@ export default function MissionPage() {
             </a>
           </div>
 
-          <div style={{ maxWidth: 820, margin: "0 auto", textAlign: "center", marginBottom: 40 }}>
-            <div className="section-eyebrow" style={{ justifyContent: "center", marginBottom: 10 }}>
+          <div style={{ maxWidth: 820, margin: 0, textAlign: "left", marginBottom: 40 }}>
+            <div className="section-eyebrow" style={{ justifyContent: "flex-start", marginBottom: 12 }}>
               Our Foundation &middot; Ethos
             </div>
-            <h1 style={{ fontFamily: "var(--display)", fontSize: "clamp(28px, 4vw, 42px)", fontWeight: 800, color: "var(--ink)", letterSpacing: "-0.02em", marginBottom: 16 }}>
+            <h1 style={{ fontFamily: "var(--display)", fontSize: "clamp(30px, 4.2vw, 46px)", fontWeight: 850, color: "var(--ink)", letterSpacing: "-0.025em", marginBottom: 16 }}>
               Our Mission &amp; Commitments
             </h1>
-            <p style={{ fontSize: 16.5, color: "var(--ink-dim)", lineHeight: 1.7 }}>
+            <p style={{ fontSize: 16, color: "var(--ink-dim)", lineHeight: 1.7, maxWidth: "100%", margin: 0 }}>
               Our mission is to create meaningful and accessible educational opportunities that
               inspire learners to learn, think, explore, discover and excel across India. We are dedicated to:
             </p>

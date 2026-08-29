@@ -1,106 +1,96 @@
-import Link from "next/link";
+import React from "react";
 
 export const metadata = {
-  title: "Competition Structure — India Genius Olympiad | 4-Stage National Pathway",
+  title: "Competition Structure — India Genius Olympiad | Session 2026–27",
   description:
-    "Explore the 4-tier competition structure of India Genius Olympiad: School Selection, District Level, State Championship, and National Grand Finale at a nominal fee of ₹80 per subject.",
+    "The India Genius Foundation follows a structured, progressive four-level competition system designed to identify and recognise talented students at the School, District, State and National Levels.",
 };
 
-const competitionRounds = [
+const ROUNDS_DATA = [
   {
-    round: "Round 1",
-    level: "School Selection Round",
-    mode: "Offline · Within School",
-    tag: "Stage 01",
+    roundNum: "ROUND 1",
+    title: "SCHOOL SELECTION ROUND",
+    mode: "Offline | Within School",
+    icon: "🏫",
     color: "#E65A00",
-    summary: "The foundational assessment round conducted directly within participating school premises.",
-    points: [
-      "Conducted at individual participating schools under certified teacher invigilation",
-      "Students participate in their respective class, age group, and subject category",
-      "Objective and MCQ-based examination, calibrated to the official prescribed syllabus",
-      "Comprehensive performance evaluation with individual diagnostic scorecards",
-      "Schools identify, recognize, and felicitate their top-performing learners",
-      "Top qualifiers automatically secure eligibility for the District Level Championship",
+    bg: "rgba(230, 90, 0, 0.04)",
+    border: "rgba(230, 90, 0, 0.2)",
+    summary:
+      "The competition begins at the participating school, where students compete within their respective classes or prescribed age categories.",
+    features: [
+      "Conducted at individual participating schools.",
+      "Students participate in their respective class, age group and category.",
+      "Objective and MCQ-based examination or assessment.",
+      "Questions are designed according to the prescribed syllabus, subject and competition category.",
+      "Performance is evaluated according to the applicable marking and ranking criteria.",
+      "Schools identify and select their top-performing students.",
+      "Eligible top performers qualify to advance to the District Level.",
     ],
   },
   {
-    round: "Round 2",
-    level: "District Level Championship",
-    mode: "Offline · Inter-School",
-    tag: "Stage 02",
+    roundNum: "ROUND 2",
+    title: "DISTRICT LEVEL",
+    mode: "Offline | Inter-School Competition",
+    icon: "🥇",
     color: "#0A6EBD",
-    summary: "Inter-school regional arena bringing together top talent from all district schools.",
-    points: [
-      "Conducted district-wise at designated nodal venues and partner institutions",
-      "Qualified school champions compete with peers across their district",
-      "Subject-specific examination with advanced conceptual application problems",
-      "Standardized district-wide merit ranking and percentile calculation",
-      "District Winners, Runner-ups & Merit Achievers awarded official medals and certificates",
-      "Top district medalists qualify to represent their district at the State Level",
+    bg: "rgba(10, 110, 189, 0.04)",
+    border: "rgba(10, 110, 189, 0.2)",
+    summary:
+      "Qualified students from participating schools compete with students from other schools within their respective districts.",
+    features: [
+      "Conducted district-wise at designated venues or participating institutions.",
+      "Students compete with qualified participants from different schools.",
+      "Competition is conducted within the same subject and prescribed age or class category.",
+      "Performance is evaluated through district-level ranking.",
+      "Outstanding performers are recognised as District Winners, Runner-ups and Merit Achievers, as applicable.",
+      "Eligible District Winners qualify to advance to the State Level.",
     ],
   },
   {
-    round: "Round 3",
-    level: "State Level Championship",
-    mode: "Offline · District Qualifiers",
-    tag: "Stage 03",
-    color: "#22863A",
-    summary: "High-stakes state championship pitting regional medalists in a battle of wits.",
-    points: [
-      "Open exclusively to eligible top qualifiers and medalists from the District Level",
-      "Students proudly represent their respective institutions and home districts",
-      "Conducted across prescribed subjects, divisions, and specialised categories",
-      "Rigorous evaluation assessing analytical deduction, creativity, and problem-solving",
-      "Outstanding performers awarded State Championship Trophies, Medals & State Merit Honours",
-      "Eligible State Winners qualify directly for the Grand National Finale",
+    roundNum: "ROUND 3",
+    title: "STATE LEVEL",
+    mode: "Offline | District Winners",
+    icon: "🏆",
+    color: "#0D7A67",
+    bg: "rgba(13, 122, 103, 0.04)",
+    border: "rgba(13, 122, 103, 0.2)",
+    summary:
+      "District-level winners progress to represent their respective schools and districts at the State Level.",
+    features: [
+      "Participation is open to eligible qualifiers from the District Level.",
+      "District Winners represent their respective schools and districts.",
+      "Competitions are conducted according to prescribed subjects, groups and age or class categories.",
+      "Performance is evaluated through state-level ranking.",
+      "Outstanding performers are recognised as State Winners, Runner-ups and Merit Achievers, as applicable.",
+      "Eligible State Winners qualify to advance to the National Level.",
     ],
   },
   {
-    round: "Round 4",
-    level: "National Grand Finale",
-    mode: "Offline · All-India Stage",
-    tag: "Stage 04",
+    roundNum: "ROUND 4",
+    title: "NATIONAL LEVEL",
+    mode: "Offline | State Winners",
+    icon: "👑",
     color: "#8B1A1A",
-    summary: "The ultimate national stage honouring the finest young minds across India.",
-    points: [
-      "Open exclusively to eligible State Winners, Rank 1 achievers, and national qualifiers",
-      "Students represent their state in the grand national championship",
-      "Highest-order competitive challenges testing real-world problem solving and innovation",
-      "Grand National Champion Trophies, Gold Medals, and National Merit Honours presented",
-      "Scholarships, educational grants, and permanent induction into the India Genius Hall of Fame",
-      "Prestigious national media felicitation backed by India Genius Foundation",
+    bg: "rgba(139, 26, 26, 0.04)",
+    border: "rgba(139, 26, 26, 0.2)",
+    summary:
+      "The National Level brings together the finest performers from different states of India for the final stage of the competition.",
+    features: [
+      "Participation is open to eligible State Winners and qualifiers.",
+      "Students represent their respective states at the national competition.",
+      "Competition is conducted across prescribed subjects and age or class categories.",
+      "Participants compete for national rankings and prestigious recognition.",
+      "Top performers are recognised as National Champion, National Runner-up and National Merit Achievers.",
+      "Awardees receive National-Level Certificates, Medals and/or Trophies, along with other recognition as applicable.",
     ],
-  },
-];
-
-const features = [
-  {
-    icon: "📋",
-    title: "MCQ & Problem Solving",
-    desc: "Age-calibrated question formats testing conceptual clarity, analytical agility, and application.",
-  },
-  {
-    icon: "⏱️",
-    title: "Standardized Duration",
-    desc: "Clearly defined time boundaries designed to assess speed, precision, and time-management skills.",
-  },
-  {
-    icon: "🔒",
-    title: "Strict Academic Integrity",
-    desc: "Rigorous invigilation protocols and transparent evaluation ensure total fairness for every child.",
-  },
-  {
-    icon: "📊",
-    title: "Diagnostic Feedback",
-    desc: "Detailed report cards highlighting strong areas, weak topics, and national percentile standing.",
   },
 ];
 
 export default function CompetitionStructurePage() {
   return (
     <>
-      {/* Minimal Header */}
-      <section style={{ paddingTop: 36, paddingBottom: 24 }}>
+      {/* Top Header */}
+      <section style={{ paddingTop: 36, paddingBottom: 24, background: "var(--bg-elev)", borderBottom: "1px solid var(--line)" }}>
         <div className="wrap">
           <div style={{ marginBottom: 20 }}>
             <a className="page-back-btn light-variant" href="/" aria-label="Back to Home" style={{ margin: 0 }}>
@@ -112,105 +102,92 @@ export default function CompetitionStructurePage() {
             </a>
           </div>
 
-          <div style={{ textAlign: "center", maxWidth: 820, margin: "0 auto" }}>
-            <div className="section-eyebrow" style={{ justifyContent: "center", marginBottom: 10 }}>
+          <div style={{ textAlign: "left", maxWidth: 1300, margin: 0 }}>
+            <div className="section-eyebrow" style={{ justifyContent: "flex-start", marginBottom: 12 }}>
               National Academic Blueprint &middot; Session 2026–27
             </div>
-            <h1 style={{ fontFamily: "var(--display)", fontSize: "clamp(28px, 4vw, 42px)", fontWeight: 800, color: "var(--ink)", letterSpacing: "-0.02em", marginBottom: 12 }}>
-              Four-Level Competition Structure
+            <h1 style={{ fontFamily: "var(--display)", fontSize: "clamp(30px, 4.2vw, 46px)", fontWeight: 850, color: "var(--ink)", letterSpacing: "-0.025em", marginBottom: 16 }}>
+              Competition Structure
             </h1>
-            <p style={{ fontSize: 16, color: "var(--ink-dim)", lineHeight: 1.65, maxWidth: 720, margin: "0 auto" }}>
-              A transparent, progressive 4-stage journey taking students from their school classroom 
-              to district honours, state glory, and the national championship.
+            <p style={{ fontSize: 16, color: "#1E293B", fontWeight: 550, lineHeight: 1.7, maxWidth: "100%", margin: "0 0 14px" }}>
+              The India Genius Foundation follows a structured, progressive four-level competition system designed to identify and recognise talented students at the School, District, State and National Levels.
+            </p>
+            <p style={{ fontSize: 15.5, color: "#1E293B", fontWeight: 650, lineHeight: 1.6, maxWidth: "100%", margin: 0 }}>
+              Students progress through successive stages based on their performance, giving them the opportunity to compete with learners from their own school, district, state and eventually from across India.
             </p>
           </div>
         </div>
       </section>
 
-      {/* Fee & Structure Note */}
-      <section style={{ paddingTop: 64, paddingBottom: 64 }}>
+      {/* 4 Progressive Rounds Section */}
+      <section style={{ padding: "64px 0 80px", background: "#FFFFFF" }}>
         <div className="wrap">
-          <div style={{ maxWidth: 840, margin: "0 auto 48px", textAlign: "center" }}>
-            <div className="section-eyebrow" style={{ justifyContent: "center" }}>Transparent Pathway</div>
-            <h2 style={{ fontFamily: "var(--display)", fontSize: "clamp(28px, 3.5vw, 40px)", fontWeight: 800, color: "var(--ink)", letterSpacing: "-0.02em", marginBottom: 16 }}>
-              How The 4-Tier Progression Works
-            </h2>
-            <p style={{ fontSize: 16.5, color: "var(--ink-dim)", lineHeight: 1.7 }}>
-              The registration fee is fixed at <strong>₹80 per subject per student</strong>. Every participant begins at Round 1 
-              in their school, and top achievers earn their way through District, State, and National stages.
-            </p>
-          </div>
-
-          {/* 4 Rounds Grid */}
-          <div className="oi-rounds-grid" style={{ maxWidth: 1100, margin: "0 auto 48px" }}>
-            {competitionRounds.map((r) => (
-              <div key={r.round} className="oi-round-card">
-                <div className="oi-round-header" style={{ borderColor: r.color }}>
-                  <div className="oi-round-tag" style={{ background: r.color }}>{r.round}</div>
-                  <div className="oi-round-level">{r.level}</div>
-                  <div className="oi-round-mode">{r.mode}</div>
-                </div>
-                <p style={{ fontSize: 13.5, color: "var(--muted)", marginBottom: 14, fontStyle: "italic" }}>
-                  {r.summary}
-                </p>
-                <ul className="oi-round-points">
-                  {r.points.map((pt, i) => (
-                    <li key={i}>{pt}</li>
-                  ))}
-                </ul>
-              </div>
-            ))}
-          </div>
-
-          {/* Key Features Grid */}
-          <div style={{ textAlign: "center", maxWidth: 780, margin: "0 auto 36px" }}>
-            <div className="section-eyebrow" style={{ justifyContent: "center" }}>Examination Standards</div>
-            <h3 style={{ fontFamily: "var(--display)", fontSize: 28, fontWeight: 800, color: "var(--ink)" }}>
-              Examination Design &amp; Guidelines
-            </h3>
-          </div>
-
-          <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(240px, 1fr))", gap: 20, maxWidth: 1040, margin: "0 auto 56px" }}>
-            {features.map((f, i) => (
+          
+          <div className="comp-rounds-grid">
+            {ROUNDS_DATA.map((r) => (
               <div
-                key={i}
-                style={{
-                  background: "#FFFFFF",
-                  border: "1px solid var(--line)",
-                  borderRadius: 16,
-                  padding: "24px 20px",
-                  boxShadow: "0 2px 10px rgba(0,0,0,0.03)",
-                }}
+                key={r.roundNum}
+                className="comp-round-card"
+                style={{ borderTop: `4px solid ${r.color}` }}
               >
-                <div style={{ fontSize: 32, marginBottom: 10 }}>{f.icon}</div>
-                <h4 style={{ fontSize: 17, fontWeight: 800, color: "var(--ink)", marginBottom: 8 }}>{f.title}</h4>
-                <p style={{ fontSize: 13.5, color: "var(--ink-dim)", lineHeight: 1.55, margin: 0 }}>{f.desc}</p>
+                <div className="comp-round-card-header">
+                  <div className="comp-round-badge-row">
+                    <span className="comp-round-pill" style={{ background: r.color }}>
+                      {r.roundNum}
+                    </span>
+                    <span className="comp-round-mode-tag" style={{ color: r.color, borderColor: r.border, background: r.bg }}>
+                      {r.icon} {r.mode}
+                    </span>
+                  </div>
+                  <h2 className="comp-round-card-title">{r.title}</h2>
+                  <p className="comp-round-summary">{r.summary}</p>
+                </div>
+
+                <div className="comp-features-box">
+                  <h3 className="comp-features-heading">Key Features:</h3>
+                  <ul className="comp-features-list">
+                    {r.features.map((feat, i) => (
+                      <li key={i}>
+                        <span className="comp-feature-bullet" style={{ color: r.color }}>&bull;</span>
+                        <span>{feat}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
               </div>
             ))}
           </div>
 
-          <p style={{ textAlign: "center", color: "var(--ink-dim)", fontSize: 15, fontStyle: "italic", maxWidth: 720, margin: "0 auto" }}>
-            School Level → District Level → State Level → National Level.<br />
-            Begin at Your School. Rise Through Your District and State. Compete for National Glory.
-          </p>
+          {/* The Journey of Excellence Box */}
+          <div style={{ maxWidth: 1120, margin: "64px auto 0" }}>
+            <div className="comp-journey-box">
+              <h2 className="comp-journey-title">
+                The Journey of Excellence
+              </h2>
+              
+              {/* Stepper Breadcrumb */}
+              <div className="comp-stepper-row">
+                <span className="comp-step-item">School Level</span>
+                <span className="comp-step-arrow">&rarr;</span>
+                <span className="comp-step-item">District Level</span>
+                <span className="comp-step-arrow">&rarr;</span>
+                <span className="comp-step-item">State Level</span>
+                <span className="comp-step-arrow">&rarr;</span>
+                <span className="comp-step-item comp-step-highlight">National Level</span>
+              </div>
 
-          {/* Action CTAs */}
-          <div style={{ textAlign: "center", marginTop: 40, display: "flex", justifyContent: "center", gap: 14, flexWrap: "wrap" }}>
-            <Link href="/award-structure/" className="btn btn-secondary">
-              View Award Structure &amp; Medals
-            </Link>
-            <Link href="/how-to-prepare/" className="btn btn-secondary">
-              How to Prepare
-            </Link>
-            <a
-              href="https://forms.gle/KvAiXYv1CRr5E1Y17"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="btn btn-primary"
-            >
-              Register for Olympiad ↗
-            </a>
+              <p className="comp-journey-text">
+                Every round provides students with a new opportunity to challenge themselves, demonstrate their knowledge and skills, and progress towards higher levels of achievement.
+              </p>
+
+              <div className="comp-quote-badge">
+                <p className="comp-quote-text">
+                  &ldquo;Begin at Your School. Rise Through Your District and State. Compete for National Glory.&rdquo;
+                </p>
+              </div>
+            </div>
           </div>
+
         </div>
       </section>
     </>

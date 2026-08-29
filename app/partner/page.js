@@ -89,14 +89,14 @@ export default function PartnerPage() {
             </a>
           </div>
 
-          <div style={{ textAlign: "center", maxWidth: 840, margin: "0 auto" }}>
-            <div className="section-eyebrow" style={{ justifyContent: "center", marginBottom: 10 }}>
+          <div style={{ textAlign: "left", maxWidth: 1300, margin: 0 }}>
+            <div className="section-eyebrow" style={{ justifyContent: "flex-start", marginBottom: 12 }}>
               Strategic Alliances &middot; Session 2026&ndash;27
             </div>
-            <h1 style={{ fontFamily: "var(--display)", fontSize: "clamp(28px, 4vw, 42px)", fontWeight: 800, color: "var(--ink)", letterSpacing: "-0.02em", marginBottom: 12 }}>
+            <h1 style={{ fontFamily: "var(--display)", fontSize: "clamp(30px, 4.2vw, 46px)", fontWeight: 850, color: "var(--ink)", letterSpacing: "-0.025em", marginBottom: 16 }}>
               Our Institutional &amp; Knowledge Partners
             </h1>
-            <p style={{ fontSize: 16, color: "var(--ink-dim)", lineHeight: 1.65, maxWidth: 740, margin: "0 auto" }}>
+            <p style={{ fontSize: 16, color: "var(--ink-dim)", lineHeight: 1.7, maxWidth: "100%", margin: 0 }}>
               Collaborating with visionary organizations across deep technology, digital safety, applied finance, and experiential education to empower school students across India.
             </p>
           </div>
@@ -145,34 +145,6 @@ export default function PartnerPage() {
                 <p className="partner-pillar-desc">{desc}</p>
               </div>
             ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Partner with Us CTA Banner */}
-      <section style={{ paddingTop: 54, paddingBottom: 72 }}>
-        <div className="wrap">
-          <div className="partner-cta-card">
-            <div className="partner-cta-content">
-              <span className="partner-cta-eyebrow">Institutional Alliances</span>
-              <h2 className="partner-cta-title">Become an Official Partner</h2>
-              <p className="partner-cta-desc">
-                Are you an educational institution, industry leader, STEM organization, or pedagogical council? Partner with India Genius Olympiad to co-create futuristic learning pathways for Indian students.
-              </p>
-              <div className="partner-cta-actions">
-                <a
-                  className="btn btn-primary"
-                  href="https://forms.gle/tt83cHHLN2n4B7YR6"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  Apply for Partnership ↗
-                </a>
-                <a className="btn btn-ghost" href="/contact-us/">
-                  Contact Secretariat
-                </a>
-              </div>
-            </div>
           </div>
         </div>
       </section>

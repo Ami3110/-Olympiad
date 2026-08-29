@@ -117,19 +117,6 @@ export default function VisionPage() {
               </div>
             ))}
           </div>
-
-          <p style={{ textAlign: "center", color: "var(--ink-dim)", fontSize: 15, marginTop: 32, fontStyle: "italic" }}>
-            We believe in discovering potential, inspiring excellence and empowering the future.
-          </p>
-
-          <div style={{ textAlign: "center", marginTop: 36, display: "flex", justifyContent: "center", gap: 14, flexWrap: "wrap" }}>
-            <a className="btn btn-secondary" href="/about/">
-              Learn About Us
-            </a>
-            <a className="btn btn-primary" href="/mission/">
-              Explore Our Mission →
-            </a>
-          </div>
         </div>
       </section>
     </>
