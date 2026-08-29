@@ -79,7 +79,7 @@ export default function InitiativesPage() {
 
           <div style={{ textAlign: "left", maxWidth: 1300, margin: 0 }}>
             <div className="section-eyebrow" style={{ justifyContent: "flex-start", marginBottom: 12 }}>
-              National Academic Initiative &middot; Session 2026–27
+              National Academic Initiative &middot; Session 2026
             </div>
             <h1 style={{ fontFamily: "var(--display)", fontSize: "clamp(30px, 4.2vw, 46px)", fontWeight: 850, color: "var(--ink)", letterSpacing: "-0.025em", marginBottom: 16 }}>
               Our Annual Initiatives
@@ -227,7 +227,7 @@ export default function InitiativesPage() {
                     National Programme
                   </span>
                   <span style={{ fontSize: 13, fontWeight: 700, color: accent, display: "flex", alignItems: "center", gap: 4 }}>
-                    Session 2026–27
+                    Session 2026
                   </span>
                 </div>
               </div>

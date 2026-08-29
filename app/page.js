@@ -338,7 +338,7 @@ export default function HomePage() {
                   marginRight: 8,
                 }}
               ></span>
-              Registration Open &middot; Session 2026&ndash;27
+              Registration Open &middot; Session 2026
             </div>
 
             <h2
@@ -365,7 +365,7 @@ export default function HomePage() {
                 lineHeight: 1.6,
               }}
             >
-              Join thousands of students and schools across India. Register now for the 2026–27 Academic Session at just ₹80 per subject.
+              Join thousands of students and schools across India. Register now for the 2026 Academic Session at just ₹80 per subject.
             </p>
 
             <div className="register-cards">

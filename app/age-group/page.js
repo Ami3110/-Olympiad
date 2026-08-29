@@ -2,7 +2,7 @@ import Link from "next/link";
 import ageGroupsData from "../../data/ageGroups.json";
 
 export const metadata = {
-  title: "Age Groups & Divisions — India Genius Olympiad | Session 2026–27",
+  title: "Age Groups & Divisions — India Genius Olympiad | Session 2026",
   description:
     "Explore the 6 age groups and divisions in India Genius Olympiad: Foundation (PG–UKG), Junior (I–II), Primary (III–V), Middle (VI–VIII), Secondary (IX–X), and Senior Secondary (XI–XII).",
 };
@@ -97,7 +97,7 @@ export default function AgeGroupPage() {
 
           <div style={{ textAlign: "left", maxWidth: 1300, margin: 0 }}>
             <div className="section-eyebrow" style={{ justifyContent: "flex-start", marginBottom: 12 }}>
-              Eligibility &middot; Developmental Framework &middot; Session 2026–27
+              Eligibility &middot; Developmental Framework &middot; Session 2026
             </div>
             <h1 style={{ fontFamily: "var(--display)", fontSize: "clamp(30px, 4.2vw, 46px)", fontWeight: 850, color: "var(--ink)", letterSpacing: "-0.025em", marginBottom: 16 }}>
               Age Groups &amp; Divisions

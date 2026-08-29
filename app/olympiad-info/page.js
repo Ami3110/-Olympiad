@@ -568,7 +568,7 @@ export default function OlympiadInfoPage() {
             Ready to Register?
           </h2>
           <p style={{ color: "rgba(255,255,255,0.78)", maxWidth: 520, margin: "0 auto 32px" }}>
-            Join thousands of students across India. Just ₹80 per subject. Register for Session 2026–27 now.
+            Join thousands of students across India. Just ₹80 per subject. Register for Session 2026 now.
           </p>
           <div className="oi-hero-actions">
             <a className="btn btn-primary" href="https://forms.gle/KvAiXYv1CRr5E1Y17" target="_blank" rel="noopener noreferrer">

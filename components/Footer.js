@@ -153,7 +153,7 @@ export default function Footer() {
           </div>
           <div className="footer-hl-card">
             <span className="footer-hl-label">Active Cycle</span>
-            <span className="footer-hl-val">India Genius Olympiad 2026–27</span>
+            <span className="footer-hl-val">India Genius Olympiad </span>
           </div>
         </div>
 

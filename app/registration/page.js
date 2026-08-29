@@ -1,9 +1,9 @@
 import RegistrationUnified from "../../components/RegistrationUnified";
 
 export const metadata = {
-  title: "Registration — India Genius Olympiad | Session 2026–27",
+  title: "Registration — India Genius Olympiad | Session 2026",
   description:
-    "Register for India Genius Olympiad Session 2026–27. Seamless online registration for both individual students and partner schools across India.",
+    "Register for India Genius Olympiad Session 2026. Seamless online registration for both individual students and partner schools across India.",
 };
 
 export default function RegistrationPage() {

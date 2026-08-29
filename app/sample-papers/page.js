@@ -59,7 +59,7 @@ export default function SamplePapersPage() {
 
           <div style={{ textAlign: "left", maxWidth: 1300, margin: 0 }}>
             <div className="section-eyebrow" style={{ justifyContent: "flex-start", marginBottom: 12 }}>
-              Academic Resource Library &middot; Session 2026–27
+              Academic Resource Library &middot; Session 2026
             </div>
             <h1 style={{ fontFamily: "var(--display)", fontSize: "clamp(30px, 4.2vw, 46px)", fontWeight: 850, color: "var(--ink)", letterSpacing: "-0.025em", marginBottom: 16 }}>
               Sample Question Papers
