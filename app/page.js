@@ -59,14 +59,28 @@ export default function HomePage() {
               <span className="hero-head-navy">Where Curiosity</span>
               <span className="hero-head-orange">Becomes Genius.</span>
             </h1>
+            {/* Decorative swoosh — a plain sibling of the heading (not
+                absolutely positioned over the image), so it always stays
+                anchored directly under the text at any screen size instead
+                of drifting independently. */}
+            <svg
+              className="hero-heading-swoosh"
+              viewBox="0 0 420 30"
+              preserveAspectRatio="none"
+              aria-hidden="true"
+            >
+              <path d="M6 21 Q 210 3 414 15" fill="none" stroke="#E65A00" strokeWidth="5" strokeLinecap="round" />
+            </svg>
           </div>
 
-          {/* Central Visual: Prominent Students Group with Embedded Action Buttons */}
+          {/* Central Visual: Home.svg */}
           <div className="hero-panoramic-visual-wrap">
             <img
-              src="/assets/images/hero-students-clean-nobuttons.png"
-              alt="Where Curiosity Becomes Genius — Indian school students excelling in science, mathematics, AI robotics, and olympiads"
+              src="/assets/images/Home.svg"
+              alt="Where Curiosity Becomes Genius — Students exploring science, technology, and learning"
               className="hero-panoramic-img"
+              loading="eager"
+              fetchPriority="high"
             />
 
             {/* Standalone Action Buttons positioned directly on the same background canvas */}
@@ -131,7 +145,7 @@ export default function HomePage() {
               <p className="vision-statement">
                 To become a leading national platform for discovering, nurturing and empowering the intellectual, academic, creative and professional potential of learners across India.
               </p>
-              <a className="btn btn-ghost" href="/about/#vision" style={{ width: "100%", justifyContent: "center" }}>
+              <a className="btn btn-ghost" href="/vision/" style={{ width: "100%", justifyContent: "center" }}>
                 Read Our Vision →
               </a>
             </div>
@@ -144,7 +158,7 @@ export default function HomePage() {
               <p className="vision-statement">
                 To create meaningful and accessible educational opportunities that inspire learners to learn, think, explore, discover and excel — through Olympiads, assessments, career guidance and national-level recognition.
               </p>
-              <a className="btn btn-ghost" href="/about/#mission" style={{ width: "100%", justifyContent: "center" }}>
+              <a className="btn btn-ghost" href="/mission/" style={{ width: "100%", justifyContent: "center" }}>
                 Read Our Mission →
               </a>
             </div>
@@ -374,8 +388,8 @@ export default function HomePage() {
           />
           <AwardsInteractive />
           <div style={{ textAlign: "center", marginTop: 36 }}>
-            <a className="btn btn-ghost" href="/olympiad-info/#awards">
-              View Award Structure →
+            <a className="btn btn-ghost" href="/award-structure/">
+              View Full Award Structure →
             </a>
           </div>
         </div>

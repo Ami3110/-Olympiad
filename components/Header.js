@@ -5,8 +5,29 @@ import { useState, useEffect, useRef } from "react";
 export default function Header() {
   const [mobileNavOpen, setMobileNavOpen] = useState(false);
   const [activeDropdown, setActiveDropdown] = useState(null);
+  const [isBlinking, setIsBlinking] = useState(false);
   const timeoutRef = useRef(null);
   const headerRef = useRef(null);
+
+  // Periodically blink Register Now button every 5 minutes
+  useEffect(() => {
+    const triggerBlink = () => {
+      setIsBlinking(true);
+      setTimeout(() => {
+        setIsBlinking(false);
+      }, 5000); // Blinks for 5 seconds
+    };
+
+    // Also trigger initial brief highlight after load
+    const initialTimer = setTimeout(triggerBlink, 3000);
+    // Interval every 5 minutes (300,000ms)
+    const interval = setInterval(triggerBlink, 5 * 60 * 1000);
+
+    return () => {
+      clearTimeout(initialTimer);
+      clearInterval(interval);
+    };
+  }, []);
 
   // Hover handlers with debounced exit buffer (prevents dropdown closing when moving mouse)
   const handleMouseEnter = (menuKey) => {
@@ -72,8 +93,7 @@ export default function Header() {
             alt="India Genius Olympiad Official Logo"
           />
           <div className="brand-title-wrap">
-            <span className="brand-text">India Genius</span>
-            <span className="brand-sub-badge">Olympiad</span>
+            <span className="brand-text">India Genius Olympiad</span>
           </div>
         </a>
 
@@ -108,14 +128,14 @@ export default function Header() {
 
           {/* Vision Link */}
           <div className="nav-item">
-            <a href="/about/#vision" className="nav-direct-link" onClick={closeMenus}>
+            <a href="/vision/" className="nav-direct-link" onClick={closeMenus}>
               Vision
             </a>
           </div>
 
           {/* Mission Link */}
           <div className="nav-item">
-            <a href="/about/#mission" className="nav-direct-link" onClick={closeMenus}>
+            <a href="/mission/" className="nav-direct-link" onClick={closeMenus}>
               Mission
             </a>
           </div>
@@ -139,11 +159,7 @@ export default function Header() {
             </button>
 
             <div className={`nav-dropdown ${activeDropdown === "about" ? "dropdown-visible" : ""}`}>
-              <a href="/about/#about" className="dropdown-link-simple" onClick={closeMenus}>About Us</a>
-              <a href="/about/#vision" className="dropdown-link-simple" onClick={closeMenus}>Vision</a>
-              <a href="/about/#mission" className="dropdown-link-simple" onClick={closeMenus}>Mission</a>
-              <a href="/about/#belief" className="dropdown-link-simple" onClick={closeMenus}>Our Belief</a>
-              <a href="/about/#leadership" className="dropdown-link-simple" onClick={closeMenus}>Leadership</a>
+              <a href="/about/" className="dropdown-link-simple" onClick={closeMenus}>About Us</a>
               <a href="/associated-institutes/" className="dropdown-link-simple" onClick={closeMenus}>Associated Institutes</a>
               <a href="/partner/" className="dropdown-link-simple" onClick={closeMenus}>Associated Partners</a>
               <a href="/initiatives/" className="dropdown-link-simple" onClick={closeMenus}>Annual Initiatives</a>
@@ -170,19 +186,17 @@ export default function Header() {
             </button>
 
             <div className={`nav-dropdown ${activeDropdown === "olympiad" ? "dropdown-visible" : ""}`}>
-              <a href="/olympiad-info/#about" className="dropdown-link-simple" onClick={closeMenus}>What is IGO?</a>
-              <a href="/olympiad-info/#age-group" className="dropdown-link-simple" onClick={closeMenus}>Age Group</a>
+              <a href="/what-is-igo/" className="dropdown-link-simple" onClick={closeMenus}>What is IGO?</a>
+              <a href="/age-group/" className="dropdown-link-simple" onClick={closeMenus}>Age Group</a>
               <a href="/subjects/" className="dropdown-link-simple" onClick={closeMenus}>Subjects &amp; Divisions</a>
               <a href="/how-to-prepare/" className="dropdown-link-simple" onClick={closeMenus}>How to Prepare</a>
-              <a href="/olympiad-info/#structure" className="dropdown-link-simple" onClick={closeMenus}>Competition Structure</a>
-              <a href="/olympiad-info/#awards" className="dropdown-link-simple" onClick={closeMenus}>Award Structure</a>
-              <a href="/olympiad-info/#faq" className="dropdown-link-simple" onClick={closeMenus}>FAQ</a>
+              <a href="/competition-structure/" className="dropdown-link-simple" onClick={closeMenus}>Competition Structure</a>
             </div>
           </div>
 
           {/* Award Structure Link */}
           <div className="nav-item">
-            <a href="/#awards-preview" className="nav-direct-link" onClick={closeMenus}>
+            <a href="/award-structure/" className="nav-direct-link" onClick={closeMenus}>
               Award Structure
             </a>
           </div>
@@ -227,7 +241,7 @@ export default function Header() {
             onMouseLeave={handleMouseLeave}
           >
             <button
-              className="nav-summary-register-btn pill-register-mock"
+              className={`nav-summary-register-btn pill-register-mock ${isBlinking ? "header-register-blink" : ""}`}
               type="button"
               aria-expanded={activeDropdown === "register" ? "true" : "false"}
               onClick={(e) => handleTriggerClick("register", e)}

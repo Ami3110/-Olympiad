@@ -26,43 +26,31 @@ const totalSubjects = ageGroups.reduce((sum, g) => sum + g.subjects.length, 0);
 export default function SubjectsPage() {
   return (
     <>
-      {/* Immersive Dark Hero Banner — same pattern as Syllabus/About */}
-      <section style={{ padding: 0, borderTop: "none" }}>
-        <div className="syl-hero-wrap">
-          <div className="wrap syl-hero-content">
-            <div className="syl-hero-top" style={{ marginBottom: "28px" }}>
-              <a className="page-back-btn" href="/" aria-label="Back to Home" style={{ margin: 0 }}>
-                <svg className="back-arrow-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
-                  <line x1="19" y1="12" x2="5" y2="12"></line>
-                  <polyline points="12 19 5 12 12 5"></polyline>
-                </svg>
-                <span>Back to Home</span>
-              </a>
+      {/* Minimal Header */}
+      <section style={{ paddingTop: 36, paddingBottom: 24 }}>
+        <div className="wrap">
+          <div style={{ marginBottom: 20 }}>
+            <a className="page-back-btn light-variant" href="/" aria-label="Back to Home" style={{ margin: 0 }}>
+              <svg className="back-arrow-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+                <line x1="19" y1="12" x2="5" y2="12"></line>
+                <polyline points="12 19 5 12 12 5"></polyline>
+              </svg>
+              <span>Back to Home</span>
+            </a>
+          </div>
+
+          <div style={{ textAlign: "center", maxWidth: 820, margin: "0 auto" }}>
+            <div className="section-eyebrow" style={{ justifyContent: "center", marginBottom: 10 }}>
+              Complete Subject Directory &middot; Session 2026–27
             </div>
-
-            <div className="syl-hero-eyebrow">
-              <span className="syl-hero-eyebrow-line" />
-              Complete Subject Directory · Session 2026–27
-            </div>
-
-            <h1 className="syl-hero-title">Subjects by Division</h1>
-
-            <p className="syl-hero-desc">
+            <h1 style={{ fontFamily: "var(--display)", fontSize: "clamp(28px, 4vw, 42px)", fontWeight: 800, color: "var(--ink)", letterSpacing: "-0.02em", marginBottom: 12 }}>
+              Subjects by Division
+            </h1>
+            <p style={{ fontSize: 16, color: "var(--ink-dim)", lineHeight: 1.65, maxWidth: 720, margin: "0 auto" }}>
               The full India Genius Olympiad subject list for every age division, from Foundation
               (PG–UKG) to Senior Secondary (Classes XI–XII). Select a subject&rsquo;s division to
               view its syllabus or practice a sample paper.
             </p>
-
-            <div className="syl-hero-pills">
-              <div className="syl-hero-pill">
-                <span className="syl-hero-pill-icon">🎓</span>
-                <span><strong>6</strong> Divisions (PG–XII)</span>
-              </div>
-              <div className="syl-hero-pill">
-                <span className="syl-hero-pill-icon">🗂️</span>
-                <span><strong>{totalSubjects}</strong> Subject Entries</span>
-              </div>
-            </div>
           </div>
         </div>
       </section>

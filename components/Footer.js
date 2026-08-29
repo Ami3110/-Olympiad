@@ -65,6 +65,9 @@ export default function Footer() {
               <Link href="/study-material/" className="footer-link-item">
                 Recommended Study Books
               </Link>
+              <Link href="/award-structure/" className="footer-link-item">
+                Award Structure &amp; Honours
+              </Link>
               <Link href="/#program" className="footer-link-item">
                 Age Groups &amp; Levels
               </Link>

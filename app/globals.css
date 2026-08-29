@@ -160,23 +160,23 @@ a {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 28px;
-  padding: 12px 36px;
-  max-width: 1480px;
+  gap: 24px;
+  padding: 8px 32px;
+  max-width: 1540px;
   margin: 0 auto;
 }
 
 .brand-link {
   display: flex;
   align-items: center;
-  gap: 16px;
+  gap: 14px;
   text-decoration: none;
 }
 
 .topbar-logo {
-  height: 104px;
+  height: 72px;
   width: auto;
-  max-height: 114px;
+  max-height: 80px;
   object-fit: contain;
   display: block;
   flex-shrink: 0;
@@ -189,31 +189,20 @@ a {
 
 .brand-title-wrap {
   display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  justify-content: center;
+  flex-direction: row;
+  align-items: center;
   gap: 0px;
   min-width: 0;
 }
 
 .brand-text {
   font-family: 'Plus Jakarta Sans', 'Outfit', var(--display), sans-serif;
-  font-weight: 850;
-  font-size: clamp(22px, 2.1vw, 28px);
-  letter-spacing: -0.025em;
-  color: #0B1C43;
-  line-height: 1.05;
+  font-weight: 900;
+  font-size: clamp(22px, 2.1vw, 27px);
+  letter-spacing: -0.03em;
+  color: #000000;
+  line-height: 1;
   white-space: nowrap;
-}
-
-.brand-sub-badge {
-  font-family: var(--body);
-  font-size: clamp(12.5px, 1.05vw, 14px);
-  font-weight: 700;
-  color: #2D3748;
-  letter-spacing: 0.02em;
-  line-height: 1.1;
-  margin-top: 2px;
 }
 
 .pill-register-mock {
@@ -240,26 +229,56 @@ a {
   transform: translateX(2px);
 }
 
+@keyframes headerRegisterBlink {
+  0%, 100% {
+    transform: scale(1);
+    box-shadow: 0 4px 14px rgba(216, 78, 0, 0.32);
+    filter: brightness(1);
+  }
+  25% {
+    transform: scale(1.05);
+    box-shadow: 0 0 20px rgba(230, 90, 0, 0.85), 0 4px 18px rgba(216, 78, 0, 0.6);
+    filter: brightness(1.18);
+  }
+  50% {
+    transform: scale(0.98);
+    box-shadow: 0 2px 8px rgba(216, 78, 0, 0.25);
+    filter: brightness(0.92);
+  }
+  75% {
+    transform: scale(1.05);
+    box-shadow: 0 0 20px rgba(230, 90, 0, 0.85), 0 4px 18px rgba(216, 78, 0, 0.6);
+    filter: brightness(1.18);
+  }
+}
+
+.header-register-blink {
+  animation: headerRegisterBlink 1.2s ease-in-out infinite !important;
+}
+
 /* ============================================================
    REDESIGNED FULL-WIDTH PANORAMIC HERO SECTION
    ============================================================ */
 .hero-panoramic-section {
   background: #FFFFFF;
-  min-height: calc(100vh - 105px);
+  height: calc(100vh - 89px);
+  min-height: 480px;
+  max-height: calc(100vh - 89px);
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
+  justify-content: flex-start;
   align-items: center;
   position: relative;
-  overflow: visible;
+  overflow: hidden;
   width: 100%;
-  padding: 24px 0 76px;
+  padding: 6px 0 10px;
   box-sizing: border-box;
 }
 
 .hero-panoramic-container {
   width: 100%;
   max-width: 100%;
+  height: 100%;
   margin: 0;
   padding: 0;
   display: flex;
@@ -268,22 +287,25 @@ a {
   justify-content: flex-start;
   flex: 1;
   text-align: center;
+  position: relative;
 }
 
 .hero-panoramic-header {
+  position: relative;
+  z-index: 5;
   width: 100%;
   max-width: 100%;
-  margin: 0 auto 0;
-  padding: 0 20px;
+  margin: 0 auto 2px;
+  padding: 0 16px;
   flex-shrink: 0;
 }
 
 .hero-panoramic-heading {
   font-family: 'Plus Jakarta Sans', 'Outfit', var(--display), sans-serif;
-  font-size: clamp(34px, 4.8vw, 68px);
+  font-size: clamp(22px, 2.9vw, 36px);
   font-weight: 850;
-  line-height: 1.0;
-  letter-spacing: -0.035em;
+  line-height: 1.05;
+  letter-spacing: -0.03em;
   margin: 0 auto;
 }
 
@@ -298,13 +320,22 @@ a {
   margin-top: 2px;
 }
 
+/* Decorative swoosh under the headline */
+.hero-heading-swoosh {
+  display: block;
+  width: min(260px, 38%);
+  height: auto;
+  margin: 2px auto 0;
+}
+
 .hero-panoramic-visual-wrap {
   position: relative;
   width: 100%;
-  max-width: 1400px;
-  margin: -20px auto 0;
+  max-width: 100%;
+  margin: 0;
   padding: 0;
   flex: 1;
+  min-height: 0;
   display: flex;
   justify-content: center;
   align-items: flex-end;
@@ -313,14 +344,53 @@ a {
 
 .hero-panoramic-img {
   width: 100%;
-  height: auto;
-  max-height: calc(100vh - 240px);
-  min-height: 340px;
+  max-width: 100%;
+  height: 100%;
+  max-height: 100%;
   display: block;
   object-fit: contain;
   object-position: bottom center;
   user-select: none;
-  margin-top: -13%;
+  margin: 0;
+  position: relative;
+  z-index: 1;
+}
+
+/* Three separately-composited cutouts (fallback) */
+.hero-cutout-row {
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  width: 100%;
+  flex-wrap: nowrap;
+}
+
+.hero-cutout {
+  height: clamp(220px, 30vw, 420px);
+  width: auto;
+  max-width: 40%;
+  object-fit: contain;
+  object-position: bottom center;
+  user-select: none;
+  pointer-events: none;
+  display: block;
+}
+
+.hero-cutout-center {
+  height: clamp(250px, 36vw, 480px);
+  max-width: 46%;
+  z-index: 2;
+  margin: 0 -3vw;
+}
+
+.hero-cutout-left {
+  z-index: 1;
+  margin-right: -3vw;
+}
+
+.hero-cutout-right {
+  z-index: 1;
+  margin-left: -3vw;
 }
 
 /* ============================================================
@@ -328,13 +398,13 @@ a {
    ============================================================ */
 .hero-panoramic-actions.hero-actions-on-bg {
   position: absolute;
-  bottom: -46px;
-  left: 50%;
+  bottom: 12px;
+  left: 47%;
   transform: translateX(-50%);
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: 20px;
+  gap: 16px;
   margin: 0;
   padding: 0;
   z-index: 10;
@@ -463,6 +533,20 @@ a {
     max-height: 55vh;
   }
 
+  .hero-cutout-row {
+    margin-top: 0;
+  }
+
+  .hero-cutout,
+  .hero-cutout-center {
+    height: clamp(150px, 42vw, 220px);
+    max-width: 42%;
+  }
+
+  .hero-heading-swoosh {
+    width: min(260px, 72%);
+  }
+
   .hero-panoramic-actions.hero-actions-on-bg {
     position: relative;
     bottom: auto;
@@ -572,8 +656,9 @@ nav.main-nav {
   }
 
   .brand-text {
-    font-size: clamp(18px, 4vw, 24px);
-    font-weight: 800;
+    font-size: clamp(19px, 4vw, 25px);
+    font-weight: 900;
+    color: #000000;
     line-height: 1.15;
     letter-spacing: -0.02em;
     white-space: nowrap;
@@ -633,7 +718,9 @@ nav.main-nav {
   }
 
   .brand-text {
-    font-size: 16.5px;
+    font-size: 17.5px;
+    font-weight: 900;
+    color: #000000;
   }
 
   .brand-sub {
@@ -1566,8 +1653,9 @@ section:nth-of-type(even) {
 
 .section-eyebrow {
   font-family: var(--mono);
-  font-size: 11px;
-  letter-spacing: 0.20em;
+  font-size: clamp(13.5px, 1.1vw, 15.5px);
+  font-weight: 700;
+  letter-spacing: 0.14em;
   text-transform: uppercase;
   color: var(--teal);
   margin-bottom: 14px;
@@ -2394,6 +2482,60 @@ h2.section-title {
   line-height: 1.6;
   max-width: 440px;
   margin-bottom: 24px;
+}
+
+/* Radio / checkbox groups — RegistrationForm.js. Same visual language
+   as .contact-input (border/line tokens, saffron accent) rather than a
+   new control style. */
+.contact-radio-group,
+.contact-checkbox-group {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-top: 2px;
+}
+
+.contact-radio-option,
+.contact-checkbox-option {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 12.5px;
+  color: var(--ink);
+  cursor: pointer;
+}
+
+.contact-radio-option input[type="radio"],
+.contact-checkbox-option input[type="checkbox"] {
+  accent-color: var(--saffron);
+  width: 15px;
+  height: 15px;
+  flex-shrink: 0;
+  cursor: pointer;
+}
+
+.contact-radio-other-input {
+  flex: 1;
+  max-width: 220px;
+  padding: 4px 10px !important;
+}
+
+.contact-form-section-label {
+  font-family: var(--mono);
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--flame);
+  border-top: 1px solid var(--line);
+  padding-top: 14px;
+  margin-top: 4px;
+}
+
+.contact-field-error {
+  font-size: 11.5px;
+  color: var(--flame);
+  margin-top: 2px;
 }
 
 .founder-grid {

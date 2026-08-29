@@ -175,27 +175,6 @@ export default function InitiativesPage() {
         </div>
       </section>
 
-      {/* School Connect CTA */}
-      <section id="school-connect">
-        <div className="wrap">
-          <div style={{ maxWidth: 560, margin: "0 auto" }}>
-            <div className="register-cta-card">
-              <span className="register-cta-icon">🤝</span>
-              <h3>School Connect Form</h3>
-              <p>Share your school&apos;s basic details so our team can stay connected with your institution and share information about upcoming programmes and opportunities.</p>
-              <a className="btn btn-primary" href="https://forms.gle/tt83cHHLN2n4B7YR6" target="_blank" rel="noopener noreferrer">
-                Connect Your School ↗
-              </a>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Slogan banner */}
-      <div className="slogan-banner">
-        <div className="tag">India Genius Foundation</div>
-        <h3>&ldquo;Empowering Students &middot; Inspiring Teachers &middot; Connecting Institutions &middot; Transforming Education&rdquo;</h3>
-      </div>
     </>
   );
 }

@@ -76,8 +76,8 @@ const COLLAB_PILLARS = [
 export default function PartnerPage() {
   return (
     <>
-      {/* Top Header Section with Back Button */}
-      <section style={{ paddingTop: 32, paddingBottom: 32 }}>
+      {/* Minimal Header */}
+      <section style={{ paddingTop: 36, paddingBottom: 28 }}>
         <div className="wrap">
           <div style={{ marginBottom: 20 }}>
             <a className="page-back-btn light-variant" href="/" aria-label="Back to Home" style={{ margin: 0 }}>
@@ -89,11 +89,11 @@ export default function PartnerPage() {
             </a>
           </div>
 
-          <div style={{ textAlign: "center", maxWidth: 840, margin: "0 auto 16px" }}>
-            <div className="section-eyebrow" style={{ justifyContent: "center", marginBottom: 12 }}>
+          <div style={{ textAlign: "center", maxWidth: 840, margin: "0 auto" }}>
+            <div className="section-eyebrow" style={{ justifyContent: "center", marginBottom: 10 }}>
               Strategic Alliances &middot; Session 2026&ndash;27
             </div>
-            <h1 style={{ fontFamily: "var(--display)", fontSize: "clamp(30px, 4vw, 46px)", fontWeight: 800, color: "var(--ink)", letterSpacing: "-0.02em", marginBottom: 14 }}>
+            <h1 style={{ fontFamily: "var(--display)", fontSize: "clamp(28px, 4vw, 42px)", fontWeight: 800, color: "var(--ink)", letterSpacing: "-0.02em", marginBottom: 12 }}>
               Our Institutional &amp; Knowledge Partners
             </h1>
             <p style={{ fontSize: 16, color: "var(--ink-dim)", lineHeight: 1.65, maxWidth: 740, margin: "0 auto" }}>

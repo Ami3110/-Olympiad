@@ -9,53 +9,30 @@ export const metadata = {
 export default function SyllabusIndexPage() {
   return (
     <>
-      {/* Immersive Dark Hero Banner */}
-      <section style={{ padding: 0, borderTop: "none" }}>
-        <div className="syl-hero-wrap">
-          <div className="wrap syl-hero-content">
-            <div className="syl-hero-top" style={{ marginBottom: "28px" }}>
-              <a className="page-back-btn" href="/" aria-label="Back to Home" style={{ margin: 0 }}>
-                <svg className="back-arrow-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
-                  <line x1="19" y1="12" x2="5" y2="12"></line>
-                  <polyline points="12 19 5 12 12 5"></polyline>
-                </svg>
-                <span>Back to Home</span>
-              </a>
-            </div>
+      {/* Minimal Header */}
+      <section style={{ paddingTop: 36, paddingBottom: 24 }}>
+        <div className="wrap">
+          <div style={{ marginBottom: 20 }}>
+            <a className="page-back-btn light-variant" href="/" aria-label="Back to Home" style={{ margin: 0 }}>
+              <svg className="back-arrow-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+                <line x1="19" y1="12" x2="5" y2="12"></line>
+                <polyline points="12 19 5 12 12 5"></polyline>
+              </svg>
+              <span>Back to Home</span>
+            </a>
+          </div>
 
-            <div className="syl-hero-eyebrow">
-              <span className="syl-hero-eyebrow-line" />
-              National Academic Blueprint · Session 2026–27
+          <div style={{ textAlign: "center", maxWidth: 820, margin: "0 auto" }}>
+            <div className="section-eyebrow" style={{ justifyContent: "center", marginBottom: 10 }}>
+              National Academic Blueprint &middot; Session 2026–27
             </div>
-
-            <h1 className="syl-hero-title">
+            <h1 style={{ fontFamily: "var(--display)", fontSize: "clamp(28px, 4vw, 42px)", fontWeight: 800, color: "var(--ink)", letterSpacing: "-0.02em", marginBottom: 12 }}>
               Syllabus by Age Group
             </h1>
-
-            <p className="syl-hero-desc">
+            <p style={{ fontSize: 16, color: "var(--ink-dim)", lineHeight: 1.65, maxWidth: 720, margin: "0 auto" }}>
               Discover our structured, future-ready curriculum spanning 6 age divisions and 25+ specialized Olympiads. 
               Designed in alignment with NEP 2020 to build conceptual mastery, computational thinking, and scientific inquiry.
             </p>
-
-            {/* Quick Hero Highlights Pills */}
-            <div className="syl-hero-pills">
-              <div className="syl-hero-pill">
-                <span className="syl-hero-pill-icon">🎓</span>
-                <span><strong>6</strong> Divisions (PG–XII)</span>
-              </div>
-              <div className="syl-hero-pill">
-                <span className="syl-hero-pill-icon">🚀</span>
-                <span><strong>25+</strong> Olympiad Disciplines</span>
-              </div>
-              <div className="syl-hero-pill">
-                <span className="syl-hero-pill-icon">📜</span>
-                <span><strong>100%</strong> NEP 2020 Aligned</span>
-              </div>
-              <div className="syl-hero-pill">
-                <span className="syl-hero-pill-icon">🏆</span>
-                <span><strong>₹80</strong> Nominal Entry Fee</span>
-              </div>
-            </div>
           </div>
         </div>
       </section>

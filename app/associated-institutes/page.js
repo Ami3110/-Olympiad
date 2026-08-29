@@ -90,10 +90,10 @@ const MARQUEE_ITEMS = [
 export default function AssociatedInstitutesPage() {
   return (
     <>
-      {/* ── TOP HEADER / HERO ──────────────────────────────── */}
-      <section className="inst-page-hero">
+      {/* Minimal Header */}
+      <section style={{ paddingTop: 36, paddingBottom: 28 }}>
         <div className="wrap">
-          <div style={{ marginBottom: 24 }}>
+          <div style={{ marginBottom: 20 }}>
             <Link className="page-back-btn light-variant" href="/" aria-label="Back to Home" style={{ margin: 0 }}>
               <svg className="back-arrow-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
                 <line x1="19" y1="12" x2="5" y2="12"></line>
@@ -103,31 +103,16 @@ export default function AssociatedInstitutesPage() {
             </Link>
           </div>
 
-          <div style={{ textAlign: "center", maxWidth: 860, margin: "0 auto" }}>
-            <div className="section-eyebrow" style={{ justifyContent: "center", color: "var(--saffron)", marginBottom: 12 }}>
+          <div style={{ textAlign: "center", maxWidth: 840, margin: "0 auto" }}>
+            <div className="section-eyebrow" style={{ justifyContent: "center", marginBottom: 10 }}>
               Academic Backbone &middot; Pan-India Network
             </div>
-            <h1 className="inst-page-title">
+            <h1 style={{ fontFamily: "var(--display)", fontSize: "clamp(28px, 4vw, 42px)", fontWeight: 800, color: "var(--ink)", letterSpacing: "-0.02em", marginBottom: 12 }}>
               Associated Institutes &amp; Institutional Network
             </h1>
-            <p className="inst-page-desc">
+            <p style={{ fontSize: 16, color: "var(--ink-dim)", lineHeight: 1.65, maxWidth: 740, margin: "0 auto" }}>
               Organized under the apex patronship of the <strong>India Genius Foundation</strong> and supported by distinguished academic councils, premier school networks, and teacher development bodies across India.
             </p>
-
-            {/* Quick Action Buttons */}
-            <div style={{ display: "flex", gap: 14, justifyContent: "center", flexWrap: "wrap", marginTop: 28 }}>
-              <a
-                className="btn btn-primary"
-                href="https://forms.gle/ZLuKVuR8XXWMrToW8"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                Register Your School ↗
-              </a>
-              <Link className="btn btn-ghost" href="/partner/" style={{ color: "#FFFFFF", borderColor: "rgba(255,255,255,0.3)" }}>
-                View Associated Partners →
-              </Link>
-            </div>
           </div>
         </div>
       </section>

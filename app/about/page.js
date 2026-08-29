@@ -5,122 +5,26 @@ export const metadata = {
 };
 
 export default function AboutPage() {
-  const pillars = [
-    {
-      icon: "📚",
-      title: "Academic Rigour",
-      desc: "Deep conceptual mastery in Science, Mathematics, English, and Social Studies, moving far beyond rote textbook memorization.",
-    },
-    {
-      icon: "🧠",
-      title: "Logical Reasoning",
-      desc: "Cultivating analytical deduction, pattern recognition, spatial awareness, and structured problem-solving from early years.",
-    },
-    {
-      icon: "🤖",
-      title: "Artificial Intelligence & Coding",
-      desc: "Early exposure to computational thinking, algorithmic logic, AI ethics, and modern digital fundamentals.",
-    },
-    {
-      icon: "💰",
-      title: "Financial Literacy",
-      desc: "Practical understanding of budgeting, saving, smart spending, and basic economics designed specifically for school students.",
-    },
-    {
-      icon: "🛡️",
-      title: "Cyber Security & Safety",
-      desc: "Instilling digital vigilance, safe internet practices, identity protection, and ethical online behavior.",
-    },
-    {
-      icon: "🌱",
-      title: "Environmental Awareness",
-      desc: "Fostering ecological consciousness, sustainability concepts, biodiversity appreciation, and climate mindfulness.",
-    },
-    {
-      icon: "📐",
-      title: "Mathematics & Applied Logic",
-      desc: "Strengthening quantitative agility, mental math, geometry, and real-world mathematical application.",
-    },
-    {
-      icon: "🌟",
-      title: "Leadership & Expression",
-      desc: "Building decision-making confidence, effective communication, and visionary problem-solving skills.",
-    },
-    {
-      icon: "🎖️",
-      title: "National Certification",
-      desc: "Merit-based national recognition, diagnostic performance scorecards, and prestigious awards for outstanding achievers.",
-    },
-  ];
-
   return (
     <>
-      {/* Immersive Dark Hero Banner */}
-      <section style={{ padding: 0, borderTop: "none" }}>
-        <div className="syl-hero-wrap">
-          <div className="wrap syl-hero-content">
-            {/* Top Navigation Row */}
-            <div className="syl-hero-top" style={{ marginBottom: "28px" }}>
-              <a className="page-back-btn" href="/" aria-label="Back to Home" style={{ margin: 0 }}>
-                <svg className="back-arrow-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
-                  <line x1="19" y1="12" x2="5" y2="12"></line>
-                  <polyline points="12 19 5 12 12 5"></polyline>
-                </svg>
-                <span>Back to Home</span>
-              </a>
-            </div>
-
-            <div className="syl-hero-eyebrow">
-              <span className="syl-hero-eyebrow-line" />
-              National Academic Blueprint · Session 2026–27
-            </div>
-
-            <h1 className="syl-hero-title">
-              About India Genius Olympiad
-            </h1>
-
-            <p className="syl-hero-desc">
-              An educational movement dedicated to discovering, nurturing, and recognizing young academic talent across Indian schools. 
-              Organized by the India Genius Foundation to champion competency-based learning and conceptual excellence.
-            </p>
-
-            {/* Quick Hero Highlights Pills */}
-            <div className="syl-hero-pills">
-              <div className="syl-hero-pill">
-                <span className="syl-hero-pill-icon">🏛️</span>
-                <span><strong>India Genius Foundation</strong> Backed</span>
-              </div>
-              <div className="syl-hero-pill">
-                <span className="syl-hero-pill-icon">🎓</span>
-                <span><strong>6</strong> Divisions (PG–XII)</span>
-              </div>
-              <div className="syl-hero-pill">
-                <span className="syl-hero-pill-icon">🚀</span>
-                <span><strong>25+</strong> Olympiad Disciplines</span>
-              </div>
-              <div className="syl-hero-pill">
-                <span className="syl-hero-pill-icon">📜</span>
-                <span><strong>100%</strong> NEP 2020 Aligned</span>
-              </div>
-              <div className="syl-hero-pill">
-                <span className="syl-hero-pill-icon">🏆</span>
-                <span><strong>₹80</strong> Entry Fee</span>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* About Us — India Genius Foundation, org-level framing (new content
-          pass, Aug 2026). Reuses the Mission section's centered-prose
-          pattern for a multi-paragraph body. */}
-      <section id="about" style={{ paddingTop: 64, paddingBottom: 56 }}>
+      {/* About Us — India Genius Foundation */}
+      <section id="about" style={{ paddingTop: 36, paddingBottom: 64 }}>
         <div className="wrap">
+          <div style={{ marginBottom: 24 }}>
+            <a className="page-back-btn light-variant" href="/" aria-label="Back to Home" style={{ margin: 0 }}>
+              <svg className="back-arrow-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+                <line x1="19" y1="12" x2="5" y2="12"></line>
+                <polyline points="12 19 5 12 12 5"></polyline>
+              </svg>
+              <span>Back to Home</span>
+            </a>
+          </div>
+
           <div style={{ maxWidth: 820, margin: "0 auto" }}>
-            <div className="section-eyebrow" style={{ justifyContent: "center" }}>Who We Are</div>
-            <h2 style={{ fontFamily: "var(--display)", fontSize: "clamp(28px, 3.5vw, 42px)", fontWeight: 800, color: "var(--ink)", letterSpacing: "-0.02em", marginBottom: 20, textAlign: "center" }}>
+            <div className="section-eyebrow" style={{ justifyContent: "center", marginBottom: 10 }}>Who We Are</div>
+            <h1 style={{ fontFamily: "var(--display)", fontSize: "clamp(28px, 4vw, 42px)", fontWeight: 800, color: "var(--ink)", letterSpacing: "-0.02em", marginBottom: 20, textAlign: "center" }}>
               About India Genius Foundation
-            </h2>
+            </h1>
             <div style={{ fontSize: 15.5, color: "var(--ink-dim)", lineHeight: 1.75, display: "flex", flexDirection: "column", gap: 16 }}>
               <p>
                 India Genius Foundation is an education-focused organisation committed to discovering, nurturing and celebrating the unique talents, abilities and potential of learners across India. Through meaningful academic, intellectual and career-oriented initiatives, the Foundation provides platforms that encourage students to learn beyond textbooks, explore new areas of knowledge and develop the skills needed for the future.
@@ -144,164 +48,6 @@ export default function AboutPage() {
             <p style={{ textAlign: "center", color: "var(--ink-dim)", fontSize: 15, marginTop: 20, fontStyle: "italic" }}>
               Our vision is to contribute towards the development of knowledgeable, skilled, creative, responsible and future-ready citizens who can positively contribute to society and the progress of the nation.
             </p>
-          </div>
-        </div>
-      </section>
-
-      {/* Vision — new Foundation-level statement (replaces the earlier
-          space-science-specific framing). Reuses the vision-card pattern. */}
-      <section id="vision" style={{ background: "var(--bg-elev)", borderTop: "1px solid var(--line)", borderBottom: "1px solid var(--line)", paddingTop: 64, paddingBottom: 64 }}>
-        <div className="wrap">
-          <div style={{ maxWidth: 720, margin: "0 auto" }}>
-            <div className="vision-col-header" style={{ textAlign: "center" }}>
-              <div className="section-eyebrow" style={{ justifyContent: "center" }}>Why India Genius Foundation</div>
-              <h2 className="vision-col-title">Vision.</h2>
-            </div>
-
-            <div className="vision-card">
-              <div className="vision-badge">
-                <span className="vision-badge-dot" />
-                Guiding Purpose
-              </div>
-
-              <p className="vision-statement">
-                To become a leading national platform for discovering, nurturing and empowering the intellectual, academic, creative and professional potential of learners across India. We envision an education ecosystem where every learner is provided meaningful opportunities to discover their strengths, explore their interests, develop future-ready skills and pursue excellence with confidence.
-              </p>
-
-              <div className="vision-pillar-tags">
-                <div className="vision-tag-item">
-                  <span className="vision-tag-icon">🏛️</span>
-                  <span>A Leading National Learner-Discovery Platform</span>
-                </div>
-                <div className="vision-tag-item">
-                  <span className="vision-tag-icon">🇮🇳</span>
-                  <span>Nationwide Reach spanning Pre-Primary (PG) to Class XII</span>
-                </div>
-                <div className="vision-tag-item">
-                  <span className="vision-tag-icon">🚀</span>
-                  <span>Innovative Assessments, Guidance &amp; Events of National Importance</span>
-                </div>
-              </div>
-
-              <a className="btn btn-ghost" href="/syllabus/" style={{ width: "100%", justifyContent: "center" }}>
-                Explore Learning Roadmap →
-              </a>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Mission — 9 commitments, reusing the numbered objectives-list
-          pattern (previously "Strategic Objectives"). */}
-      <section id="mission" style={{ paddingTop: 64, paddingBottom: 64 }}>
-        <div className="wrap">
-          <div style={{ maxWidth: 820, margin: "0 auto", textAlign: "center", marginBottom: 40 }}>
-            <div className="section-eyebrow" style={{ justifyContent: "center" }}>
-              Our Foundation &amp; Ethos
-            </div>
-            <h2 style={{ fontFamily: "var(--display)", fontSize: "clamp(28px, 3.5vw, 42px)", fontWeight: 800, color: "var(--ink)", letterSpacing: "-0.02em", marginBottom: 16 }}>
-              Mission.
-            </h2>
-            <p style={{ fontSize: 16.5, color: "var(--ink-dim)", lineHeight: 1.7 }}>
-              Our mission is to create meaningful and accessible educational opportunities that inspire learners to learn, think, explore, discover and excel. We are committed to:
-            </p>
-          </div>
-
-          <div className="objectives-list" style={{ maxWidth: 820, margin: "0 auto" }}>
-            {[
-              { num: "01", tag: "Competitions", desc: "Conducting Olympiads, Live Quizzes, Academic Competitions and Talent Assessments across diverse subjects and emerging fields." },
-              { num: "02", tag: "Assessments", desc: "Organising Psychometric Tests and Assessments to help learners understand their interests, strengths, abilities and potential." },
-              { num: "03", tag: "Guidance", desc: "Providing Career Guidance, Counselling and Career Awareness Seminars to support informed educational and career choices." },
-              { num: "04", tag: "Events", desc: "Organising Education Fairs, Workshops, Seminars, Conferences and Interactive Learning Programmes for students, educators, parents and institutions." },
-              { num: "05", tag: "Critical Thinking", desc: "Encouraging curiosity, creativity, critical thinking, analytical ability, problem-solving and innovation among learners." },
-              { num: "06", tag: "National Awareness", desc: "Promoting awareness and learning in areas of national importance, contemporary developments and future-ready skills." },
-              { num: "07", tag: "Recognition", desc: "Recognising and celebrating academic excellence, talent, innovation, leadership and outstanding achievement." },
-              { num: "08", tag: "Collaboration", desc: "Creating opportunities for schools, educators, experts, institutions and learners to collaborate for the advancement of education." },
-              { num: "09", tag: "Character", desc: "Supporting the development of confident, ethical, responsible and future-ready citizens who can contribute positively to society and the nation." },
-            ].map(({ num, tag, desc }) => (
-              <div key={num} className="objective-card">
-                <div className="objective-step-badge">{num}</div>
-                <div className="objective-body">
-                  <div className="objective-title">
-                    <span className="objective-title-tag">{tag}:</span>
-                  </div>
-                  <div className="objective-desc">{desc}</div>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Our Belief — new section, same numbered-list pattern as Mission. */}
-      <section id="belief" style={{ background: "var(--bg-elev)", borderTop: "1px solid var(--line)", borderBottom: "1px solid var(--line)", paddingTop: 64, paddingBottom: 64 }}>
-        <div className="wrap">
-          <div style={{ maxWidth: 820, margin: "0 auto", textAlign: "center", marginBottom: 40 }}>
-            <div className="section-eyebrow" style={{ justifyContent: "center" }}>
-              What Drives Us
-            </div>
-            <h2 style={{ fontFamily: "var(--display)", fontSize: "clamp(28px, 3.5vw, 42px)", fontWeight: 800, color: "var(--ink)", letterSpacing: "-0.02em", marginBottom: 16 }}>
-              Our Belief.
-            </h2>
-            <p style={{ fontSize: 16.5, color: "var(--ink-dim)", lineHeight: 1.7 }}>
-              At India Genius Foundation, we believe that every learner has the potential to excel when given the right opportunity, encouragement and guidance. True learning should develop knowledge, curiosity, creativity, confidence, character, critical thinking and the ability to apply learning in real-life situations. We believe that:
-            </p>
-          </div>
-
-          <div className="objectives-list" style={{ maxWidth: 820, margin: "0 auto" }}>
-            {[
-              { num: "01", tag: "Uniqueness", desc: "Every child is unique and possesses special strengths and abilities." },
-              { num: "02", tag: "Nurture", desc: "Talent can be discovered, nurtured and developed through the right opportunities." },
-              { num: "03", tag: "Real-World Learning", desc: "Learning should be engaging, meaningful, challenging and connected to the real world." },
-              { num: "04", tag: "Beyond Marks", desc: "Assessment should help identify potential, not merely measure marks." },
-              { num: "05", tag: "Healthy Competition", desc: "Competition, when healthy and purposeful, inspires students to challenge themselves and strive for excellence." },
-              { num: "06", tag: "Self-Awareness", desc: "Career guidance and self-awareness are essential for helping young people make informed choices about their future." },
-              { num: "07", tag: "Responsible Tech", desc: "Technology and Artificial Intelligence should be used responsibly to strengthen learning and prepare students for the future." },
-              { num: "08", tag: "Values & Excellence", desc: "Education must promote both excellence and values, creating responsible citizens along with successful individuals." },
-              { num: "09", tag: "Opportunity", desc: "Every learner deserves the opportunity to dream big, discover their potential and achieve their best." },
-              { num: "10", tag: "Nation's Future", desc: "The progress of a nation depends on the quality, knowledge, skills, character and vision of its young generation." },
-            ].map(({ num, tag, desc }) => (
-              <div key={num} className="objective-card">
-                <div className="objective-step-badge">{num}</div>
-                <div className="objective-body">
-                  <div className="objective-title">
-                    <span className="objective-title-tag">{tag}:</span>
-                  </div>
-                  <div className="objective-desc">{desc}</div>
-                </div>
-              </div>
-            ))}
-          </div>
-
-          <p style={{ textAlign: "center", color: "var(--ink-dim)", fontSize: 15, marginTop: 32, fontStyle: "italic" }}>
-            We believe in discovering potential, inspiring excellence and empowering the future.
-          </p>
-        </div>
-      </section>
-
-      {/* 9 Core Academic Pillars */}
-      <section style={{ background: "var(--bg-elev)", borderTop: "1px solid var(--line)", borderBottom: "1px solid var(--line)", paddingTop: 64, paddingBottom: 64 }}>
-        <div className="wrap">
-          <div style={{ maxWidth: 760 }}>
-            <div className="section-eyebrow">Curriculum Pillars</div>
-            <h2 style={{ fontFamily: "var(--display)", fontSize: "clamp(28px, 3.5vw, 38px)", fontWeight: 800, color: "var(--ink)", letterSpacing: "-0.02em", marginBottom: 12 }}>
-              9 Core Competency Dimensions
-            </h2>
-            <p style={{ fontSize: 16, color: "var(--ink-dim)", lineHeight: 1.65 }}>
-              Our Olympiads assess traditional academic rigor alongside modern 21st-century domains, preparing children for future academic and career frontiers.
-            </p>
-          </div>
-
-          <div className="about-pillars-grid">
-            {pillars.map((item, idx) => (
-              <div key={idx} className="about-pillar-item">
-                <div className="about-pillar-icon-box">{item.icon}</div>
-                <div>
-                  <h3 className="about-pillar-title">{item.title}</h3>
-                  <p className="about-pillar-desc">{item.desc}</p>
-                </div>
-              </div>
-            ))}
           </div>
         </div>
       </section>

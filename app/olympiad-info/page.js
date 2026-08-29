@@ -242,28 +242,29 @@ const competitionRounds = [
 export default function OlympiadInfoPage() {
   return (
     <>
-      {/* ── PAGE HERO ─────────────────────────────────────── */}
-      <section className="oi-hero">
-        <div className="wrap oi-hero-inner">
-          <div className="section-eyebrow" style={{ justifyContent: "center" }}>
-            India Genius Foundation · National Olympiad
+      {/* Minimal Header */}
+      <section style={{ paddingTop: 36, paddingBottom: 24 }}>
+        <div className="wrap">
+          <div style={{ marginBottom: 20 }}>
+            <Link className="page-back-btn light-variant" href="/" aria-label="Back to Home" style={{ margin: 0 }}>
+              <svg className="back-arrow-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+                <line x1="19" y1="12" x2="5" y2="12"></line>
+                <polyline points="12 19 5 12 12 5"></polyline>
+              </svg>
+              <span>Back to Home</span>
+            </Link>
           </div>
-          <h1 className="oi-hero-title">
-            India Genius Olympiads
-          </h1>
-          <p className="oi-hero-sub">
-            <em>Grading Excellence in National Intellect, Understanding &amp; Skill</em>
-          </p>
-          <div className="oi-hero-badge">
-            A National-Level Olympiad Examination — PG to Class XII
-          </div>
-          <div className="oi-hero-actions">
-            <a className="btn btn-primary" href="https://forms.gle/KvAiXYv1CRr5E1Y17" target="_blank" rel="noopener noreferrer">
-              Student Registration ↗
-            </a>
-            <a className="btn btn-ghost" href="https://forms.gle/ZLuKVuR8XXWMrToW8" target="_blank" rel="noopener noreferrer">
-              School Registration ↗
-            </a>
+
+          <div style={{ textAlign: "center", maxWidth: 820, margin: "0 auto" }}>
+            <div className="section-eyebrow" style={{ justifyContent: "center", marginBottom: 10 }}>
+              India Genius Foundation &middot; National Olympiad
+            </div>
+            <h1 style={{ fontFamily: "var(--display)", fontSize: "clamp(28px, 4vw, 42px)", fontWeight: 800, color: "var(--ink)", letterSpacing: "-0.02em", marginBottom: 12 }}>
+              India Genius Olympiads
+            </h1>
+            <p style={{ fontSize: 16, color: "var(--ink-dim)", lineHeight: 1.65, maxWidth: 720, margin: "0 auto" }}>
+              A national-level Olympiad examination for students from Pre-Primary (PG) to Class XII assessing future-ready skills, conceptual understanding, and critical problem solving.
+            </p>
           </div>
         </div>
       </section>
@@ -501,6 +502,12 @@ export default function OlympiadInfoPage() {
           <p style={{ textAlign: "center", color: "var(--ink-dim)", fontSize: 14.5, marginTop: 40, fontStyle: "italic" }}>
             Every Participation Matters. Every Achievement Deserves Recognition. Every Talent Has the Potential to Shine.
           </p>
+
+          <div style={{ textAlign: "center", marginTop: 28 }}>
+            <Link className="btn btn-ghost" href="/award-structure/">
+              Explore Detailed Award Structure &amp; Honours →
+            </Link>
+          </div>
         </div>
       </section>
 
