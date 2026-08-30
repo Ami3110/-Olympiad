@@ -32,7 +32,7 @@ const STUDENT_VISUAL = {
 
 const SCHOOL_VISUAL = {
   src: "/assets/images/school-campus-building.jpg",
-  heading: "Institutional Partnership & Examination Hubs.",
+  heading: "Institutional Partnership & Examination Hubs",
   desc: "Enrolling schools across CBSE, ICSE, and State Boards for nationwide Olympiad rounds.",
   badge: "School Registration",
   badgeColor: "#0D7A67",
@@ -66,13 +66,12 @@ const initialStudentState = {
   utrId: "",
 };
 
-export default function RegistrationUnified() {
+export default function RegistrationUnifiedNew() {
   const [activeTab, setActiveTab] = useState("student"); // 'student' or 'school'
   const [schoolData, setSchoolData] = useState(initialSchoolState);
   const [studentData, setStudentData] = useState(initialStudentState);
   const [isSubmitting, setIsSubmitting] = useState(false);
-  const [submitted, setSubmitted] = useState(false);
-  const [registrationId, setRegistrationId] = useState("");
+  const [submittedId, setSubmittedId] = useState(null);
   const [error, setError] = useState("");
 
   const currentVisual = activeTab === "student" ? STUDENT_VISUAL : SCHOOL_VISUAL;
@@ -107,7 +106,7 @@ export default function RegistrationUnified() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    if (isSubmitting) return;
+    if (isSubmitting) return; // Prevent duplicate submissions
 
     if (activeTab === "school" && schoolData.divisions.length === 0) {
       setError("Please select at least one participating division.");
@@ -121,47 +120,46 @@ export default function RegistrationUnified() {
     setError("");
     setIsSubmitting(true);
 
+    // Posts straight to the Google Apps Script web app (same endpoint
+    // components/RegistrationUnified.js uses) instead of /api/new-register
+    // — that route needs a real Google Cloud service-account key, which
+    // isn't set up; Apps Script runs under the Sheet owner's own account
+    // instead, so no service-account credentials to manage. See
+    // docs/apps-script-registration.gs for the script + deploy steps —
+    // NEXT_PUBLIC_APPS_SCRIPT_URL in .env must point at a *live*
+    // deployment for this to actually work.
     const APPS_SCRIPT_URL = process.env.NEXT_PUBLIC_APPS_SCRIPT_URL;
 
     try {
-      const payload = {
-        registrationType: activeTab === "student" ? "Student" : "School",
-        studentName: activeTab === "student" ? studentData.studentName : "",
-        parentName: activeTab === "student" ? studentData.parentName : "",
-        className: activeTab === "student" ? studentData.studentClass : "",
-        schoolName: activeTab === "student" ? studentData.schoolName : schoolData.schoolName,
-        coordinatorName: activeTab === "school" ? schoolData.coordinatorName : "",
-        designation: activeTab === "school" ? schoolData.designation : "",
-        board: activeTab === "school" ? schoolData.board : "",
-        email: activeTab === "student" ? studentData.email : schoolData.schoolEmail,
-        phone: activeTab === "student" ? studentData.phone : schoolData.contactNumber,
-        city: activeTab === "student" ? studentData.city : schoolData.city,
-        state: activeTab === "student" ? studentData.state : schoolData.state,
-        subjects: activeTab === "student" ? studentData.subjects : [],
-        participatingDivisions: activeTab === "school" ? schoolData.divisions : [],
-        estimatedStudentCount: activeTab === "school" ? schoolData.studentCount : "",
-        specialInstructions: activeTab === "student" ? (studentData.notes || "") : (schoolData.notes || ""),
-        paymentAmount: activeTab === "student" ? String(studentData.subjects.length * 80) : "",
-        utr: activeTab === "student" ? (studentData.utrId || "") : "",
-        paymentScreenshot: "",
-      };
+      const payload =
+        activeTab === "student"
+          ? {
+              registrationType: "Student",
+              ...studentData,
+              paymentAmount: String(studentData.subjects.length * 80),
+              paymentStatus: "Pending",
+            }
+          : {
+              registrationType: "School",
+              ...schoolData,
+              paymentStatus: "Pending",
+            };
 
-      if (APPS_SCRIPT_URL) {
-        const response = await fetch(APPS_SCRIPT_URL, {
-          method: "POST",
-          body: JSON.stringify(payload),
-        });
-        const result = await response.json();
-        if (result && result.success) {
-          setRegistrationId(result.registrationId || "");
-          setSubmitted(true);
-        } else {
-          setError(result?.error || "Registration could not be submitted. Please try again.");
-        }
+      if (!APPS_SCRIPT_URL) {
+        setError("Registration service isn't configured yet — NEXT_PUBLIC_APPS_SCRIPT_URL is missing.");
+        return;
+      }
+
+      const res = await fetch(APPS_SCRIPT_URL, {
+        method: "POST",
+        body: JSON.stringify(payload),
+      });
+      const data = await res.json();
+
+      if (data && data.success) {
+        setSubmittedId(data.registrationId || "OLY-2026-RECORDED");
       } else {
-        // Fallback for development if URL not yet configured in env
-        setRegistrationId("OLY-2026-RECORDED");
-        setSubmitted(true);
+        setError(data?.error || "Registration could not be submitted. Please try again.");
       }
     } catch (err) {
       console.error("Registration submission error:", err);
@@ -195,45 +193,66 @@ export default function RegistrationUnified() {
 
       {/* ── RIGHT SIDE: TABBED REGISTRATION FORM ─────────── */}
       <div className="reg-split-form-container">
-        {submitted ? (
-          <div className="reg-success-box">
-            <div className="reg-success-icon">✓</div>
-            <h3 className="reg-success-title">
-              {activeTab === "student" ? "Student Registration Received!" : "School Registration Received!"}
+        {submittedId ? (
+          <div className="reg-success-box" style={{ padding: "32px 24px", textAlign: "center" }}>
+            <div className="reg-success-icon" style={{ margin: "0 auto 16px" }}>✓</div>
+            
+            <h3 className="reg-success-title" style={{ fontSize: "24px", color: "var(--ink)", marginBottom: "8px" }}>
+              Registration Successful!
             </h3>
-            {registrationId && (
-              <div
-                style={{
-                  background: "linear-gradient(135deg, #FFF7ED 0%, #FFEDD5 100%)",
-                  border: "2px dashed #EA580C",
-                  borderRadius: "12px",
-                  padding: "10px 16px",
-                  margin: "12px auto",
-                  maxWidth: "340px",
-                  textAlign: "center",
-                }}
-              >
-                <div style={{ fontSize: "11px", fontWeight: "700", textTransform: "uppercase", letterSpacing: "0.08em", color: "#9A3412" }}>
-                  Registration ID
-                </div>
-                <div style={{ fontSize: "20px", fontWeight: "900", color: "#C2410C", fontFamily: "var(--mono)", letterSpacing: "0.04em", marginTop: "2px" }}>
-                  {registrationId}
-                </div>
+
+            {/* Generated Registration ID Banner */}
+            <div
+              style={{
+                background: "linear-gradient(135deg, #FFF7ED 0%, #FFEDD5 100%)",
+                border: "2px dashed #EA580C",
+                borderRadius: "12px",
+                padding: "14px 20px",
+                margin: "16px auto",
+                maxWidth: "380px",
+              }}
+            >
+              <div style={{ fontSize: "11.5px", fontWeight: "700", textTransform: "uppercase", letterSpacing: "0.08em", color: "#9A3412" }}>
+                Registration ID
               </div>
-            )}
-            <p className="reg-success-desc">
-              Thank you for registering with India Genius Olympiad.
-              {activeTab === "student"
-                ? " We have recorded your submission. Admit card and syllabus guidance will be sent to your registered contact."
-                : " Our institutional desk will contact your school coordinator with the examination kit."}
+              <div style={{ fontSize: "24px", fontWeight: "900", color: "#C2410C", fontFamily: "var(--mono)", letterSpacing: "0.04em", marginTop: "2px" }}>
+                {submittedId}
+              </div>
+            </div>
+
+            <p className="reg-success-desc" style={{ maxWidth: "440px", margin: "0 auto 16px", color: "var(--ink-light)", fontSize: "14.5px" }}>
+              Your registration has been recorded successfully in our national Olympiad database.
             </p>
+
+            {/* Verification & Sample Paper Status Box */}
+            <div
+              style={{
+                background: "#F8FAFC",
+                border: "1px solid #E2E8F0",
+                borderRadius: "10px",
+                padding: "14px 18px",
+                margin: "0 auto 20px",
+                maxWidth: "440px",
+                textAlign: "left",
+              }}
+            >
+              <div style={{ display: "flex", alignItems: "center", gap: "10px", marginBottom: "6px" }}>
+                <span style={{ fontSize: "16px" }}>⏳</span>
+                <span style={{ fontSize: "13.5px", fontWeight: "700", color: "#334155" }}>
+                  Payment Status: <span style={{ color: "#D97706" }}>Pending Verification</span>
+                </span>
+              </div>
+              <p style={{ fontSize: "12.5px", color: "#64748B", margin: 0, lineHeight: 1.5 }}>
+                Sample paper access and examination admit kit will be activated immediately upon administrative payment confirmation.
+              </p>
+            </div>
+
             <button
               type="button"
               className="reg-submit-btn"
-              style={{ background: activeTab === "student" ? "#E65A00" : "#0D7A67" }}
+              style={{ background: activeTab === "student" ? "#E65A00" : "#0D7A67", maxWidth: "300px", margin: "0 auto" }}
               onClick={() => {
-                setSubmitted(false);
-                setRegistrationId("");
+                setSubmittedId(null);
                 if (activeTab === "school") setSchoolData(initialSchoolState);
                 else setStudentData(initialStudentState);
               }}
@@ -245,7 +264,7 @@ export default function RegistrationUnified() {
           <>
             {/* Form Header */}
             <div className="reg-form-header">
-              <h2 className="reg-form-title">Registration Desk</h2>
+              <h2 className="reg-form-title">Registration Desk (Live Portal)</h2>
             </div>
 
             {/* Two Tabs: Student & School */}
@@ -294,13 +313,10 @@ export default function RegistrationUnified() {
                 <>
                   <div className="reg-grid-2">
                     <div className="reg-field">
-                      <label>
-                        Student Name <span className="req">*</span>
-                      </label>
+                      <label>Student Name</label>
                       <input
                         type="text"
                         name="studentName"
-                        required
                         placeholder="Aarav Sharma"
                         value={studentData.studentName}
                         onChange={handleStudentChange}
@@ -309,13 +325,10 @@ export default function RegistrationUnified() {
                     </div>
 
                     <div className="reg-field">
-                      <label>
-                        Parent / Guardian <span className="req">*</span>
-                      </label>
+                      <label>Parent / Guardian</label>
                       <input
                         type="text"
                         name="parentName"
-                        required
                         placeholder="Rajesh Sharma"
                         value={studentData.parentName}
                         onChange={handleStudentChange}
@@ -326,9 +339,7 @@ export default function RegistrationUnified() {
 
                   <div className="reg-grid-2">
                     <div className="reg-field">
-                      <label>
-                        Class / Grade <span className="req">*</span>
-                      </label>
+                      <label>Class / Grade</label>
                       <select
                         name="studentClass"
                         value={studentData.studentClass}
@@ -353,13 +364,10 @@ export default function RegistrationUnified() {
                     </div>
 
                     <div className="reg-field">
-                      <label>
-                        School Name <span className="req">*</span>
-                      </label>
+                      <label>School Name</label>
                       <input
                         type="text"
                         name="schoolName"
-                        required
                         placeholder="e.g. St. Xavier's School"
                         value={studentData.schoolName}
                         onChange={handleStudentChange}
@@ -370,13 +378,10 @@ export default function RegistrationUnified() {
 
                   <div className="reg-grid-2">
                     <div className="reg-field">
-                      <label>
-                        WhatsApp / Phone <span className="req">*</span>
-                      </label>
+                      <label>WhatsApp / Phone</label>
                       <input
                         type="tel"
                         name="phone"
-                        required
                         placeholder="10-digit mobile number"
                         value={studentData.phone}
                         onChange={handleStudentChange}
@@ -385,13 +390,10 @@ export default function RegistrationUnified() {
                     </div>
 
                     <div className="reg-field">
-                      <label>
-                        Email Address <span className="req">*</span>
-                      </label>
+                      <label>Email Address</label>
                       <input
                         type="email"
                         name="email"
-                        required
                         placeholder="parent@example.com"
                         value={studentData.email}
                         onChange={handleStudentChange}
@@ -402,13 +404,10 @@ export default function RegistrationUnified() {
 
                   <div className="reg-grid-2">
                     <div className="reg-field">
-                      <label>
-                        City <span className="req">*</span>
-                      </label>
+                      <label>City</label>
                       <input
                         type="text"
                         name="city"
-                        required
                         placeholder="e.g. Dehradun"
                         value={studentData.city}
                         onChange={handleStudentChange}
@@ -417,13 +416,10 @@ export default function RegistrationUnified() {
                     </div>
 
                     <div className="reg-field">
-                      <label>
-                        State <span className="req">*</span>
-                      </label>
+                      <label>State</label>
                       <input
                         type="text"
                         name="state"
-                        required
                         placeholder="e.g. Uttarakhand"
                         value={studentData.state}
                         onChange={handleStudentChange}
@@ -453,6 +449,36 @@ export default function RegistrationUnified() {
                           </label>
                         );
                       })}
+                    </div>
+                  </div>
+
+                  {/* Optional UPI / UTR Reference */}
+                  <div className="reg-grid-2" style={{ marginTop: "4px" }}>
+                    <div className="reg-field">
+                      <label>
+                        UPI Ref / UTR ID <span style={{ fontSize: "11px", color: "var(--ink-light)", fontWeight: "normal" }}>(Optional if already paid)</span>
+                      </label>
+                      <input
+                        type="text"
+                        name="utrId"
+                        placeholder="12-digit UPI UTR / Transaction ID"
+                        value={studentData.utrId}
+                        onChange={handleStudentChange}
+                        className="reg-input"
+                      />
+                    </div>
+                    <div className="reg-field">
+                      <label>
+                        Special Notes <span style={{ fontSize: "11px", color: "var(--ink-light)", fontWeight: "normal" }}>(Optional)</span>
+                      </label>
+                      <input
+                        type="text"
+                        name="notes"
+                        placeholder="Any additional remarks"
+                        value={studentData.notes}
+                        onChange={handleStudentChange}
+                        className="reg-input"
+                      />
                     </div>
                   </div>
 
@@ -544,36 +570,6 @@ export default function RegistrationUnified() {
                     </div>
                   </div>
 
-                  {/* Optional UPI / UTR Reference */}
-                  <div className="reg-grid-2" style={{ marginBottom: "4px" }}>
-                    <div className="reg-field">
-                      <label>
-                        UPI Ref / UTR ID <span style={{ fontSize: "11px", color: "var(--ink-light)", fontWeight: "normal" }}>(Optional if already paid)</span>
-                      </label>
-                      <input
-                        type="text"
-                        name="utrId"
-                        placeholder="12-digit UPI UTR / Transaction ID"
-                        value={studentData.utrId || ""}
-                        onChange={handleStudentChange}
-                        className="reg-input"
-                      />
-                    </div>
-                    <div className="reg-field">
-                      <label>
-                        Special Notes <span style={{ fontSize: "11px", color: "var(--ink-light)", fontWeight: "normal" }}>(Optional)</span>
-                      </label>
-                      <input
-                        type="text"
-                        name="notes"
-                        placeholder="Any additional remarks"
-                        value={studentData.notes || ""}
-                        onChange={handleStudentChange}
-                        className="reg-input"
-                      />
-                    </div>
-                  </div>
-
                   <button
                     type="submit"
                     disabled={isSubmitting || studentData.subjects.length === 0}
@@ -581,8 +577,8 @@ export default function RegistrationUnified() {
                   >
                     <span>
                       {isSubmitting
-                        ? "Processing..."
-                        : `Complete Registration · Total ₹${studentData.subjects.length * 80} →`}
+                        ? "Submitting to Database..."
+                        : `Submit Registration · Total ₹${studentData.subjects.length * 80} →`}
                     </span>
                   </button>
                 </>
@@ -590,13 +586,10 @@ export default function RegistrationUnified() {
                 <>
                   <div className="reg-grid-2">
                     <div className="reg-field">
-                      <label>
-                        School Name <span className="req">*</span>
-                      </label>
+                      <label>School Name</label>
                       <input
                         type="text"
                         name="schoolName"
-                        required
                         placeholder="e.g. Delhi Public School"
                         value={schoolData.schoolName}
                         onChange={handleSchoolChange}
@@ -605,9 +598,7 @@ export default function RegistrationUnified() {
                     </div>
 
                     <div className="reg-field">
-                      <label>
-                        Affiliation Board <span className="req">*</span>
-                      </label>
+                      <label>Affiliation Board</label>
                       <select
                         name="board"
                         value={schoolData.board}
@@ -625,13 +616,10 @@ export default function RegistrationUnified() {
 
                   <div className="reg-grid-2">
                     <div className="reg-field">
-                      <label>
-                        Coordinator / Principal <span className="req">*</span>
-                      </label>
+                      <label>Coordinator / Principal</label>
                       <input
                         type="text"
                         name="coordinatorName"
-                        required
                         placeholder="e.g. Dr. Ananya Verma"
                         value={schoolData.coordinatorName}
                         onChange={handleSchoolChange}
@@ -640,13 +628,10 @@ export default function RegistrationUnified() {
                     </div>
 
                     <div className="reg-field">
-                      <label>
-                        Designation <span className="req">*</span>
-                      </label>
+                      <label>Designation</label>
                       <input
                         type="text"
                         name="designation"
-                        required
                         placeholder="Principal / Coordinator"
                         value={schoolData.designation}
                         onChange={handleSchoolChange}
@@ -657,13 +642,10 @@ export default function RegistrationUnified() {
 
                   <div className="reg-grid-2">
                     <div className="reg-field">
-                      <label>
-                        Official Contact Number <span className="req">*</span>
-                      </label>
+                      <label>Official Contact Number</label>
                       <input
                         type="tel"
                         name="contactNumber"
-                        required
                         placeholder="Mobile / Office phone"
                         value={schoolData.contactNumber}
                         onChange={handleSchoolChange}
@@ -672,13 +654,10 @@ export default function RegistrationUnified() {
                     </div>
 
                     <div className="reg-field">
-                      <label>
-                        School Email <span className="req">*</span>
-                      </label>
+                      <label>School Email</label>
                       <input
                         type="email"
                         name="schoolEmail"
-                        required
                         placeholder="principal@school.org"
                         value={schoolData.schoolEmail}
                         onChange={handleSchoolChange}
@@ -689,13 +668,10 @@ export default function RegistrationUnified() {
 
                   <div className="reg-grid-2">
                     <div className="reg-field">
-                      <label>
-                        City <span className="req">*</span>
-                      </label>
+                      <label>City</label>
                       <input
                         type="text"
                         name="city"
-                        required
                         placeholder="e.g. Haridwar"
                         value={schoolData.city}
                         onChange={handleSchoolChange}
@@ -704,15 +680,42 @@ export default function RegistrationUnified() {
                     </div>
 
                     <div className="reg-field">
-                      <label>
-                        State <span className="req">*</span>
-                      </label>
+                      <label>State</label>
                       <input
                         type="text"
                         name="state"
-                        required
                         placeholder="e.g. Uttarakhand"
                         value={schoolData.state}
+                        onChange={handleSchoolChange}
+                        className="reg-input"
+                      />
+                    </div>
+                  </div>
+
+                  {/* Estimated Count & Notes */}
+                  <div className="reg-grid-2">
+                    <div className="reg-field">
+                      <label>
+                        Estimated Student Count <span style={{ fontSize: "11px", color: "var(--ink-light)", fontWeight: "normal" }}>(Optional)</span>
+                      </label>
+                      <input
+                        type="number"
+                        name="studentCount"
+                        placeholder="e.g. 150"
+                        value={schoolData.studentCount}
+                        onChange={handleSchoolChange}
+                        className="reg-input"
+                      />
+                    </div>
+                    <div className="reg-field">
+                      <label>
+                        Special Instructions <span style={{ fontSize: "11px", color: "var(--ink-light)", fontWeight: "normal" }}>(Optional)</span>
+                      </label>
+                      <input
+                        type="text"
+                        name="notes"
+                        placeholder="Exam dates, requirements, etc."
+                        value={schoolData.notes}
                         onChange={handleSchoolChange}
                         className="reg-input"
                       />
@@ -783,7 +786,7 @@ export default function RegistrationUnified() {
                     disabled={isSubmitting || schoolData.divisions.length === 0}
                     className="reg-submit-btn school-submit"
                   >
-                    <span>{isSubmitting ? "Processing..." : "Submit School Registration →"}</span>
+                    <span>{isSubmitting ? "Submitting to Database..." : "Submit School Registration →"}</span>
                   </button>
                 </>
               )}

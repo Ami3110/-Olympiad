@@ -31,14 +31,14 @@ export default function Header() {
 
   // Hover handlers with debounced exit buffer (prevents dropdown closing when moving mouse)
   const handleMouseEnter = (menuKey) => {
-    if (window.innerWidth > 992) {
+    if (window.innerWidth > 1280) {
       if (timeoutRef.current) clearTimeout(timeoutRef.current);
       setActiveDropdown(menuKey);
     }
   };
 
   const handleMouseLeave = () => {
-    if (window.innerWidth > 992) {
+    if (window.innerWidth > 1280) {
       if (timeoutRef.current) clearTimeout(timeoutRef.current);
       timeoutRef.current = setTimeout(() => {
         setActiveDropdown(null);
@@ -223,6 +223,7 @@ export default function Header() {
               <a href="/syllabus/" className="dropdown-link-simple" onClick={closeMenus}>Syllabus by Age Group</a>
               <a href="/sample-papers/" className="dropdown-link-simple" onClick={closeMenus}>Sample Question Papers</a>
               <a href="/study-material/" className="dropdown-link-simple" onClick={closeMenus}>Study Material</a>
+              <a href="/login/" className="dropdown-link-simple link-highlight" onClick={closeMenus}>Candidate Login / Status ➔</a>
             </div>
           </div>
 

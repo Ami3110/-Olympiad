@@ -22,7 +22,13 @@ const nextConfig = {
       "style-src 'self' 'unsafe-inline' https://fonts.googleapis.com",
       "font-src 'self' https://fonts.gstatic.com",
       "img-src 'self'",
-      "connect-src 'self'",
+      // Registration forms (RegistrationUnified.js / RegistrationUnifiedNew.js)
+      // POST to a Google Apps Script web app via fetch() — script.google.com
+      // executes the request and 302-redirects to script.googleusercontent.com
+      // to serve the JSON response, so both need to be allowed here or the
+      // browser blocks the request before it's sent (CSP applies per-request,
+      // including to redirect targets).
+      "connect-src 'self' https://script.google.com https://script.googleusercontent.com",
       "object-src 'none'",
       "base-uri 'self'",
       "form-action 'self'",
