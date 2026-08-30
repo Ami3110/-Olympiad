@@ -73,6 +73,12 @@ function doPost(e) {
     const regId = "OLY-2026-" + String(nextSeq).padStart(5, "0");
     const regDate = Utilities.formatDate(new Date(), "Asia/Kolkata", "dd MMM yyyy, HH:mm");
 
+    const addressInfo = pick("schoolAddress", "address");
+    const notesInfo = pick("specialInstructions", "notes");
+    const combinedNotes = addressInfo && notesInfo 
+      ? `Address: ${addressInfo} | Notes: ${notesInfo}`
+      : (addressInfo ? `Address: ${addressInfo}` : notesInfo);
+
     const row = [
       regId,
       type,
@@ -91,7 +97,7 @@ function doPost(e) {
       joinArr(body.subjects),
       joinArr(body.participatingDivisions || body.divisions),
       pick("estimatedStudentCount", "studentCount"),
-      pick("specialInstructions", "notes"),
+      combinedNotes,
       pick("paymentStatus") || "Pending",
       pick("paymentAmount"),
       pick("utr", "utrId"),

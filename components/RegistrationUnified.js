@@ -4,11 +4,11 @@ import { useState } from "react";
 
 const DIVISIONS = [
   "Foundation (PG–UKG)",
-  "Junior (Classes I–II)",
-  "Primary (Classes III–V)",
-  "Middle (Classes VI–VIII)",
-  "Secondary (Classes IX–X)",
-  "Senior Secondary (Classes XI–XII)",
+  "Junior (I–II)",
+  "Primary (III–V)",
+  "Middle (VI–VIII)",
+  "Secondary (IX–X)",
+  "Senior Secondary (XI–XII)",
 ];
 
 const STUDENT_SUBJECTS = [
@@ -41,13 +41,15 @@ const SCHOOL_VISUAL = {
 const initialSchoolState = {
   schoolName: "",
   coordinatorName: "",
-  designation: "Principal / Coordinator",
+  designation: "",
   board: "CBSE",
+  boardOther: "",
   schoolEmail: "",
   contactNumber: "",
   city: "",
   state: "",
-  divisions: ["Primary (Classes III–V)", "Middle (Classes VI–VIII)"],
+  schoolAddress: "",
+  divisions: ["Primary (III–V)", "Middle (VI–VIII)"],
   studentCount: "",
   notes: "",
 };
@@ -109,10 +111,53 @@ export default function RegistrationUnified() {
     e.preventDefault();
     if (isSubmitting) return;
 
-    if (activeTab === "school" && schoolData.divisions.length === 0) {
-      setError("Please select at least one participating division.");
-      return;
+    if (activeTab === "school") {
+      if (!schoolData.schoolName.trim()) {
+        setError("Please enter the School Name.");
+        return;
+      }
+      if (!schoolData.coordinatorName.trim()) {
+        setError("Please enter the Principal / Coordinator Name.");
+        return;
+      }
+      if (!schoolData.designation.trim()) {
+        setError("Please enter Designation.");
+        return;
+      }
+      if (schoolData.board === "Other" && !schoolData.boardOther.trim()) {
+        setError("Please specify the Affiliation Board.");
+        return;
+      }
+      if (!schoolData.schoolEmail.trim()) {
+        setError("Please enter the School Email.");
+        return;
+      }
+      if (!schoolData.contactNumber.trim()) {
+        setError("Please enter the Contact Number.");
+        return;
+      }
+      if (!schoolData.city.trim()) {
+        setError("Please enter City.");
+        return;
+      }
+      if (!schoolData.state.trim()) {
+        setError("Please enter State.");
+        return;
+      }
+      if (!schoolData.schoolAddress.trim()) {
+        setError("Please enter the School Address.");
+        return;
+      }
+      if (schoolData.divisions.length === 0) {
+        setError("Please select at least one participating division.");
+        return;
+      }
+      if (!schoolData.studentCount) {
+        setError("Please specify approximate number of students registering.");
+        return;
+      }
     }
+
     if (activeTab === "student" && studentData.subjects.length === 0) {
       setError("Please select at least one Olympiad subject.");
       return;
@@ -124,6 +169,11 @@ export default function RegistrationUnified() {
     const APPS_SCRIPT_URL = process.env.NEXT_PUBLIC_APPS_SCRIPT_URL;
 
     try {
+      const resolvedBoard =
+        schoolData.board === "Other" && schoolData.boardOther?.trim()
+          ? `Other (${schoolData.boardOther.trim()})`
+          : schoolData.board;
+
       const payload = {
         registrationType: activeTab === "student" ? "Student" : "School",
         studentName: activeTab === "student" ? studentData.studentName : "",
@@ -132,11 +182,13 @@ export default function RegistrationUnified() {
         schoolName: activeTab === "student" ? studentData.schoolName : schoolData.schoolName,
         coordinatorName: activeTab === "school" ? schoolData.coordinatorName : "",
         designation: activeTab === "school" ? schoolData.designation : "",
-        board: activeTab === "school" ? schoolData.board : "",
+        board: activeTab === "school" ? resolvedBoard : "",
         email: activeTab === "student" ? studentData.email : schoolData.schoolEmail,
         phone: activeTab === "student" ? studentData.phone : schoolData.contactNumber,
         city: activeTab === "student" ? studentData.city : schoolData.city,
         state: activeTab === "student" ? studentData.state : schoolData.state,
+        address: activeTab === "school" ? schoolData.schoolAddress : "",
+        schoolAddress: activeTab === "school" ? schoolData.schoolAddress : "",
         subjects: activeTab === "student" ? studentData.subjects : [],
         participatingDivisions: activeTab === "school" ? schoolData.divisions : [],
         estimatedStudentCount: activeTab === "school" ? schoolData.studentCount : "",
@@ -588,45 +640,27 @@ export default function RegistrationUnified() {
                 </>
               ) : (
                 <>
-                  <div className="reg-grid-2">
-                    <div className="reg-field">
-                      <label>
-                        School Name <span className="req">*</span>
-                      </label>
-                      <input
-                        type="text"
-                        name="schoolName"
-                        required
-                        placeholder="e.g. Delhi Public School"
-                        value={schoolData.schoolName}
-                        onChange={handleSchoolChange}
-                        className="reg-input"
-                      />
-                    </div>
-
-                    <div className="reg-field">
-                      <label>
-                        Affiliation Board <span className="req">*</span>
-                      </label>
-                      <select
-                        name="board"
-                        value={schoolData.board}
-                        onChange={handleSchoolChange}
-                        className="reg-input"
-                      >
-                        <option value="CBSE">CBSE</option>
-                        <option value="ICSE / ISC">ICSE / ISC</option>
-                        <option value="State Board">State Board</option>
-                        <option value="Cambridge / IB">Cambridge / IB</option>
-                        <option value="Other">Other</option>
-                      </select>
-                    </div>
+                  {/* School Name */}
+                  <div className="reg-field">
+                    <label>
+                      School Name <span className="req">*</span>
+                    </label>
+                    <input
+                      type="text"
+                      name="schoolName"
+                      required
+                      placeholder="e.g. Delhi Public School"
+                      value={schoolData.schoolName}
+                      onChange={handleSchoolChange}
+                      className="reg-input"
+                    />
                   </div>
 
+                  {/* Principal / Coordinator Name & Designation */}
                   <div className="reg-grid-2">
                     <div className="reg-field">
                       <label>
-                        Coordinator / Principal <span className="req">*</span>
+                        Principal / Coordinator Name <span className="req">*</span>
                       </label>
                       <input
                         type="text"
@@ -655,22 +689,58 @@ export default function RegistrationUnified() {
                     </div>
                   </div>
 
-                  <div className="reg-grid-2">
-                    <div className="reg-field">
-                      <label>
-                        Official Contact Number <span className="req">*</span>
-                      </label>
+                  {/* Affiliation Board */}
+                  <div className="reg-field">
+                    <label>
+                      Affiliation Board <span className="req">*</span>
+                    </label>
+                    <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(130px, 1fr))", gap: "8px", marginTop: "3px" }}>
+                      {["CBSE", "ICSE", "State Board", "Other"].map((b) => (
+                        <label
+                          key={b}
+                          style={{
+                            display: "flex",
+                            alignItems: "center",
+                            gap: "7px",
+                            padding: "6px 10px",
+                            background: schoolData.board === b ? "rgba(13, 122, 103, 0.08)" : "#F8FAFC",
+                            border: `1.5px solid ${schoolData.board === b ? "#0D7A67" : "#E2E8F0"}`,
+                            borderRadius: "7px",
+                            cursor: "pointer",
+                            fontSize: "12px",
+                            fontWeight: schoolData.board === b ? "700" : "500",
+                            color: schoolData.board === b ? "#0D7A67" : "#334155",
+                            transition: "all 0.15s ease",
+                          }}
+                        >
+                          <input
+                            type="radio"
+                            name="board"
+                            value={b}
+                            checked={schoolData.board === b}
+                            onChange={handleSchoolChange}
+                            style={{ accentColor: "#0D7A67", width: "15px", height: "15px" }}
+                          />
+                          <span>{b}</span>
+                        </label>
+                      ))}
+                    </div>
+                    {schoolData.board === "Other" && (
                       <input
-                        type="tel"
-                        name="contactNumber"
-                        required
-                        placeholder="Mobile / Office phone"
-                        value={schoolData.contactNumber}
+                        type="text"
+                        name="boardOther"
+                        placeholder="Please specify affiliation board"
+                        value={schoolData.boardOther || ""}
                         onChange={handleSchoolChange}
                         className="reg-input"
+                        style={{ marginTop: "6px" }}
+                        required
                       />
-                    </div>
+                    )}
+                  </div>
 
+                  {/* School Email & Contact Number */}
+                  <div className="reg-grid-2">
                     <div className="reg-field">
                       <label>
                         School Email <span className="req">*</span>
@@ -685,8 +755,24 @@ export default function RegistrationUnified() {
                         className="reg-input"
                       />
                     </div>
+
+                    <div className="reg-field">
+                      <label>
+                        Contact Number <span className="req">*</span>
+                      </label>
+                      <input
+                        type="tel"
+                        name="contactNumber"
+                        required
+                        placeholder="Mobile / Office phone"
+                        value={schoolData.contactNumber}
+                        onChange={handleSchoolChange}
+                        className="reg-input"
+                      />
+                    </div>
                   </div>
 
+                  {/* City & State */}
                   <div className="reg-grid-2">
                     <div className="reg-field">
                       <label>
@@ -719,10 +805,45 @@ export default function RegistrationUnified() {
                     </div>
                   </div>
 
+                  {/* School Address */}
+                  <div className="reg-field">
+                    <label>
+                      School Address <span className="req">*</span>
+                    </label>
+                    <input
+                      type="text"
+                      name="schoolAddress"
+                      required
+                      placeholder="Complete campus address with PIN code"
+                      value={schoolData.schoolAddress}
+                      onChange={handleSchoolChange}
+                      className="reg-input"
+                    />
+                  </div>
+
+                  {/* Participation Details Header */}
+                  <div
+                    style={{
+                      background: "linear-gradient(135deg, #0D7A67 0%, #064E3B 100%)",
+                      color: "#FFFFFF",
+                      padding: "8px 12px",
+                      borderRadius: "7px",
+                      fontSize: "12.5px",
+                      fontWeight: "700",
+                      letterSpacing: "0.03em",
+                      marginTop: "6px",
+                      display: "flex",
+                      alignItems: "center",
+                      gap: "6px",
+                    }}
+                  >
+                    <span>📋</span> Participation Details
+                  </div>
+
                   {/* Participating Divisions */}
                   <div className="reg-field">
                     <label>
-                      Participating Divisions <span className="req">*</span>
+                      Divisions Participating <span className="req">*</span>
                     </label>
                     <div className="reg-checkbox-grid">
                       {DIVISIONS.map((div) => {
@@ -739,6 +860,38 @@ export default function RegistrationUnified() {
                           </label>
                         );
                       })}
+                    </div>
+                  </div>
+
+                  {/* Approx Student Count & Notes */}
+                  <div className="reg-grid-2">
+                    <div className="reg-field">
+                      <label>
+                        Approx. No. of Students Registering <span className="req">*</span>
+                      </label>
+                      <input
+                        type="number"
+                        name="studentCount"
+                        required
+                        placeholder="e.g. 150"
+                        value={schoolData.studentCount}
+                        onChange={handleSchoolChange}
+                        className="reg-input"
+                      />
+                    </div>
+
+                    <div className="reg-field">
+                      <label>
+                        Notes / Message (additional) <span style={{ fontSize: "11px", color: "var(--ink-light)", fontWeight: "normal" }}>(Optional)</span>
+                      </label>
+                      <input
+                        type="text"
+                        name="notes"
+                        placeholder="Preferred dates, exam kit notes, etc."
+                        value={schoolData.notes}
+                        onChange={handleSchoolChange}
+                        className="reg-input"
+                      />
                     </div>
                   </div>
 
