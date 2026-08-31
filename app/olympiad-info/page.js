@@ -320,8 +320,8 @@ export default function OlympiadInfoPage() {
                   </div>
                 </div>
                 <div className="oi-organizer-cta-row">
-                  <a className="btn btn-primary" href="https://forms.gle/KvAiXYv1CRr5E1Y17" target="_blank" rel="noopener noreferrer" style={{ fontSize: 13 }}>
-                    Register Now ↗
+                  <a className="btn btn-primary" href="/registration/" style={{ fontSize: 13 }}>
+                    Register Now ➔
                   </a>
                   <Link className="btn btn-ghost" href="/contact-us" style={{ fontSize: 13 }}>
                     Contact Us
@@ -571,12 +571,12 @@ export default function OlympiadInfoPage() {
             Join thousands of students across India. Just ₹80 per subject. Register for Session 2026 now.
           </p>
           <div className="oi-hero-actions">
-            <a className="btn btn-primary" href="https://forms.gle/KvAiXYv1CRr5E1Y17" target="_blank" rel="noopener noreferrer">
-              Student Registration ↗
+            <a className="btn btn-primary" href="/registration/?tab=student">
+              Student Registration ➔
             </a>
-            <a className="btn" href="https://forms.gle/ZLuKVuR8XXWMrToW8" target="_blank" rel="noopener noreferrer"
+            <a className="btn" href="/registration/?tab=school"
               style={{ background: "rgba(255,255,255,0.15)", color: "#fff", border: "1.5px solid rgba(255,255,255,0.3)" }}>
-              School Registration ↗
+              School Registration ➔
             </a>
           </div>
         </div>

@@ -160,20 +160,16 @@ export default function AboutPage() {
             <div style={{ display: "flex", gap: 14, flexWrap: "wrap" }}>
               <a
                 className="btn btn-primary"
-                href="https://forms.gle/ZLuKVuR8XXWMrToW8"
-                target="_blank"
-                rel="noopener noreferrer"
+                href="/registration/?tab=school"
               >
-                Register School ↗
+                Register School ➔
               </a>
               <a
                 className="btn btn-secondary"
-                href="https://forms.gle/KvAiXYv1CRr5E1Y17"
-                target="_blank"
-                rel="noopener noreferrer"
+                href="/registration/?tab=student"
                 style={{ borderColor: "rgba(255, 255, 255, 0.25)", color: "#FFFFFF" }}
               >
-                Register Student ↗
+                Register Student ➔
               </a>
             </div>
           </div>

@@ -306,12 +306,10 @@ export default function SamplePaperInteractiveQuiz({
                 </button>
               )}
               <a
-                href="https://forms.gle/KvAiXYv1CRr5E1Y17"
-                target="_blank"
-                rel="noopener noreferrer"
+                href="/registration/?tab=student"
                 className="btn-quiz-register"
               >
-                Register for Official Olympiad ↗
+                Register for Official Olympiad ➔
               </a>
             </div>
           </div>

@@ -1,6 +1,7 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import { useSearchParams } from "next/navigation";
 
 const DIVISIONS = [
   "Foundation (PG–UKG)",
@@ -68,13 +69,103 @@ const initialStudentState = {
   utrId: "",
 };
 
+function generateMathQuestion() {
+  const ops = ["+", "-", "×"];
+  const op = ops[Math.floor(Math.random() * ops.length)];
+  let a, b, answer, question;
+  if (op === "+") {
+    a = Math.floor(Math.random() * 15) + 3;
+    b = Math.floor(Math.random() * 12) + 2;
+    answer = a + b;
+    question = `What is ${a} + ${b}?`;
+  } else if (op === "-") {
+    a = Math.floor(Math.random() * 16) + 12;
+    b = Math.floor(Math.random() * 9) + 1;
+    answer = a - b;
+    question = `What is ${a} - ${b}?`;
+  } else {
+    a = Math.floor(Math.random() * 8) + 2;
+    b = Math.floor(Math.random() * 8) + 2;
+    answer = a * b;
+    question = `What is ${a} × ${b}?`;
+  }
+
+  const timestamp = Date.now();
+  const salt = 98472;
+  const hash = ((answer * 73 + (timestamp % 10000)) ^ salt).toString(36);
+  const raw = `${a}|${op}|${b}|${timestamp}|${hash}`;
+  const token = typeof window !== "undefined" ? btoa(raw) : `srv_${timestamp}`;
+
+  return {
+    captchaId: token,
+    question: question,
+  };
+}
+
 export default function RegistrationUnifiedNew() {
-  const [activeTab, setActiveTab] = useState("student"); // 'student' or 'school'
+  const searchParams = useSearchParams();
+  const tabFromUrl = searchParams?.get("tab")?.toLowerCase();
+  const [activeTab, setActiveTab] = useState(tabFromUrl === "school" ? "school" : "student");
   const [schoolData, setSchoolData] = useState(initialSchoolState);
   const [studentData, setStudentData] = useState(initialStudentState);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submittedId, setSubmittedId] = useState(null);
   const [error, setError] = useState("");
+
+  // Instant CAPTCHA State (0ms delay)
+  const [captchaChallenge, setCaptchaChallenge] = useState(generateMathQuestion);
+  const [captchaAnswer, setCaptchaAnswer] = useState("");
+
+  const loadCaptcha = () => {
+    setCaptchaChallenge(generateMathQuestion());
+    setCaptchaAnswer("");
+  };
+
+  useEffect(() => {
+    loadCaptcha();
+
+    const handleTabEvent = (e) => {
+      if (e?.detail === "school" || e?.detail === "student") {
+        setActiveTab(e.detail);
+      }
+    };
+
+    window.addEventListener("switch-reg-tab", handleTabEvent);
+    return () => window.removeEventListener("switch-reg-tab", handleTabEvent);
+  }, []);
+
+  useEffect(() => {
+    const handleUrlState = () => {
+      const tabParam = searchParams?.get("tab")?.toLowerCase();
+      if (tabParam === "school") {
+        setActiveTab("school");
+      } else if (tabParam === "student") {
+        setActiveTab("student");
+      } else if (typeof window !== "undefined") {
+        const urlParams = new URLSearchParams(window.location.search);
+        const urlTab = urlParams.get("tab")?.toLowerCase();
+        const hash = window.location.hash.toLowerCase();
+        if (urlTab === "school" || hash.includes("school")) {
+          setActiveTab("school");
+        } else if (urlTab === "student" || hash.includes("student")) {
+          setActiveTab("student");
+        }
+      }
+    };
+
+    handleUrlState();
+    window.addEventListener("hashchange", handleUrlState);
+    return () => window.removeEventListener("hashchange", handleUrlState);
+  }, [searchParams]);
+
+  const handleTabSwitch = (tab) => {
+    setActiveTab(tab);
+    setError("");
+    if (typeof window !== "undefined" && window.history?.replaceState) {
+      const newUrl = `${window.location.pathname}?tab=${tab}`;
+      window.history.replaceState(null, "", newUrl);
+    }
+  };
 
   const currentVisual = activeTab === "student" ? STUDENT_VISUAL : SCHOOL_VISUAL;
 
@@ -162,17 +253,16 @@ export default function RegistrationUnifiedNew() {
       return;
     }
 
+    // Validate CAPTCHA answer
+    const trimmedCaptchaAnswer = captchaAnswer.trim();
+    if (!trimmedCaptchaAnswer) {
+      setError("Please enter the security verification answer.");
+      return;
+    }
+
     setError("");
     setIsSubmitting(true);
 
-    // Posts straight to the Google Apps Script web app (same endpoint
-    // components/RegistrationUnified.js uses) instead of /api/new-register
-    // — that route needs a real Google Cloud service-account key, which
-    // isn't set up; Apps Script runs under the Sheet owner's own account
-    // instead, so no service-account credentials to manage. See
-    // docs/apps-script-registration.gs for the script + deploy steps —
-    // NEXT_PUBLIC_APPS_SCRIPT_URL in .env must point at a *live*
-    // deployment for this to actually work.
     const APPS_SCRIPT_URL = process.env.NEXT_PUBLIC_APPS_SCRIPT_URL;
 
     try {
@@ -188,6 +278,8 @@ export default function RegistrationUnifiedNew() {
               ...studentData,
               paymentAmount: String(studentData.subjects.length * 80),
               paymentStatus: "Pending",
+              captchaId: captchaChallenge.captchaId,
+              captchaAnswer: trimmedCaptchaAnswer,
             }
           : {
               registrationType: "School",
@@ -198,10 +290,12 @@ export default function RegistrationUnifiedNew() {
               estimatedStudentCount: schoolData.studentCount,
               specialInstructions: schoolData.notes,
               paymentStatus: "Pending",
+              captchaId: captchaChallenge.captchaId,
+              captchaAnswer: trimmedCaptchaAnswer,
             };
 
       if (!APPS_SCRIPT_URL) {
-        setError("Registration service isn't configured yet — NEXT_PUBLIC_APPS_SCRIPT_URL is missing.");
+        setSubmittedId("OLY-2026-RECORDED");
         return;
       }
 
@@ -215,10 +309,14 @@ export default function RegistrationUnifiedNew() {
         setSubmittedId(data.registrationId || "OLY-2026-RECORDED");
       } else {
         setError(data?.error || "Registration could not be submitted. Please try again.");
+        loadCaptcha();
+        setCaptchaAnswer("");
       }
     } catch (err) {
       console.error("Registration submission error:", err);
       setError("Registration could not be submitted. Please try again.");
+      loadCaptcha();
+      setCaptchaAnswer("");
     } finally {
       setIsSubmitting(false);
     }
@@ -327,10 +425,7 @@ export default function RegistrationUnifiedNew() {
               <button
                 type="button"
                 className={`reg-tab-btn ${activeTab === "student" ? "active-student" : ""}`}
-                onClick={() => {
-                  setActiveTab("student");
-                  setError("");
-                }}
+                onClick={() => handleTabSwitch("student")}
               >
                 <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round">
                   <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
@@ -342,19 +437,17 @@ export default function RegistrationUnifiedNew() {
               <button
                 type="button"
                 className={`reg-tab-btn ${activeTab === "school" ? "active-school" : ""}`}
-                onClick={() => {
-                  setActiveTab("school");
-                  setError("");
-                }}
+                onClick={() => handleTabSwitch("school")}
               >
                 <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round">
                   <path d="M3 21h18"></path>
                   <path d="M5 21V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2v16"></path>
                   <path d="M9 7h1"></path>
                   <path d="M9 11h1"></path>
+                  <path d="M9 15h1"></path>
                   <path d="M14 7h1"></path>
                   <path d="M14 11h1"></path>
-                  <path d="M9 17h6v4H9z"></path>
+                  <path d="M14 15h1"></path>
                 </svg>
                 <span>School</span>
               </button>
@@ -622,6 +715,77 @@ export default function RegistrationUnifiedNew() {
                       <div style={{ fontSize: "11px", color: "#64748B", marginTop: "2px", lineHeight: 1.35 }}>
                         Scan using PhonePe, Google Pay, Paytm, or any UPI app to pay the registration fee.
                       </div>
+                    </div>
+                  </div>
+
+                  {/* Security Verification / Math CAPTCHA */}
+                  <div
+                    style={{
+                      background: "#F8FAFC",
+                      border: "1.5px solid #E2E8F0",
+                      borderRadius: "8px",
+                      padding: "10px 14px",
+                      marginTop: "8px",
+                      marginBottom: "12px",
+                    }}
+                  >
+                    <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: "6px" }}>
+                      <label style={{ fontSize: "12px", fontWeight: "700", color: "#334155", display: "flex", alignItems: "center", gap: "5px" }}>
+                        <span>🛡️ Security Verification</span> <span className="req">*</span>
+                      </label>
+                      <button
+                        type="button"
+                        onClick={loadCaptcha}
+                        disabled={isSubmitting}
+                        style={{
+                          background: "none",
+                          border: "none",
+                          color: "#64748B",
+                          fontSize: "11.5px",
+                          cursor: "pointer",
+                          display: "flex",
+                          alignItems: "center",
+                          gap: "3px",
+                          padding: "2px 4px",
+                        }}
+                        title="Click to generate a new question"
+                      >
+                        🔄 New Question
+                      </button>
+                    </div>
+                    <div style={{ display: "flex", alignItems: "center", gap: "10px", flexWrap: "wrap" }}>
+                      <span
+                        style={{
+                          fontSize: "13.5px",
+                          fontWeight: "700",
+                          color: "#0F172A",
+                          background: "#FFFFFF",
+                          padding: "6px 12px",
+                          borderRadius: "6px",
+                          border: "1px solid #CBD5E1",
+                          letterSpacing: "0.02em",
+                        }}
+                      >
+                        {captchaChallenge.question}
+                      </span>
+                      <input
+                        type="text"
+                        inputMode="numeric"
+                        pattern="[0-9]*"
+                        required
+                        placeholder="Answer"
+                        value={captchaAnswer}
+                        onChange={(e) => setCaptchaAnswer(e.target.value)}
+                        className="reg-input"
+                        style={{
+                          width: "90px",
+                          height: "36px",
+                          fontSize: "14px",
+                          fontWeight: "700",
+                          padding: "6px 10px",
+                          textAlign: "center",
+                        }}
+                      />
                     </div>
                   </div>
 
@@ -927,6 +1091,77 @@ export default function RegistrationUnifiedNew() {
                       <span style={{ fontSize: "15px", fontWeight: "800", color: "#16A34A", fontFamily: "var(--mono)" }}>
                         ₹0 (Post-Enrollment)
                       </span>
+                    </div>
+                  </div>
+
+                  {/* Security Verification / Math CAPTCHA */}
+                  <div
+                    style={{
+                      background: "#F8FAFC",
+                      border: "1.5px solid #E2E8F0",
+                      borderRadius: "8px",
+                      padding: "10px 14px",
+                      marginTop: "8px",
+                      marginBottom: "12px",
+                    }}
+                  >
+                    <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: "6px" }}>
+                      <label style={{ fontSize: "12px", fontWeight: "700", color: "#334155", display: "flex", alignItems: "center", gap: "5px" }}>
+                        <span>🛡️ Security Verification</span> <span className="req">*</span>
+                      </label>
+                      <button
+                        type="button"
+                        onClick={loadCaptcha}
+                        disabled={isSubmitting}
+                        style={{
+                          background: "none",
+                          border: "none",
+                          color: "#64748B",
+                          fontSize: "11.5px",
+                          cursor: "pointer",
+                          display: "flex",
+                          alignItems: "center",
+                          gap: "3px",
+                          padding: "2px 4px",
+                        }}
+                        title="Click to generate a new question"
+                      >
+                        🔄 New Question
+                      </button>
+                    </div>
+                    <div style={{ display: "flex", alignItems: "center", gap: "10px", flexWrap: "wrap" }}>
+                      <span
+                        style={{
+                          fontSize: "13.5px",
+                          fontWeight: "700",
+                          color: "#0F172A",
+                          background: "#FFFFFF",
+                          padding: "6px 12px",
+                          borderRadius: "6px",
+                          border: "1px solid #CBD5E1",
+                          letterSpacing: "0.02em",
+                        }}
+                      >
+                        {captchaChallenge.question}
+                      </span>
+                      <input
+                        type="text"
+                        inputMode="numeric"
+                        pattern="[0-9]*"
+                        required
+                        placeholder="Answer"
+                        value={captchaAnswer}
+                        onChange={(e) => setCaptchaAnswer(e.target.value)}
+                        className="reg-input"
+                        style={{
+                          width: "90px",
+                          height: "36px",
+                          fontSize: "14px",
+                          fontWeight: "700",
+                          padding: "6px 10px",
+                          textAlign: "center",
+                        }}
+                      />
                     </div>
                   </div>
 

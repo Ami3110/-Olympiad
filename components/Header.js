@@ -253,22 +253,18 @@ export default function Header() {
 
             <div className={`nav-dropdown nav-dropdown-right ${activeDropdown === "register" ? "dropdown-visible" : ""}`}>
               <a
-                href="https://forms.gle/KvAiXYv1CRr5E1Y17"
-                target="_blank"
-                rel="noopener noreferrer"
+                href="/registration/?tab=student"
                 className="dropdown-link-simple link-highlight"
                 onClick={closeMenus}
               >
-                Student Registration ↗
+                Student Registration ➔
               </a>
               <a
-                href="https://forms.gle/ZLuKVuR8XXWMrToW8"
-                target="_blank"
-                rel="noopener noreferrer"
+                href="/registration/?tab=school"
                 className="dropdown-link-simple"
                 onClick={closeMenus}
               >
-                School Registration ↗
+                School Registration ➔
               </a>
             </div>
           </div>

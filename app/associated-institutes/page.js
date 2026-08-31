@@ -145,11 +145,9 @@ export default function AssociatedInstitutesPage() {
               <div className="inst-cta-btn-group">
                 <a
                   className="btn btn-primary"
-                  href="https://forms.gle/ZLuKVuR8XXWMrToW8"
-                  target="_blank"
-                  rel="noopener noreferrer"
+                  href="/registration/?tab=school"
                 >
-                  Register Institution (Form) ↗
+                  Register Institution ➔
                 </a>
                 <Link className="btn btn-ghost" href="/contact-us/" style={{ color: "#FFFFFF", borderColor: "rgba(255,255,255,0.35)" }}>
                   Contact School Coordinator Team

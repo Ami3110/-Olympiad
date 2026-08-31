@@ -1,6 +1,8 @@
+import { Suspense } from "react";
 import AccordionItem from "../components/AccordionItem";
 import TestimonialsSection from "../components/TestimonialsSection";
 import HomeStatsSection from "../components/HomeStatsSection";
+import RegistrationUnified from "../components/RegistrationUnified";
 import {
   DivisionIllustration,
   JourneyIllustration,
@@ -87,9 +89,7 @@ export default function HomePage() {
             <div className="hero-panoramic-actions hero-actions-on-bg">
               <a
                 className="hero-pill-btn hero-pill-btn-student"
-                href="https://forms.gle/KvAiXYv1CRr5E1Y17"
-                target="_blank"
-                rel="noopener noreferrer"
+                href="#registration"
                 aria-label="Student Registration Form"
               >
                 <span className="hero-pill-icon-wrap">
@@ -103,9 +103,7 @@ export default function HomePage() {
               </a>
               <a
                 className="hero-pill-btn hero-pill-btn-school"
-                href="https://forms.gle/ZLuKVuR8XXWMrToW8"
-                target="_blank"
-                rel="noopener noreferrer"
+                href="#registration"
                 aria-label="School Registration Form"
               >
                 <span className="hero-pill-icon-wrap">
@@ -319,11 +317,11 @@ export default function HomePage() {
       <TestimonialsSection />
 
       {/* ====================================================
-          SECTION 7: REGISTRATION CTA
+          SECTION 5: REGISTRATION DESK (THEME MATCHED)
           ==================================================== */}
-      <section className="register-hero" id="register" style={{ background: "linear-gradient(135deg, #14172A 0%, #202945 50%, #173830 100%)" }}>
-        <div className="register-hero-content">
-          <div className="wrap">
+      <section id="registration" style={{ padding: "80px 0", background: "var(--bg)", borderTop: "1px solid var(--line)" }}>
+        <div className="wrap">
+          <div style={{ maxWidth: 1200, margin: "0 auto" }}>
             <div
               className="section-eyebrow"
               style={{ color: "var(--saffron)", justifyContent: "center", marginBottom: 10 }}
@@ -344,12 +342,13 @@ export default function HomePage() {
             <h2
               className="section-title"
               style={{
-                color: "#FFFFFF",
-                fontSize: "clamp(20px, 2.8vw, 34px)",
+                color: "var(--ink)",
+                fontSize: "clamp(22px, 3vw, 36px)",
+                fontWeight: 800,
                 maxWidth: 960,
-                margin: "0 auto 10px",
+                margin: "0 auto 12px",
                 textAlign: "center",
-                letterSpacing: "-0.015em",
+                letterSpacing: "-0.02em",
               }}
             >
               Ready to Begin Your Genius Journey?
@@ -357,10 +356,10 @@ export default function HomePage() {
 
             <p
               style={{
-                color: "rgba(255,255,255,0.78)",
-                fontSize: 14.5,
-                maxWidth: 520,
-                margin: "0 auto 28px",
+                color: "var(--ink-dim)",
+                fontSize: "15px",
+                maxWidth: 540,
+                margin: "0 auto 36px",
                 textAlign: "center",
                 lineHeight: 1.6,
               }}
@@ -368,39 +367,15 @@ export default function HomePage() {
               Join thousands of students and schools across India. Register now for the 2026 Academic Session at just ₹80 per subject.
             </p>
 
-            <div className="register-cards">
-              <div className="register-card">
-                <span className="register-card-icon">🏫</span>
-                <h3>For Schools &amp; Principals</h3>
-                <p>
-                  School coordinators and administrators can register their institution to facilitate smooth student participation.
-                </p>
-                <a
-                  className="btn btn-primary"
-                  href="https://forms.gle/ZLuKVuR8XXWMrToW8"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  Register Your School ↗
-                </a>
-              </div>
-
-              <div className="register-card">
-                <span className="register-card-icon">🧑‍🎓</span>
-                <h3>For Individual Students</h3>
-                <p>
-                  Students from Classes PG to XII can register individually for one or more multi-subject Olympiads.
-                </p>
-                <a
-                  className="btn btn-primary"
-                  href="https://forms.gle/KvAiXYv1CRr5E1Y17"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  Register as Student ↗
-                </a>
-              </div>
-            </div>
+            <Suspense
+              fallback={
+                <div style={{ padding: "48px 24px", textAlign: "center", color: "var(--ink-faint)" }}>
+                  Loading registration desk...
+                </div>
+              }
+            >
+              <RegistrationUnified />
+            </Suspense>
           </div>
         </div>
       </section>

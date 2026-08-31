@@ -266,20 +266,16 @@ export default function WhatIsIGOPage() {
           {/* Action CTAs */}
           <div style={{ textAlign: "center", marginTop: 44, display: "flex", justifyContent: "center", gap: 14, flexWrap: "wrap" }}>
             <a
-              href="https://forms.gle/KvAiXYv1CRr5E1Y17"
-              target="_blank"
-              rel="noopener noreferrer"
+              href="/registration/?tab=student"
               className="btn btn-primary"
             >
-              Register Student ↗
+              Register Student ➔
             </a>
             <a
-              href="https://forms.gle/ZLuKVuR8XXWMrToW8"
-              target="_blank"
-              rel="noopener noreferrer"
+              href="/registration/?tab=school"
               className="btn btn-secondary"
             >
-              Register School ↗
+              Register School ➔
             </a>
           </div>
         </div>

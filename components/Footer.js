@@ -76,22 +76,15 @@ export default function Footer() {
             {/* Col 2: Portals & Initiatives */}
             <div className="footer-col">
               <div className="footer-col-title">Portals &amp; Hub</div>
-              <a
-                href="https://forms.gle/ZLuKVuR8XXWMrToW8"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="footer-link-item"
-              >
-                School Portal <span className="ext-arrow">↗</span>
-              </a>
-              <a
-                href="https://forms.gle/KvAiXYv1CRr5E1Y17"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="footer-link-item"
-              >
-                Student Portal <span className="ext-arrow">↗</span>
-              </a>
+              <Link href="/registration/?tab=school" className="footer-link-item">
+                School Registration
+              </Link>
+              <Link href="/registration/?tab=student" className="footer-link-item">
+                Student Registration
+              </Link>
+              <Link href="/login/" className="footer-link-item">
+                Candidate Login &amp; Status
+              </Link>
               <Link href="/initiatives/" className="footer-link-item">
                 Annual Initiatives
               </Link>
