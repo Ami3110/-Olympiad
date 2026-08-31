@@ -5,13 +5,34 @@
     "classes": "PG – UKG",
     "level": "Foundation Level",
     "subjects": [
-      { "slug": "little-genius-mental-ability", "name": "Little Genius Mental Ability Olympiad" },
-      { "slug": "language-communication", "name": "Language & Communication Olympiad" },
-      { "slug": "number-logical-thinking", "name": "Number & Logical Thinking Olympiad" },
-      { "slug": "my-world-general-awareness", "name": "My World & General Awareness Olympiad" },
-      { "slug": "creativity-imagination", "name": "Creativity & Imagination Olympiad" },
-      { "slug": "nature-environment-awareness", "name": "Nature & Environment Awareness Olympiad" },
-      { "slug": "good-habits-life-skills", "name": "Good Habits & Life Skills Olympiad" }
+      {
+        "slug": "little-genius-mental-ability",
+        "name": "Little Genius Mental Ability Olympiad"
+      },
+      {
+        "slug": "language-communication",
+        "name": "Language & Communication Olympiad"
+      },
+      {
+        "slug": "number-logical-thinking",
+        "name": "Number & Logical Thinking Olympiad"
+      },
+      {
+        "slug": "my-world-general-awareness",
+        "name": "My World & General Awareness Olympiad"
+      },
+      {
+        "slug": "creativity-imagination",
+        "name": "Creativity & Imagination Olympiad"
+      },
+      {
+        "slug": "nature-environment-awareness",
+        "name": "Nature & Environment Awareness Olympiad"
+      },
+      {
+        "slug": "good-habits-life-skills",
+        "name": "Good Habits & Life Skills Olympiad"
+      }
     ]
   },
   {
@@ -20,12 +41,30 @@
     "classes": "Classes I – II",
     "level": "Junior Level",
     "subjects": [
-      { "slug": "junior-mental-ability-reasoning", "name": "Junior Mental Ability & Reasoning Olympiad" },
-      { "slug": "mathematics-logical-thinking", "name": "Mathematics & Logical Thinking Olympiad" },
-      { "slug": "english-language-communication", "name": "English Language & Communication Olympiad" },
-      { "slug": "general-knowledge-my-india", "name": "General Knowledge & My India Olympiad" },
-      { "slug": "young-science-explorer", "name": "Young Science Explorer Olympiad" },
-      { "slug": "digital-computer-awareness", "name": "Digital & Computer Awareness Olympiad" }
+      {
+        "slug": "junior-mental-ability-reasoning",
+        "name": "Junior Mental Ability & Reasoning Olympiad"
+      },
+      {
+        "slug": "mathematics-logical-thinking",
+        "name": "Mathematics & Logical Thinking Olympiad"
+      },
+      {
+        "slug": "english-language-communication",
+        "name": "English Language & Communication Olympiad"
+      },
+      {
+        "slug": "general-knowledge-my-india",
+        "name": "General Knowledge & My India Olympiad"
+      },
+      {
+        "slug": "young-science-explorer",
+        "name": "Young Science Explorer Olympiad"
+      },
+      {
+        "slug": "digital-computer-awareness",
+        "name": "Digital & Computer Awareness Olympiad"
+      }
     ]
   },
   {
@@ -34,11 +73,26 @@
     "classes": "Classes III – V",
     "level": "Explore Level",
     "subjects": [
-      { "slug": "mental-ability-reasoning", "name": "Mental Ability & Reasoning Olympiad" },
-      { "slug": "computer-coding-genius", "name": "Computer & Coding Genius Olympiad" },
-      { "slug": "space-science-astronomy", "name": "Space Science & Astronomy Olympiad" },
-      { "slug": "innovation-young-entrepreneur", "name": "Innovation & Young Entrepreneur Olympiad" },
-      { "slug": "india-genius-gk-heritage", "name": "India Genius GK & Heritage Olympiad" }
+      {
+        "slug": "mental-ability-reasoning",
+        "name": "Mental Ability & Reasoning Olympiad"
+      },
+      {
+        "slug": "computer-coding-genius",
+        "name": "Computer & Coding Genius Olympiad"
+      },
+      {
+        "slug": "space-science-astronomy",
+        "name": "Space Science & Astronomy Olympiad"
+      },
+      {
+        "slug": "innovation-young-entrepreneur",
+        "name": "Innovation & Young Entrepreneur Olympiad"
+      },
+      {
+        "slug": "india-genius-gk-heritage",
+        "name": "India Genius GK & Heritage Olympiad"
+      }
     ]
   },
   {
@@ -47,14 +101,34 @@
     "classes": "Classes VI – VIII",
     "level": "Develop Level",
     "subjects": [
-      { "slug": "ai-emerging-technology", "name": "Artificial Intelligence & Emerging Technology Olympiad" },
-      { "slug": "cybersecurity-digital-safety", "name": "Cybersecurity & Digital Safety Olympiad" },
-      { "slug": "financial-literacy", "name": "Financial Literacy Olympiad" },
-      { "slug": "space-science-astronomy", "name": "Space Science & Astronomy Olympiad" },
-      { "slug": "climate-sustainability", "name": "Climate & Sustainability Olympiad" },
-      { "slug": "kaushal-bodh", "name": "Kaushal Bodh Olympiad" },
-      { "slug": "digital-citizenship", "name": "Digital Citizenship Olympiad" },
-      { "slug": "indian-heritage", "name": "Indian Heritage Olympiad" }
+      {
+        "slug": "cybersecurity-digital-safety",
+        "name": "Cybersecurity & Digital Safety Olympiad"
+      },
+      {
+        "slug": "financial-literacy",
+        "name": "Financial Literacy Olympiad"
+      },
+      {
+        "slug": "space-science-astronomy",
+        "name": "Space Science & Astronomy Olympiad"
+      },
+      {
+        "slug": "climate-sustainability",
+        "name": "Climate & Sustainability Olympiad"
+      },
+      {
+        "slug": "kaushal-bodh",
+        "name": "Kaushal Bodh Olympiad"
+      },
+      {
+        "slug": "digital-citizenship",
+        "name": "Digital Citizenship Olympiad"
+      },
+      {
+        "slug": "indian-heritage",
+        "name": "Indian Heritage Olympiad"
+      }
     ]
   },
   {
@@ -63,12 +137,34 @@
     "classes": "Classes IX – X",
     "level": "Master Level",
     "subjects": [
-      { "slug": "ai-machine-learning", "name": "Artificial Intelligence & Machine Learning Olympiad" },
-      { "slug": "cybersecurity-ethical-hacking", "name": "Cybersecurity & Ethical Hacking Olympiad" },
-      { "slug": "financial-literacy", "name": "Financial Markets Olympiad" },
-      { "slug": "behavioural-science-psychology", "name": "Behavioural Science & Psychology Olympiad" },
-      { "slug": "climate-sustainability", "name": "Climate & Sustainability Olympiad" },
-      { "slug": "entrepreneurship-innovation", "name": "Entrepreneurship & Innovation Olympiad" }
+      {
+        "slug": "ai-machine-learning",
+        "name": "Artificial Intelligence & Machine Learning Olympiad"
+      },
+      {
+        "slug": "cybersecurity-ethical-hacking",
+        "name": "Cybersecurity & Ethical Hacking Olympiad"
+      },
+      {
+        "slug": "financial-markets",
+        "name": "Financial Markets Olympiad"
+      },
+      {
+        "slug": "space-science-astronomy",
+        "name": "Space Science & Astronomy Olympiad"
+      },
+      {
+        "slug": "behavioural-science-psychology",
+        "name": "Behavioural Science & Psychology Olympiad"
+      },
+      {
+        "slug": "climate-sustainability",
+        "name": "Climate & Sustainability Olympiad"
+      },
+      {
+        "slug": "entrepreneurship-innovation",
+        "name": "Entrepreneurship & Innovation Olympiad"
+      }
     ]
   },
   {
@@ -77,14 +173,38 @@
     "classes": "Classes XI – XII",
     "level": "Lead Level",
     "subjects": [
-      { "slug": "cybersecurity-digital-safety-olympiad", "name": "Cybersecurity & Digital Safety Olympiad" },
-      { "slug": "financial-literacy-olympiad", "name": "Financial Literacy Olympiad" },
-      { "slug": "entrepreneurship-innovation-olympiad", "name": "Entrepreneurship & Innovation Olympiad" },
-      { "slug": "climate-sustainability-olympiad", "name": "Climate & Sustainability Olympiad" },
-      { "slug": "leadership-life-skills-olympiad", "name": "Leadership & Life Skills Olympiad" },
-      { "slug": "critical-thinking-problem-solving-olympiad", "name": "Critical Thinking & Problem-Solving Olympiad" },
-      { "slug": "communication-public-speaking-olympiad", "name": "Communication & Public Speaking Olympiad" },
-      { "slug": "career-future-skills-olympiad", "name": "Career & Future Skills Olympiad" }
+      {
+        "slug": "cybersecurity-digital-safety",
+        "name": "Cybersecurity & Digital Safety Olympiad"
+      },
+      {
+        "slug": "financial-markets-management",
+        "name": "Financial Markets Management Olympiad"
+      },
+      {
+        "slug": "entrepreneurship-innovation",
+        "name": "Entrepreneurship & Innovation Olympiad"
+      },
+      {
+        "slug": "climate-sustainability",
+        "name": "Climate & Sustainability Olympiad"
+      },
+      {
+        "slug": "leadership-life-skills",
+        "name": "Leadership & Life Skills Olympiad"
+      },
+      {
+        "slug": "critical-thinking-problem-solving",
+        "name": "Critical Thinking & Problem-Solving Olympiad"
+      },
+      {
+        "slug": "communication-public-speaking",
+        "name": "Communication & Public Speaking Olympiad"
+      },
+      {
+        "slug": "career-future-skills",
+        "name": "Career & Future Skills Olympiad"
+      }
     ]
   }
 ]

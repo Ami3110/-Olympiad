@@ -59,7 +59,6 @@ const subjectCategories = [
     label: "Middle",
     icon: "🤖",
     subjects: [
-      "Artificial Intelligence & Emerging Technology Olympiad",
       "Cybersecurity & Digital Safety Olympiad",
       "Financial Literacy Olympiad",
       "Space Science & Astronomy Olympiad",
@@ -77,6 +76,7 @@ const subjectCategories = [
       "Artificial Intelligence & Machine Learning Olympiad",
       "Cybersecurity & Ethical Hacking Olympiad",
       "Financial Markets Olympiad",
+      "Space Science & Astronomy Olympiad",
       "Behavioural Science & Psychology Olympiad",
       "Climate & Sustainability Olympiad",
       "Entrepreneurship & Innovation Olympiad",
@@ -88,7 +88,7 @@ const subjectCategories = [
     icon: "🎯",
     subjects: [
       "Cybersecurity & Digital Safety Olympiad",
-      "Financial Literacy Olympiad",
+      "Financial Markets Management Olympiad",
       "Entrepreneurship & Innovation Olympiad",
       "Climate & Sustainability Olympiad",
       "Leadership & Life Skills Olympiad",
