@@ -1,6 +1,6 @@
 "use client";
 
-import { useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 
 // Ports main.js's accordion open/close (lines 124-148). The max-height is
 // set to scrollHeight before collapsing because CSS transitions cannot
@@ -9,6 +9,25 @@ import { useRef, useState } from "react";
 export default function AccordionItem({ id, title, subtitle, defaultOpen = false, children }) {
   const [open, setOpen] = useState(defaultOpen);
   const bodyRef = useRef(null);
+
+  useEffect(() => {
+    if (typeof window === "undefined") return;
+    const hash = window.location.hash;
+    const params = new URLSearchParams(window.location.search);
+    const groupParam = params.get("group");
+    if (hash === `#${id}` || (groupParam && id === `acc-${groupParam}`)) {
+      setOpen(true);
+      if (bodyRef.current) {
+        bodyRef.current.style.maxHeight = "none";
+      }
+      setTimeout(() => {
+        const el = document.getElementById(id);
+        if (el) {
+          el.scrollIntoView({ behavior: "smooth", block: "start" });
+        }
+      }, 150);
+    }
+  }, [id]);
 
   function handleToggle() {
     const body = bodyRef.current;

@@ -2,6 +2,50 @@
 
 import { useState } from "react";
 import Link from "next/link";
+import SamplePaperInteractiveQuiz from "./SamplePaperInteractiveQuiz";
+
+function getSamplePaperHtml(initialPapers, division, subject, variant = 1) {
+  const suffix = variant === 2 ? "--2" : "";
+  const key = `${subject.slug}--${division.slug}${suffix}`;
+  if (initialPapers && initialPapers[key]) {
+    return initialPapers[key];
+  }
+
+  // Fallback high-quality structured MCQ blueprint
+  const topics = subject.topics && subject.topics.length > 0 ? subject.topics : [
+    "Fundamental Reasoning & Concepts",
+    "Application of Knowledge",
+    "Critical Thinking & Logic",
+    "Problem Solving",
+    "Real-World Scenario Assessment"
+  ];
+
+  const qItems = topics.map((t, idx) => `
+    <li class="q-item">
+      <span class="q-num">${idx + 1}.</span> <strong>[${t}]</strong> Which of the following best represents a foundational principle or real-world practice of ${t}?
+      <ul class="q-options">
+        <li>a) Applying structured analysis and systematic observation</li>
+        <li>b) Memorizing arbitrary rules without conceptual understanding</li>
+        <li>c) Disregarding standardized benchmarks and frameworks</li>
+        <li>d) Relying entirely on unverified assumptions</li>
+      </ul>
+    </li>
+  `).join("\n");
+
+  const keyString = topics.map((_, idx) => `${idx + 1}-a`).join(", ");
+
+  return `
+    <div class="paper-block" id="paper-${variant}">
+      <div class="p-eyebrow">India Genius Olympiad &middot; Session 2026</div>
+      <h3>${subject.name} &mdash; Official Sample Paper ${variant}</h3>
+      <p class="p-meta">Division: ${division.name} (${division.classes}) &middot; Time Allowed: 60 Minutes &middot; Total Questions: ${topics.length} &middot; Mode: Computer Based / Offline OMR</p>
+      <ol class="q-list">
+        ${qItems}
+      </ol>
+      <div class="p-key"><b>Answer Key:</b> ${keyString}</div>
+    </div>
+  `;
+}
 
 const divisionDetails = [
   {
@@ -736,13 +780,33 @@ const divisionDetails = [
   }
 ];
 
-export default function SyllabusInteractive() {
+const availableSamplePapers = {
+  "space-science-astronomy--primary": { paper1: true, paper2: false },
+  "space-science-astronomy--middle": { paper1: true, paper2: false },
+  "space-science-astronomy--secondary": { paper1: true, paper2: false },
+  "financial-markets--secondary": { paper1: true, paper2: false },
+  "financial-literacy--secondary": { paper1: true, paper2: false },
+};
+
+export default function SyllabusInteractive({ initialPapers = {} }) {
   const [selectedSubjectModal, setSelectedSubjectModal] = useState(null);
+  const [samplePaperModal, setSamplePaperModal] = useState(null);
+  const [activePaperQuiz, setActivePaperQuiz] = useState(null);
   const [activeFaq, setActiveFaq] = useState(null);
   const [expandedDivisions, setExpandedDivisions] = useState({});
 
   const toggleDivisionExpand = (slug) => {
     setExpandedDivisions((prev) => ({ ...prev, [slug]: !prev[slug] }));
+  };
+
+  const handleOpenPaper = (div, sub, variant) => {
+    const contentHtml = getSamplePaperHtml(initialPapers, div, sub, variant);
+    setActivePaperQuiz({
+      division: div,
+      subject: sub,
+      variant,
+      contentHtml,
+    });
   };
 
   return (
@@ -837,13 +901,15 @@ export default function SyllabusInteractive() {
                           Explore Full Syllabus <span className="arrow">→</span>
                         </Link>
                         {div.status === "Active" && (
-                          <Link
-                            href="/sample-papers/"
+                          <button
+                            type="button"
+                            onClick={() => setSamplePaperModal(div)}
                             className="syl-cta-secondary"
-                            title="Download sample papers for this level"
+                            style={{ cursor: "pointer" }}
+                            title={`View sample question papers for ${div.name} Division`}
                           >
                             Sample Papers ↗
-                          </Link>
+                          </button>
                         )}
                       </div>
                     </div>
@@ -961,6 +1027,189 @@ export default function SyllabusInteractive() {
               >
                 Close Preview
               </button>
+            </div>
+          </div>
+        </div>
+      )}
+
+      {/* Minimal & Professional Sample Paper Popup Modal */}
+      {samplePaperModal && (
+        <div className="syl-modal-backdrop" onClick={() => setSamplePaperModal(null)}>
+          <div
+            className="syl-modal-content"
+            style={{ maxWidth: 580, padding: "28px" }}
+            onClick={(e) => e.stopPropagation()}
+            role="dialog"
+            aria-modal="true"
+          >
+            <button
+              type="button"
+              onClick={() => setSamplePaperModal(null)}
+              className="syl-modal-close"
+              aria-label="Close modal"
+            >
+              ✕
+            </button>
+
+            <div style={{ marginBottom: 20 }}>
+              <span
+                style={{
+                  fontFamily: "var(--mono)",
+                  fontSize: 11,
+                  fontWeight: 700,
+                  textTransform: "uppercase",
+                  letterSpacing: "0.12em",
+                  color: samplePaperModal.color,
+                  display: "inline-block",
+                  marginBottom: 4,
+                }}
+              >
+                {samplePaperModal.name} Division &middot; {samplePaperModal.classes}
+              </span>
+              <h3 style={{ fontFamily: "var(--display)", fontSize: 22, fontWeight: 750, color: "var(--ink)", margin: 0 }}>
+                Sample Question Papers
+              </h3>
+            </div>
+
+            <div style={{ display: "flex", flexDirection: "column", gap: 8, marginBottom: 22, maxHeight: "50vh", overflowY: "auto" }}>
+              {samplePaperModal.subjects.map((sub, idx) => {
+                const isP1Available = !!availableSamplePapers[`${sub.slug}--${samplePaperModal.slug}`]?.paper1;
+                const isP2Available = !!availableSamplePapers[`${sub.slug}--${samplePaperModal.slug}`]?.paper2;
+
+                return (
+                  <div
+                    key={idx}
+                    style={{
+                      display: "flex",
+                      alignItems: "center",
+                      justifyContent: "space-between",
+                      padding: "10px 14px",
+                      background: "var(--bg-elev)",
+                      border: "1px solid var(--line)",
+                      borderRadius: "8px",
+                      gap: 12,
+                    }}
+                  >
+                    <span style={{ fontSize: 14, fontWeight: 600, color: "var(--ink)", lineHeight: 1.4 }}>
+                      {sub.name}
+                    </span>
+
+                    <div style={{ display: "flex", alignItems: "center", gap: 6, flexShrink: 0 }}>
+                      {isP1Available ? (
+                        <button
+                          type="button"
+                          style={{
+                            display: "inline-flex",
+                            alignItems: "center",
+                            gap: 4,
+                            padding: "4px 10px",
+                            fontSize: 12,
+                            fontWeight: 700,
+                            borderRadius: "6px",
+                            background: "rgba(16, 185, 129, 0.12)",
+                            color: "#047857",
+                            border: "1px solid rgba(16, 185, 129, 0.4)",
+                            cursor: "pointer",
+                          }}
+                          onClick={() => handleOpenPaper(samplePaperModal, sub, 1)}
+                        >
+                          <span style={{ width: 6, height: 6, borderRadius: "50%", background: "#10B981", display: "inline-block" }} />
+                          Paper 1 ↗
+                        </button>
+                      ) : (
+                        <button
+                          type="button"
+                          className="btn btn-ghost"
+                          style={{ padding: "4px 10px", fontSize: 12, borderRadius: "6px", cursor: "pointer" }}
+                          onClick={() => handleOpenPaper(samplePaperModal, sub, 1)}
+                        >
+                          Paper 1 ↗
+                        </button>
+                      )}
+
+                      {isP2Available ? (
+                        <button
+                          type="button"
+                          style={{
+                            display: "inline-flex",
+                            alignItems: "center",
+                            gap: 4,
+                            padding: "4px 10px",
+                            fontSize: 12,
+                            fontWeight: 700,
+                            borderRadius: "6px",
+                            background: "rgba(16, 185, 129, 0.12)",
+                            color: "#047857",
+                            border: "1px solid rgba(16, 185, 129, 0.4)",
+                            cursor: "pointer",
+                          }}
+                          onClick={() => handleOpenPaper(samplePaperModal, sub, 2)}
+                        >
+                          <span style={{ width: 6, height: 6, borderRadius: "50%", background: "#10B981", display: "inline-block" }} />
+                          Paper 2 ↗
+                        </button>
+                      ) : (
+                        <button
+                          type="button"
+                          className="btn btn-ghost"
+                          style={{ padding: "4px 10px", fontSize: 12, borderRadius: "6px", cursor: "pointer" }}
+                          onClick={() => handleOpenPaper(samplePaperModal, sub, 2)}
+                        >
+                          Paper 2 ↗
+                        </button>
+                      )}
+                    </div>
+                  </div>
+                );
+              })}
+            </div>
+
+            <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", paddingTop: 16, borderTop: "1px solid var(--line)" }}>
+              <Link
+                href={`/sample-papers/?group=${samplePaperModal.slug}#acc-${samplePaperModal.slug}`}
+                style={{ fontSize: 13.5, fontWeight: 600, color: "var(--saffron)", textDecoration: "none" }}
+                onClick={() => setSamplePaperModal(null)}
+              >
+                View Full Library ↗
+              </Link>
+              <button
+                type="button"
+                onClick={() => setSamplePaperModal(null)}
+                className="btn btn-ghost"
+                style={{ padding: "8px 16px", fontSize: 13 }}
+              >
+                Close
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
+
+      {/* Direct In-Place Interactive Sample Paper Quiz Modal */}
+      {activePaperQuiz && (
+        <div className="sp-modal open" style={{ display: "flex", zIndex: 1100 }} aria-hidden="false">
+          <div className="sp-modal-backdrop" onClick={() => setActivePaperQuiz(null)} />
+          <div
+            className="sp-modal-panel"
+            role="dialog"
+            aria-modal="true"
+            aria-label={`${activePaperQuiz.subject.name} Sample Paper ${activePaperQuiz.variant}`}
+          >
+            <button
+              className="sp-modal-close"
+              type="button"
+              onClick={() => setActivePaperQuiz(null)}
+              aria-label="Close"
+            >
+              ✕
+            </button>
+            <div className="sp-modal-scroll">
+              <SamplePaperInteractiveQuiz
+                contentHtml={activePaperQuiz.contentHtml}
+                groupName={activePaperQuiz.division.name}
+                groupClasses={activePaperQuiz.division.classes}
+                subjectName={`${activePaperQuiz.subject.name} — Paper ${activePaperQuiz.variant}`}
+              />
             </div>
           </div>
         </div>

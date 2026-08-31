@@ -1,4 +1,6 @@
 import SyllabusInteractive from "../../components/SyllabusInteractive";
+import ageGroups from "../../data/ageGroups.json";
+import { loadPaperContent } from "../../lib/content";
 
 export const metadata = {
   title: "Syllabus by Age Group — India Genius Olympiad",
@@ -7,6 +9,16 @@ export const metadata = {
 };
 
 export default function SyllabusIndexPage() {
+  const paperMap = {};
+  ageGroups.forEach((group) => {
+    group.subjects.forEach((sub) => {
+      const p1 = loadPaperContent(group.slug, sub.slug);
+      const p2 = loadPaperContent(group.slug, sub.slug, "2");
+      if (p1) paperMap[`${sub.slug}--${group.slug}`] = p1;
+      if (p2) paperMap[`${sub.slug}--${group.slug}--2`] = p2;
+    });
+  });
+
   return (
     <>
       {/* Minimal Header */}
@@ -38,7 +50,7 @@ export default function SyllabusIndexPage() {
       </section>
 
       {/* Interactive Toolbar, Filterable Cards & Subject Drawer */}
-      <SyllabusInteractive />
+      <SyllabusInteractive initialPapers={paperMap} />
     </>
   );
 }

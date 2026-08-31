@@ -65,8 +65,8 @@ export default async function SyllabusGroupPage({ params }) {
 
           {/* Bottom Action */}
           <div style={{ marginTop: 40, paddingTop: 28, borderTop: "1px solid var(--line)", display: "flex", alignItems: "center", justifyContent: "flex-end" }}>
-            <a className="btn btn-ghost" href="/sample-papers/">
-              View Sample Papers ↗
+            <a className="btn btn-ghost" href={`/sample-papers/?group=${group.slug}#acc-${group.slug}`}>
+              View {group.name} Sample Papers ↗
             </a>
           </div>
         </div>
