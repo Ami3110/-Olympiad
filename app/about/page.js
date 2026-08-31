@@ -161,12 +161,14 @@ export default function AboutPage() {
               <a
                 className="btn btn-primary"
                 href="/registration/?tab=school"
+                data-reg-modal="school"
               >
                 Register School ➔
               </a>
               <a
                 className="btn btn-secondary"
                 href="/registration/?tab=student"
+                data-reg-modal="student"
                 style={{ borderColor: "rgba(255, 255, 255, 0.25)", color: "#FFFFFF" }}
               >
                 Register Student ➔

@@ -1,13 +1,16 @@
+import { Suspense } from "react";
 import "./globals.css";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
+import RegistrationModal from "../components/RegistrationModal";
 
 export const metadata = {
   title: {
+    default: "India Genius Olympiad | Where Curiosity Becomes Genius",
     template: "%s | India Genius Olympiad",
-    default: "India Genius Olympiad | Multi-Subject National Olympiad for Classes PG–XII",
   },
-  description: "The India Genius Olympiad is a national multi-subject Olympiad for classes PG through XII, organized by India Genius Foundation.",
+  description:
+    "India Genius Olympiad is a premier national-level multi-subject competition designed to discover, encourage, and recognize the academic talent of students from Pre-Primary (PG) to Class XII.",
 };
 
 export const viewport = {
@@ -30,6 +33,9 @@ export default function RootLayout({ children }) {
         <Header />
         {children}
         <Footer />
+        <Suspense fallback={null}>
+          <RegistrationModal />
+        </Suspense>
       </body>
     </html>
   );

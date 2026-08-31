@@ -307,6 +307,7 @@ export default function SamplePaperInteractiveQuiz({
               )}
               <a
                 href="/registration/?tab=student"
+                data-reg-modal="student"
                 className="btn-quiz-register"
               >
                 Register for Official Olympiad ➔

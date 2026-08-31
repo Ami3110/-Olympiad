@@ -267,12 +267,14 @@ export default function WhatIsIGOPage() {
           <div style={{ textAlign: "center", marginTop: 44, display: "flex", justifyContent: "center", gap: 14, flexWrap: "wrap" }}>
             <a
               href="/registration/?tab=student"
+              data-reg-modal="student"
               className="btn btn-primary"
             >
               Register Student ➔
             </a>
             <a
               href="/registration/?tab=school"
+              data-reg-modal="school"
               className="btn btn-secondary"
             >
               Register School ➔

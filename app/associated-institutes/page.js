@@ -146,6 +146,7 @@ export default function AssociatedInstitutesPage() {
                 <a
                   className="btn btn-primary"
                   href="/registration/?tab=school"
+                  data-reg-modal="school"
                 >
                   Register Institution ➔
                 </a>

@@ -7845,6 +7845,17 @@ footer::before {
   max-width: 100%;
 }
 
+.reg-split-card.modal-mode {
+  min-height: auto;
+  border: none;
+  border-radius: 20px;
+  box-shadow: none;
+}
+
+.reg-split-card.modal-mode .reg-split-visual {
+  min-height: 480px;
+}
+
 .reg-split-visual {
   position: relative;
   background: #FAF7F0;

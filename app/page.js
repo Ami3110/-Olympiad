@@ -87,10 +87,12 @@ export default function HomePage() {
 
             {/* Standalone Action Buttons positioned directly on the same background canvas */}
             <div className="hero-panoramic-actions hero-actions-on-bg">
-              <a
+              <button
+                type="button"
                 className="hero-pill-btn hero-pill-btn-student"
-                href="#registration"
-                aria-label="Student Registration Form"
+                data-reg-modal="student"
+                aria-label="Open Student Registration Form"
+                style={{ cursor: "pointer" }}
               >
                 <span className="hero-pill-icon-wrap">
                   <svg className="hero-btn-svg-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round">
@@ -100,11 +102,13 @@ export default function HomePage() {
                 </span>
                 <span className="hero-pill-text">Student Register</span>
                 <span className="hero-pill-arrow">➔</span>
-              </a>
-              <a
+              </button>
+              <button
+                type="button"
                 className="hero-pill-btn hero-pill-btn-school"
-                href="#registration"
-                aria-label="School Registration Form"
+                data-reg-modal="school"
+                aria-label="Open School Registration Form"
+                style={{ cursor: "pointer" }}
               >
                 <span className="hero-pill-icon-wrap">
                   <svg className="hero-btn-svg-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round">
@@ -113,7 +117,7 @@ export default function HomePage() {
                 </span>
                 <span className="hero-pill-text">School Register</span>
                 <span className="hero-pill-arrow">➔</span>
-              </a>
+              </button>
             </div>
           </div>
         </div>
@@ -317,66 +321,68 @@ export default function HomePage() {
       <TestimonialsSection />
 
       {/* ====================================================
-          SECTION 5: REGISTRATION DESK (THEME MATCHED)
+          SECTION 5: REGISTRATION DESK (ON-PAGE EMBEDDED)
           ==================================================== */}
-      <section id="registration" style={{ padding: "80px 0", background: "var(--bg)", borderTop: "1px solid var(--line)" }}>
-        <div className="wrap">
-          <div style={{ maxWidth: 1200, margin: "0 auto" }}>
-            <div
-              className="section-eyebrow"
-              style={{ color: "var(--saffron)", justifyContent: "center", marginBottom: 10 }}
-            >
-              <span
-                style={{
-                  display: "inline-block",
-                  width: 16,
-                  height: 1.5,
-                  background: "var(--saffron)",
-                  borderRadius: 2,
-                  marginRight: 8,
-                }}
-              ></span>
-              Registration Open &middot; Session 2026
-            </div>
-
-            <h2
-              className="section-title"
+      <section id="registration" style={{ padding: "60px 0 80px", width: "100%", background: "var(--bg)", borderTop: "1px solid var(--line)" }}>
+        <div style={{ width: "100%", maxWidth: "100%", padding: "0 clamp(12px, 2.5vw, 40px)" }}>
+          <div
+            className="section-eyebrow"
+            style={{
+              color: "var(--saffron)",
+              justifyContent: "center",
+              marginBottom: 8,
+            }}
+          >
+            <span
               style={{
-                color: "var(--ink)",
-                fontSize: "clamp(22px, 3vw, 36px)",
-                fontWeight: 800,
-                maxWidth: 960,
-                margin: "0 auto 12px",
-                textAlign: "center",
-                letterSpacing: "-0.02em",
+                display: "inline-block",
+                width: 16,
+                height: 1.5,
+                background: "var(--saffron)",
+                borderRadius: 2,
+                marginRight: 8,
               }}
-            >
-              Ready to Begin Your Genius Journey?
-            </h2>
-
-            <p
-              style={{
-                color: "var(--ink-dim)",
-                fontSize: "15px",
-                maxWidth: 540,
-                margin: "0 auto 36px",
-                textAlign: "center",
-                lineHeight: 1.6,
-              }}
-            >
-              Join thousands of students and schools across India. Register now for the 2026 Academic Session at just ₹80 per subject.
-            </p>
-
-            <Suspense
-              fallback={
-                <div style={{ padding: "48px 24px", textAlign: "center", color: "var(--ink-faint)" }}>
-                  Loading registration desk...
-                </div>
-              }
-            >
-              <RegistrationUnified />
-            </Suspense>
+            ></span>
+            Registration Open &middot; Session 2026
           </div>
+
+          <h2
+            className="section-title"
+            style={{
+              color: "var(--ink)",
+              fontSize: "clamp(22px, 3vw, 36px)",
+              fontWeight: 800,
+              maxWidth: 960,
+              margin: "0 auto 12px",
+              textAlign: "center",
+              letterSpacing: "-0.02em",
+            }}
+          >
+            Ready to Begin Your Genius Journey?
+          </h2>
+
+          <p
+            style={{
+              color: "var(--ink-dim)",
+              fontSize: "15px",
+              maxWidth: 540,
+              margin: "0 auto 32px",
+              textAlign: "center",
+              lineHeight: 1.6,
+            }}
+          >
+            Join thousands of students and schools across India. Register now for the 2026 Academic Session at just ₹80 per subject.
+          </p>
+
+          <Suspense
+            fallback={
+              <div style={{ padding: "48px 24px", textAlign: "center", color: "var(--ink-faint)" }}>
+                Loading registration desk...
+              </div>
+            }
+          >
+            <RegistrationUnified />
+          </Suspense>
         </div>
       </section>
 

@@ -254,6 +254,7 @@ export default function Header() {
             <div className={`nav-dropdown nav-dropdown-right ${activeDropdown === "register" ? "dropdown-visible" : ""}`}>
               <a
                 href="/registration/?tab=student"
+                data-reg-modal="student"
                 className="dropdown-link-simple link-highlight"
                 onClick={closeMenus}
               >
@@ -261,6 +262,7 @@ export default function Header() {
               </a>
               <a
                 href="/registration/?tab=school"
+                data-reg-modal="school"
                 className="dropdown-link-simple"
                 onClick={closeMenus}
               >

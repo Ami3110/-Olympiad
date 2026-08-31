@@ -102,10 +102,12 @@ function generateMathQuestion() {
   };
 }
 
-export default function RegistrationUnified() {
+export default function RegistrationUnified({ isModal = false, initialActiveTab, onClose }) {
   const searchParams = useSearchParams();
   const tabFromUrl = searchParams?.get("tab")?.toLowerCase();
-  const [activeTab, setActiveTab] = useState(tabFromUrl === "school" ? "school" : "student");
+  const [activeTab, setActiveTab] = useState(
+    initialActiveTab ? initialActiveTab : tabFromUrl === "school" ? "school" : "student"
+  );
   const [schoolData, setSchoolData] = useState(initialSchoolState);
   const [studentData, setStudentData] = useState(initialStudentState);
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -121,6 +123,12 @@ export default function RegistrationUnified() {
     setCaptchaChallenge(generateMathQuestion());
     setCaptchaAnswer("");
   };
+
+  useEffect(() => {
+    if (initialActiveTab) {
+      setActiveTab(initialActiveTab === "school" ? "school" : "student");
+    }
+  }, [initialActiveTab]);
 
   useEffect(() => {
     loadCaptcha();
@@ -329,7 +337,7 @@ export default function RegistrationUnified() {
   };
 
   return (
-    <div className="reg-split-card fullwidth-card">
+    <div className={`reg-split-card fullwidth-card ${isModal ? "modal-mode" : ""}`}>
       {/* ── LEFT SIDE: DEDICATED TAB-DRIVEN IMAGE ────────── */}
       <div className="reg-split-visual">
         <div className="reg-visual-img-wrap">

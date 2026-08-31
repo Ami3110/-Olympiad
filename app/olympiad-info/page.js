@@ -320,7 +320,7 @@ export default function OlympiadInfoPage() {
                   </div>
                 </div>
                 <div className="oi-organizer-cta-row">
-                  <a className="btn btn-primary" href="/registration/" style={{ fontSize: 13 }}>
+                  <a className="btn btn-primary" href="/registration/?tab=student" data-reg-modal="student" style={{ fontSize: 13 }}>
                     Register Now ➔
                   </a>
                   <Link className="btn btn-ghost" href="/contact-us" style={{ fontSize: 13 }}>
@@ -571,10 +571,10 @@ export default function OlympiadInfoPage() {
             Join thousands of students across India. Just ₹80 per subject. Register for Session 2026 now.
           </p>
           <div className="oi-hero-actions">
-            <a className="btn btn-primary" href="/registration/?tab=student">
+            <a className="btn btn-primary" href="/registration/?tab=student" data-reg-modal="student">
               Student Registration ➔
             </a>
-            <a className="btn" href="/registration/?tab=school"
+            <a className="btn" href="/registration/?tab=school" data-reg-modal="school"
               style={{ background: "rgba(255,255,255,0.15)", color: "#fff", border: "1.5px solid rgba(255,255,255,0.3)" }}>
               School Registration ➔
             </a>

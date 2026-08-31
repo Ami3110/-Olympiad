@@ -146,8 +146,9 @@ export default function ContactInteractive() {
                 <a
                   className="contact-channel-btn"
                   href={href}
-                  target="_blank"
-                  rel="noopener noreferrer"
+                  data-reg-modal={href.includes("tab=school") ? "school" : href.includes("tab=student") ? "student" : undefined}
+                  target={href.startsWith("http") ? "_blank" : undefined}
+                  rel={href.startsWith("http") ? "noopener noreferrer" : undefined}
                   style={{ borderColor: accent, color: "var(--ink)" }}
                 >
                   {cta}

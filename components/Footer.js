@@ -76,10 +76,10 @@ export default function Footer() {
             {/* Col 2: Portals & Initiatives */}
             <div className="footer-col">
               <div className="footer-col-title">Portals &amp; Hub</div>
-              <Link href="/registration/?tab=school" className="footer-link-item">
+              <Link href="/registration/?tab=school" data-reg-modal="school" className="footer-link-item">
                 School Registration
               </Link>
-              <Link href="/registration/?tab=student" className="footer-link-item">
+              <Link href="/registration/?tab=student" data-reg-modal="student" className="footer-link-item">
                 Student Registration
               </Link>
               <Link href="/login/" className="footer-link-item">
