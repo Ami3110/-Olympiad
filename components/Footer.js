@@ -88,6 +88,9 @@ export default function Footer() {
               <Link href="/initiatives/" className="footer-link-item">
                 Annual Initiatives
               </Link>
+              <Link href="/upcoming/" className="footer-link-item">
+                Upcoming Events &amp; Mahotsav
+              </Link>
               <Link href="/blog/" className="footer-link-item">
                 Insights &amp; Articles
               </Link>

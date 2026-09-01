@@ -126,6 +126,13 @@ export default function Header() {
             </a>
           </div>
 
+          {/* Upcomings Navigation Link */}
+          <div className="nav-item">
+            <a href="/upcoming/" className="nav-direct-link" onClick={closeMenus}>
+              Upcomings
+            </a>
+          </div>
+
           {/* Vision Link */}
           <div className="nav-item">
             <a href="/vision/" className="nav-direct-link" onClick={closeMenus}>
