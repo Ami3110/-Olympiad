@@ -1073,8 +1073,8 @@ export default function SyllabusInteractive({ initialPapers = {} }) {
 
             <div style={{ display: "flex", flexDirection: "column", gap: 8, marginBottom: 22, maxHeight: "50vh", overflowY: "auto" }}>
               {samplePaperModal.subjects.map((sub, idx) => {
-                const isP1Available = !!availableSamplePapers[`${sub.slug}--${samplePaperModal.slug}`]?.paper1;
-                const isP2Available = !!availableSamplePapers[`${sub.slug}--${samplePaperModal.slug}`]?.paper2;
+                const isP1Available = !!(initialPapers[`${sub.slug}--${samplePaperModal.slug}`] || availableSamplePapers[`${sub.slug}--${samplePaperModal.slug}`]?.paper1);
+                const isP2Available = !!(initialPapers[`${sub.slug}--${samplePaperModal.slug}--2`] || availableSamplePapers[`${sub.slug}--${samplePaperModal.slug}`]?.paper2);
 
                 return (
                   <div
@@ -1095,7 +1095,7 @@ export default function SyllabusInteractive({ initialPapers = {} }) {
                     </span>
 
                     <div style={{ display: "flex", alignItems: "center", gap: 6, flexShrink: 0 }}>
-                      {isP1Available ? (
+                      {isP1Available && (
                         <button
                           type="button"
                           style={{
@@ -1114,20 +1114,11 @@ export default function SyllabusInteractive({ initialPapers = {} }) {
                           onClick={() => handleOpenPaper(samplePaperModal, sub, 1)}
                         >
                           <span style={{ width: 6, height: 6, borderRadius: "50%", background: "#10B981", display: "inline-block" }} />
-                          Paper 1 ↗
-                        </button>
-                      ) : (
-                        <button
-                          type="button"
-                          className="btn btn-ghost"
-                          style={{ padding: "4px 10px", fontSize: 12, borderRadius: "6px", cursor: "pointer" }}
-                          onClick={() => handleOpenPaper(samplePaperModal, sub, 1)}
-                        >
                           Paper 1 ↗
                         </button>
                       )}
 
-                      {isP2Available ? (
+                      {isP2Available && (
                         <button
                           type="button"
                           style={{
@@ -1148,15 +1139,44 @@ export default function SyllabusInteractive({ initialPapers = {} }) {
                           <span style={{ width: 6, height: 6, borderRadius: "50%", background: "#10B981", display: "inline-block" }} />
                           Paper 2 ↗
                         </button>
-                      ) : (
-                        <button
-                          type="button"
-                          className="btn btn-ghost"
-                          style={{ padding: "4px 10px", fontSize: 12, borderRadius: "6px", cursor: "pointer" }}
-                          onClick={() => handleOpenPaper(samplePaperModal, sub, 2)}
+                      )}
+
+                      {!isP1Available && !isP2Available && (
+                        <span
+                          style={{
+                            display: "inline-flex",
+                            alignItems: "center",
+                            padding: "4px 10px",
+                            fontSize: 12,
+                            fontWeight: 600,
+                            borderRadius: "6px",
+                            background: "rgba(148, 163, 184, 0.14)",
+                            color: "#64748B",
+                            border: "1px solid rgba(148, 163, 184, 0.28)",
+                            userSelect: "none",
+                          }}
                         >
-                          Paper 2 ↗
-                        </button>
+                          Coming soon
+                        </span>
+                      )}
+
+                      {isP1Available && !isP2Available && (
+                        <span
+                          style={{
+                            display: "inline-flex",
+                            alignItems: "center",
+                            padding: "4px 8px",
+                            fontSize: 11.5,
+                            fontWeight: 600,
+                            borderRadius: "6px",
+                            background: "rgba(148, 163, 184, 0.12)",
+                            color: "#94A3B8",
+                            border: "1px solid rgba(148, 163, 184, 0.25)",
+                            userSelect: "none",
+                          }}
+                        >
+                          Paper 2 &middot; Coming soon
+                        </span>
                       )}
                     </div>
                   </div>
