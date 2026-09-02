@@ -126,11 +126,28 @@ export default function Header() {
             </a>
           </div>
 
-          {/* Upcoming Navigation Link */}
-          <div className="nav-item">
-            <a href="/upcoming/" className="nav-direct-link" onClick={closeMenus}>
-              Upcoming
-            </a>
+          {/* Upcoming Dropdown */}
+          <div
+            className={`nav-item ${activeDropdown === "upcoming" ? "nav-item-active" : ""}`}
+            onMouseEnter={() => handleMouseEnter("upcoming")}
+            onMouseLeave={handleMouseLeave}
+          >
+            <button
+              className="nav-summary-btn"
+              type="button"
+              aria-expanded={activeDropdown === "upcoming" ? "true" : "false"}
+              onClick={(e) => handleTriggerClick("upcoming", e)}
+            >
+              <span>Upcoming</span>
+              <svg className="nav-arrow-icon" viewBox="0 0 10 6" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M1 1L5 5L9 1" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+              </svg>
+            </button>
+
+            <div className={`nav-dropdown ${activeDropdown === "upcoming" ? "dropdown-visible" : ""}`}>
+              <a href="/upcoming/" className="dropdown-link-simple" onClick={closeMenus}>Events</a>
+              <a href="/competition/" className="dropdown-link-simple" onClick={closeMenus}>Competition</a>
+            </div>
           </div>
 
           {/* Vision Link */}

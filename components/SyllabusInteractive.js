@@ -780,12 +780,14 @@ const divisionDetails = [
   }
 ];
 
+
 const availableSamplePapers = {
   "space-science-astronomy--primary": { paper1: true, paper2: false },
   "space-science-astronomy--middle": { paper1: true, paper2: false },
   "space-science-astronomy--secondary": { paper1: true, paper2: false },
   "financial-markets--secondary": { paper1: true, paper2: false },
   "financial-literacy--secondary": { paper1: true, paper2: false },
+  "financial-literacy--middle": { paper1: true, paper2: false },
 };
 
 export default function SyllabusInteractive({ initialPapers = {} }) {
