@@ -100,7 +100,7 @@ export default function HomePage() {
                     <path d="M6 12v5c3 3 9 3 12 0v-5" />
                   </svg>
                 </span>
-                <span className="hero-pill-text">Student Register</span>
+                <span className="hero-pill-text">Student Registration</span>
                 <span className="hero-pill-arrow">➔</span>
               </button>
               <button
@@ -115,7 +115,7 @@ export default function HomePage() {
                     <path d="M3 21h18M3 10h18M5 6l7-3 7 3M4 10v11M20 10v11M8 14v3M12 14v3M16 14v3" />
                   </svg>
                 </span>
-                <span className="hero-pill-text">School Register</span>
+                <span className="hero-pill-text">School Registration</span>
                 <span className="hero-pill-arrow">➔</span>
               </button>
             </div>
@@ -276,7 +276,7 @@ export default function HomePage() {
       </section>
 
       {/* ====================================================
-          SECTION 3: COMPETITION JOURNEY — 4 stages, one line each.
+          SECTION 4: COMPETITION JOURNEY — 4 stages, one line each.
           Full round-by-round detail lives on /olympiad-info/#structure.
           ==================================================== */}
       <section id="stages">

@@ -91,12 +91,12 @@ export default function RegistrationModal() {
         style={{
           position: "relative",
           width: "100%",
-          maxWidth: "1160px",
+          maxWidth: "min(1420px, 95vw)",
           maxHeight: "94vh",
           overflowY: "auto",
           background: "#FFFFFF",
-          borderRadius: "20px",
-          boxShadow: "0 25px 60px -15px rgba(0, 0, 0, 0.4), 0 0 0 1px rgba(255, 255, 255, 0.1)",
+          borderRadius: "24px",
+          boxShadow: "0 30px 70px -15px rgba(0, 0, 0, 0.45), 0 0 0 1px rgba(255, 255, 255, 0.15)",
         }}
         onClick={(e) => e.stopPropagation()}
       >

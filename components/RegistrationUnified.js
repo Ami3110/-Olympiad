@@ -1073,42 +1073,6 @@ export default function RegistrationUnified({ isModal = false, initialActiveTab,
                     </div>
                   </div>
 
-                  {/* Institutional Summary Box */}
-                  <div
-                    style={{
-                      background: "linear-gradient(135deg, #F0FDF4 0%, #DCFCE7 100%)",
-                      border: "1.5px solid #86EFAC",
-                      borderRadius: "10px",
-                      padding: "10px 16px",
-                      display: "flex",
-                      alignItems: "center",
-                      justifyContent: "space-between",
-                      marginTop: "6px",
-                      marginBottom: "12px",
-                      boxShadow: "0 2px 8px rgba(13, 122, 103, 0.06)",
-                    }}
-                  >
-                    <div style={{ display: "flex", alignItems: "center", gap: "8px" }}>
-                      <span style={{ fontSize: "16px" }}>🏫</span>
-                      <div>
-                        <div style={{ fontSize: "13px", fontWeight: "700", color: "#14532D" }}>
-                          {schoolData.divisions.length} {schoolData.divisions.length === 1 ? "Division" : "Divisions"} Selected
-                        </div>
-                        <div style={{ fontSize: "11px", color: "#15803D", opacity: 0.9 }}>
-                          Institutional Rate: ₹80 / student / subject &middot; Direct billing with test kit
-                        </div>
-                      </div>
-                    </div>
-                    <div style={{ textAlign: "right" }}>
-                      <span style={{ fontSize: "11px", textTransform: "uppercase", letterSpacing: "0.06em", color: "#15803D", fontWeight: "700", display: "block" }}>
-                        Advance Fee
-                      </span>
-                      <span style={{ fontSize: "15px", fontWeight: "800", color: "#16A34A", fontFamily: "var(--mono)" }}>
-                        ₹0 (Post-Enrollment)
-                      </span>
-                    </div>
-                  </div>
-
                   {/* Security Verification / Math CAPTCHA */}
                   <div
                     style={{

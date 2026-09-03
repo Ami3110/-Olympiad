@@ -68,6 +68,9 @@ export default function Footer() {
               <Link href="/award-structure/" className="footer-link-item">
                 Award Structure &amp; Honours
               </Link>
+              <Link href="/explore/" className="footer-link-item">
+                Explore India (State Tracks)
+              </Link>
               <Link href="/#program" className="footer-link-item">
                 Age Groups &amp; Levels
               </Link>

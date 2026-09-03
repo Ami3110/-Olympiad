@@ -218,6 +218,13 @@ export default function Header() {
             </div>
           </div>
 
+          {/* Explore Direct Link — Interactive Map */}
+          <div className="nav-item">
+            <a href="/explore/" className="nav-direct-link" onClick={closeMenus}>
+              Explore
+            </a>
+          </div>
+
           {/* Award Structure Link */}
           <div className="nav-item">
             <a href="/award-structure/" className="nav-direct-link" onClick={closeMenus}>
